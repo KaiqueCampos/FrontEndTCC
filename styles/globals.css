@@ -1,9 +1,49 @@
-html,
-body {
-  padding: 0;
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background: radial-gradient(50% 50% at 50% 50%, #2E367D 0%, #0E1024 100%) no-repeat;
+  --banner: linear-gradient(269.73deg, #5965E0 29.82%, #00FF19 97.26%);
+  --red: #E83F5B;
+  --green: #00FF19;
+  --purple: #5965E0;
+  --purple-dark: #293078;
+  --deep-purple: #1C225C;
+  --black-purple:  #111542;
+}
+
+@media(max-width: 1080px) {
+  html {
+      font-size: 93.75%;
+  }
+}
+
+@media(max-width: 720px) {
+  html {
+      font-size: 87.5%;
+  }
+}
+
+body {
+  /* background-image: url('../public/img/background2.jpg');
+  
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  color: #fff; */
+  
+}
+
+body, input, textarea, button {
+  font: 400 1rem 'Montserrat', sans-serif;
+}
+
+button {
+  cursor: pointer;
 }
 
 a {
@@ -11,6 +51,15 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+.container {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
 }
