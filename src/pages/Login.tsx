@@ -1,10 +1,10 @@
+import { useRouter } from "next/router";
 import React, { SyntheticEvent, useState } from "react";
 import Layout from "../Layout/Layout";
-import { useRouter } from "next/router";
 import styles from "../styles/pages/Register.module.css";
-import { stringify } from "node:querystring";
 
 const Login = () => {
+
   // definition of variables
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -31,11 +31,11 @@ const Login = () => {
     if (login.status === 200) {
 
       // Get token
-      const {token} = await login.json();   
+      const { token } = await login.json();
       console.log(token)
       localStorage.setItem('token', token);
-      
-      return router.push('/event');
+
+      return router.push('/');
     } else {
       window.alert("Login Incorreto!")
     }
