@@ -1,0 +1,16 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 500px;
+    height: 150px;
+
+    background: gray;
+
+    padding: 25px;
+    margin-top: 15px;
+
+    border-radius: 15px;
+}

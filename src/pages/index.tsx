@@ -40,6 +40,11 @@ export default function Home() {
 
   }
 
+  function logout() {
+    localStorage.clear()
+    document.location.reload(true);
+  }
+
   teste()
 
   return (
@@ -50,7 +55,12 @@ export default function Home() {
           <h1>Welcome to page {username}</h1>
           <h1>Your Email is: {email}</h1>
           <h1>id: {id}</h1>
+
+          <button onClick={logout}>Logout</button>
+          <br></br>
+          <a href='/medicineSchedule'>Agenda de Remédios</a>
         </div>
+        
       ) : (
         <div>
           <h1>Faça login</h1>
