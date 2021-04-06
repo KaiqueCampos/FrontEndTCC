@@ -1,0 +1,108 @@
+.notLoggedContainer {
+    height: 100vh;
+    width: 100vw;
+    padding-left: 13.5%;
+    padding-right: 5%;
+    background: url('/img/backgrounds/teste.png') no-repeat center center fixed;
+    /* -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover; */
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.loggedContainer {
+    width: clamp(23rem, 25vw, 28.5rem);
+    height: 30vh;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background: var(--grayGradient);
+    margin-bottom: 5rem;
+    box-shadow: 0px 8px 8px 5px rgba(0, 0, 0, 0.25);
+}
+
+.accountLogo {
+    width: clamp(12rem, 13vw, 16rem);
+    height: clamp(12rem, 26vh, 16rem);
+    position: absolute;
+    bottom: 16vh;
+    filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.555));
+}
+
+.buttonsContainer {
+    width: 90%;
+    height: 10vh;
+    border-radius: 15px;
+    padding: clamp(1rem, 1.5vw, 1.5rem);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--darkPurple);
+    position: absolute;
+    bottom: 2vh;
+}
+
+.buttonsContainer a {
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+    font-weight: 700;
+    color: #fff;
+    transition: color 0.2s;
+}
+
+.buttonsContainer a~a {
+    color: var(--darkPurple);
+    transition: filter 0.2s;
+}
+
+.buttonsContainer a~a div {
+    background: var(--greenBlue);
+    display: flex;
+    flex-direction: row;
+    gap: clamp(0.4rem, 1vh, 1rem);
+    justify-content: center;
+    align-items: center;
+    width: clamp(9rem, 10vw, 11rem);
+    height: 7vh;
+    border-radius: 10px;
+}
+
+.buttonsContainer a~a div img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.buttonsContainer a:first-child:hover {
+    color: var(--greenBlue);
+}
+
+.buttonsContainer a~a:hover {
+    filter: brightness(0.7);
+}
+
+/* Video */
+
+.aboutUs {
+    margin-bottom: 10rem;
+    position: relative;
+}
+
+.aboutUsImageContainer {
+    width: clamp(30rem, 35vw, 40rem);
+    height: clamp(30rem, 35vw, 40rem);
+    border-radius: 250px 0 250px 100px;
+    overflow: hidden;
+    box-shadow: 0px 8px 8px 5px rgba(0, 0, 0, 0.25);
+}
+
+.aboutUsImageContainer img {
+    width: 100%;
+    height: 100%;
+}

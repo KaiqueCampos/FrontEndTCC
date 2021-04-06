@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import NotLogged from '../Components/NotLogged';
 import Layout from '../Layout/Layout';
 
 export default function Home() {
@@ -62,11 +63,7 @@ export default function Home() {
         </div>
         
       ) : (
-        <div>
-          <h1>Faça login</h1>
-          <a href="/Register">Registrar-se</a>
-          <a href="/Login">Login</a>
-        </div>
+        <NotLogged/>
       )}
 
 
