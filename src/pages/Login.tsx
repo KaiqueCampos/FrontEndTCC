@@ -64,7 +64,7 @@ const Login = () => {
           </div>
 
           <div className={styles.inputContainer}>
-            <img src="img/userPurple.png" />
+            <img src="img/icons/userPurple.png" />
             <input
               onChange={(e) => setEmail(e.target.value)}
               placeholder="lurdes@gmail.com"
@@ -73,7 +73,7 @@ const Login = () => {
           </div>
 
           <div className={styles.inputContainer}>
-            <img src="img/password.png" />
+            <img src="img/icons/password.png" />
             <input
               onChange={(e) => setPassword(e.target.value)}
               type="password"
@@ -87,7 +87,7 @@ const Login = () => {
           </div>
 
           <button type="submit">
-            <img src="img/login.png" />
+            <img src="img/icons/login.png" />
               Login
           </button>
 

@@ -10,14 +10,14 @@ export default function OtherLoginOptions() {
 
             <a href='#'>
                 <div className={styles.googleLogin}>
-                    <img src='/img/google.png' />
+                    <img src='img/icons/google.png' />
                     Conecte-se com o Google
                 </div>
             </a>
 
             <a href='#'>
                 <div className={styles.facebookLogin}>
-                    <img src='/img/facebook.png' />
+                    <img src='img/icons/facebook.png' />
                     Conecte-se com o Facebook
                 </div>
             </a>

@@ -57,7 +57,7 @@ const Register = () => {
 
 
                     <div className={styles.inputContainer}>
-                        <img src="img/userPurple.png" />
+                        <img src="img/icons/userPurple.png" />
                         <input
                             onChange={e => setName(e.target.value)}
                             placeholder="Lurdes"
@@ -66,7 +66,7 @@ const Register = () => {
                     </div>
 
                     <div className={styles.inputContainer}>
-                        <img src="img/userPurple.png" />
+                        <img src="img/icons/userPurple.png" />
                         <input
                             onChange={e => setEmail(e.target.value)}
                             placeholder="lurdes@gmail.com"
@@ -75,7 +75,7 @@ const Register = () => {
                     </div>
 
                     <div className={styles.inputContainer}>
-                        <img src="img/password.png" />
+                        <img src="img/icons/password.png" />
                         <input
                             onChange={e => setPassword(e.target.value)}
                             type="text"
@@ -85,7 +85,7 @@ const Register = () => {
                     </div>
 
                     <button type="submit">
-                        <img src="img/login.png" />
+                        <img src="img/icons/login.png" />
                     Registrar-se
                 </button>
 
