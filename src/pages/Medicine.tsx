@@ -45,8 +45,7 @@ const Medicine = () => {
 
                     <div className={styles.emergencyContainer}>
 
-
-                            <div className={`${styles.emergencyItem} ${animate.upMoreSlow}`}>
+                            <div className={`${styles.emergencyItem} ${animate.up}`}>
                                 <h3>Domingo</h3>
 
                                 <a href='#'>
@@ -55,33 +54,33 @@ const Medicine = () => {
 
                             
                                 {/* Código irá diminuir com a função map */}
-                                <div className={styles.medicines}>
+                                <div className={`${styles.medicines} ${animate.upSlow}`}>
                                 
-                                    <div>
+                                    <div className={animate.upMoreSlow}>
                                         <p>12:15</p>
                                         <hr></hr>
                                         <p>Dipirona</p>
                                     </div>
 
-                                    <div>
+                                    <div className={animate.upMoreSlow}>
                                         <p>14:15</p>
                                         <hr></hr>
                                         <p>Buscopam</p>
                                     </div>
 
-                                    <div>
+                                    <div className={animate.upMoreSlow}>
                                         <p>12:15</p>
                                         <hr></hr>
                                         <p>Dorflex</p>
                                     </div>
 
-                                    <div>
+                                    <div className={animate.upMoreSlow}>
                                         <p>12:15</p>
                                         <hr></hr>
                                         <p>Biotônico</p>
                                     </div>
 
-                                    <div>
+                                    <div className={animate.upMoreSlow}>
                                         <p>12:15</p>
                                         <hr></hr>
                                         <p>Paracetamolsds</p>
@@ -93,25 +92,25 @@ const Medicine = () => {
                             <div className={`${styles.emergencyItem} ${animate.up}`}>
                                 <h3>Segunda</h3>
 
-                                <div className={styles.noMedicines}>
+                                <div className={`${styles.noMedicines} ${animate.upMoreSlow}`}>
                                     <img src='img/icons/noMedicines.png'/>
                                     <h2>Sem remédios hoje :)</h2>
                                 </div>
                             </div>
 
-                            <div className={`${styles.emergencyItem} ${animate.upSlow}`}>
+                            <div className={`${styles.emergencyItem} ${animate.up}`}>
                                 <h3>Terça</h3>
                             </div>
 
-                            <div className={`${styles.emergencyItem} ${animate.upMoreSlow}`}>
+                            <div className={`${styles.emergencyItem} ${animate.up}`}>
                                 <h3>Quarta</h3>
                             </div>
 
-                            <div className={`${styles.emergencyItem} ${animate.upMoreSlow}`}>
+                            <div className={`${styles.emergencyItem} ${animate.up}`}>
                                 <h3>Quinta</h3>
                             </div>
 
-                            <div className={`${styles.emergencyItem} ${animate.upMoreSlow}`}>
+                            <div className={`${styles.emergencyItem} ${animate.up}`}>
                                 <h3>Sexta</h3>
                             </div>
 

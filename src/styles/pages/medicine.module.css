@@ -17,7 +17,8 @@
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    overflow-x: auto;
+    overflow-x: scroll;
+    overflow-y:hidden;
     margin-top: 4vw;
 }
 
