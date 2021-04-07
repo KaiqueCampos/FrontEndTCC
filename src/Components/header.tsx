@@ -9,6 +9,9 @@ export default function Header() {
 
 
         <div className={`${styles.container}`}>
+                <a href='/'>
+                    <img src='/img/icons/back.png'/>
+                </a>
                 <div>
                     <img src='/img/teste.jpg' />
                     <h3>Dona Lurdes</h3>

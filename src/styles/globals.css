@@ -13,6 +13,7 @@
   --purple: #6B42E1;
   --grayGradient: linear-gradient(180deg, rgba(229, 229, 229, 0.31) 0%, #FFFFFF 100%);
   --darkPurple: #3B1F8D;
+  --verticalGradient: linear-gradient(180deg, #6B42E1 0%, #14D8E4 100%);
   /* --purple-dark: #293078;
   --deep-purple: #1C225C;
   --black-purple:  #111542; */

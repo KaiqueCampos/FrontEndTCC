@@ -54,7 +54,6 @@ export default function Home() {
 
   return (
     <Layout>
-
       {areLogged ? (
         <div className='containerBackground'>
 
@@ -68,7 +67,7 @@ export default function Home() {
           <div className={`${styles.menuContainer}`}>
 
             <div className={`${animate.up} ${styles.menuItem}`}>
-              <a href="#">
+              <a href="/Emergency">
                 <div>
                   <img src='img/icons/emergency.png' />
                   Emergência

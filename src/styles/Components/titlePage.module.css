@@ -1,0 +1,18 @@
+.titlePage {
+    position: absolute;
+    top: -3.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.3rem;
+    font-size: clamp(2rem, 4vw, 4rem);
+    font-weight: 700;
+    color: #fff;
+
+    filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.479));
+}
+
+.titlePage img {
+    width: 7vw;
+    height: 7vw;
+}

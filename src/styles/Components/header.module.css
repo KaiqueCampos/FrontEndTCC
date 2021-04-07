@@ -7,7 +7,7 @@
     justify-content: space-between;
     align-items: center;
 
-    padding: 2rem;
+    padding: 3rem;
     position: absolute;
     top: 1rem;
 }
@@ -21,7 +21,7 @@
 
     font-size: clamp(1.3rem, 1.5vw, 1.5rem);
     font-weight: 700;
-    color: var(--greenBlue);
+    color: #fff;
 }
 
 .container div img{
@@ -29,4 +29,16 @@
     width: 6rem;
     height: 6rem;
     filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.658));
+}
+
+.container a img{
+    width: 4rem;
+    height: 4rem;
+
+    transition: transform 0.2s, filter 0.2s;
+}
+
+.container a img:hover{
+    transform: scale(1.1);
+    filter: brightness(0.8);
 }
