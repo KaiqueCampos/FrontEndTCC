@@ -78,7 +78,7 @@ const Register = () => {
                         <img src="img/icons/password.png" />
                         <input
                             onChange={e => setPassword(e.target.value)}
-                            type="text"
+                            type="password"
                             placeholder="********"
                             required
                         />

@@ -1,6 +1,10 @@
 import { useState } from 'react';
+import header from '../styles/Components/header.module.css';
 import NotLogged from '../Components/NotLogged';
 import Layout from '../Layout/Layout';
+import styles from '../styles/pages/index.module.css';
+import animate from '../styles/animation/animation.module.css';
+
 
 export default function Home() {
 
@@ -52,18 +56,76 @@ export default function Home() {
     <Layout>
 
       {areLogged ? (
-        <div>
-          <h1>Welcome to page {username}</h1>
-          <h1>Your Email is: {email}</h1>
-          <h1>id: {id}</h1>
+        <div className='containerBackground'>
 
-          <button onClick={logout}>Logout</button>
-          <br></br>
-          <a href='/medicineSchedule'>Agenda de Remédios</a>
+          <div className={`${header.container}`}>
+            <div>
+              <img src='/img/teste.jpg' />
+              <h3>Dona Lurdes</h3>
+            </div>
+          </div>
+
+          <div className={`${styles.menuContainer}`}>
+
+            <div className={`${animate.up} ${styles.menuItem}`}>
+              <a href="#">
+                <div>
+                  <img src='img/icons/emergency.png' />
+                  Emergência
+                </div>
+              </a>
+            </div>
+
+            <div className={`${animate.up} ${styles.menuItem}`}>
+              <a href="#">
+                <div>
+                  <img src='img/icons/medicine.png' />
+                  Remédios
+                </div>
+              </a>
+            </div>
+
+            <div className={`${animate.up} ${styles.menuItem}`}>
+              <a href="#">
+                <div>
+                  <img src='img/icons/consultas.png' />
+                  Consultas
+                </div>
+              </a>
+            </div>
+
+            <div className={`${animate.upSlow} ${styles.menuItem}`}>
+              <a href="#">
+                <div>
+                  <img src='img/icons/recipe.png' />
+                  Receitas
+                </div>
+              </a>
+            </div>
+
+            <div className={`${animate.upSlow} ${styles.menuItem}`}>
+              <a href="#">
+                <div>
+                  <img src='img/icons/firstAid.png' />
+                  Socorros
+                </div>
+              </a>
+            </div>
+
+            <div className={`${animate.upSlow} ${styles.menuItem}`}>
+              <a href="#">
+                <div>
+                  <img src='img/icons/help.png' />
+                  Ajuda
+                </div>
+              </a>
+            </div>
+
+          </div>
         </div>
-        
+
       ) : (
-        <NotLogged/>
+        <NotLogged />
       )}
 
 

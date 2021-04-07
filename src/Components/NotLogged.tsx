@@ -6,7 +6,7 @@ import animate from '../styles/animation/animation.module.css';
 export default function NotLogged() {
 
     return (
-        <div className={`${styles.notLoggedContainer} ${animate.up}`}>
+        <div className={`${styles.notLoggedContainer}`}>
 
             <div className={`${styles.loggedContainer} ${animate.upSlow}`}>
                 <img className={styles.accountLogo} src="img/icons/userPurple2.png"/>

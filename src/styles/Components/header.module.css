@@ -1,0 +1,32 @@
+.container{
+    width: 100vw;
+    height: 12vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 2rem;
+    position: absolute;
+    top: 1rem;
+}
+
+.container div{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+
+    font-size: clamp(1.3rem, 1.5vw, 1.5rem);
+    font-weight: 700;
+    color: var(--greenBlue);
+}
+
+.container div img{
+    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.658));
+}
