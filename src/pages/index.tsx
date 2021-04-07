@@ -76,7 +76,7 @@ export default function Home() {
             </div>
 
             <div className={`${animate.up} ${styles.menuItem}`}>
-              <a href="#">
+              <a href="/Medicine">
                 <div>
                   <img src='img/icons/medicine.png' />
                   Remédios
