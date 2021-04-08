@@ -14,6 +14,7 @@
   --grayGradient: linear-gradient(180deg, rgba(229, 229, 229, 0.31) 0%, #FFFFFF 100%);
   --darkPurple: #3B1F8D;
   --verticalGradient: linear-gradient(180deg, #6B42E1 0%, #14D8E4 100%);
+  --placeholder: #969696;
   /* --purple-dark: #293078;
   --deep-purple: #1C225C;
   --black-purple:  #111542; */
@@ -74,7 +75,7 @@ a {
   margin: 0;
   padding: 0;
 
-  background: url('/img/backgrounds/background.png') no-repeat center center fixed;;
+  background: url('/img/backgrounds/background.png') no-repeat center center fixed;
   background-repeat: no-repeat;
   background-size: cover;
 

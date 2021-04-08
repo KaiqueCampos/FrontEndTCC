@@ -88,8 +88,8 @@ const MedicineDay = () => {
                             </div>
                         </div>
                     </div>
-                    
-                    <a href="#">
+
+                    <a href="addMedicine">
                         <div className={styles.addMedicine}>
                             <img src='/img/icons/add.png' />
                         </div>
