@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Layout from "../Layout/Layout";
 import titlePage from '../styles/Components/titlePage.module.css';
-import styles from '../styles/pages/Medicine.module.css';
+import styles from '../styles/pages/Medicines.module.css';
 import animate from '../styles/animation/animation.module.css';
 import Header from "../Components/header";
 
@@ -48,7 +48,7 @@ const Medicine = () => {
                             <div className={`${styles.emergencyItem} ${animate.up}`}>
                                 <h3>Domingo</h3>
 
-                                <a href='#'>
+                                <a href='MedicineDay'>
                                     <img src='/img/icons/seeMore.png'/>
                                 </a>
 
