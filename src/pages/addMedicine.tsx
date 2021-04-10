@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { SyntheticEvent, useState } from "react";
 import Layout from "../Layout/Layout";
 import titlePage from '../styles/Components/titlePage.module.css';
 import styles from '../styles/pages/addMedicine.module.css';
@@ -7,31 +7,49 @@ import Head from "next/head";
 import Header from "../Components/header";
 
 const Medicine = () => {
-    //Variables
-    const [data, setData] = useState([]);
-    // const [username, setUsername] = useState("");
-    // const [email, setEmail] = useState("");
+    // //Variables
+    // const [data, setData] = useState([]);
+    // // const [username, setUsername] = useState("");
+    // // const [email, setEmail] = useState("");
 
-    async function teste() {
+    // async function teste() {
 
-        // Get token in LocalStorage
-        const token = localStorage.getItem('token')
+    //     // Get token in LocalStorage
+    //     const token = localStorage.getItem('token')
 
-        // API connection
-        const indexLogged = await fetch('http://localhost:3333/medicine', {
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-        });
+    //     // API connection
+    //     const indexLogged = await fetch('http://localhost:3333/medicine', {
+    //         method: "GET",
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Authorization': `Bearer ${token}`
+    //         },
+    //     });
 
-        // Get JSON information and save in variables line (7-9)
-        const indexInformationJSON = await indexLogged.json();
-        return setData(indexInformationJSON);
+    //     // Get JSON information and save in variables line (7-9)
+    //     const indexInformationJSON = await indexLogged.json();
+    //     return setData(indexInformationJSON);
+    // }
+
+    function repeatDayWeek() {
+
+        // Get div of repeat
+        const div = document.querySelector(".addMedicine_daysWeek__3yavz")
+
+        // Get Button Active
+        const buttonActive = div.querySelector("#addMedicine_active__EZe3R")
+
+        // Select especify button
+        div.querySelectorAll("button").forEach((button) => {
+            button.onclick = (event) => {
+                if (button.id) {
+                    button.id = ''
+                } else {
+                    button.id = 'addMedicine_active__EZe3R'
+                }
+            }
+        })
     }
-
-    console.log(data)
 
     return (
         <>
@@ -71,13 +89,13 @@ const Medicine = () => {
                                 </div>
 
                                 <div className={styles.daysWeek}>
-                                    <button>D</button>
-                                    <button>S</button>
-                                    <button>T</button>
-                                    <button>Q</button>
-                                    <button>Q</button>
-                                    <button>S</button>
-                                    <button>S</button>
+                                    <button type="button" onClick={repeatDayWeek}>D</button>
+                                    <button type="button" onClick={repeatDayWeek}>S</button>
+                                    <button type="button" onClick={repeatDayWeek}>T</button>
+                                    <button type="button" onClick={repeatDayWeek}>Q</button>
+                                    <button type="button" onClick={repeatDayWeek}>Q</button>
+                                    <button type="button" onClick={repeatDayWeek}>S</button>
+                                    <button type="button" onClick={repeatDayWeek}>S</button>
                                 </div>
                             </div>
 

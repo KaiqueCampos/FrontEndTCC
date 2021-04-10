@@ -148,31 +148,31 @@
 }
 
 .daysWeek button {
-    background: var(--purple);
+    background: none;
     width: clamp(2.4rem, 3vw, 2.5rem);
     height: clamp(2.4rem, 3vw, 2.5rem);
     border: 0;
     border-radius: 50%;
     font-size: clamp(1.3rem, 1.2vw, 1.3rem);
     font-weight: 600;
-    color: #fff;
-
+    color: var(--purple);
     transition: transform 0.2s, filter 0.2s;
 }
 
-.daysWeek button:hover{
+.daysWeek button:focus{
+    outline: thin dotted;
+    outline: 0px auto -webkit-focus-ring-color;
+    outline-offset: 0px;
+}
+
+.daysWeek button:hover {
     transform: scale(1.1);
     filter: brightness(0.8);
 }
 
-.daysWeek button:nth-child(1) {
-    background: none;
-    color: var(--purple)
-}
-
-.daysWeek button:nth-child(7) {
-    background: none;
-    color: var(--purple)
+#active {
+    background: var(--purple);
+    color: #fff
 }
 
 /* data especifica */
@@ -284,7 +284,7 @@
     height: 1.5vw;
 }
 
-.submitButton:hover{
+.submitButton:hover {
     transform: scale(1.03);
     filter: brightness(0.8);
 }
