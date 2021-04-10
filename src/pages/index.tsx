@@ -51,7 +51,6 @@ export default function Home() {
   }
 
   teste()
-
   return (
     <Layout>
       {areLogged ? (

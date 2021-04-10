@@ -30,7 +30,7 @@ const Medicine = () => {
         return setData(indexInformationJSON);
     }
 
-    console.log(data)
+    teste();
 
     return (
         <Layout>

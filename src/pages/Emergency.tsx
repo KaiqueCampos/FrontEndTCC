@@ -3,6 +3,7 @@ import Header from "../Components/header";
 import Layout from "../Layout/Layout";
 import styles from '../styles/pages/Emergency.module.css';
 import animate from '../styles/animation/animation.module.css';
+import titlePage from '../styles/Components/titlePage.module.css';
 
 
 const Emergency = () => {
@@ -13,7 +14,7 @@ const Emergency = () => {
                 <Header />
 
                 <div className={styles.container}>
-                    <div className={styles.titlePage}>
+                    <div className={titlePage.titlePage}>
                         <img src='/img/icons/emergency.png' />
                         Emergência
                     </div>
