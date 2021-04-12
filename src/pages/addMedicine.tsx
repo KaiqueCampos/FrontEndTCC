@@ -5,50 +5,67 @@ import styles from '../styles/pages/addMedicine.module.css';
 import animate from '../styles/animation/animation.module.css';
 import Head from "next/head";
 import Header from "../Components/header";
+import moment from "moment";
+import { useRouter } from "next/router";
+
 
 const Medicine = () => {
-    // //Variables
-    // const [data, setData] = useState([]);
-    // // const [username, setUsername] = useState("");
-    // // const [email, setEmail] = useState("");
+    //Variables
+    const router = useRouter();
+    const [initialDate, setInitialDate] = useState('');
+    const [finalDate, setFinalDate] = useState('');
+    const [name, setName] = useState('');
+    const [color, setColor] = useState('');
 
-    // async function teste() {
+    function newTime() {
+        const container = document.querySelector(".timeDiv");
+        container.insertAdjacentHTML('beforeend',
+            "<hr></hr><input type='time' required/>");
+    }
 
-    //     // Get token in LocalStorage
-    //     const token = localStorage.getItem('token')
+    const time = []
+    function getTime(){
+        const container = document.querySelector(".timeDiv").querySelectorAll('input');
+        for (var i =0; i < container.length ; i++){
+            time.push(container[i].value)
+        }
+    }
+    
 
-    //     // API connection
-    //     const indexLogged = await fetch('http://localhost:3333/medicine', {
-    //         method: "GET",
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             'Authorization': `Bearer ${token}`
-    //         },
-    //     });
+    const submit = async (e: SyntheticEvent) => {
+        e.preventDefault();
 
-    //     // Get JSON information and save in variables line (7-9)
-    //     const indexInformationJSON = await indexLogged.json();
-    //     return setData(indexInformationJSON);
-    // }
+        //Get Hours
+        getTime();
+        console.log(time)
 
-    function repeatDayWeek() {
+        // Get token in LocalStorage
+        const token = localStorage.getItem('token')
 
-        // Get div of repeat
-        const div = document.querySelector(".addMedicine_daysWeek__3yavz")
+        // API connection
+        const addMedicine = await fetch('http://localhost:3333/registerMedicine', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                name: name,
+                initialDate: initialDate,
+                finalDate: finalDate,
+                time: time.toString(),
+                // color: color
+            })
+        });
 
-        // Get Button Active
-        const buttonActive = div.querySelector("#addMedicine_active__EZe3R")
+        const data = addMedicine;
+        if (data.status === 200) {
 
-        // Select especify button
-        div.querySelectorAll("button").forEach((button) => {
-            button.onclick = (event) => {
-                if (button.id) {
-                    button.id = ''
-                } else {
-                    button.id = 'addMedicine_active__EZe3R'
-                }
-            }
-        })
+            // Get token
+            return router.push('/Medicines');
+          } else {
+            window.alert("Não foi possível adicionar este medicamento... tente novamente!")
+          }
     }
 
     return (
@@ -67,36 +84,15 @@ const Medicine = () => {
                         Adicionar Remédio
                     </div>
 
-                        <form className={styles.addMedicine}>
+                        <form onSubmit={submit} className={styles.addMedicine}>
                             <div className={`${styles.hoursContainer} ${animate.up}`}>
-                                <div>
-                                    <p>00:00</p>
-                                    <hr></hr>
-                                    <p>08:00</p>
-                                    <hr></hr>
-                                    <p>08:00</p>
+                                <div className='timeDiv'>
+                                    <input type='time' required />
                                 </div>
 
-                                <button>
-                                    <img src='img/icons/add.png' />
+                                <button type='button'>
+                                    <img src='img/icons/add.png' onClick={newTime} />
                                 </button>
-                            </div>
-
-                            <div className={`${styles.repeat} ${animate.up}`}>
-                                <div className={styles.repeatCheckbox}>
-                                    <input type='checkbox' />
-                                    <h3 className={styles.legend}>Repetir</h3>
-                                </div>
-
-                                <div className={styles.daysWeek}>
-                                    <button type="button" onClick={repeatDayWeek}>D</button>
-                                    <button type="button" onClick={repeatDayWeek}>S</button>
-                                    <button type="button" onClick={repeatDayWeek}>T</button>
-                                    <button type="button" onClick={repeatDayWeek}>Q</button>
-                                    <button type="button" onClick={repeatDayWeek}>Q</button>
-                                    <button type="button" onClick={repeatDayWeek}>S</button>
-                                    <button type="button" onClick={repeatDayWeek}>S</button>
-                                </div>
                             </div>
 
                             <div className={`${styles.specificDate} ${animate.upSlow}`}>
@@ -111,20 +107,25 @@ const Medicine = () => {
                                     type="date"
                                     name='initialDate'
                                     placeholder='Data de início:'
+                                    onChange={e => setInitialDate(e.target.value)}
+
                                 />
 
                                 <input
                                     type="date"
                                     name='finalDate'
                                     placeholder='Data de Término:'
+                                    onChange={e => setFinalDate(e.target.value)}
                                 />
                             </div>
 
                             <input
+                                onChange={e => setName(e.target.value)}
                                 className={animate.upSlow}
                                 type='text'
                                 name='medicineName'
                                 placeholder='Nome do Remédio:'
+                                required
                             />
 
                             <button type='submit' className={`${styles.submitButton} ${animate.upMoreSlow}`}>

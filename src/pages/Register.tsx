@@ -34,7 +34,7 @@ const Register = () => {
 
         const data = await register.json();
         const dataConvert = JSON.stringify(data);
-        console.log(dataConvert)
+        console.log(name)
 
         return router.push('/Login')
     }
@@ -86,8 +86,8 @@ const Register = () => {
 
                     <button type="submit">
                         <img src="img/icons/login.png" />
-                    Registrar-se
-                </button>
+                        Registrar-se
+                    </button>
 
                 </form>
             </div>

@@ -35,10 +35,8 @@
     width: 100%;
     height: clamp(4rem, 4vw, 5rem);
     background: var(--darkPurple);
-    font-size: clamp(2.5rem, 3vw, 3rem);
-    font-weight: 600;
-    color: #fff;
     margin-bottom: 1.5vw;
+    position: relative;
 }
 
 .hoursContainer div {
@@ -47,6 +45,7 @@
     justify-content: left;
     align-items: center;
     overflow-x: auto;
+    color: #fff;
 }
 
 .hoursContainer div::-webkit-scrollbar {
@@ -64,6 +63,19 @@
     border-radius: 15px;
 }
 
+.hoursContainer div input{
+    cursor: pointer;
+    border: none;
+    font-size: clamp(2.5rem, 3vw, 3rem);
+    font-weight: 600;
+    color: #fff;
+    background: none;
+    min-width: clamp(7rem, 8vw, 8.5rem);
+}
+.hoursContainer div input::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
 .hoursContainer div hr {
     width: 2px;
     height: 2.5vw;
@@ -73,6 +85,8 @@
 }
 
 .hoursContainer button {
+    position: absolute;
+    right: 1vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -157,6 +171,10 @@
     font-weight: 600;
     color: var(--purple);
     transition: transform 0.2s, filter 0.2s;
+}
+
+.daysWeek button span{
+    display: none;
 }
 
 .daysWeek button:focus{
