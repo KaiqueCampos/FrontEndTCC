@@ -11,6 +11,9 @@ const MedicineDay = () => {
     // const [username, setUsername] = useState("");
     // const [email, setEmail] = useState("");
 
+
+
+
     async function teste() {
 
         // Get token in LocalStorage
@@ -25,13 +28,18 @@ const MedicineDay = () => {
             },
         });
 
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const code = urlParams.get('day')
+        
+
         // Get JSON information and save in variables line (7-9)
         const indexInformationJSON = await indexLogged.json();
-        return setData(indexInformationJSON);
+        return console.log(code)
     }
 
-    console.log(data)
-
+    teste()
+    
     return (
         <Layout>
             <div className='containerBackground'>

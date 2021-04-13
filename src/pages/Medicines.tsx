@@ -6,17 +6,13 @@ import animate from "../styles/animation/animation.module.css";
 import Header from "../Components/header";
 import NoMedicines from "../Components/NoMedicines";
 import moment from "moment";
+import { useRouter } from "next/router";
+
 
 const Medicine = () => {
   //Variables
   const [data, setData] = useState([]);
-  const segunda = data.filter((medicine) => medicine.id === 1);
-  const terca = data.filter((medicine) => medicine.id === 2);
-  const quarta = data.filter((medicine) => medicine.id === 3);
-  const quinta = data.filter((medicine) => medicine.id === 4);
-  const sexta = data.filter((medicine) => medicine.id === 5);
-  const sabado = data.filter((medicine) => medicine.id === 6);
-  const domingo = data.filter((medicine) => medicine.id === 7);
+  const router = useRouter();
 
   //Return the date of days of week
   var currentDate = moment();
@@ -24,8 +20,21 @@ const Medicine = () => {
 
   var days = [];
   for (var i = 0; i <= 6; i++) {
-      days.push(moment(weekStart).add(i, 'days').format("YYYY-MM-DD"));
+    days.push(moment(weekStart).add(i, 'days').format("YYYY-MM-DD"));
   };
+
+  // Filter data of days week
+  const domingo = data.filter((medicine) => medicine.initialDate === days[0]);
+  const segunda = data.filter((medicine) => medicine.initialDate === days[1]);
+  const terca = data.filter((medicine) => medicine.initialDate === days[2]);
+  const quarta = data.filter((medicine) => medicine.initialDate === days[3]);
+  const quinta = data.filter((medicine) => medicine.initialDate === days[4]);
+  const sexta = data.filter((medicine) => medicine.initialDate === days[5]);
+  const sabado = data.filter((medicine) => medicine.initialDate === days[6]);
+
+  // variables to use in mapFunction
+  const daysWeek = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
+  const medicinesOnDay = [domingo, segunda, terca, quarta, quinta, sexta, sabado];
 
   console.log(days)
 
@@ -37,7 +46,7 @@ const Medicine = () => {
         const token = localStorage.getItem('token')
 
         // API connection
-        const indexLogged = await fetch('http://localhost:3333/medicine', {
+        const indexLogged = await fetch('http://localhost:3333/showMedicine', {
           method: "GET",
           headers: {
             'Content-Type': 'application/json',
@@ -56,6 +65,8 @@ const Medicine = () => {
     teste()
   }, [])
 
+  console.log(data)
+
   return (
     <Layout>
       <div className="containerBackground">
@@ -68,166 +79,41 @@ const Medicine = () => {
           </div>
 
           <div className={styles.emergencyContainer}>
-            <div className={`${styles.emergencyItem} ${animate.up}`}>
-              <h3>Domingo</h3>
 
-              {domingo.length > 0 ? (
-                <>
-                  <div className={`${styles.medicines} ${animate.upSlow}`}>
-                    {domingo.map((medicine) => (
-                      <div className={animate.upMoreSlow}>
-                        <p>{medicine.id}</p>
-                        <hr></hr>
-                        <p>{medicine.username}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <a href="MedicineDay">
-                    <img src="/img/icons/seeMore.png" />
-                  </a>
-                </>
-              ) : (
-                <NoMedicines />
-              )}
-            </div>
+            {/* Show div of each day in week */}
+            {daysWeek.map((days) => (
 
+              <div className={`${styles.emergencyItem} ${animate.up}`}>
+                <h3>{days}</h3>
 
-            <div className={`${styles.emergencyItem} ${animate.up}`}>
-              <h3>Segunda</h3>
-              {segunda.length > 0 ? (
-                <>
-                  <div className={`${styles.medicines} ${animate.upSlow}`}>
-                    {segunda.map((medicine) => (
-                      <div className={animate.upMoreSlow}>
-                        <p>{medicine.id}</p>
-                        <hr></hr>
-                        <p>{medicine.username}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <a href="MedicineDay">
-                    <img src="/img/icons/seeMore.png" />
-                  </a>
-                </>
-              ) : (
-                <NoMedicines />
-              )}
-            </div>
+                {/* if no has medicine in this day, show <NoMedicines/> */}
+                {medicinesOnDay[daysWeek.indexOf(days)].length > 0 ? (
+                  <>
+                    <div className={`${styles.medicines} ${animate.upSlow}`}>
 
-            <div className={`${styles.emergencyItem} ${animate.up}`}>
-              <h3>Terça</h3>
+                      {/* show each medicine of this day */}
+                      {medicinesOnDay[daysWeek.indexOf(days)].map((medicine) => (
+                        <div className={animate.upMoreSlow}>
+                          <p>{medicine.time}</p>
+                          <hr></hr>
+                          <p>{medicine.name}</p>
+                        </div>
+                      ))}
 
-              {terca.length > 0 ? (
-                <>
-                  <div className={`${styles.medicines} ${animate.upSlow}`}>
-                    {terca.map((medicine) => (
-                      <div className={animate.upMoreSlow}>
-                        <p>{medicine.id}</p>
-                        <hr></hr>
-                        <p>{medicine.username}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <a href="MedicineDay">
-                    <img src="/img/icons/seeMore.png" />
-                  </a>
-                </>
-              ) : (
-                <NoMedicines />
-              )}
-            </div>
+                    </div>
 
-            <div className={`${styles.emergencyItem} ${animate.up}`}>
-              <h3>Quarta</h3>
+                    <a href={`MedicineDay?day=${days}`}>
+                      <img src="/img/icons/seeMore.png" />
+                    </a>
+                  </>
 
-              {quarta.length > 0 ? (
-                <>
-                  <div className={`${styles.medicines} ${animate.upSlow}`}>
-                    {quarta.map((medicine) => (
-                      <div className={animate.upMoreSlow}>
-                        <p>{medicine.id}</p>
-                        <hr></hr>
-                        <p>{medicine.username}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <a href="MedicineDay">
-                    <img src="/img/icons/seeMore.png" />
-                  </a>
-                </>
-              ) : (
-                <NoMedicines />
-              )}
-            </div>
+                ) : (
+                  <NoMedicines />
+                )}
 
-            <div className={`${styles.emergencyItem} ${animate.up}`}>
-              <h3>Quinta</h3>
+              </div>
+            ))}
 
-              {quinta.length > 0 ? (
-                <>
-                  <div className={`${styles.medicines} ${animate.upSlow}`}>
-                    {quinta.map((medicine) => (
-                      <div className={animate.upMoreSlow}>
-                        <p>{medicine.id}</p>
-                        <hr></hr>
-                        <p>{medicine.username}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <a href="MedicineDay">
-                    <img src="/img/icons/seeMore.png" />
-                  </a>
-                </>
-              ) : (
-                <NoMedicines />
-              )}
-            </div>
-
-            <div className={`${styles.emergencyItem} ${animate.up}`}>
-              <h3>Sexta</h3>
-
-              {sexta.length > 0 ? (
-                <>
-                  <div className={`${styles.medicines} ${animate.upSlow}`}>
-                    {sexta.map((medicine) => (
-                      <div className={animate.upMoreSlow}>
-                        <p>{medicine.id}</p>
-                        <hr></hr>
-                        <p>{medicine.username}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <a href="MedicineDay">
-                    <img src="/img/icons/seeMore.png" />
-                  </a>
-                </>
-              ) : (
-                <NoMedicines />
-              )}
-            </div>
-            <div className={`${styles.emergencyItem} ${animate.upMoreSlow}`}>
-              <h3>Sábado</h3>
-
-              {sabado.length > 0 ? (
-                <>
-                  <div className={`${styles.medicines} ${animate.upSlow}`}>
-                    {sabado.map((medicine) => (
-                      <div className={animate.upMoreSlow}>
-                        <p>{medicine.id}</p>
-                        <hr></hr>
-                        <p>{medicine.username}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <a href="MedicineDay">
-                    <img src="/img/icons/seeMore.png" />
-                  </a>
-                </>
-              ) : (
-                <NoMedicines />
-              )}
-
-            </div>
           </div>
         </div>
       </div>

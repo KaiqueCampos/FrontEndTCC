@@ -58,6 +58,9 @@ const Medicine = () => {
             })
         });
 
+        console.log(initialDate)
+
+
         const data = addMedicine;
         if (data.status === 200) {
 
@@ -67,6 +70,7 @@ const Medicine = () => {
             window.alert("Não foi possível adicionar este medicamento... tente novamente!")
           }
     }
+
 
     return (
         <>
