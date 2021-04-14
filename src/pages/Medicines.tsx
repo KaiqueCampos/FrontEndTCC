@@ -24,19 +24,36 @@ const Medicine = () => {
   };
 
   // Filter data of days week
-  const domingo = data.filter((medicine) => medicine.initialDate === days[0]);
-  const segunda = data.filter((medicine) => medicine.initialDate === days[1]);
-  const terca = data.filter((medicine) => medicine.initialDate === days[2]);
-  const quarta = data.filter((medicine) => medicine.initialDate === days[3]);
-  const quinta = data.filter((medicine) => medicine.initialDate === days[4]);
-  const sexta = data.filter((medicine) => medicine.initialDate === days[5]);
-  const sabado = data.filter((medicine) => medicine.initialDate === days[6]);
+  const domingo = data.filter((medicine) => moment(days[0]).isBetween(medicine.initialDate, medicine.finalDate, null, '[]'));
+  const segunda = data.filter((medicine) => moment(days[1]).isBetween(medicine.initialDate, medicine.finalDate, null, '[]'));
+  const terca = data.filter((medicine) => moment(days[2]).isBetween(medicine.initialDate, medicine.finalDate, null, '[]'));
+  const quarta = data.filter((medicine) => moment(days[3]).isBetween(medicine.initialDate, medicine.finalDate, null, '[]'));
+  const quinta = data.filter((medicine) => moment(days[4]).isBetween(medicine.initialDate, medicine.finalDate, null, '[]'));
+  const sexta = data.filter((medicine) => moment(days[5]).isBetween(medicine.initialDate, medicine.finalDate, null, '[]'));
+  const sabado = data.filter((medicine) => moment(days[6]).isBetween(medicine.initialDate, medicine.finalDate, null, '[]'));
 
   // variables to use in mapFunction
   const daysWeek = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
-  const medicinesOnDay = [domingo, segunda, terca, quarta, quinta, sexta, sabado];
+  var medicinesOnDay = [domingo, segunda, terca, quarta, quinta, sexta, sabado];
 
-  console.log(days)
+  // Order medicines of day by time
+  const array = []
+  for (var i = 0; i < medicinesOnDay.length; i++) {
+    if (medicinesOnDay[i].length > 0) {
+      const x = medicinesOnDay[i].sort(function (a, b) {
+        const n1 = parseInt(b.time.replace(':', ''))
+        const n2 = parseInt(a.time.replace(':', ''))
+        return n2 - n1;
+      });
+      array.push(x)
+    }  else {
+      array.push([])
+    }
+  }
+
+  // medicinesOnDay ordered
+  medicinesOnDay = array;
+
 
   useEffect(() => {
     async function teste() {
@@ -47,25 +64,44 @@ const Medicine = () => {
 
         // API connection
         const indexLogged = await fetch('http://localhost:3333/showMedicine', {
-          method: "GET",
+          method: "POST",
           headers: {
             'Content-Type': 'application/json',
             'Authorization': ` Bearer ${token}`
           },
+          body: JSON.stringify({
+            days: days,
+          }),
         });
 
         // Get JSON information and save in variables line (7-9)
-        const indexInformationJSON = await indexLogged.json();
-        return setData(indexInformationJSON)
-      } catch {
-        console.log("algo deu errado")
+        const dataJson = await indexLogged.json();
+
+        const data = [];
+        for (var i = 0; i < dataJson.length; i++) {
+          // Show only "YYYY-MM-DD"
+          const initialDate = dataJson[i].initialDate.toString().replace('T03:00:00.000Z', '');
+          const finalDate = dataJson[i].finalDate.toString().replace('T03:00:00.000Z', '');
+
+          // Data to show
+          data.push({
+            'name': dataJson[i].name,
+            'id': dataJson[i].id,
+            'time': dataJson[i].time,
+            'initialDate': initialDate,
+            'finalDate': finalDate
+          })
+        }
+
+        return setData(data)
+
+      } catch (error) {
+        console.log(error)
       }
     }
 
     teste()
   }, [])
-
-  console.log(data)
 
   return (
     <Layout>
@@ -103,7 +139,7 @@ const Medicine = () => {
                     </div>
 
                     <a href={`MedicineDay?day=${days}`}>
-                      <img src="/img/icons/seeMore.png" />
+                      <img className={styles.seeMoreBTN} src="/img/icons/seeMore.png" />
                     </a>
                   </>
 
