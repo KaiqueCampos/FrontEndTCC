@@ -6,6 +6,10 @@ import animate from '../styles/animation/animation.module.css';
 import titlePage from '../styles/Components/titlePage.module.css';
 import AppointmentDescription from "../Components/AppointmentDescription";
 import Head from "next/head";
+import AppointmentVideo from "../Components/appointmentVideo";
+import SearchHospitalLocation from "../Components/searchHospitalLocation";
+import AppointmentForm from "../Components/AppointmentForm";
+
 
 
 const Appointment = () => {
@@ -17,14 +21,27 @@ const Appointment = () => {
             </Head>
 
             <div className={styles.container}>
-                <div className={styles.firstBackground}>
+                <div className={styles.header}>
                     <Header />
                     <AppointmentDescription />
+                    <AppointmentVideo/>
                 </div>
 
-                {/* <div className={styles.container2}>
-               daohdaoihd
-           </div> */}
+               <div className={styles.main}>
+                   <div className={styles.hospitalSearch}>
+                       <div className={styles.mapContainer}>
+                           <img src='img/backgrounds/mapBackground.png'/>
+                       </div>
+
+                       <SearchHospitalLocation/>
+                       
+                   </div>
+
+                   <AppointmentForm/>
+               </div>
+
+               <div className={styles.finalImage}/>
+
             </div>
 
         </>
