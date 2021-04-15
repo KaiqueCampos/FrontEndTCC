@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 const Medicine = () => {
   //Variables
   const [data, setData] = useState([]);
+  const [medicines, setMedicines] = useState([])
   const router = useRouter();
 
   //Return the date of days of week
@@ -54,7 +55,6 @@ const Medicine = () => {
   // medicinesOnDay ordered
   medicinesOnDay = array;
 
-
   useEffect(() => {
     async function teste() {
 
@@ -64,14 +64,11 @@ const Medicine = () => {
 
         // API connection
         const indexLogged = await fetch('http://localhost:3333/showMedicine', {
-          method: "POST",
+          method: "GET",
           headers: {
             'Content-Type': 'application/json',
             'Authorization': ` Bearer ${token}`
           },
-          body: JSON.stringify({
-            days: days,
-          }),
         });
 
         // Get JSON information and save in variables line (7-9)
@@ -102,6 +99,18 @@ const Medicine = () => {
 
     teste()
   }, [])
+
+  function setInformation(){
+     // Select link clicked and set this medicines on localStorage
+     document.querySelectorAll("a").forEach((a) => {
+         a.onclick = (event) => {
+            const dayClicked = a.querySelector('span').innerHTML 
+            localStorage.setItem('medicines', JSON.stringify(medicinesOnDay[daysWeek.indexOf(dayClicked)]))
+
+            router.push(`/MedicineDay?day=${dayClicked}`)
+         }
+     })
+  }
 
   return (
     <Layout>
@@ -138,8 +147,9 @@ const Medicine = () => {
 
                     </div>
 
-                    <a href={`MedicineDay?day=${days}`}>
+                    <a onClick={setInformation}>
                       <img className={styles.seeMoreBTN} src="/img/icons/seeMore.png" />
+                      <span>{days}</span>
                     </a>
                   </>
 

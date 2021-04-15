@@ -47,9 +47,14 @@
 }
 
 .emergencyItem a {
+    cursor: pointer;
     position: absolute;
     bottom: 1vw;
 }
+
+.emergencyItem a span{
+    display: none;
+} 
 
 .seeMoreBTN{
     width: 1.5vw;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "../Layout/Layout";
 import titlePage from '../styles/Components/titlePage.module.css';
 import styles from '../styles/pages/MedicineDay.module.css';
@@ -7,39 +7,31 @@ import Header from "../Components/header";
 
 const MedicineDay = () => {
     //Variables
+    const [day, setDay] = useState('');
     const [data, setData] = useState([]);
-    // const [username, setUsername] = useState("");
-    // const [email, setEmail] = useState("");
 
+    useEffect(() => {
+        async function getInformation() {
 
+            try {
 
+                // Get information from url
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
+                setDay(urlParams.get('day'))
 
-    async function teste() {
+                // Get medicines on localStorage
+                const medicines = localStorage.getItem('medicines')
+                return setData(JSON.parse(medicines))
 
-        // Get token in LocalStorage
-        const token = localStorage.getItem('token')
+            } catch (error) {
+                console.log(error)
+            }
+        }
 
-        // API connection
-        const indexLogged = await fetch('http://localhost:3333/medicine', {
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-        });
+        getInformation()
+    }, [])
 
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const code = urlParams.get('day')
-        
-
-        // Get JSON information and save in variables line (7-9)
-        const indexInformationJSON = await indexLogged.json();
-        return console.log(code)
-    }
-
-    teste()
-    
     return (
         <Layout>
             <div className='containerBackground'>
@@ -48,7 +40,7 @@ const MedicineDay = () => {
                 <div className={styles.container}>
                     <div className={titlePage.titlePage}>
                         <img src='/img/icons/medicine.png' />
-                        Remédios | Segunda
+                        Remédios | {day}
                     </div>
 
                     <div className={styles.medicinesOnDay}>
@@ -56,44 +48,15 @@ const MedicineDay = () => {
 
                         <div className={`${styles.medicines} ${animate.upSlow}`}>
 
-                            <div className={animate.upMoreSlow}>
-                                <p>12:15</p>
-                                <hr></hr>
-                                <p>Dipirona</p>
-                                <button><img src='img/icons/delete.jpg' /></button>
-                            </div>
+                            {data.map((medicine) => (
+                                <div className={animate.upMoreSlow}>
+                                    <p>{medicine.time}</p>
+                                    <hr></hr>
+                                    <p>{medicine.name}</p>
+                                    <button><img src='img/icons/delete.jpg' /></button>
+                                </div>
+                            ))}
 
-                            <div className={animate.upMoreSlow}>
-                                <p>14:15</p>
-                                <hr></hr>
-                                <p>Buscopam</p>
-                                <button><img src='img/icons/delete.jpg' /></button>
-
-                            </div>
-
-                            <div className={animate.upMoreSlow}>
-                                <p>12:15</p>
-                                <hr></hr>
-                                <p>Dorflex</p>
-                                <button><img src='img/icons/delete.jpg' /></button>
-
-                            </div>
-
-                            <div className={animate.upMoreSlow}>
-                                <p>12:15</p>
-                                <hr></hr>
-                                <p>Biotônico</p>
-                                <button><img src='img/icons/delete.jpg' /></button>
-
-                            </div>
-
-                            <div className={animate.upMoreSlow}>
-                                <p>12:15</p>
-                                <hr></hr>
-                                <p>Paracetamolsds</p>
-                                <button><img src='img/icons/delete.jpg' /></button>
-
-                            </div>
                         </div>
                     </div>
 
