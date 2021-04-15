@@ -84,7 +84,7 @@ export default function Home() {
             </div>
 
             <div className={`${animate.up} ${styles.menuItem}`}>
-              <a href="#">
+              <a href="Appointment">
                 <div>
                   <img src='img/icons/consultas.png' />
                   Consultas
