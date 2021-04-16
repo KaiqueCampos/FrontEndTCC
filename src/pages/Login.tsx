@@ -7,6 +7,7 @@ import OtherLoginOptions from "../Components/otherLoginOptions";
 
 import styles from "../styles/pages/Register.module.css";
 import animate from '../styles/animation/animation.module.css';
+import Head from "next/head";
 
 
 const Login = () => {
@@ -48,7 +49,11 @@ const Login = () => {
   };
 
   return (
-    <Layout>
+    <>
+
+      <Head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+      </Head>
 
       <div className={`${styles.rowContainer} ${animate.up}`}>
 
@@ -97,7 +102,7 @@ const Login = () => {
 
       </div>
 
-    </Layout>
+    </>
   );
 };
 

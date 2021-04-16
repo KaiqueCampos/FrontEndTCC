@@ -6,23 +6,23 @@
 }
 
 .container h3{
-    font-size: clamp(2rem, 4vw, 4rem);
+    font-size: clamp(1.7rem, 3vw, 4rem);
     font-weight: 600;
     color: var(--darkPurple);
 }
 
 .container p{
-    width: clamp(30rem, 35vw, 44rem);
+    width: clamp(25rem, 35vw, 44rem);
     text-align: center;
-    font-size: clamp(1rem, 1.5vw, 2rem);
+    font-size: clamp(0.8rem, 1.4vw, 2rem);
     font-weight: 400;
     color: var(--purple);
 }
 
 .container div{
-    margin-top: 2.5vw;
+    margin-top: clamp(1.5rem, 2.5vw, 37.5px);
     padding: 0;
-    width: clamp(25rem, 30vw, 37rem);
+    width: clamp(22rem, 30vw, 37rem);
     height: clamp(3rem, 4vw,4rem);
     position: relative;
 
@@ -37,7 +37,7 @@
     height: 100%;
     border: 0;
     border-radius: 15px;
-    padding: 1.5vw;
+    padding: clamp(0.7rem, 1.5vw, 22.5px);
     font-size: clamp(0.8rem, 1vw, 1.3rem);
     font-weight: 500;
     color: black;
@@ -49,10 +49,10 @@
 
 .container img{
     position: absolute;
-    width: 2vw;
-    height: 2vw;
+    width: clamp(1rem, 2vw, 30px);
+    height: clamp(1rem, 2vw, 30px);
 
-    right: 1vw;
+    right: clamp(0.5rem, 1vw, 15px);
 }
 
 

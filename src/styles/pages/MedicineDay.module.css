@@ -5,8 +5,8 @@
     justify-content: center;
     align-items: center;
     background: var(--grayGradient);
-    width: clamp(35rem, 55vw, 65rem);
-    height: clamp(20rem, 33vw, 40rem);
+    width: clamp(40rem, 55vw, 975px);
+    height: clamp(20rem, 33vw, 600px);
     border-radius: 15px;
     box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.25);
     margin-top: 3vw;
@@ -32,7 +32,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.8vw;
+    gap:clamp(0.4rem, 0.8vw, 12px);
     margin-top: 1rem;
     width: 90%;
     height: 75%;
@@ -41,11 +41,11 @@
 
 .medicines div {
     width: 98%;
-    height: 3.7vw;
+    height: clamp(2.5rem, 3.7vw, 55px);
     display: flex;
     justify-content: right;
     align-items: center;
-    padding: 1.5vw;
+    padding: clamp(0.8rem, 1.5vw, 20px);
     background: var(--darkPurple);
     font-size: clamp(1rem, 1.5vw, 1.6rem);
     font-weight: 700;
@@ -57,10 +57,10 @@
 }
 
 .medicines hr {
-    height: 2.5vw;
+    height: clamp(1.5rem, 2.5vw, 37.5px);
     border-left: 1px solid;
-    margin-left: 1vw;
-    margin-right: 1vw;
+    margin-left: clamp(0.5rem, 1vw, 20px);
+    margin-right:  clamp(0.5rem, 1vw, 20px);
 }
 
 .medicines div p~p {
@@ -71,8 +71,8 @@
     cursor: pointer;
     background: none;
     border: 0;
-    width: 1.2vw;
-    height: 1.2vw;
+    width: clamp(0.8rem, 1.2vw, 18px);
+    height: clamp(0.8rem, 1.2vw, 18px);
     position: absolute;
     right: 1vw;
     transition: transform 0.2s;
@@ -95,21 +95,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 9.5vw;
-    height: 9.5vw;
+    width: clamp(5rem, 9.5vw, 140px);
+    height:clamp(5rem, 9.5vw, 140px);
     border-radius: 50%;
     background: var(--purple);
 
     position: absolute;
-    right: 1.5vw;
-    bottom: 1vw;
+    right: clamp(1rem, 1.5vw, 22.5px);
+    bottom: clamp(0.6rem, 1vw, 15px);
 
     transition: transform 0.2s, filter 0.2s;
 }
 
 .addMedicine img {
-    width: 3vw;
-    height: 3vw;
+    width: clamp(2rem, 3vw, 45px);
+    height: clamp(2rem, 3vw, 45px);
 }
 
 .addMedicine:hover{

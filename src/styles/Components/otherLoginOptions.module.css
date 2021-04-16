@@ -1,8 +1,8 @@
 .container {
-    margin-top: 2.5vh;
+    margin-top: clamp(1rem, 1.2vw, 18px);
     display: flex;
     flex-direction: column;
-    gap: 0.7vw;
+    gap: clamp(0.7rem, 0.7vw, 10px);
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -32,7 +32,7 @@
     padding-right: clamp(1rem,3.2vw,4rem);
     align-items: center;
     border-radius: 10px;
-    height: 8vh;
+    height: clamp(3rem, 4vw, 60px);
     background: var(--google);
     font-size: clamp(1rem, 1.1vw, 1.3rem);
     font-weight: 500;
@@ -41,8 +41,8 @@
 }
 
 .googleLogin img {
-    width: clamp(3rem, 4vw, 5rem);
-    height:  clamp(3rem, 4vw, 5rem);
+    width: clamp(3rem, 4vw, 75px);
+    height:  clamp(3rem, 4vw, 75px);
 }
 
 .facebookLogin {
@@ -53,7 +53,7 @@
     padding-right: clamp(1rem,2.5vw,3rem);
     align-items: center;
     border-radius: 10px;
-    height: 8vh;
+    height: clamp(3rem, 4vw, 60px);
     background: var(--facebook);
     font-size:clamp(1rem, 1.1vw, 1.3rem);
     font-weight: 500;
@@ -61,8 +61,8 @@
 }
 
 .facebookLogin img {
-    width: clamp(2rem, 3vw, 3.5rem);
-    height: clamp(2rem, 3vw, 3.5rem);
+    width: clamp(2rem, 3vw, 50px);
+    height: clamp(2rem, 3vw, 50px);
 }
 
 @media (max-width: 800px) {

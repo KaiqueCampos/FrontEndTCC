@@ -1,6 +1,6 @@
 .titlePage {
     position: absolute;
-    top: -3vw;
+    top: clamp(-4rem, -3vw, -35px);
     display: flex;
     justify-content: center;
     align-items: center;

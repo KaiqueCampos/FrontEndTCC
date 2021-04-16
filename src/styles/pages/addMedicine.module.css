@@ -5,8 +5,8 @@
     justify-content: center;
     align-items: center;
     background: var(--grayGradient);
-    width: clamp(35rem, 50vw, 62rem);
-    height: clamp(20rem, 35vw, 40rem);
+    width: clamp(35rem, 50vw, 930px);
+    height: clamp(20rem, 35vw, 600px);
     border-radius: 15px;
     box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.25);
 }
@@ -18,7 +18,7 @@
 }
 
 .addMedicine {
-    width: clamp(30rem, 32.5vw, 35rem);
+    width: clamp(30rem, 32.5vw, 525px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,11 +31,11 @@
     justify-content: space-between;
     align-items: center;
     border-radius: 10px;
-    padding: 1vw;
+    padding: clamp(0.6rem, 1vw, 15px);
     width: 100%;
-    height: clamp(4rem, 4vw, 5rem);
+    height: clamp(4rem, 4vw, 75px);
     background: var(--darkPurple);
-    margin-bottom: 1.5vw;
+    margin-bottom: clamp(1rem, 1.5vw, 22.5px);
     position: relative;
 }
 
@@ -50,7 +50,7 @@
 
 .hoursContainer div::-webkit-scrollbar {
     width: 20px;
-    height: 0.5vw;
+    height: clamp(0.4rem, 0.5vw, 7.5px);
 }
 
 .hoursContainer div::-webkit-scrollbar-track {
@@ -63,35 +63,36 @@
     border-radius: 15px;
 }
 
-.hoursContainer div input{
+.hoursContainer div input {
     cursor: pointer;
     border: none;
     font-size: clamp(2.5rem, 3vw, 3rem);
     font-weight: 600;
     color: #fff;
     background: none;
-    min-width: clamp(7rem, 8vw, 8.5rem);
+    min-width: clamp(7.5rem, 8vw, 150px);
 }
+
 .hoursContainer div input::-webkit-calendar-picker-indicator {
     display: none;
 }
 
 .hoursContainer div hr {
     width: 2px;
-    height: 2.5vw;
+    height: clamp(1.7rem, 2.5vw, 22.5px);
     border-left: 1px solid;
-    margin-left: 1vw;
-    margin-right: 1vw;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .hoursContainer button {
     position: absolute;
-    right: 1vw;
+    right: clamp(0.5rem, 1vw, 15px);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 2.5vw;
-    height: 2.5vw;
+    width: clamp(1.7rem, 2.5vw, 37.5px);
+    height: clamp(1.7rem, 2.5vw, 37.5px);
     background: var(--purple);
     border: 0;
     border-radius: 50%;
@@ -108,106 +109,21 @@
     filter: brightness(0.9);
 }
 
-/* Repeat Medicine in Week */
-
-.repeat {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.repeatCheckbox {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5vw;
-}
-
-.repeatCheckbox input {
-    all: unset;
-    width: clamp(1.5rem, 1.5vw, 1.5rem);
-    height: clamp(1.55rem, 1.3vw, 1.5rem);
-    background: white;
-    filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.548));
-    transition: border-radius 0.2s;
-}
-
-.repeatCheckbox input {
-    color: white;
-}
-
-.repeatCheckbox input:after {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    content: url('/img/icons/check.png');
-}
-
-.repeatCheckbox input:checked {
-    background: var(--purple);
-    border-radius: 4px;
-}
-
-/* DaysWeek Buttons */
-
-.daysWeek {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 0.2vw;
-}
-
-.daysWeek button {
-    background: none;
-    width: clamp(2.4rem, 3vw, 2.5rem);
-    height: clamp(2.4rem, 3vw, 2.5rem);
-    border: 0;
-    border-radius: 50%;
-    font-size: clamp(1.3rem, 1.2vw, 1.3rem);
-    font-weight: 600;
-    color: var(--purple);
-    transition: transform 0.2s, filter 0.2s;
-}
-
-.daysWeek button span{
-    display: none;
-}
-
-.daysWeek button:focus{
-    outline: thin dotted;
-    outline: 0px auto -webkit-focus-ring-color;
-    outline-offset: 0px;
-}
-
-.daysWeek button:hover {
-    transform: scale(1.1);
-    filter: brightness(0.8);
-}
-
-#active {
-    background: var(--purple);
-    color: #fff
-}
-
 /* data especifica */
 
 .specificDate {
-    margin-top: 1.3vw;
+    margin-top: clamp(0.6rem, 1.3vw, 24px);
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: left;
     align-items: center;
-    gap: 1vw;
+    gap: clamp(0.6rem, 1vw, 15px);
 }
 
 .specificDate button {
-    width: 3vw;
-    height: 1.5vw;
+    width: clamp(2rem, 3vw, 45px);
+    height: clamp(0.7rem, 1.5vw, 22.5px);
     border-radius: 10px;
     border: 2px solid var(--darkPurple);
     background: #A07FFD;
@@ -225,22 +141,22 @@
 }
 
 .date {
-    margin-top: 0.5vw;
+    margin-top: 0.5rem;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 1.3vw;
+    gap: clamp(0.6rem, 1.3vw, 25px);
 }
 
 .date input {
     width: 100%;
-    height: clamp(2.4rem, 2.5vw, 2.6rem);
+    height: clamp(2.4rem, 2.5vw, 40px);
     border: 0;
     border-radius: 10px;
-    padding-left: 1vw;
-    padding-right: 1vw;
+    padding-left: clamp(0.4rem, 1vw, 15px);
+    padding-right: clamp(0.4rem, 1vw, 15px);
     font-size: (1.2rem, 1.3vw, 1.3rem);
     font-weight: 600;
     color: var(--placeholder);
@@ -258,12 +174,12 @@
     height: clamp(2.4rem, 2.5vw, 2.6rem);
     border: 0;
     border-radius: 10px;
-    padding-left: 1vw;
-    padding-right: 1vw;
+    padding-left: clamp(0.4rem, 1vw, 15px);
+    padding-right: clamp(0.4rem, 1vw, 15px);
     font-size: (1.2rem, 1.3vw, 1.3rem);
     font-weight: 500;
     color: #000;
-    margin-top: 0.7vw;
+    margin-top: clamp(0.4rem, 0.7vw, 10px);
 }
 
 .addMedicine input::placeholder {
@@ -279,7 +195,7 @@
 }
 
 .submitButton {
-    margin-top: 1.5vw;
+    margin-top:clamp(0.7rem, 1.5vw, 22.5px);
     width: 100%;
     height: clamp(3.3rem, 3.5vw, 3.6rem);
     border: 0;
@@ -292,14 +208,14 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 1vw;
+    gap: clamp(0.4rem, 1vw, 15px);
     transition: filter 0.2s, transform 0.2s;
     box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.25);
 }
 
 .submitButton img {
-    width: 1.5vw;
-    height: 1.5vw;
+    width: clamp(0.7rem, 1.5vw, 22.5px);
+    height: clamp(0.7rem, 1.5vw, 22.5px);
 }
 
 .submitButton:hover {

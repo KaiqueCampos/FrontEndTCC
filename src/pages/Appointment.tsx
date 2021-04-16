@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import Header from "../Components/header";
-import Layout from "../Layout/Layout";
 import styles from '../styles/pages/Appointment.module.css';
 import animate from '../styles/animation/animation.module.css';
-import titlePage from '../styles/Components/titlePage.module.css';
 import AppointmentDescription from "../Components/AppointmentDescription";
 import Head from "next/head";
 import AppointmentVideo from "../Components/appointmentVideo";
 import SearchHospitalLocation from "../Components/searchHospitalLocation";
 import AppointmentForm from "../Components/AppointmentForm";
-
-
+import Map from "../Components/Map";
 
 const Appointment = () => {
 
@@ -24,23 +21,25 @@ const Appointment = () => {
                 <div className={styles.header}>
                     <Header />
                     <AppointmentDescription />
-                    <AppointmentVideo/>
+                    <AppointmentVideo />
                 </div>
 
-               <div className={styles.main}>
-                   <div className={styles.hospitalSearch}>
-                       <div className={styles.mapContainer}>
-                           <img src='img/backgrounds/mapBackground.png'/>
-                       </div>
+                <div className={styles.main}>
+                    <div className={styles.hospitalSearch}>
+                        <div className={styles.mapContainer}>
+                            <img src='img/backgrounds/mapBackground.png' />
+                        </div>
 
-                       <SearchHospitalLocation/>
-                       
-                   </div>
+                        <SearchHospitalLocation />
+        
+                    </div>
 
-                   <AppointmentForm/>
-               </div>
+                    <AppointmentForm />
+                    {/* <Map/> */}
+                    
+                </div>
 
-               <div className={styles.finalImage}/>
+                <div className={styles.finalImage} />
 
             </div>
 

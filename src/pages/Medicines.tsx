@@ -47,7 +47,7 @@ const Medicine = () => {
         return n2 - n1;
       });
       array.push(x)
-    }  else {
+    } else {
       array.push([])
     }
   }
@@ -100,16 +100,16 @@ const Medicine = () => {
     teste()
   }, [])
 
-  function setInformation(){
-     // Select link clicked and set this medicines on localStorage
-     document.querySelectorAll("a").forEach((a) => {
-         a.onclick = (event) => {
-            const dayClicked = a.querySelector('span').innerHTML 
-            localStorage.setItem('medicines', JSON.stringify(medicinesOnDay[daysWeek.indexOf(dayClicked)]))
+  function setInformation() {
+    // Select link clicked and set this medicines on localStorage
+    document.querySelectorAll("a").forEach((a) => {
+      a.onclick = (event) => {
+        const dayClicked = a.querySelector('span').innerHTML
+        localStorage.setItem('medicines', JSON.stringify(medicinesOnDay[daysWeek.indexOf(dayClicked)]))
 
-            router.push(`/MedicineDay?day=${dayClicked}`)
-         }
-     })
+        router.push(`/MedicineDay?day=${dayClicked}`)
+      }
+    })
   }
 
   return (

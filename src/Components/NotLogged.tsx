@@ -6,16 +6,16 @@ import animate from '../styles/animation/animation.module.css';
 export default function NotLogged() {
 
     return (
-        <div className={`${styles.notLoggedContainer}`}>
 
+        <div className={styles.notLoggedContainer}>
             <div className={`${styles.loggedContainer} ${animate.upSlow}`}>
-                <img className={styles.accountLogo} src="img/icons/userPurple2.png"/>
-                
+                <img className={styles.accountLogo} src="img/icons/userPurple2.png" />
+
                 <div className={styles.buttonsContainer}>
                     <a href='/Register'>Registrar-se</a>
                     <a href='/Login'>
                         <div>
-                        <img src="img/icons/loginPurple.png"/>
+                            <img src="img/icons/loginPurple.png" />
                         Login
                         </div>
                     </a>
@@ -24,11 +24,10 @@ export default function NotLogged() {
 
             <div className={`${styles.aboutUs} ${animate.upMoreSlow}`}>
                 <div className={styles.aboutUsImageContainer}>
-                    <img src='img/teste.jpg'/>
+                    <img src='img/teste.jpg' />
                 </div>
-                <PlayVideo/>
+                <PlayVideo />
             </div>
-
         </div>
     )
 }

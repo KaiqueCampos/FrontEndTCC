@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import styles from '../styles/pages/Register.module.css';
 import BannerWelcome from "../Components/bannerWelcome";
 import animate from '../styles/animation/animation.module.css';
+import Head from "next/head";
 
 const Register = () => {
 
@@ -40,7 +41,11 @@ const Register = () => {
     }
 
     return (
-        <Layout>
+        <>
+            <Head>
+                <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+            </Head>
+
             <div className={`${animate.up} ${styles.rowContainer}`}>
 
                 <BannerWelcome />
@@ -91,7 +96,7 @@ const Register = () => {
 
                 </form>
             </div>
-        </Layout>
+        </>
 
     );
 };

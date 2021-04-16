@@ -61,6 +61,10 @@ a {
   margin: 0;
   padding: 0;
 
+  background: url('/img/backgrounds/background.png') no-repeat center center fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,13 +75,10 @@ a {
 
 .containerBackground{
   height: 100vh;
+  max-height: 1080px;
   width: 100vw;
   margin: 0;
   padding: 0;
-
-  background: url('/img/backgrounds/background.png') no-repeat center center fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
 
   display: flex;
   flex-direction: column;
