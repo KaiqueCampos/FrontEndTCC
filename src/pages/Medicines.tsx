@@ -1,49 +1,13 @@
-import React, { useState, useEffect } from "react";
-import styles from "../styles/pages/Medicines.module.css";
-import animate from "../styles/animation/animation.module.css";
-import Header from "../Components/Header/header";
-import NoMedicines from "../Components/NoMedicine/NoMedicines";
 import moment from "moment";
 import { useRouter } from "next/router";
-
-export async function getServerSideProps() {
-
-  const response = await fetch('http://localhost:3333/showMedicine', {
-    method: "GET",
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjI2LCJpYXQiOjE2MTg5MzM3MDJ9.cqAFO9kHbvBlszzLDBrN1SUsWLOK6TmFAd5ameYEMK4`
-    },
-  });
-
-  // Get JSON information and save in variables line (7-9)
-  const dataJson = await response.json();
-
-  const data = [];
-  for (var i = 0; i < dataJson.length; i++) {
-    // Show only "YYYY-MM-DD"
-    const initialDate = dataJson[i].initialDate.toString().replace('T03:00:00.000Z', '');
-    const finalDate = dataJson[i].finalDate.toString().replace('T03:00:00.000Z', '');
-
-    // Data to show
-    data.push({
-      'name': dataJson[i].name,
-      'id': dataJson[i].id,
-      'time': dataJson[i].time,
-      'initialDate': initialDate,
-      'finalDate': finalDate
-    })
-  }
-
-  return {
-    props: {
-      data: data,
-    }
-  }
-}
+import React, { useEffect, useState } from "react";
+import Header from "../Components/Header/header";
+import NoMedicines from "../Components/NoMedicine/NoMedicines";
+import animate from "../styles/animation/animation.module.css";
+import styles from "../styles/pages/Medicines.module.scss";
 
 
-const Medicine = (props) => {
+const Medicine = () => {
 
   //Variables
   const [data, setData] = useState([]);
@@ -60,13 +24,13 @@ const Medicine = (props) => {
   };
 
   // Filter data of days week
-  const domingo = props.data.filter((medicine) => moment(days[0]).isBetween(medicine.initialDate, medicine.finalDate, null, '[]'));
-  const segunda = props.data.filter((medicine) => moment(days[1]).isBetween(medicine.initialDate, medicine.finalDate, null, '[]'));
-  const terca = props.data.filter((medicine) => moment(days[2]).isBetween(medicine.initialDate, medicine.finalDate, null, '[]'));
-  const quarta = props.data.filter((medicine) => moment(days[3]).isBetween(medicine.initialDate, medicine.finalDate, null, '[]'));
-  const quinta = props.data.filter((medicine) => moment(days[4]).isBetween(medicine.initialDate, medicine.finalDate, null, '[]'));
-  const sexta = props.data.filter((medicine) => moment(days[5]).isBetween(medicine.initialDate, medicine.finalDate, null, '[]'));
-  const sabado = props.data.filter((medicine) => moment(days[6]).isBetween(medicine.initialDate, medicine.finalDate, null, '[]'));
+  const domingo = data.filter((medicine) => moment(days[0]).isBetween(medicine.initialDate, medicine.finalDate, null, '[]'));
+  const segunda = data.filter((medicine) => moment(days[1]).isBetween(medicine.initialDate, medicine.finalDate, null, '[]'));
+  const terca = data.filter((medicine) => moment(days[2]).isBetween(medicine.initialDate, medicine.finalDate, null, '[]'));
+  const quarta = data.filter((medicine) => moment(days[3]).isBetween(medicine.initialDate, medicine.finalDate, null, '[]'));
+  const quinta = data.filter((medicine) => moment(days[4]).isBetween(medicine.initialDate, medicine.finalDate, null, '[]'));
+  const sexta = data.filter((medicine) => moment(days[5]).isBetween(medicine.initialDate, medicine.finalDate, null, '[]'));
+  const sabado = data.filter((medicine) => moment(days[6]).isBetween(medicine.initialDate, medicine.finalDate, null, '[]'));
 
   // variables to use in mapFunction
   const daysWeek = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
@@ -90,50 +54,50 @@ const Medicine = (props) => {
   // medicinesOnDay ordered
   medicinesOnDay = array;
 
-  // useEffect(() => {
-  //   async function teste() {
+  useEffect(() => {
+    async function teste() {
 
-  //     try {
-  //       // Get token in LocalStorage
-  //       const token = localStorage.getItem('token')
+      try {
+        // Get token in LocalStorage
+        const token = localStorage.getItem('token')
 
-  //       // API connection
-  //       const indexLogged = await fetch('http://localhost:3333/showMedicine', {
-  //         method: "GET",
-  //         headers: {
-  //           'Content-Type': 'application/json',
-  //           'Authorization': ` Bearer ${token}`
-  //         },
-  //       });
+        // API connection
+        const indexLogged = await fetch('http://localhost:3333/showMedicine', {
+          method: "GET",
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': ` Bearer ${token}`
+          },
+        });
 
-  //       // Get JSON information and save in variables line (7-9)
-  //       const dataJson = await indexLogged.json();
+        // Get JSON information and save in variables line (7-9)
+        const dataJson = await indexLogged.json();
 
-  //       const data = [];
-  //       for (var i = 0; i < dataJson.length; i++) {
-  //         // Show only "YYYY-MM-DD"
-  //         const initialDate = dataJson[i].initialDate.toString().replace('T03:00:00.000Z', '');
-  //         const finalDate = dataJson[i].finalDate.toString().replace('T03:00:00.000Z', '');
+        const data = [];
+        for (var i = 0; i < dataJson.length; i++) {
+          // Show only "YYYY-MM-DD"
+          const initialDate = dataJson[i].initialDate.toString().replace('T03:00:00.000Z', '');
+          const finalDate = dataJson[i].finalDate.toString().replace('T03:00:00.000Z', '');
 
-  //         // Data to show
-  //         data.push({
-  //           'name': dataJson[i].name,
-  //           'id': dataJson[i].id,
-  //           'time': dataJson[i].time,
-  //           'initialDate': initialDate,
-  //           'finalDate': finalDate
-  //         })
-  //       }
+          // Data to show
+          data.push({
+            'name': dataJson[i].name,
+            'id': dataJson[i].id,
+            'time': dataJson[i].time,
+            'initialDate': initialDate,
+            'finalDate': finalDate
+          })
+        }
 
-  //       return setData(data)
+        return setData(data)
 
-  //     } catch (error) {
-  //       console.log(error)
-  //     }
-  //   }
+      } catch (error) {
+        console.log(error)
+      }
+    }
 
-  //   teste()
-  // }, [])
+    teste()
+  }, [])
 
   function setInformation() {
     // Select link clicked and set this medicines on localStorage

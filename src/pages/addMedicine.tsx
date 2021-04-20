@@ -1,10 +1,9 @@
-import React, { SyntheticEvent, useState } from "react";
-import styles from '../styles/pages/addMedicine.module.css';
-import animate from '../styles/animation/animation.module.css';
 import Head from "next/head";
-import Header from "../Components/Header/header";
-import moment from "moment";
 import { useRouter } from "next/router";
+import React, { SyntheticEvent, useState } from "react";
+import Header from "../Components/Header/header";
+import animate from '../styles/animation/animation.module.css';
+import styles from '../styles/pages/addMedicine.module.scss';
 
 
 const Medicine = () => {

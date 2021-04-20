@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import BannerWelcome from "../Components/bannerWelcome/bannerWelcome";
 import OtherLoginOptions from "../Components/OtherLoginOptions/otherLoginOptions";
 
-import styles from '../styles/pages/login_register.module.scss';
+import styles from "../styles/pages/login_register.module.scss";
 import animate from '../styles/animation/animation.module.css';
 import Head from "next/head";
 
@@ -38,7 +38,6 @@ const Login = () => {
 
       // Get token
       const { token } = await login.json();
-      console.log(token)
       localStorage.setItem('token', token);
 
       return router.push('/');

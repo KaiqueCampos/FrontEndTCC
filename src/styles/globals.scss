@@ -5,30 +5,30 @@
 }
 
 :root {
-  --purpleToGreenBlue: linear-gradient(89.89deg, #6B42E1 20.24%, rgba(20, 216, 228, 0.79) 97.14%);
-  --google:linear-gradient(90deg, #E3E3E3 5.22%, #FBFBFB 100%);
-  --facebook: linear-gradient(90deg, #4267B2 32.03%, rgba(107, 147, 226, 0.75) 100%);
-  --red: #E83F5B;
-  --greenBlue: #14D8E4;
-  --purple: #6B42E1;
-  --grayGradient: linear-gradient(180deg, rgba(229, 229, 229, 0.31) 0%, #FFFFFF 100%);
-  --darkPurple: #3B1F8D;
-  --verticalGradient: linear-gradient(180deg, #6B42E1 0%, #14D8E4 100%);
+  --purpleToGreenBlue: linear-gradient(89.89deg, #6b42e1 20.24%, rgba(20, 216, 228, 0.79) 97.14%);
+  --google: linear-gradient(90deg, #e3e3e3 5.22%, #fbfbfb 100%);
+  --facebook: linear-gradient(90deg, #4267b2 32.03%, rgba(107, 147, 226, 0.75) 100%);
+  --red: #e83f5b;
+  --greenBlue: #14d8e4;
+  --purple: #6b42e1;
+  --grayGradient: linear-gradient(180deg, rgba(229, 229, 229, 0.31) 0%, #ffffff 100%);
+  --darkPurple: #3b1f8d;
+  --verticalGradient: linear-gradient(180deg, #6b42e1 0%, #14d8e4 100%);
   --placeholder: #969696;
   /* --purple-dark: #293078;
   --deep-purple: #1C225C;
   --black-purple:  #111542; */
 }
 
-@media(max-width: 1080px) {
+@media (max-width: 1080px) {
   html {
-      font-size: 93.75%;
+    font-size: 93.75%;
   }
 }
 
-@media(max-width: 720px) {
+@media (max-width: 720px) {
   html {
-      font-size: 87.5%;
+    font-size: 87.5%;
   }
 }
 
@@ -40,11 +40,13 @@ body {
   background-size: cover;
   -o-background-size: cover;
   color: #fff; */
-  
 }
 
-body, input, textarea, button {
-  font: 400 1rem 'Montserrat', sans-serif;
+body,
+input,
+textarea,
+button {
+  font: 400 1rem "Montserrat", sans-serif;
 }
 
 button {
@@ -62,7 +64,7 @@ a {
   margin: 0;
   padding: 0;
 
-  background: url('/img/backgrounds/background.png') no-repeat center center fixed;
+  background: url("/img/backgrounds/background.png") no-repeat center center fixed;
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -74,7 +76,7 @@ a {
   position: relative;
 }
 
-.containerBackground{
+.containerBackground {
   height: 100vh;
   max-height: 1080px;
   width: 100vw;
@@ -101,9 +103,9 @@ a {
   color: #fff;
 
   filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.479));
-}
 
-.titlePage img {
-  width: clamp(4rem,6vw, 7rem);
-  height: clamp(4rem,6vw, 7rem);
+  img {
+    width: clamp(4rem, 6vw, 7rem);
+    height: clamp(4rem, 6vw, 7rem);
+  }
 }

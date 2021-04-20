@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from '../styles/pages/MedicineDay.module.css';
+import styles from '../styles/pages/MedicineDay.module.scss';
 import animate from '../styles/animation/animation.module.css';
 import Header from "../Components/Header/header";
 

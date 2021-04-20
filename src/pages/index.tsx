@@ -1,17 +1,14 @@
+import { setupMaster } from 'node:cluster';
 import { useState } from 'react';
 import header from '../Components/Header/styles.module.scss';
 import NotLogged from '../Components/NotLogged/NotLogged';
-import styles from '../styles/pages/index.module.css';
 import animate from '../styles/animation/animation.module.css';
-
+import styles from '../styles/pages/index.module.scss';
 
 export default function Home() {
-
   // variables
   const [areLogged, setAreLogged] = useState(false);
-  const [id, setId] = useState("");
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
 
   async function teste() {
 
@@ -21,7 +18,7 @@ export default function Home() {
       const token = localStorage.getItem('token')
 
       // API connection
-      const indexLogged = await fetch('http://localhost:3333/index', {
+      const response = await fetch('http://localhost:3333/index', {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
@@ -30,12 +27,8 @@ export default function Home() {
       });
 
       // Get JSON information and save in variables line (7-9)
-      const indexInformationJSON = await indexLogged.json();
-
-      setId(indexInformationJSON.id);
-      setUsername(indexInformationJSON.username);
-      setEmail(indexInformationJSON.email);
-
+      const {username} = await response.json();
+      setUsername(username)
       return setAreLogged(true);
 
     } catch {
@@ -58,7 +51,7 @@ export default function Home() {
           <div className={`${header.container}`}>
             <div>
               <img src='/img/teste.jpg' />
-              <h3>Dona Lurdes</h3>
+              <h3>{username}</h3>
             </div>
           </div>
 

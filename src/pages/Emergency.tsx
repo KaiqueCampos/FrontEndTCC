@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Header from "../Components/Header/header";
-import styles from '../styles/pages/Emergency.module.css';
+import styles from '../styles/pages/Emergency.module.scss';
 import animate from '../styles/animation/animation.module.css';
 
 
