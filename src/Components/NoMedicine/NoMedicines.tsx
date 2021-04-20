@@ -1,5 +1,5 @@
-import animate from '../styles/animation/animation.module.css';
-import styles from "../styles/pages/Medicines.module.css";
+import animate from '../../styles/animation/animation.module.css';
+import styles from "./styles.module.scss";
 
 export default function NoMedicines() {
 
@@ -10,8 +10,5 @@ export default function NoMedicines() {
         <h2>Sem Medicamentos</h2>
       </div>
     </a>
-
-
-
   )
 }

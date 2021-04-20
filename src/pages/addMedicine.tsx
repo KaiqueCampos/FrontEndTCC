@@ -1,10 +1,8 @@
 import React, { SyntheticEvent, useState } from "react";
-import Layout from "../Layout/Layout";
-import titlePage from '../styles/Components/titlePage.module.css';
 import styles from '../styles/pages/addMedicine.module.css';
 import animate from '../styles/animation/animation.module.css';
 import Head from "next/head";
-import Header from "../Components/header";
+import Header from "../Components/Header/header";
 import moment from "moment";
 import { useRouter } from "next/router";
 
@@ -58,8 +56,6 @@ const Medicine = () => {
             })
         });
 
-        console.log(initialDate)
-
 
         const data = addMedicine;
         if (data.status === 200) {
@@ -78,12 +74,12 @@ const Medicine = () => {
                 <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css" />
             </Head>
 
-            <Layout>
+            <div className='container'>
                 <div className='containerBackground'>
                     <Header />
 
                     <div className={styles.container}>
-                        <div className={titlePage.titlePage}>
+                        <div className='titlePage'>
                             <img src='/img/icons/medicine.png' />
                         Adicionar Remédio
                     </div>
@@ -140,7 +136,7 @@ const Medicine = () => {
                         </form>
                     </div>
                 </div>
-            </Layout >
+            </div >
         </>
     );
 };

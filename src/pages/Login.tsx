@@ -1,11 +1,10 @@
 import React, { SyntheticEvent, useState } from "react";
 import { useRouter } from "next/router";
 
-import Layout from "../Layout/Layout";
-import BannerWelcome from "../Components/bannerWelcome";
-import OtherLoginOptions from "../Components/otherLoginOptions";
+import BannerWelcome from "../Components/bannerWelcome/bannerWelcome";
+import OtherLoginOptions from "../Components/OtherLoginOptions/otherLoginOptions";
 
-import styles from "../styles/pages/Register.module.css";
+import styles from '../styles/pages/login_register.module.scss';
 import animate from '../styles/animation/animation.module.css';
 import Head from "next/head";
 
@@ -50,11 +49,6 @@ const Login = () => {
 
   return (
     <>
-
-      <Head>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
-      </Head>
-
       <div className={`${styles.rowContainer} ${animate.up}`}>
 
         <BannerWelcome />

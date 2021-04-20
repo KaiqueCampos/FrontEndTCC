@@ -1,9 +1,8 @@
 import React, { SyntheticEvent } from "react";
-import Layout from "../Layout/Layout";
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import styles from '../styles/pages/Register.module.css';
-import BannerWelcome from "../Components/bannerWelcome";
+import styles from '../styles/pages/login_register.module.scss';
+import BannerWelcome from "../Components/bannerWelcome/bannerWelcome";
 import animate from '../styles/animation/animation.module.css';
 import Head from "next/head";
 

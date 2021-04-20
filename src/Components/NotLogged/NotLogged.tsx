@@ -1,6 +1,6 @@
-import styles from '../styles/Components/notLogged.module.css';
-import PlayVideo from './playVideo';
-import animate from '../styles/animation/animation.module.css';
+import styles from './styles.module.scss';
+import PlayVideo from '../playVideo/playVideo';
+import animate from '../../styles/animation/animation.module.css';
 
 
 export default function NotLogged() {

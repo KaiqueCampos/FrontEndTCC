@@ -1,20 +1,18 @@
 import React, { useState } from "react";
-import Header from "../Components/header";
-import Layout from "../Layout/Layout";
+import Header from "../Components/Header/header";
 import styles from '../styles/pages/Emergency.module.css';
 import animate from '../styles/animation/animation.module.css';
-import titlePage from '../styles/Components/titlePage.module.css';
 
 
 const Emergency = () => {
 
     return (
-        <Layout>
+        <div className='container'>
             <div className='containerBackground'>
                 <Header />
 
                 <div className={styles.container}>
-                    <div className={titlePage.titlePage}>
+                    <div className='titlePage'>
                         <img src='/img/icons/emergency.png' />
                         Emergência
                     </div>
@@ -39,7 +37,7 @@ const Emergency = () => {
                 </div>
 
             </div>
-        </Layout >
+        </div >
     );
 };
 

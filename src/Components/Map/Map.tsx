@@ -1,7 +1,6 @@
-import { redirect } from 'next/dist/next-server/server/api-utils';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
-import styles from '../styles/Components/map.module.css';
+import styles from './styles.module.css';
 
 const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 export default function Map() {

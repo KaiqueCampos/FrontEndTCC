@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import header from '../styles/Components/header.module.css';
-import NotLogged from '../Components/NotLogged';
-import Layout from '../Layout/Layout';
+import header from '../Components/Header/styles.module.scss';
+import NotLogged from '../Components/NotLogged/NotLogged';
 import styles from '../styles/pages/index.module.css';
 import animate from '../styles/animation/animation.module.css';
 
@@ -52,7 +51,7 @@ export default function Home() {
 
   teste()
   return (
-    <Layout>
+    <div className='container'>
       {areLogged ? (
         <div className='containerBackground'>
 
@@ -127,6 +126,6 @@ export default function Home() {
       )}
 
 
-    </Layout>
+    </div>
   )
 }

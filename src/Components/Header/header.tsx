@@ -1,7 +1,4 @@
-import styles from '../styles/Components/header.module.css';
-import animate from '../styles/animation/animation.module.css';
-import { useState } from 'react';
-
+import styles from './styles.module.scss';
 
 export default function Header() {
 
@@ -12,7 +9,6 @@ export default function Header() {
                 </a>
                 <div>
                     <img src='/img/teste.jpg' />
-                    {/* <h3>Dona Lurdes</h3> */}
                 </div>
         </div>
     )

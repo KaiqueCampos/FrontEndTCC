@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import Header from "../Components/header";
+import Header from "../Components/Header/header";
 import styles from '../styles/pages/Appointment.module.css';
 import animate from '../styles/animation/animation.module.css';
-import AppointmentDescription from "../Components/AppointmentDescription";
+import AppointmentDescription from "../Components/AppointmentDescription/AppointmentDescription";
 import Head from "next/head";
-import AppointmentVideo from "../Components/appointmentVideo";
-import SearchHospitalLocation from "../Components/searchHospitalLocation";
-import AppointmentForm from "../Components/AppointmentForm";
-import Map from "../Components/Map";
+import AppointmentVideo from "../Components/AppointmentVideo/appointmentVideo";
+import SearchHospitalLocation from "../Components/SearchHospitalLocation/searchHospitalLocation";
+import AppointmentForm from "../Components/AppointmentForm/AppointmentForm";
+import Map from "../Components/Map/Map";
 
 const Appointment = () => {
 

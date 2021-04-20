@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Layout from "../Layout/Layout";
-import titlePage from '../styles/Components/titlePage.module.css';
 import styles from '../styles/pages/MedicineDay.module.css';
 import animate from '../styles/animation/animation.module.css';
-import Header from "../Components/header";
+import Header from "../Components/Header/header";
 
 const MedicineDay = () => {
     //Variables
@@ -33,12 +31,12 @@ const MedicineDay = () => {
     }, [])
 
     return (
-        <Layout>
+        <div className='container'>
             <div className='containerBackground'>
                 <Header />
 
                 <div className={styles.container}>
-                    <div className={titlePage.titlePage}>
+                    <div className='titlePage'>
                         <img src='/img/icons/medicine.png' />
                         Remédios | {day}
                     </div>
@@ -68,7 +66,7 @@ const MedicineDay = () => {
 
                 </div>
             </div>
-        </Layout >
+        </div >
     );
 };
 
