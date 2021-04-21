@@ -1,11 +1,13 @@
 import {UserProvider } from '../Contexts/UserContext'
-import '../styles/globals.scss'
+import '../styles/globals.scss';
+import { CookiesProvider } from "react-cookie"
+
 
 function MyApp({ Component, pageProps }) {
   return (
-    <UserProvider>
+    <CookiesProvider>
       <Component {...pageProps} />
-    </UserProvider>
+    </CookiesProvider>
   )
 }
 

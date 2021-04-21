@@ -5,6 +5,7 @@ import Header from "../Components/Header/header";
 import NoMedicines from "../Components/NoMedicine/NoMedicines";
 import animate from "../styles/animation/animation.module.css";
 import styles from "../styles/pages/Medicines.module.scss";
+import { parseCookies } from "../utils/parseCookies";
 
 
 const Medicine = () => {
@@ -55,11 +56,12 @@ const Medicine = () => {
   medicinesOnDay = array;
 
   useEffect(() => {
-    async function teste() {
+    async function teste(req) {
 
       try {
-        // Get token in LocalStorage
-        const token = localStorage.getItem('token')
+
+        // Get token in cookies
+        const { token } = parseCookies(req)
 
         // API connection
         const indexLogged = await fetch('http://localhost:3333/showMedicine', {

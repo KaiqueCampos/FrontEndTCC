@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Header from "../Components/Header/header";
-import styles from '../styles/pages/Appointment.module.css';
+import styles from '../styles/pages/Appointment.module.scss';
 import animate from '../styles/animation/animation.module.css';
 import AppointmentDescription from "../Components/AppointmentDescription/AppointmentDescription";
 import Head from "next/head";

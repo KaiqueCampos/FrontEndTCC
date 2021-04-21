@@ -4,6 +4,7 @@ import React, { SyntheticEvent, useState } from "react";
 import Header from "../Components/Header/header";
 import animate from '../styles/animation/animation.module.css';
 import styles from '../styles/pages/addMedicine.module.scss';
+import { parseCookies } from "../utils/parseCookies";
 
 
 const Medicine = () => {
@@ -21,23 +22,22 @@ const Medicine = () => {
     }
 
     const time = []
-    function getTime(){
+    function getTime() {
         const container = document.querySelector(".timeDiv").querySelectorAll('input');
-        for (var i =0; i < container.length ; i++){
+        for (var i = 0; i < container.length; i++) {
             time.push(container[i].value)
         }
     }
-    
 
-    const submit = async (e: SyntheticEvent) => {
+
+    const submit = async (e: SyntheticEvent, req) => {
         e.preventDefault();
 
         //Get Hours
         getTime();
-        console.log(time)
 
-        // Get token in LocalStorage
-        const token = localStorage.getItem('token')
+        // Get token in cookies
+        const { token } = parseCookies(req)
 
         // API connection
         const addMedicine = await fetch('http://localhost:3333/registerMedicine', {
@@ -61,9 +61,9 @@ const Medicine = () => {
 
             // Get token
             return router.push('/Medicines');
-          } else {
+        } else {
             window.alert("Não foi possível adicionar este medicamento... tente novamente!")
-          }
+        }
     }
 
 

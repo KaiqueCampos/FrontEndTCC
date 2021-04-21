@@ -6,10 +6,11 @@ import OtherLoginOptions from "../Components/OtherLoginOptions/otherLoginOptions
 
 import styles from "../styles/pages/login_register.module.scss";
 import animate from '../styles/animation/animation.module.css';
-import Head from "next/head";
-
+import { useCookies } from "react-cookie"
 
 const Login = () => {
+  const [cookie, setCookie] = useCookies(["token"])
+
 
   // definition of variables
   const [password, setPassword] = useState("");
@@ -35,10 +36,13 @@ const Login = () => {
 
     // login sucess or not
     if (login.status === 200) {
-
       // Get token
       const { token } = await login.json();
-      localStorage.setItem('token', token);
+      setCookie("token", token, {
+        path: "/",
+        maxAge: 60 * 60 * 24, // Expires after 24hr
+        sameSite: true,
+      })
 
       return router.push('/');
     } else {

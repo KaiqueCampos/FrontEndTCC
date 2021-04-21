@@ -1,21 +1,24 @@
-import { setupMaster } from 'node:cluster';
+import { route } from 'next/dist/next-server/server/router';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import header from '../Components/Header/styles.module.scss';
-import NotLogged from '../Components/NotLogged/NotLogged';
 import animate from '../styles/animation/animation.module.css';
 import styles from '../styles/pages/index.module.scss';
+import { parseCookies } from '../utils/parseCookies';
 
-export default function Home() {
+
+export default function Home({req}) {
+
   // variables
-  const [areLogged, setAreLogged] = useState(false);
   const [username, setUsername] = useState("");
+  const router = useRouter();
 
   async function teste() {
 
-    try {
+    // Get token in cookies
+    const {token} = parseCookies(req)
 
-      // Get token in LocalStorage
-      const token = localStorage.getItem('token')
+    try {
 
       // API connection
       const response = await fetch('http://localhost:3333/index', {
@@ -27,12 +30,11 @@ export default function Home() {
       });
 
       // Get JSON information and save in variables line (7-9)
-      const {username} = await response.json();
-      setUsername(username)
-      return setAreLogged(true);
+      const { username } = await response.json();
+      return setUsername(username)
 
     } catch {
-      setAreLogged(false)
+      return router.push('/notLogged');
     }
 
   }
@@ -45,7 +47,6 @@ export default function Home() {
   teste()
   return (
     <div className='container'>
-      {areLogged ? (
         <div className='containerBackground'>
 
           <div className={`${header.container}`}>
@@ -113,12 +114,6 @@ export default function Home() {
 
           </div>
         </div>
-
-      ) : (
-        <NotLogged />
-      )}
-
-
     </div>
   )
 }
