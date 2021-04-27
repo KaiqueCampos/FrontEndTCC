@@ -56,12 +56,12 @@ const Medicine = () => {
   medicinesOnDay = array;
 
   useEffect(() => {
-    async function teste(req) {
+    async function teste() {
 
       try {
 
         // Get token in cookies
-        const { token } = parseCookies(req)
+        const { token } = parseCookies('')
 
         // API connection
         const indexLogged = await fetch('http://localhost:3333/showMedicine', {
@@ -139,7 +139,7 @@ const Medicine = () => {
 
                       {/* show each medicine of this day */}
                       {medicinesOnDay[daysWeek.indexOf(days)].map((medicine) => (
-                        <div className={animate.upMoreSlow}>
+                        <div className={animate.upMoreSlow} key={medicine.id}>
                           <p>{medicine.time}</p>
                           <hr></hr>
                           <p>{medicine.name}</p>

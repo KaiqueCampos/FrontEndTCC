@@ -47,7 +47,7 @@ const MedicineDay = () => {
                         <div className={`${styles.medicines} ${animate.upSlow}`}>
 
                             {data.map((medicine) => (
-                                <div className={animate.upMoreSlow}>
+                                <div className={animate.upMoreSlow} key={medicine.id}>
                                     <p>{medicine.time}</p>
                                     <hr></hr>
                                     <p>{medicine.name}</p>
