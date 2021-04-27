@@ -2,21 +2,22 @@ import { route } from 'next/dist/next-server/server/router';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import header from '../Components/Header/styles.module.scss';
+import NotLogged from '../Components/NotLogged/notLogged';
 import animate from '../styles/animation/animation.module.css';
 import styles from '../styles/pages/index.module.scss';
 import { parseCookies } from '../utils/parseCookies';
 
 
-export default function Home({req}) {
+export default function Home({ req }) {
 
   // variables
   const [username, setUsername] = useState("");
-  const router = useRouter();
+  const [isLogged, setIsLogged] = useState(false);
 
   async function teste() {
 
     // Get token in cookies
-    const {token} = parseCookies(req)
+    const { token } = parseCookies(req)
 
     try {
 
@@ -31,10 +32,12 @@ export default function Home({req}) {
 
       // Get JSON information and save in variables line (7-9)
       const { username } = await response.json();
-      return setUsername(username)
+      setUsername(username)
+
+      return setIsLogged(true)
 
     } catch {
-      return router.push('/notLogged');
+      return;
     }
 
   }
@@ -46,7 +49,8 @@ export default function Home({req}) {
 
   teste()
   return (
-    <div className='container'>
+    <>
+      {isLogged ? (<div className='container'>
         <div className='containerBackground'>
 
           <div className={`${header.container}`}>
@@ -114,6 +118,11 @@ export default function Home({req}) {
 
           </div>
         </div>
-    </div>
+      </div>
+      
+      ) : (
+        <NotLogged />
+      )}
+    </>
   )
 }

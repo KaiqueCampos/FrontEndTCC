@@ -7,11 +7,15 @@
     justify-content: center;
     align-items: center;
 
+    border-radius: 0 2rem 2rem 0;
+
     background-image: url("/img/backgrounds/purpleBackground.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
 
     color: white;
+
+    filter: drop-shadow(8px 0px 8px rgba(0, 0, 0, 0.37));
 
     h1 {
         font-size: clamp(3rem, 5vw, 5.5rem);

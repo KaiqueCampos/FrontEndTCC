@@ -32,7 +32,6 @@ const Login = () => {
         password: password,
       }),
     });
-    console.log(login)
 
     // login sucess or not
     if (login.status === 200) {
@@ -52,11 +51,11 @@ const Login = () => {
 
   return (
     <>
-      <div className={`${styles.rowContainer} ${animate.up}`}>
+      <div className={styles.rowContainer}>
 
         <BannerWelcome />
 
-        <form onSubmit={submit} className={styles.form}>
+        <form onSubmit={submit} className={`${styles.form} ${animate.upSlow}`}>
 
           <div className={styles.legend}>
             <h1>Login</h1>

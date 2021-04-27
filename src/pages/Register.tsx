@@ -18,25 +18,25 @@ const Register = () => {
 
     // submit function
     const submit = async (e: SyntheticEvent) => {
+        try {
+            e.preventDefault();
 
-        e.preventDefault();
+            // API connection
+            const register = await fetch('http://localhost:3333/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    username: name,
+                    email: email,
+                    password: password
+                })
+            });
 
-        // API connection
-        const register = await fetch('http://localhost:3333/register', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                username: name,
-                email: email,
-                password: password
-            })
-        });
+            return router.push('/Login')
 
-        const data = await register.json();
-        const dataConvert = JSON.stringify(data);
-        console.log(name)
-
-        return router.push('/Login')
+        } catch (error) {
+            return console.log(error)
+        }
     }
 
     return (
@@ -45,12 +45,12 @@ const Register = () => {
                 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
             </Head>
 
-            <div className={`${animate.up} ${styles.rowContainer}`}>
+            <div className={styles.rowContainer}>
 
                 <BannerWelcome />
 
 
-                <form onSubmit={submit} className={styles.form}>
+                <form onSubmit={submit} className={`${styles.form} ${animate.upSlow}`}>
 
                     <div className={styles.legend}>
                         <h1>Registre-se</h1>
