@@ -7,7 +7,6 @@ import animate from '../styles/animation/animation.module.css';
 import styles from '../styles/pages/index.module.scss';
 import { parseCookies } from '../utils/parseCookies';
 
-
 export default function Home({ req }) {
 
   // variables
@@ -90,7 +89,7 @@ export default function Home({ req }) {
             </div>
 
             <div className={`${animate.upSlow} ${styles.menuItem}`}>
-              <a href="#">
+              <a href="Recipes">
                 <div>
                   <img src='img/icons/recipe.png' />
                   Receitas
@@ -99,7 +98,7 @@ export default function Home({ req }) {
             </div>
 
             <div className={`${animate.upSlow} ${styles.menuItem}`}>
-              <a href="#">
+              <a href="FirstAid">
                 <div>
                   <img src='img/icons/firstAid.png' />
                   Socorros
@@ -108,7 +107,7 @@ export default function Home({ req }) {
             </div>
 
             <div className={`${animate.upSlow} ${styles.menuItem}`}>
-              <a href="#">
+              <a href="Help">
                 <div>
                   <img src='img/icons/help.png' />
                   Ajuda
