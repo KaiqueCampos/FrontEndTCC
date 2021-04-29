@@ -7,55 +7,22 @@ import animate from '../styles/animation/animation.module.css';
 import styles from '../styles/pages/index.module.scss';
 import { parseCookies } from '../utils/parseCookies';
 
-export default function Home({ req }) {
-
-  // variables
-  const [username, setUsername] = useState("");
-  const [isLogged, setIsLogged] = useState(false);
-
-  async function teste() {
-
-    // Get token in cookies
-    const { token } = parseCookies(req)
-
-    try {
-
-      // API connection
-      const response = await fetch('http://localhost:3333/index', {
-        method: "GET",
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-      });
-
-      // Get JSON information and save in variables line (7-9)
-      const { username } = await response.json();
-      setUsername(username)
-
-      return setIsLogged(true)
-
-    } catch {
-      return;
-    }
-
-  }
+export default function Home(props) {
 
   function logout() {
     localStorage.clear()
     document.location.reload(true);
   }
 
-  teste()
   return (
     <>
-      {isLogged ? (<div className='container'>
+      {props.isLogged ? (<div className='container'>
         <div className='containerBackground'>
 
           <div className={`${header.container}`}>
             <div>
               <img src='/img/teste.jpg' />
-              <h3>{username}</h3>
+              <h3>{props.username}</h3>
             </div>
           </div>
 
@@ -118,10 +85,42 @@ export default function Home({ req }) {
           </div>
         </div>
       </div>
-      
+
       ) : (
         <NotLogged />
       )}
     </>
   )
+}
+
+export async function getServerSideProps({ req }) {
+
+  //get token on cookies
+  const { token } = parseCookies(req)
+
+  // API connection
+  const response = await fetch('http://localhost:3333/index', {
+    method: "GET",
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+  });
+
+  if (response.status === 200) {
+    const { username } = await response.json();
+
+    return {
+      props: {
+        isLogged: true,
+        username: username
+      }
+    }
+
+  } else
+    return {
+      props: {
+        isLogged: false
+      }
+    }
 }

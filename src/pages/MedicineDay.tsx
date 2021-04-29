@@ -44,10 +44,10 @@ const MedicineDay = () => {
                     <div className={styles.medicinesOnDay}>
                         <h3>Remédios</h3>
 
-                        <div className={`${styles.medicines} ${animate.upSlow}`}>
+                        <div className={`${styles.medicines} ${animate.up}`}>
 
                             {data.map((medicine) => (
-                                <div className={animate.upMoreSlow} key={medicine.id}>
+                                <div className={animate.upSlow} key={medicine.id}>
                                     <p>{medicine.time}</p>
                                     <hr></hr>
                                     <p>{medicine.name}</p>
