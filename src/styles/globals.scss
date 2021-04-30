@@ -11,13 +11,12 @@
   --red: #e83f5b;
   --greenBlue: #14d8e4;
   --purple: #6b42e1;
+  --green: #2ECD5B;
   --grayGradient: linear-gradient(180deg, rgba(229, 229, 229, 0.31) 0%, #ffffff 100%);
   --darkPurple: #3b1f8d;
   --verticalGradient: linear-gradient(180deg, #6b42e1 0%, #14d8e4 100%);
   --placeholder: #969696;
-  /* --purple-dark: #293078;
-  --deep-purple: #1C225C;
-  --black-purple:  #111542; */
+  --darkLinear: linear-gradient(180deg, #6B42E1 9.17%, #6B42E1 21.88%, #250849 100%);
 }
 
 @media (max-width: 1080px) {

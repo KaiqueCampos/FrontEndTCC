@@ -1,17 +1,19 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../Components/Header/header";
 import NoMedicines from "../Components/NoMedicine/NoMedicines";
+import { useApp } from "../Contexts/AppContexts";
 import animate from "../styles/animation/animation.module.css";
 import styles from "../styles/pages/Medicines.module.scss";
 import { medicinesOnDay } from "../utils/medicinesOnDay";
 import { parseCookies } from "../utils/parseCookies";
 
-
 const Medicine = (props) => {
 
   //Variables
+  const { getAllMedicinesOfDay } = useApp();
   const router = useRouter();
+  const today = getAllMedicinesOfDay(props.data);
 
   function setInformation() {
     // Select link clicked and set this medicines on localStorage
@@ -41,7 +43,14 @@ const Medicine = (props) => {
             {/* Show div of each day in week */}
             {props.daysWeek.map((days) => (
 
-              <div className={`${styles.emergencyItem} ${animate.up}`}>
+              <div
+                key={props.daysWeek.indexOf(days)}
+                className={`${styles.emergencyItem} ${animate.up}`}
+                id={
+                  props.daysWeek.indexOf(days) === today ? 'today' : ''
+                    || props.daysWeek.indexOf(days) < today ? 'inactive' : ''
+                }
+              >
                 <h3>{days}</h3>
 
                 {/* if no has medicine in this day, show <NoMedicines/> */}
@@ -51,6 +60,7 @@ const Medicine = (props) => {
 
                       {/* show each medicine of this day */}
                       {props.data[props.daysWeek.indexOf(days)].map((medicine) => (
+
                         <div className={animate.upMoreSlow} key={medicine.id}>
                           <p>{medicine.time}</p>
                           <hr></hr>

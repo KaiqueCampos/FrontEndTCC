@@ -19,10 +19,14 @@ export default function Home(props) {
       {props.isLogged ? (<div className='container'>
         <div className='containerBackground'>
 
-          <div className={`${header.container}`}>
+          <div className={`${styles.header}`}>
+            <div>
+              <p>Bem-Vindo(a)</p>
+              <h3>{props.username}</h3>
+            </div>
+
             <div>
               <img src='/img/teste.jpg' />
-              <h3>{props.username}</h3>
             </div>
           </div>
 
@@ -113,7 +117,7 @@ export async function getServerSideProps({ req }) {
     return {
       props: {
         isLogged: true,
-        username: username
+        username: username.charAt(0).toUpperCase() + username.slice(1)
       }
     }
 
