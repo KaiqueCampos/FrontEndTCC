@@ -7,6 +7,9 @@ import animate from "../styles/animation/animation.module.css";
 import styles from "../styles/pages/Medicines.module.scss";
 import { medicinesOnDay } from "../utils/medicinesOnDay";
 import { parseCookies } from "../utils/parseCookies";
+import Link from 'next/Link'
+import moment from "moment";
+import { concatWithWithoutStatus } from "../utils/concatWithWithoutStatus";
 
 const Medicine = (props) => {
 
@@ -14,6 +17,7 @@ const Medicine = (props) => {
   const { getAllMedicinesOfDay } = useApp();
   const router = useRouter();
   const today = getAllMedicinesOfDay(props.data);
+  const time = moment(moment()).format("HH:mm");
 
   function setInformation() {
     // Select link clicked and set this medicines on localStorage
@@ -61,11 +65,18 @@ const Medicine = (props) => {
                       {/* show each medicine of this day */}
                       {props.data[props.daysWeek.indexOf(days)].map((medicine) => (
 
-                        <div className={animate.upMoreSlow} key={medicine.id}>
-                          <p>{medicine.time}</p>
-                          <hr></hr>
-                          <p>{medicine.name}</p>
-                        </div>
+                        <Link href={`/Status/${medicine.id}&${medicine.name}&${medicine.time}`}>
+                          <div
+                            className={animate.upMoreSlow}
+                            key={medicine.id}
+                            id={medicine.status === 1 ? 'noTaken' :  medicine.status === 0 ? 'taken' : ''}
+                          >
+                            <p>{medicine.time}</p>
+                            <hr></hr>
+                            <p>{medicine.name}</p>
+                            <hr></hr>
+                          </div>
+                        </Link>
                       ))}
 
                     </div>
@@ -86,14 +97,13 @@ const Medicine = (props) => {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
 export default Medicine;
 
 export async function getServerSideProps({ req }) {
-
   // Get token in cookies
   const token = parseCookies(req).token;
 
@@ -108,30 +118,56 @@ export async function getServerSideProps({ req }) {
 
   const responseJSON = await response.json()
 
+  // All Medicines
   const array = [];
-  for (var i = 0; i < responseJSON.length; i++) {
+  for (var i = 0; i < responseJSON[0].length; i++) {
 
     // Show only "YYYY-MM-DD"
-    const initialDate = responseJSON[i].initialDate.toString().replace('T03:00:00.000Z', '');
-    const finalDate = responseJSON[i].finalDate.toString().replace('T03:00:00.000Z', '');
+    const initialDate = responseJSON[0][i].initialDate.toString().replace('T03:00:00.000Z', '');
+    const finalDate = responseJSON[0][i].finalDate.toString().replace('T03:00:00.000Z', '');
 
     // Data to show
     array.push({
-      'name': responseJSON[i].name,
-      'id': responseJSON[i].id,
-      'time': responseJSON[i].time,
+      'name': responseJSON[0][i].name,
+      'id': responseJSON[0][i].id,
+      'time': responseJSON[0][i].time,
       'initialDate': initialDate,
-      'finalDate': finalDate
+      'finalDate': finalDate,
+      'status': 2,
+    })
+  }
+
+  //Medicines Status
+  const arrayOfStatusMedicines = []
+  for (var i = 0; i < responseJSON[1].length; i++) {
+
+    // Show only "YYYY-MM-DD"
+    const initialDate = responseJSON[1][i].initialDate.toString().replace('T03:00:00.000Z', '');
+    const finalDate = responseJSON[1][i].finalDate.toString().replace('T03:00:00.000Z', '');
+    const date = responseJSON[1][i].date.toString().replace('T03:00:00.000Z', '');
+
+    // Data to show
+    arrayOfStatusMedicines.push({
+      'name': responseJSON[1][i].name,
+      'id': responseJSON[1][i].id,
+      'time': responseJSON[1][i].time,
+      'status': responseJSON[1][i].status,
+      'date': date
     })
   }
 
   // calls the function to handle the data
   const data = medicinesOnDay(array);
 
+  // const dataStatus = medicinesOnDay(arrayOfStatusMedicines);
+
+  const dataFinal = concatWithWithoutStatus({ data, arrayOfStatusMedicines })
+
   return {
     props: {
-      data: data,
+      data: dataFinal,
       daysWeek: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
+      ,
     }
   }
 }

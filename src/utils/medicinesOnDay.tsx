@@ -7,7 +7,7 @@ export function medicinesOnDay(props) {
     // Filter data of days week]
     const handleData = []
     for (var i = 0; i < days.length; i++){
-        handleData.push(props.filter((medicine) => moment(days[i]).isBetween(medicine.initialDate, medicine.finalDate, null, '[]')))
+        handleData.push(props.filter((medicine) => moment(days[i]).isBetween(medicine?.initialDate, medicine?.finalDate, null, '[]')))
     }
 
     // Order medicines of day by time
