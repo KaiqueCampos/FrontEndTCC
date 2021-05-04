@@ -1,6 +1,5 @@
 import styles from './styles.module.scss';
-import animate from '../styles/animation/animation.module.css';
-
+import animate from '../../styles/animation/animation.module.css';
 
 export default function AppointmentDescription() {
 
@@ -13,7 +12,7 @@ export default function AppointmentDescription() {
                     <h3> Marcar Consulta</h3>
                 </div>
 
-                <p>
+                <p className={animate.upSlow}>
                     Para marcar uma consulta, digite qual  a especialidade,
                     selecione o local desejado no mapa e preencha  o formulário
                     com suas informações e envie.

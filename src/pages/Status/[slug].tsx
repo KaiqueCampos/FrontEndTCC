@@ -3,26 +3,27 @@ import { useRouter } from 'next/router';
 import { useApp } from '../../Contexts/AppContexts';
 import { parseCookies } from '../../utils/parseCookies';
 import styles from './styles.module.scss';
+import animate from '../../styles/animation/animation.module.css';
 
 export default function Status() {
-
-    // // Contexts
-    // const { medicineDayNotification } = useApp();
-    // medicineDayNotification();
 
     // Variables
     const router = useRouter();
     const slugData = router.query.slug;
     const currentDate = moment().format("YYYY-MM-DD");
+    const {
+        setPlayingState,
+    } = useApp();
+
+    setPlayingState(true)
 
     // Handle Date
     function splitString(stringToSplit, separator) {
         var arrayOfStrings = stringToSplit.split(separator);
         return arrayOfStrings
     }
-
+    // Get data
     const data = splitString(slugData, "&")
-    
 
     // Send Status to API
     async function submit(props, req) {
@@ -44,13 +45,15 @@ export default function Status() {
             })
         });
 
+        // Stop alarm and go to Medicines page
+        setPlayingState(false);
         router.push('/Medicines')
-    } 
-
+    }
+    
     return (
 
         <div className='container'>
-            <div className={styles.container}>
+            <div className={`${styles.container} ${animate.up}`}>
                 <div className={styles.titlePage}>
                     <div>
                         <img src="/img/icons/medicine.png" />
@@ -58,13 +61,13 @@ export default function Status() {
                     </div>
                 </div>
 
-                <div className={styles.medicineContainer}>
+                <div className={`${styles.medicineContainer} ${animate.upSlow}`}>
                     <p>{data[2]}</p>
                     <hr></hr>
                     <p>{data[1]}</p>
                 </div>
 
-                <div className={styles.buttons}>
+                <div className={`${styles.buttons} ${animate.upMoreSlow}`}>
                     <button onClick={() => submit(1)}>
                         Não tomei
                     </button>
@@ -73,6 +76,13 @@ export default function Status() {
                     </button>
                 </div>
             </div>
+
+            <audio id="timer-beep"
+                autoPlay
+                onPlay={() => setPlayingState(true)}
+                onPause={() => setPlayingState(false)}
+                src="/alarm.mp3"
+            />
         </div>
 
     )

@@ -24,6 +24,6 @@ export function medicinesOnDay(props) {
             array.push([])
         }
     }
-
+    
     return array;
 }

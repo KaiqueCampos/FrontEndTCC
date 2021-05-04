@@ -1,32 +1,31 @@
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Header from "../Components/Header/header";
 import NoMedicines from "../Components/NoMedicine/NoMedicines";
 import { useApp } from "../Contexts/AppContexts";
 import animate from "../styles/animation/animation.module.css";
 import styles from "../styles/pages/Medicines.module.scss";
+import { concatWithWithoutStatus } from "../utils/concatWithWithoutStatus";
 import { medicinesOnDay } from "../utils/medicinesOnDay";
 import { parseCookies } from "../utils/parseCookies";
-import Link from 'next/Link'
-import moment from "moment";
-import { concatWithWithoutStatus } from "../utils/concatWithWithoutStatus";
 
 const Medicine = (props) => {
 
   //Variables
-  const { getAllMedicinesOfDay } = useApp();
+  const {
+    getAllMedicinesOfDay,
+  } = useApp();
+
   const router = useRouter();
   const today = getAllMedicinesOfDay(props.data);
-  const time = moment(moment()).format("HH:mm");
 
   function setInformation() {
     // Select link clicked and set this medicines on localStorage
     document.querySelectorAll("a").forEach((a) => {
       a.onclick = (event) => {
         const dayClicked = a.querySelector('span').innerHTML
-        localStorage.setItem('medicines', JSON.stringify(props.data[props.daysWeek.indexOf(dayClicked)]))
-
         router.push(`/MedicineDay?day=${dayClicked}`)
+        // localStorage.setItem('medicines', JSON.stringify(props.data[props.daysWeek.indexOf(dayClicked)]))
       }
     })
   }
@@ -65,18 +64,16 @@ const Medicine = (props) => {
                       {/* show each medicine of this day */}
                       {props.data[props.daysWeek.indexOf(days)].map((medicine) => (
 
-                        <Link href={`/Status/${medicine.id}&${medicine.name}&${medicine.time}`}>
-                          <div
-                            className={animate.upMoreSlow}
-                            key={medicine.id}
-                            id={medicine.status === 1 ? 'noTaken' :  medicine.status === 0 ? 'taken' : ''}
-                          >
-                            <p>{medicine.time}</p>
-                            <hr></hr>
-                            <p>{medicine.name}</p>
-                            <hr></hr>
-                          </div>
-                        </Link>
+                        <div
+                          className={animate.upMoreSlow}
+                          key={medicine.id}
+                          id={medicine.status === 1 ? 'noTaken' : medicine.status === 0 ? 'taken' : ''}
+                        >
+                          <p>{medicine.time}</p>
+                          <hr></hr>
+                          <p>{medicine.name}</p>
+                          <hr></hr>
+                        </div>
                       ))}
 
                     </div>
@@ -160,7 +157,6 @@ export async function getServerSideProps({ req }) {
   const data = medicinesOnDay(array);
 
   // const dataStatus = medicinesOnDay(arrayOfStatusMedicines);
-
   const dataFinal = concatWithWithoutStatus({ data, arrayOfStatusMedicines })
 
   return {

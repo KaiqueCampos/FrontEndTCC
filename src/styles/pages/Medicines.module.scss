@@ -5,7 +5,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
     background: var(--grayGradient);
+    //dark theme
+    // background: none;
+
     width: clamp(60rem, 75vw, 1730px);
     height: clamp(23rem, 33vw, 625px);
     border-radius: 15px;
@@ -28,6 +32,7 @@
 
     &::-webkit-scrollbar-track {
         background: #d9d9d9;
+        // background: #4C465B;
         border-radius: 15px;
     }
 
@@ -62,7 +67,7 @@
     }
 
     &[id="inactive"] {
-        opacity: 0.5;
+        opacity: 0.6;
         pointer-events: none;
     }
 
@@ -121,12 +126,7 @@
         border-radius: 15px;
         box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.25);
         transition: filter 0.2s;
-        cursor: pointer;
         position: relative;
-
-        &:hover {
-            filter: brightness(0.8);
-        }
 
         &:nth-child(2) {
             background: var(--greenBlue);
