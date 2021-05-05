@@ -11,18 +11,18 @@ export default function Status() {
     const router = useRouter();
     const slugData = router.query.slug;
     const currentDate = moment().format("YYYY-MM-DD");
-    const {
-        setPlayingState,
-    } = useApp();
 
-    setPlayingState(true)
+    // true -> play audio | false -> stop audio
+    function setPlayingState(state: boolean) {
+        return;
+    }
+    setPlayingState(true);
 
     // Handle Date
     function splitString(stringToSplit, separator) {
         var arrayOfStrings = stringToSplit.split(separator);
         return arrayOfStrings
     }
-    // Get data
     const data = splitString(slugData, "&")
 
     // Send Status to API
@@ -49,7 +49,7 @@ export default function Status() {
         setPlayingState(false);
         router.push('/Medicines')
     }
-    
+
     return (
 
         <div className='container'>

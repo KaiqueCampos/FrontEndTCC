@@ -5,6 +5,8 @@ import styles from '../styles/pages/login_register.module.scss';
 import BannerWelcome from "../Components/bannerWelcome/bannerWelcome";
 import animate from '../styles/animation/animation.module.css';
 import Head from "next/head";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
 
@@ -32,10 +34,17 @@ const Register = () => {
                 })
             });
 
+            toast.success("Cadastro feito com sucesso!", {
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose: 5000,
+            });
             return router.push('/Login')
 
         } catch (error) {
-            return console.log(error)
+            toast.error("Não foi possível fazer o cadastro, tente novamente...", {
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose: false,
+            });
         }
     }
 

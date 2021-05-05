@@ -6,10 +6,11 @@ import { parseCookies } from '../utils/parseCookies';
 
 export default function Home(props) {
 
-  function logout() {
-    localStorage.clear()
-    document.location.reload(true);
-  }
+  // function logout() {
+  //   localStorage.clear()
+  //   document.location.reload(true);
+  // }
+
 
   return (
     <>

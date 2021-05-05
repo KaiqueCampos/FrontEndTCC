@@ -6,7 +6,9 @@ import OtherLoginOptions from "../Components/OtherLoginOptions/otherLoginOptions
 
 import styles from "../styles/pages/login_register.module.scss";
 import animate from '../styles/animation/animation.module.css';
-import { useCookies } from "react-cookie"
+import { useCookies } from "react-cookie";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const [cookie, setCookie] = useCookies(["token"])
@@ -41,11 +43,19 @@ const Login = () => {
         path: "/",
         maxAge: 60 * 60 * 24, // Expires after 24hr
         sameSite: true,
-      })
+      });
+
+      toast.success("Login feito com sucesso!", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 5000,
+      });
 
       return router.push('/');
     } else {
-      window.alert("Login Incorreto!")
+      toast.error("Email ou senha incorretos, tente novamente...", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: false,
+      });
     }
   };
 

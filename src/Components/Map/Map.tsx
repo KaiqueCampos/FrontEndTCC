@@ -1,39 +1,42 @@
-import Head from 'next/head';
-import { useEffect, useState } from 'react';
-import styles from './styles.module.css';
+import { useEffect } from "react";
+import Maap from "./mapa";
+import Head from "next/Head";
 
-const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
-export default function Map() {
+function Map() {
 
-    mapboxgl.accessToken = "pk.eyJ1Ijoia2FpcXVlY2FtcG9zIiwiYSI6ImNrbmtpYXQ5azA5cmIyem94dXZ5emw3ODEifQ.0-PbKJ3GjKs-tYLSLuXtjA";
+  return (
+    <>
+      <Head>
+        <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
 
-    const [pageIsMounted, setPageIsMounted] = useState(false)
+        <link
+          href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css"
+          rel="stylesheet"
+        />
 
-    useEffect(() => {
-        setPageIsMounted(true)
-        const map = new mapboxgl.Map({
-            container: "my-map",
-            style: "mapbox://styles/mapbox/streets-v11",
-        });
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
+        <link
+          rel="stylesheet"
+          href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css"
+          type="text/css"
+        />
 
-        console.log(map)
-    }, [])
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
 
-    console.log(pageIsMounted)
 
-    return (
-        <>
-            <Head>
-                <link
-                    href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css"
-                    rel="stylesheet"
-                />
-            </Head>
 
-            <main className={styles.main}>
-                <div id="my-map" style={{ height: 500, width: 500 }} />
-            </main>
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+        <link
+          rel="stylesheet"
+          href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+          type="text/css"
+        ></link>
+      </Head>
 
-        </>
-    )
+        <Maap />
+    </>
+  );
 }
+
+export default Map;

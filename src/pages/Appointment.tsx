@@ -8,6 +8,7 @@ import AppointmentVideo from "../Components/AppointmentVideo/appointmentVideo";
 import SearchHospitalLocation from "../Components/SearchHospitalLocation/searchHospitalLocation";
 import AppointmentForm from "../Components/AppointmentForm/AppointmentForm";
 import Map from "../Components/Map/Map";
+import Mapp from "../Components/Map/Map";
 
 const Appointment = () => {
 
@@ -31,12 +32,10 @@ const Appointment = () => {
                         </div>
 
                         <SearchHospitalLocation />
-        
+                        <Map />
                     </div>
 
                     <AppointmentForm />
-                    {/* <Map/> */}
-                    
                 </div>
 
                 <div className={styles.finalImage} />

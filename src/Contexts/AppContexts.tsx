@@ -2,10 +2,12 @@ import moment from "moment";
 import { useRouter } from "next/router";
 import { createContext, ReactNode, useContext, useState } from 'react';
 import { daysOfWeek } from '../utils/daysOfWeek';
+import React, { SyntheticEvent } from "react";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'
 
 type AppContextData = {
     medicinesToday: Array<Object>
-    setPlayingState: (state: boolean) => void
     medicineDayNotification: () => void;
     getAllMedicinesOfDay: (props: Array<Object>) => Number;
 }
@@ -21,32 +23,20 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
     // variables
     const [medicinesToday, setMedicinesToday] = useState([]);
     const router = useRouter();
-    console.log(medicinesToday)
 
     // Functions
     function medicineDayNotification() {
+        var time = moment(Date.now()).format("HH:mm")
 
-        function check() {
-            var time = moment(Date.now()).format("HH:mm")
-            // console.log(time)
-
-            for (var i = 0; i < medicinesToday.length; i++) {
-                if (time === medicinesToday[i].time && medicinesToday[i].status === 2) {
-                    router.push(`/Status/${medicinesToday[i].id}&${medicinesToday[i].name}&${medicinesToday[i].time}`);
-                }
+        for (var i = 0; i < medicinesToday.length; i++) {
+            if (time === medicinesToday[i].time && medicinesToday[i].status === 2) {
+                router.push(`/Status/${medicinesToday[i].id}&${medicinesToday[i].name}&${medicinesToday[i].time}`);
             }
-        };
-
-        setInterval(check, 1000 * 60);
-    }
+        }
+    };
 
     // Verify in each minute if has medicines to taken
-    medicineDayNotification();
-
-    // true -> play audio | false -> stop audio
-    function setPlayingState(state: boolean) {
-        return;
-    }
+    setInterval(medicineDayNotification, 1000 * 60);
 
     function getAllMedicinesOfDay(props) {
 
@@ -57,15 +47,15 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
         // Get medicines of today
         const indexOf = days.indexOf(currentDay);
         setMedicinesToday(props[indexOf])
-    
+
         return indexOf;
     }
 
+    // Notifications
     return (
         <AppContext.Provider
             value={{
                 medicinesToday,
-                setPlayingState,
                 medicineDayNotification,
                 getAllMedicinesOfDay,
             }}>
