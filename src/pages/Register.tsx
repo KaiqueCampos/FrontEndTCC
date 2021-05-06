@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import styles from '../styles/pages/login_register.module.scss';
 import BannerWelcome from "../Components/bannerWelcome/bannerWelcome";
 import animate from '../styles/animation/animation.module.css';
-import Head from "next/head";
+import Head from "next/Head";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 

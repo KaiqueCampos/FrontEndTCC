@@ -100,6 +100,8 @@ const Medicine = (props) => {
 
 export default Medicine;
 
+
+
 export async function getServerSideProps({ req }) {
   // Get token in cookies
   const token = parseCookies(req).token;

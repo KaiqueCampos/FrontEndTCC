@@ -1,16 +1,18 @@
+import { useCookies } from 'react-cookie';
 import NotLogged from '../Components/NotLogged/notLogged';
-import { useApp } from '../Contexts/AppContexts';
 import animate from '../styles/animation/animation.module.css';
 import styles from '../styles/pages/index.module.scss';
+import { initialProfile, profileHover } from '../utils/indexMenu';
 import { parseCookies } from '../utils/parseCookies';
+import Link from 'next/Link'
 
 export default function Home(props) {
+  const [cookie, setCookie] = useCookies(["token"])
 
-  // function logout() {
-  //   localStorage.clear()
-  //   document.location.reload(true);
-  // }
-
+  function logout() {
+    setCookie("token", "");
+    document.location.reload(true);
+  }
 
   return (
     <>
@@ -18,14 +20,31 @@ export default function Home(props) {
         <div className='container'>
           <div className='containerBackground'>
 
-            <div className={`${styles.header}`}>
-              <div>
+            <div className={`${styles.header}`} id="header" onMouseLeave={initialProfile}>
+              <div id="textProfile" className={styles.textProfile}>
                 <p>Bem-Vindo(a)</p>
                 <h3>{props.username}</h3>
               </div>
 
-              <div>
+              <div id="profile" onMouseOver={profileHover}>
                 <img src='/img/teste.jpg' />
+              </div>
+
+              <div className={styles.headerMenu} id="headerMenu">
+                <Link href="#">
+                  <h3>Configurações</h3>
+                </Link>
+                <hr></hr>
+
+                <Link href="/updateInformations">
+                  <h3>Editar Informações</h3>
+                </Link>
+                <hr></hr>
+
+                <button onClick={logout}>
+                  <img src="/img/icons/sair.png" />
+                  Sair
+                </button>
               </div>
             </div>
 

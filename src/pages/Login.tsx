@@ -13,7 +13,6 @@ import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
   const [cookie, setCookie] = useCookies(["token"])
 
-
   // definition of variables
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");

@@ -68,7 +68,10 @@
 
     &[id="inactive"] {
         opacity: 0.6;
-        pointer-events: none;
+        
+        a{
+            pointer-events: none;
+        }
     }
 
     h3 {
