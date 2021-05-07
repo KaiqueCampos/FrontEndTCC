@@ -5,6 +5,7 @@ import styles from '../styles/pages/index.module.scss';
 import { initialProfile, profileHover } from '../utils/indexMenu';
 import { parseCookies } from '../utils/parseCookies';
 import Link from 'next/Link'
+import { useEffect } from 'react';
 
 export default function Home(props) {
   const [cookie, setCookie] = useCookies(["token"])
@@ -13,6 +14,8 @@ export default function Home(props) {
     setCookie("token", "");
     document.location.reload(true);
   }
+
+  console.log(props.imageProfile)
 
   return (
     <>
@@ -28,7 +31,7 @@ export default function Home(props) {
               </div>
 
               <div id="profile" onMouseOver={profileHover}>
-                <img src={props.imagePerfil} />
+                <img id='imageSRC' src={props.imagePerfil} />
               </div>
 
               <div className={styles.headerMenu} id="headerMenu">
