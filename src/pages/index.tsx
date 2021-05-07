@@ -20,14 +20,15 @@ export default function Home(props) {
         <div className='container'>
           <div className='containerBackground'>
 
-            <div className={`${styles.header}`} id="header" onMouseLeave={initialProfile}>
+            <div
+              className={`${styles.header}`} id="header" onMouseLeave={initialProfile}>
               <div id="textProfile" className={styles.textProfile}>
                 <p>Bem-Vindo(a)</p>
                 <h3>{props.username}</h3>
               </div>
 
               <div id="profile" onMouseOver={profileHover}>
-                <img src='/img/teste.jpg' />
+                <img src={props.imagePerfil} />
               </div>
 
               <div className={styles.headerMenu} id="headerMenu">
@@ -130,12 +131,13 @@ export async function getServerSideProps({ req }) {
   });
 
   if (response.status === 200) {
-    const { username } = await response.json();
+    const { username, imagePerfil } = await response.json();
 
     return {
       props: {
         isLogged: true,
         username: username.charAt(0).toUpperCase() + username.slice(1),
+        imagePerfil: imagePerfil
       }
     }
 

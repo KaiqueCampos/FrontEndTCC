@@ -1,4 +1,4 @@
-import React, { SyntheticEvent } from "react";
+import React, { SyntheticEvent, useEffect } from "react";
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from '../styles/pages/login_register.module.scss';
@@ -10,13 +10,24 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
 
-    //const {data} = useContext(ChallengesContext)
-
     // definition of variables
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [imagePerfil, setImagePerfil] = useState('')
     const router = useRouter();
+
+    // Open input file and change image
+    function upload() {
+        document.getElementById('uploadImage').click();
+    }
+
+    function img_pathUrl() {
+        const input = document.getElementById('uploadImage').files[0];
+        document.getElementById('imageSRC').src = (URL.createObjectURL(input))
+        setImagePerfil((URL.createObjectURL(input)));
+    }
+    
 
     // submit function
     const submit = async (e: SyntheticEvent) => {
@@ -30,7 +41,8 @@ const Register = () => {
                 body: JSON.stringify({
                     username: name,
                     email: email,
-                    password: password
+                    password: password,
+                    imagePerfil: imagePerfil
                 })
             });
 
@@ -66,6 +78,20 @@ const Register = () => {
                         <p>Caso tenha uma conta, volte para
                     <a href='/Login'> Login</a>
                         </p>
+                    </div>
+
+                    <div className={styles.imageProfile}>
+                        <img id="imageSRC" src='img/icons/userPurple.png' />
+                        <button type='button' onClick={upload}>
+                            <input
+                                id="uploadImage"
+                                onChange={img_pathUrl}
+                                type="file"
+                            />
+
+                            Selecinar Imagem
+                        </button>
+
                     </div>
 
 
