@@ -1,11 +1,11 @@
+import Link from 'next/Link';
 import { useCookies } from 'react-cookie';
 import NotLogged from '../Components/NotLogged/notLogged';
+import { useApp } from '../Contexts/AppContexts';
 import animate from '../styles/animation/animation.module.css';
 import styles from '../styles/pages/index.module.scss';
 import { initialProfile, profileHover } from '../utils/indexMenu';
 import { parseCookies } from '../utils/parseCookies';
-import Link from 'next/Link'
-import { useEffect } from 'react';
 
 export default function Home(props) {
   const [cookie, setCookie] = useCookies(["token"])
@@ -14,8 +14,6 @@ export default function Home(props) {
     setCookie("token", "");
     document.location.reload(true);
   }
-
-  console.log(props.imageProfile)
 
   return (
     <>
@@ -55,57 +53,57 @@ export default function Home(props) {
             <div className={`${styles.menuContainer}`}>
 
               <div className={`${animate.up} ${styles.menuItem}`}>
-                <a href="/Emergency">
+                <Link href="/Emergency">
                   <div>
                     <img src='img/icons/emergency.png' />
                   Emergência
                 </div>
-                </a>
+                </Link>
               </div>
 
               <div className={`${animate.up} ${styles.menuItem}`}>
-                <a href="/Medicines">
+                <Link href="/Medicines">
                   <div>
                     <img src='img/icons/medicine.png' />
                   Remédios
                 </div>
-                </a>
+                </Link>
               </div>
 
               <div className={`${animate.up} ${styles.menuItem}`}>
-                <a href="Appointment">
+                <Link href="Appointment">
                   <div>
                     <img src='img/icons/consultas.png' />
                   Consultas
                 </div>
-                </a>
+                </Link>
               </div>
 
               <div className={`${animate.upSlow} ${styles.menuItem}`}>
-                <a href="Recipes">
+                <Link href="Recipes">
                   <div>
                     <img src='img/icons/recipe.png' />
                   Receitas
                 </div>
-                </a>
+                </Link>
               </div>
 
               <div className={`${animate.upSlow} ${styles.menuItem}`}>
-                <a href="FirstAid">
+                <Link href="FirstAid">
                   <div>
                     <img src='img/icons/firstAid.png' />
                   Socorros
                 </div>
-                </a>
+                </Link>
               </div>
 
               <div className={`${animate.upSlow} ${styles.menuItem}`}>
-                <a href="Help">
+                <Link href="Help">
                   <div>
                     <img src='img/icons/help.png' />
                   Ajuda
                 </div>
-                </a>
+                </Link>
               </div>
 
             </div>
@@ -125,7 +123,7 @@ export async function getServerSideProps({ req }) {
   const { token } = parseCookies(req);
 
   // API connection
-  const response = await fetch('http://localhost:3333/index', {
+  const response = await fetch('http://localhost:3333/showUser', {
     method: "GET",
     headers: {
       'Content-Type': 'application/json',

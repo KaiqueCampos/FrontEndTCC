@@ -49,8 +49,6 @@ class Mapp extends React.Component {
             })
         }
 
-        console.log(array[0].image)
-
         const map = new mapboxgl.Map({
             container: "my-map",
             style: "mapbox://styles/mapbox/streets-v11",
@@ -100,24 +98,25 @@ class Mapp extends React.Component {
             map.removeControl(directions);
         }
 
-        //put the markers in the map
-        array.forEach((location) => {
-            var marker = new mapboxgl.Marker({
-                color: 'var(--purple)',
-                background: 'none',
-                background: "url('https://image.flaticon.com/icons/png/512/504/504276.png') 100% 100%"
+        if (array.length > 0) {
+            //put the markers in the map
+            array.forEach((location) => {
+                var marker = new mapboxgl.Marker({
+                    color: 'var(--purple)',
+                    background: 'none',
+                    background: "url('https://image.flaticon.com/icons/png/512/504/504276.png') 100% 100%"
+                })
+                    .setLngLat(location.coordinates)
+                    .setPopup(new mapboxgl.Popup({ offset: 25 })
+                        .setHTML(
+                            "<div id='popup'><a href='#'>" +
+                            "<img src='" + location.image + "'/><div><p>Ver Mais</p></div></a><div>" +
+                            "<h4 id='teste' >" + location.username + "</h4>" + location.cidade + " | " + location.estado + "</div><a href='www.google.com' class='button'>" +
+                            "<button><img src='img/icons/rigthWhite.png'/></button></a></div>"))
+                    .addTo(map);
             })
-                .setLngLat(location.coordinates)
-                .setPopup(new mapboxgl.Popup({ offset: 25 })
-                    .setHTML(
-                        "<div id='popup'><a href='#'>" +
-                        "<img src='" + location.image + "'/><div><p>Ver Mais</p></div></a><div>" +
-                        "<h4 id='teste' >" + location.username + "</h4>" + location.cidade + " | " + location.estado + "</div><a href='www.google.com' class='button'>" +
-                        "<button><img src='img/icons/rigthWhite.png'/></button></a></div>"))
-                .addTo(map);
-        })
+        }
     }
-
 
     render() {
 

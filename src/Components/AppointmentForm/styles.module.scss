@@ -39,9 +39,8 @@
         font-weight: 600;
         color: #fff;
 
-        &:first-child{
+        &:first-child {
             margin-bottom: clamp(1rem, 2vw, 30px);
-
         }
     }
 
@@ -55,12 +54,11 @@
         padding: 0 2rem 0 2rem;
         font-size: clamp(1rem, 1.3vw, 1.5rem);
 
-        &::placeholder{
+        &::placeholder {
             font-weight: 500;
             color: var(--placeholder);
         }
     }
-
 
     textarea {
         resize: none;
@@ -71,7 +69,7 @@
         font-size: clamp(1rem, 1.2vw, 1.5rem);
         font-weight: 500;
 
-        &::placeholder{
+        &::placeholder {
             color: var(--placeholder);
         }
     }
@@ -151,17 +149,29 @@
     color: var(--placeholder);
     transition: filter 0.2s;
 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    background-image: url("/img/icons/graySeeMore.png");
+    background-size: 1rem;
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: 50%;
+
     &:hover,
     &:focus {
         filter: brightness(0.85);
     }
 
     option {
-        color: #fff;
-        background: var(--purple);
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: var(--darkPurple);
+        background: #fff;
 
         &:hover {
-            background: var(--darkPurple);
+            filter: brightness(0.8);
         }
     }
 }

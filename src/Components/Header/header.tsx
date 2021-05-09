@@ -1,11 +1,12 @@
+import Link from 'next/Link';
 import styles from './styles.module.scss';
 
 export default function Header() {
     return (
         <div className={`${styles.container}`}>
-                <a href='/'>
-                    <img src='/img/icons/back.png'/>
-                </a>
+                <Link href='/'>
+                    <img className={styles.comeBack} src='/img/icons/back.png'/>
+                </Link>
                 <div>
                     <img src='/img/teste.jpg' />
                 </div>

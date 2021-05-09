@@ -26,8 +26,8 @@ const Register = () => {
         const input = document.getElementById('uploadImage').files[0];
         document.getElementById('imageSRC').src = (URL.createObjectURL(input))
         setImagePerfil((URL.createObjectURL(input)));
+        console.log(imagePerfil)
     }
-    
 
     // submit function
     const submit = async (e: SyntheticEvent) => {

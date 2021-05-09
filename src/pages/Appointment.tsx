@@ -3,14 +3,18 @@ import Header from "../Components/Header/header";
 import styles from '../styles/pages/Appointment.module.scss';
 import animate from '../styles/animation/animation.module.css';
 import AppointmentDescription from "../Components/AppointmentDescription/AppointmentDescription";
-import Head from "next/head";
+import Head from "next/Head";
 import AppointmentVideo from "../Components/AppointmentVideo/appointmentVideo";
 import SearchHospitalLocation from "../Components/SearchHospitalLocation/searchHospitalLocation";
 import AppointmentForm from "../Components/AppointmentForm/AppointmentForm";
 import Map from "../Components/Map/Map";
-import Mapp from "../Components/Map/Map";
+import { parseCookies } from "../utils/parseCookies";
+import { useApp } from "../Contexts/AppContexts";
 
-const Appointment = () => {
+const Appointment = (props) => {
+
+    const {getUserInformation} = useApp();
+    getUserInformation(props.data);
 
     return (
         <>
@@ -47,3 +51,42 @@ const Appointment = () => {
 };
 
 export default Appointment;
+
+export async function getServerSideProps({ req }) {
+    //get token on cookies
+    const { token } = parseCookies(req);
+
+    // API connection
+    const response = await fetch('http://localhost:3333/showUser', {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+    });
+
+    const {
+        adress,
+        age,
+        cep,
+        chronicDisease,
+        height,
+        phoneNumber,
+        weight
+    } = await response.json();
+
+    return {
+        props: {
+            data: {
+                adress: adress,
+                age: age,
+                cep: cep,
+                chronicDisease: chronicDisease,
+                height: height,
+                phoneNumber: phoneNumber,
+                weight: weight,
+            }
+        }
+    }
+
+}

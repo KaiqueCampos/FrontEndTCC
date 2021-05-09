@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from '../styles/pages/MedicineDay.module.scss';
 import animate from '../styles/animation/animation.module.css';
 import Header from "../Components/Header/header";
+import Link from "next/Link";
 
 const MedicineDay = () => {
     //Variables
@@ -58,11 +59,11 @@ const MedicineDay = () => {
                         </div>
                     </div>
 
-                    <a href="addMedicine">
+                    <Link href="addMedicine">
                         <div className={styles.addMedicine}>
                             <img src='/img/icons/add.png' />
                         </div>
-                    </a>
+                    </Link>
 
                 </div>
             </div>
