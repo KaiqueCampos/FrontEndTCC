@@ -1,4 +1,5 @@
 import Link from 'next/Link';
+import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import NotLogged from '../Components/NotLogged/notLogged';
 import { useApp } from '../Contexts/AppContexts';
@@ -9,11 +10,16 @@ import { parseCookies } from '../utils/parseCookies';
 
 export default function Home(props) {
   const [cookie, setCookie] = useCookies(["token"])
+  const [imageProfile, setImageProfile] = useState('');
 
   function logout() {
     setCookie("token", "");
     document.location.reload(true);
   }
+
+  useEffect(() => {
+    setImageProfile('data:image/jpeg;base64,' + btoa(props.imagePerfil));
+  })
 
   return (
     <>
@@ -29,7 +35,7 @@ export default function Home(props) {
               </div>
 
               <div id="profile" onMouseOver={profileHover}>
-                <img id='imageSRC' src={props.imagePerfil} />
+                <img id='imageSRC' src={imageProfile} />
               </div>
 
               <div className={styles.headerMenu} id="headerMenu">

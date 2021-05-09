@@ -22,11 +22,19 @@ const Register = () => {
         document.getElementById('uploadImage').click();
     }
 
-    function img_pathUrl() {
-        const input = document.getElementById('uploadImage').files[0];
-        document.getElementById('imageSRC').src = (URL.createObjectURL(input))
-        setImagePerfil((URL.createObjectURL(input)));
-        console.log(imagePerfil)
+    function uploadFile(inputElement) {
+        var file = document.getElementById('uploadImage').files[0];
+        
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            /******************* for Binary ***********************/
+            var data = (reader.result).split(',')[1];
+            var binaryBlob = atob(data);
+            setImagePerfil(binaryBlob)
+            document.querySelector('#imageSRC').src = 'data:image/jpeg;base64,' + btoa(binaryBlob);
+        }
+
+        reader.readAsDataURL(file);
     }
 
     // submit function
@@ -85,7 +93,7 @@ const Register = () => {
                         <button type='button' onClick={upload}>
                             <input
                                 id="uploadImage"
-                                onChange={img_pathUrl}
+                                onChange={uploadFile}
                                 type="file"
                             />
 
