@@ -4,36 +4,43 @@
     margin: 0;
     padding: 0;
 
-    background-image: var(--darkLinear);
     display: flex;
     align-items: center;
     justify-content: center;
 
-    position: relative;
+    background: url("/img/backgrounds/whiteTheme.png") no-repeat center center fixed;
 
-    .backgroundImage {
-        position: absolute;
-        z-index: 2;
-        width: 100%;
-        height: 100%;
-        background: url("/img/backgrounds/darkBackground.png") no-repeat center center fixed;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position: relative;
 
     .banner {
         z-index: 2;
         width: 50%;
         height: 100vh;
-        background: #14dae4a9;
+        background: var(--darkLinear);
         border-radius: 0 2rem 2rem 0;
 
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        
+
+        .backgroundImage {
+            border-radius: 0 2rem 2rem 0;
+            position: absolute;
+            z-index: 1;
+            width: 50%;
+            height: 100%;
+            background: url("/img/backgrounds/darkBackground.png") no-repeat center center fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
 
         p {
+            z-index: 5;
             width: 80%;
             text-align: center;
             font-size: clamp(1.2rem, 1.7vw, 2rem);
@@ -43,9 +50,10 @@
         }
 
         img {
+            z-index: 3;
             width: 60%;
             height: 60%;
-            margin-bottom: clamp(1.5rem,1.7vw, 2rem);
+            margin-bottom: clamp(1.5rem, 1.7vw, 2rem);
         }
     }
 
@@ -64,13 +72,15 @@
             margin-top: clamp(1rem, 2vw, 30px);
             font-size: clamp(1.3rem, 2vw, 2rem);
             font-weight: 600;
-            color: #fff;
+            color: var(--purple);
 
             &:first-child {
                 margin-bottom: clamp(1rem, 2vw, 30px);
             }
 
             input[type="text"] {
+                background: var(--white2);
+                box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
                 width: 100%;
                 height: clamp(2.2rem, 3vw, 50px);
                 border: 0;
@@ -108,6 +118,8 @@
             }
 
             textarea {
+                background: #c6c6d262;
+                box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
                 margin-top: 1rem;
                 width: 100%;
                 resize: none;
@@ -136,7 +148,7 @@
                     gap: 0.5rem;
                     font-size: clamp(1rem, 1.2vw, 1.5rem);
                     font-weight: 600;
-                    color: #fff;
+                    color: var(--purple);
                 }
 
                 div input {
@@ -144,8 +156,10 @@
                     width: 1rem;
                     height: 1rem;
                     padding: 0.4rem;
-                    background: white;
-                    transition: border-radius 0.2s;
+                    background: #fff;
+                    border: 1px solid var(--darkPurple);
+                    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+                    border-radius: 0.3rem;
 
                     &:after {
                         display: flex;
@@ -162,49 +176,23 @@
                 }
             }
 
-            /* selects */
-            .select {
-                height: clamp(2.5rem, 3vw, 50px);
-                border: 0;
-                border-radius: 15px;
-                padding: 0 1.3rem 0 1.3rem;
-                font: 400 1rem "Montserrat", sans-serif;
-                font-size: clamp(1rem, 1.2vw, 1.5rem);
-                font-weight: 500;
-                color: var(--placeholder);
-                transition: filter 0.2s;
-
-                &:hover,
-                &:focus {
-                    filter: brightness(0.85);
-                }
-
-                option {
-                    color: #fff;
-                    background: var(--purple);
-
-                    &:hover {
-                        background: var(--darkPurple);
-                    }
-                }
-            }
-
-            button{
-                margin-top: clamp(1.2rem,1.5vw, 2rem);
+            button {
+                margin-top: clamp(1.2rem, 1.5vw, 2rem);
                 width: 100%;
                 height: clamp(3rem, 3.7vw, 4rem);
 
                 border: 0;
                 border-radius: 1rem;
 
-                background: var(--purple);
+                background: var(--purpleToGreenBlue);
+                box-shadow: 10px 10px 50px #6b42e1;
                 font-size: clamp(1rem, 1.2vw, 1.3rem);
                 font-weight: 500;
                 color: #fff;
 
                 transition: filter 0.2s;
 
-                &:hover{
+                &:hover {
                     filter: brightness(0.7);
                 }
             }

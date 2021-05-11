@@ -31,16 +31,11 @@ const Medicine = (props) => {
   }
 
   return (
-    <div className='container'>
-      <div className="containerBackground">
+    <div className='container1'>
+      <div className="main">
         <Header />
 
         <div className={styles.container}>
-          <div className='titlePage'>
-            <img src="/img/icons/medicine.png" />
-            Remédios
-          </div>
-
           <div className={styles.emergencyContainer}>
 
             {/* Show div of each day in week */}

@@ -12,6 +12,8 @@
 
     left: clamp(-2.5rem, -3vw, -45px);
     bottom: clamp(-2rem, -3vw, -45px);
+    filter: drop-shadow(-1rem 1rem 40px #6a42e1);
+
 
     img {
         width: clamp(2rem, 2vw, 30px);

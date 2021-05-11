@@ -21,7 +21,7 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
-    background: var(--grayGradient);
+    background: #6a42e1a1;
     margin-bottom: clamp(30px, 4vw, 75px);
     box-shadow: 0px 8px 8px 5px rgba(0, 0, 0, 0.25);
 }
@@ -77,6 +77,8 @@
             width: clamp(9rem, 10vw, 11rem);
             height: clamp(2rem, 4vw, 75px);
             border-radius: 10px;
+            box-shadow: 0px 10px 50px #14D8E4;
+
 
             img {
                 width: clamp(2rem, 2vw, 30px);

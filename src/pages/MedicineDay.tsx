@@ -13,7 +13,6 @@ const MedicineDay = () => {
         async function getInformation() {
 
             try {
-
                 // Get information from url
                 const queryString = window.location.search;
                 const urlParams = new URLSearchParams(queryString);
@@ -31,9 +30,11 @@ const MedicineDay = () => {
         getInformation()
     }, [])
 
+    console.log(data)
+
     return (
-        <div className='container'>
-            <div className='containerBackground'>
+        <div className='container1'>
+            <div className='main'>
                 <Header />
 
                 <div className={styles.container}>

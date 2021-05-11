@@ -4,11 +4,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: var(--grayGradient);
     width: clamp(40rem, 55vw, 975px);
     height: clamp(20rem, 33vw, 600px);
     border-radius: 15px;
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.25);
     margin-top: 3vw;
 }
 
@@ -23,7 +21,7 @@
     h3 {
         font-size: clamp(1.3rem, 1.5vw, 1.5rem);
         font-weight: 600;
-        color: #fff;
+        color: var(--purple);
         filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.568));
     }
 }
@@ -41,6 +39,28 @@
     &::-webkit-scrollbar {
         display: none;
     }
+
+    
+    div:nth-child(2) {
+        background: var(--greenBlue);
+    }
+
+    div:nth-child(3) {
+        background: #f306ea;
+    }
+
+    div:nth-child(4) {
+        background: #2ecd5b;
+    }
+
+    div:nth-child(5) {
+        background: #f37806;
+    }
+
+    div:nth-child(6) {
+        background: #d11784;
+    }
+
 
     div {
         width: 98%;

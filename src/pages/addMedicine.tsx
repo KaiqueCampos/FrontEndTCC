@@ -83,8 +83,8 @@ const Medicine = () => {
             </Head>
 
 
-            <div className='container'>
-                <div className='containerBackground'>
+            <div className='container1'>
+                <div className='main'>
                     <Header />
 
                     <div className={styles.container}>

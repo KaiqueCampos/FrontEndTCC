@@ -8,7 +8,7 @@ export default function NotLogged() {
         <div className="container">
             <div className={styles.notLoggedContainer}>
                 <div className={`${styles.loggedContainer} ${animate.upSlow}`}>
-                    <img className={styles.accountLogo} src="img/icons/userPurple2.png" />
+                    <img className={styles.accountLogo} src="img/icons/userPurple3.png" />
 
                     <div className={styles.buttonsContainer}>
                         <a href='/Register'>Registrar-se</a>
@@ -23,7 +23,7 @@ export default function NotLogged() {
 
                 <div className={`${styles.aboutUs} ${animate.upMoreSlow}`}>
                     <div className={styles.aboutUsImageContainer}>
-                        <img src='img/teste.jpg' />
+                        <img src='https://assets.hostinger.com/images/logo-400x400-7d3d5942f5.png' />
                     </div>
                     <PlayVideo />
                 </div>

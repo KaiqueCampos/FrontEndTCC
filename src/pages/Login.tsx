@@ -34,7 +34,7 @@ const Login = () => {
       }),
     });
 
-    console.log(response.status )
+    console.log(response.status)
 
     // login sucess or not
     if (response.status === 200) {
@@ -58,7 +58,7 @@ const Login = () => {
   };
 
   return (
-    <>
+    <div className='container'>
       <div className={styles.rowContainer}>
 
         <BannerWelcome />
@@ -68,9 +68,11 @@ const Login = () => {
           <div className={styles.legend}>
             <h1>Login</h1>
             <p>Caso não tenha uma conta...
-                <a href='/Register'> Registre-se</a>
+        <a href='/Register'> Registre-se</a>
             </p>
           </div>
+
+          <OtherLoginOptions />
 
           <div className={styles.inputContainer}>
             <img src="img/icons/userPurple.png" />
@@ -97,16 +99,12 @@ const Login = () => {
 
           <button type="submit">
             <img src="img/icons/login.png" />
-              Login
+            Login
           </button>
 
-          <OtherLoginOptions />
         </form>
-
-
       </div>
-
-    </>
+    </div>
   );
 };
 

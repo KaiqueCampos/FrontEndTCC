@@ -24,8 +24,8 @@ export default function Home(props) {
   return (
     <>
       {props.isLogged ? (
-        <div className='container'>
-          <div className='containerBackground'>
+        <div className='container1'>
+          <div className='main'>
 
             <div
               className={`${styles.header}`} id="header" onMouseLeave={initialProfile}>
@@ -62,7 +62,7 @@ export default function Home(props) {
                 <Link href="/Emergency">
                   <div>
                     <img src='img/icons/emergency.png' />
-                  Emergência
+                    <p>Emergência</p>
                 </div>
                 </Link>
               </div>
@@ -71,7 +71,7 @@ export default function Home(props) {
                 <Link href="/Medicines">
                   <div>
                     <img src='img/icons/medicine.png' />
-                  Remédios
+                    <p>Remédios</p>
                 </div>
                 </Link>
               </div>
@@ -80,7 +80,7 @@ export default function Home(props) {
                 <Link href="Appointment">
                   <div>
                     <img src='img/icons/consultas.png' />
-                  Consultas
+                  <p>Consultas</p>
                 </div>
                 </Link>
               </div>
@@ -89,7 +89,7 @@ export default function Home(props) {
                 <Link href="Recipes">
                   <div>
                     <img src='img/icons/recipe.png' />
-                  Receitas
+                  <p>Receitas</p>
                 </div>
                 </Link>
               </div>
@@ -98,7 +98,7 @@ export default function Home(props) {
                 <Link href="FirstAid">
                   <div>
                     <img src='img/icons/firstAid.png' />
-                  Socorros
+                  <p>Socorros</p>
                 </div>
                 </Link>
               </div>
@@ -107,7 +107,7 @@ export default function Home(props) {
                 <Link href="Help">
                   <div>
                     <img src='img/icons/help.png' />
-                  Ajuda
+                  <p>Ajuda</p>
                 </div>
                 </Link>
               </div>

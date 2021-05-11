@@ -63,16 +63,19 @@ const UpdateInformations = ({ req }) => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.backgroundImage} />
             <Header />
 
             <div className={styles.banner}>
+
                 <img src="/teste.png" />
                 <p>
                     O preenchimento das seguintes informações são opcionais,
                     elas servem para agilizar o preenchimento dos formulários
                     de consulta e uma melhor usabilidade do site.
                 </p>
+
+                <div className={styles.backgroundImage} />
+
             </div>
 
             <div className={styles.informations}>
