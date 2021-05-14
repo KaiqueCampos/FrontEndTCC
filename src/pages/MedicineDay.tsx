@@ -30,8 +30,6 @@ const MedicineDay = () => {
         getInformation()
     }, [])
 
-    console.log(data)
-
     return (
         <div className='container1'>
             <div className='main'>
@@ -49,7 +47,11 @@ const MedicineDay = () => {
                         <div className={`${styles.medicines} ${animate.up}`}>
 
                             {data.map((medicine) => (
-                                <div className={animate.upSlow} key={medicine.id}>
+                                <div
+                                    className={animate.upSlow}
+                                    key={medicine.id}
+                                    id={medicine.status === 1 ? 'noTaken' : medicine.status === 0 ? 'taken' : ''}
+                                >
                                     <p>{medicine.time}</p>
                                     <hr></hr>
                                     <p>{medicine.name}</p>

@@ -63,8 +63,8 @@
 
     &[id="inactive"] {
         opacity: 0.6;
-        
-        a{
+
+        a {
             pointer-events: none;
         }
     }
@@ -104,7 +104,7 @@
     gap: clamp(0.4rem, 0.8vw, 12px);
     margin-top: 1rem;
     width: 90%;
-    height: clamp(10rem, 18vw, 350px);
+    height: clamp(15rem, 18vw, 350px);
     overflow-y: auto;
 
     &::-webkit-scrollbar {

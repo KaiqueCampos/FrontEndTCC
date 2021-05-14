@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { SyntheticEvent, useState } from "react";
 import { toast } from "react-toastify";
@@ -77,76 +76,69 @@ const Medicine = () => {
 
 
     return (
-        <>
-            <Head>
-                <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css" />
-            </Head>
+        <div className='container1'>
+            <div className='main'>
+                <Header />
 
-
-            <div className='container1'>
-                <div className='main'>
-                    <Header />
-
-                    <div className={styles.container}>
-                        <div className='titlePage'>
-                            <img src='/img/icons/medicine.png' />
+                <div className={styles.container}>
+                    <div className='titlePage'>
+                        <img src='/img/icons/medicine.png' />
                         Adicionar Remédio
                     </div>
 
-                        <form onSubmit={submit} className={styles.addMedicine}>
-                            <div className={`${styles.hoursContainer} ${animate.up}`}>
-                                <div className='timeDiv'>
-                                    <input type='time' required />
-                                </div>
-
-                                <button type='button'>
-                                    <img src='img/icons/add.png' onClick={newTime} />
-                                </button>
+                    <form onSubmit={submit} className={styles.addMedicine}>
+                        <div className={`${styles.hoursContainer} ${animate.up}`}>
+                            <div className='timeDiv'>
+                                <input type='time' required />
                             </div>
 
-                            <div className={`${styles.specificDate} ${animate.upSlow}`}>
-                                <h3 className={styles.legend}>Data Específica</h3>
-                                <button>
-                                    <div></div>
-                                </button>
-                            </div>
+                            <button type='button'>
+                                <img src='img/icons/add.png' onClick={newTime} />
+                            </button>
+                        </div>
 
-                            <div className={`${styles.date} ${animate.upSlow}`}>
-                                <input
-                                    type="date"
-                                    name='initialDate'
-                                    placeholder='Data de início:'
-                                    onChange={e => setInitialDate(e.target.value)}
+                        <div className={`${styles.specificDate} ${animate.upSlow}`}>
+                            <h3 className={styles.legend}>Data Específica</h3>
+                            <button>
+                                <div></div>
+                            </button>
+                        </div>
 
-                                />
-
-                                <input
-                                    type="date"
-                                    name='finalDate'
-                                    placeholder='Data de Término:'
-                                    onChange={e => setFinalDate(e.target.value)}
-                                />
-                            </div>
-
+                        <div className={`${styles.date} ${animate.upSlow}`}>
                             <input
-                                onChange={e => setName(e.target.value)}
-                                className={animate.upSlow}
-                                type='text'
-                                name='medicineName'
-                                placeholder='Nome do Remédio:'
-                                required
+                                type="date"
+                                name='initialDate'
+                                placeholder='Data de início:'
+                                onChange={e => setInitialDate(e.target.value)}
+
                             />
 
-                            <button type='submit' className={`${styles.submitButton} ${animate.upMoreSlow}`}>
-                                <img src='/img/icons/add.png' />
+                            <input
+                                type="date"
+                                name='finalDate'
+                                placeholder='Data de Término:'
+                                onChange={e => setFinalDate(e.target.value)}
+                            />
+                        </div>
+
+                        <input
+                            onChange={e => setName(e.target.value)}
+                            className={animate.upSlow}
+                            type='text'
+                            name='medicineName'
+                            placeholder='Nome do Remédio:'
+                            required
+                        />
+
+                        <button type='submit' className={`${styles.submitButton} ${animate.upMoreSlow}`}>
+                            <img src='/img/icons/add.png' />
                             Adicionar novo remédio
                             </button>
 
-                        </form>
-                    </div>
+                    </form>
                 </div>
-            </div >
-        </>
+            </div>
+        </div >
     );
 };
 

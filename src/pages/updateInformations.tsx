@@ -67,7 +67,7 @@ const UpdateInformations = ({ req }) => {
 
             <div className={styles.banner}>
 
-                <img src="/teste.png" />
+                <img src="/img/icons/logo.png" />
                 <p>
                     O preenchimento das seguintes informações são opcionais,
                     elas servem para agilizar o preenchimento dos formulários

@@ -33,9 +33,7 @@ const Login = () => {
         password: password,
       }),
     });
-
-    console.log(response.status)
-
+    
     // login sucess or not
     if (response.status === 200) {
 

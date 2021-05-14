@@ -8,7 +8,7 @@ export default function Header() {
                     <img className={styles.comeBack} src='/img/icons/back.png'/>
                 </Link>
                 <div>
-                    <img src='/img/teste.jpg' />
+                    <img src='/img/icons/logo.png' />
                 </div>
         </div>
     )

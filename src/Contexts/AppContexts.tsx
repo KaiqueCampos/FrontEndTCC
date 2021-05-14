@@ -1,16 +1,14 @@
 import moment from "moment";
 import { useRouter } from "next/router";
-import { createContext, ReactNode, useContext, useState } from 'react';
+import React, { createContext, ReactNode, useContext, useState } from "react";
+import 'react-toastify/dist/ReactToastify.css';
 import { daysOfWeek } from '../utils/daysOfWeek';
-import React, { SyntheticEvent } from "react";
-import { toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css'
 
 type UserInformation = {
     adress: String,
     age: Number,
     cep: String,
-    chronicDisease:  String,
+    chronicDisease: String,
     height: String,
     phoneNumber: String,
     weight: String,
@@ -18,7 +16,7 @@ type UserInformation = {
 
 type AppContextData = {
     medicinesToday: Array<Object>
-    userInformation: UserInformation[];
+    userInformation: Array<UserInformation>;
     medicineDayNotification: () => void;
     getAllMedicinesOfDay: (props: Array<Object>) => Number;
     getUserInformation: (props: Array<Object>) => void;
@@ -39,7 +37,7 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
 
     // Functions
     function medicineDayNotification() {
-        var time = moment(Date.now()).format("HH:mm")
+        var time = moment(Date.now()).format("HH:mm");
 
         for (var i = 0; i < medicinesToday.length; i++) {
             if (time === medicinesToday[i].time && medicinesToday[i].status === 2) {
@@ -64,7 +62,7 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
         return indexOf;
     }
 
-    function getUserInformation(props){
+    function getUserInformation(props) {
         setUserInformation(props);
     }
 

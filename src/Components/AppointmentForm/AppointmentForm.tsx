@@ -1,18 +1,22 @@
 import { useApp } from '../../Contexts/AppContexts';
 import styles from './styles.module.scss';
 
+
 export default function AppointmentForm() {
 
     const { userInformation } = useApp();
+    const height = userInformation.height ? + userInformation.height + "m" : '';
+    const weight = userInformation.weight ? userInformation.weight + "kg" : '';
 
-    // change checkbox if has a chronicDisease
-    if (userInformation.chronicDisease === null) {
-        document.getElementById('no').checked = true;
-    }
 
-    if (userInformation.chronicDisease) {
-        document.getElementById('yes').checked = true;
-    }
+    // // change checkbox if has a chronicDisease
+    // if (userInformation.chronicDisease === null) {
+    //     document.getElementById('no').checked = true;
+    // }
+
+    // if (userInformation.chronicDisease) {
+    //     document.getElementById('yes').checked = true;
+    // }
 
     return (
         <div className={styles.container}>
@@ -26,24 +30,24 @@ export default function AppointmentForm() {
                 <h4>Informações Pessoais</h4>
                 <input
                     type='text'
-                    placeholder={`Endereço: ${userInformation.adress}`}
+                    placeholder={`Endereço: ${userInformation?.adress ?? ''}`}
                     required
                 />
 
                 <div className={styles.PersonalInformationRow}>
                     <input
                         type='text'
-                        placeholder={`Idade: ${userInformation.age}`}
+                        placeholder={`Idade: ${userInformation?.age ?? ''}`}
                         required
                     />
                     <input
                         type='text'
-                        placeholder={`Peso: ${userInformation.weight}kg`}
+                        placeholder={`Peso: ${weight ?? ''}`}
                         required
                     />
                     <input
                         type='text'
-                        placeholder={`Altura: ${userInformation.height}m`}
+                        placeholder={`Altura: ${height ?? ''}`}
                         required
                     />
                 </div>
@@ -73,7 +77,8 @@ export default function AppointmentForm() {
 
                 <textarea
                     id='chronicDisease'
-                    placeholder={userInformation.chronicDisease
+                    placeholder={
+                        (userInformation.chronicDisease !== null)
                         ? `${userInformation.chronicDisease}`
                         : `Detalhe para a gente...`}
                 />

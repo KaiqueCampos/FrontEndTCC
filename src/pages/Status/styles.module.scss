@@ -6,11 +6,9 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background: var(--grayGradient);
     width: clamp(30rem, 40vw, 800px);
     height: clamp(20rem, 30vw, 450px);
     border-radius: 15px;
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.25);
 
     .titlePage {
         width: clamp(20rem, 35vw, 40rem);

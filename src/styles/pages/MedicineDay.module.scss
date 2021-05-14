@@ -61,7 +61,6 @@
         background: #d11784;
     }
 
-
     div {
         width: 98%;
         height: clamp(2.5rem, 3.7vw, 55px);
@@ -78,20 +77,34 @@
         color: #fff;
         position: relative;
 
-        div:nth-child(2) {
-            background: var(--greenBlue);
+         // Status of medicine
+         &[id="noTaken"] {
+            opacity: 1;
+            background-color: #c97474;
+            border: 0.2rem solid #740e0e;
+            pointer-events: none;
+            opacity: 0.5;
+            color: #740e0e;
+
+            hr {
+                border: 0;
+                border-left: 2px solid;
+            }
         }
 
-        div:nth-child(3) {
-            background: #f306ea;
-        }
+        &[id="taken"] {
+            opacity: 0.5;
+            pointer-events: none;
 
-        div:nth-child(4) {
-            background: #2ecd5b;
-        }
-
-        div:nth-child(5) {
-            background: #f37806;
+            hr:last-child {
+                display: block;
+                position: absolute;
+                left: 0;
+                height: 0;
+                border: 0;
+                width: 90%;
+                border-bottom: 4px solid;
+            }
         }
 
         p ~ p {

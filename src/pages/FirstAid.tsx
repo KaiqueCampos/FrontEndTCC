@@ -7,8 +7,8 @@ import animate from '../styles/animation/animation.module.css';
 const FirstAid = () => {
 
     return (
-        <div className='container'>
-            <div className="containerBackground">
+        <div className='container1'>
+            <div className="main">
                 <Header />
 
                 <div className={styles.container}>

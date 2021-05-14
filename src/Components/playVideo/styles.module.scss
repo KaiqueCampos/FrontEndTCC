@@ -1,4 +1,5 @@
 .container {
+    z-index: 100;
     position: absolute;
     width: clamp(7rem, 10vw, 150px);
     height: clamp(7rem, 10vw, 150px);

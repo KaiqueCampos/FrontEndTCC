@@ -5,11 +5,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: var(--grayGradient);
     width: clamp(40rem, 60vw, 1100px);
     height: clamp(22rem, 30vw, 550px);
     border-radius: 15px;
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.25);
 }
 
 .helpItems {
@@ -24,7 +22,7 @@
 
     a:last-child{
         div{
-            color: var(--greenBlue);
+            color: var(--darkPurple);
         }
     }
 
@@ -47,10 +45,11 @@
 
             font-size: clamp(1rem, 1.2vw, 1.3rem);
             font-weight: 700;
-            color: #fff;
+            color: var(--purple);
 
             border-radius: 1rem;
-            background: var(--darkPurple);
+            background: var(--white2);
+            box-shadow: 4px 4px 15px var(--purple);
         }
     }
 }

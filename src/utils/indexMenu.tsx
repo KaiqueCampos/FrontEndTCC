@@ -17,7 +17,8 @@ export function profileHover() {
     element.style.height = "clamp(19rem, 18vw, 23rem)";
     element.style.right = "2rem";
     element.style.padding = "1rem";
-    element.style.background = "rgba(0, 0, 0, 0.47)";
+    element.style.background = "rgba(29, 19, 59, 0.671)";
+    element.style.boxShadow = '-25px 25px 50px rgba(107, 66, 225, 0.5)';
 
     // Change position
     profile.style.position = 'absolute'
@@ -51,6 +52,8 @@ export function initialProfile() {
     element.style.paddingLeft = "3vw";
     element.style.paddingRight = "3vw";
     element.style.background = "none";
+    element.style.boxShadow = 'none';
+
 
     // Change position
     profile.style.position = ''

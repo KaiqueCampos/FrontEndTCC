@@ -23,7 +23,13 @@ export default function NotLogged() {
 
                 <div className={`${styles.aboutUs} ${animate.upMoreSlow}`}>
                     <div className={styles.aboutUsImageContainer}>
-                        <img src='https://assets.hostinger.com/images/logo-400x400-7d3d5942f5.png' />
+                        <img src='img/icons/logo.png' />
+                        <p>
+                            O preenchimento das seguintes informações são opcionais,
+                            elas servem para agilizar o preenchimento dos formulários
+                            de consulta e uma melhor usabilidade do site.
+                        </p>
+                        <img src='/img/backgrounds/purpleShadow.png'/>
                     </div>
                     <PlayVideo />
                 </div>
