@@ -16,7 +16,7 @@ type UserInformation = {
 
 type AppContextData = {
     medicinesToday: Array<Object>
-    userInformation: Array<UserInformation>;
+    userInformation: UserInformation;
     medicineDayNotification: () => void;
     getAllMedicinesOfDay: (props: Array<Object>) => Number;
     getUserInformation: (props: Array<Object>) => void;
@@ -32,7 +32,7 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
 
     // variables
     const [medicinesToday, setMedicinesToday] = useState([]);
-    const [userInformation, setUserInformation] = useState([]);
+    const [userInformation, setUserInformation] = useState();
     const router = useRouter();
 
     // Functions

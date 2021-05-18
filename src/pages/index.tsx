@@ -86,10 +86,10 @@ export default function Home(props) {
               </div>
 
               <div className={`${animate.upSlow} ${styles.menuItem}`}>
-                <Link href="Recipes">
+                <Link href="History">
                   <div>
-                    <img src='img/icons/recipe.png' />
-                  <p>Receitas</p>
+                    <img src='img/icons/history.png' />
+                  <p>Histórico de Consultas</p>
                 </div>
                 </Link>
               </div>

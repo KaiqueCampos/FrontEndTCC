@@ -137,10 +137,11 @@
 
     .menuItem:nth-child(4) {
         p{
-            color: rgb(87, 58, 26);
+            text-align: center;
+            color: rgb(87, 26, 84);
         }
         img {
-            filter: drop-shadow(-20px 10px 50px rgba(213, 140, 30, 0.5));
+            filter: drop-shadow(-20px 10px 50px rgba(213, 30, 198, 0.5));
         }
     }
 

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useApp } from '../../Contexts/AppContexts';
 import styles from './styles.module.scss';
 
@@ -5,8 +6,10 @@ import styles from './styles.module.scss';
 export default function AppointmentForm() {
 
     const { userInformation } = useApp();
-    const height = userInformation.height ? + userInformation.height + "m" : '';
-    const weight = userInformation.weight ? userInformation.weight + "kg" : '';
+    
+    
+    const height = userInformation?.height ? userInformation.height + "m" : '';
+    const weight = userInformation?.weight ? userInformation.weight + "kg" : '';
 
 
     // // change checkbox if has a chronicDisease
@@ -78,8 +81,8 @@ export default function AppointmentForm() {
                 <textarea
                     id='chronicDisease'
                     placeholder={
-                        (userInformation.chronicDisease !== null)
-                        ? `${userInformation.chronicDisease}`
+                        (userInformation?.chronicDisease !== null)
+                        ? `${userInformation?.chronicDisease}`
                         : `Detalhe para a gente...`}
                 />
 
