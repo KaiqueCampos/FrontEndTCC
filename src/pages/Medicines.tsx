@@ -20,13 +20,13 @@ const Medicine = (props) => {
   const today = getAllMedicinesOfDay(props.data);
 
   function setInformation() {
+    
     // Select link clicked and set this medicines on localStorage
     document.querySelectorAll("a").forEach((a) => {
       a.onclick = (event) => {
         localStorage.setItem('medicines', JSON.stringify(props.data[Number(today)]));
         const dayClicked = a.querySelector('span').innerHTML
         router.push(`/MedicineDay?day=${dayClicked}`)
-        // localStorage.setItem('medicines', JSON.stringify(props.data[props.daysWeek.indexOf(dayClicked)]))
       }
     })
   }

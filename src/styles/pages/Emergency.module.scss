@@ -26,33 +26,32 @@
         justify-content: space-between;
         align-items: center;
         gap: 1.5rem;
-    
+
         font-size: clamp(1.5rem, 2vw, 2.5rem);
         font-weight: 700;
         color: var(--purple);
-    
+
         box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
         border-radius: 15px;
-    
+
         transition: transform 0.2s, filter 0.2s;
-    
-        div{
+
+        div {
             position: relative;
-            background: red;
             height: 60%;
 
             display: flex;
             justify-content: center;
 
-            img:nth-child(1){
+            img:nth-child(1) {
                 height: 100%;
                 width: 100%;
                 object-fit: cover;
                 border-radius: 1rem;
             }
 
-            img:nth-child(2){
-                background: linear-gradient(180deg, #6B42E1 0%, rgba(59, 31, 141, 0.22) 100%), url('/img/icons/cop.png');
+            img:nth-child(2) {
+                background: linear-gradient(180deg, #6b42e1 0%, rgba(59, 31, 141, 0.22) 100%), url("/img/icons/cop.png");
                 border-radius: 50%;
 
                 z-index: 100;
@@ -64,12 +63,10 @@
                 object-fit: cover;
             }
         }
-    
-        &:hover{
+
+        &:hover {
             transform: scale(1.02);
             filter: brightness(0.8);
         }
     }
 }
-
-
