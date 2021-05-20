@@ -3,11 +3,16 @@ import styles from '../styles/pages/MedicineDay.module.scss';
 import animate from '../styles/animation/animation.module.css';
 import Header from "../Components/Header/header";
 import Link from "next/Link";
+import { useRouter } from "next/router";
+import { toast } from "react-toastify";
+import { parseCookies } from "../utils/parseCookies";
 
-const MedicineDay = () => {
+const MedicineDay = (req) => {
     //Variables
     const [day, setDay] = useState('');
     const [data, setData] = useState([]);
+    const router = useRouter();
+
 
     useEffect(() => {
         async function getInformation() {
@@ -29,6 +34,38 @@ const MedicineDay = () => {
 
         getInformation()
     }, [])
+
+    async function deleteMedicine(props) {
+
+        // API connection
+        const response = await fetch("http://localhost:3333/deleteMedicine", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                medicineId: props,
+            }),
+        });
+
+        // login sucess or not
+        if (response.status === 200) {
+
+            // Set token
+            toast.success("Remédio Deletado com sucesso", {
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose: false,
+            });
+      
+            return router.push('/Medicines');
+
+        } else {
+            toast.error("Email ou senha incorretos, tente novamente...", {
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose: false,
+            });
+        }
+    }
 
     return (
         <div className='container1'>
@@ -55,7 +92,7 @@ const MedicineDay = () => {
                                     <p>{medicine.time}</p>
                                     <hr></hr>
                                     <p>{medicine.name}</p>
-                                    <button><img src='img/icons/delete.jpg' /></button>
+                                    <button onClick={() => deleteMedicine(medicine.id)}><img src='img/icons/delete.jpg' /></button>
                                 </div>
                             ))}
 
