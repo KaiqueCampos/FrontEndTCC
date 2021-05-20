@@ -1,5 +1,6 @@
+import moment from "moment";
 import { useRouter } from "next/router";
-import React, { SyntheticEvent, useState } from "react";
+import React, { SyntheticEvent, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Header from "../Components/Header/header";
@@ -13,20 +14,17 @@ const Medicine = () => {
     const [initialDate, setInitialDate] = useState('');
     const [finalDate, setFinalDate] = useState('');
     const [name, setName] = useState('');
+    const [dateButton, setDateButton] = useState(false);
+
 
     toast.configure();
 
-    function newTime() {
-        const container = document.querySelector(".timeDiv");
-        container.insertAdjacentHTML('beforeend',
-            "<hr></hr><input type='time' required/>");
-    }
 
-    const time = []
+    const medicineTime = []
     function getTime() {
-        const container = document.querySelector(".timeDiv").querySelectorAll('input');
+        const container = document.querySelector("#timeDiv").querySelectorAll('input');
         for (var i = 0; i < container.length; i++) {
-            time.push(container[i].value)
+            medicineTime.push(container[i].value)
         }
     }
 
@@ -51,7 +49,7 @@ const Medicine = () => {
                 name: name,
                 initialDate: initialDate,
                 finalDate: finalDate,
-                time: time.toString(),
+                time: medicineTime.toString(),
                 // color: color
             })
         });
@@ -74,6 +72,41 @@ const Medicine = () => {
         }
     }
 
+    function dateState() {
+        setDateButton(!dateButton)
+    }
+
+    useEffect(() => {
+
+        const element = document.getElementById('dateButton')
+        const circleElement = document.getElementById('circleButton')
+        const dateContainer = document.getElementById('date')
+
+        if (dateButton) {
+
+            element.style.background = "var(--purple)"
+            element.style.border = "2px solid var(--purple)"
+
+            circleElement.style.right = "0"
+            circleElement.style.background = "var(--green)"
+
+            dateContainer.style.display = "block"
+            dateContainer.style.display = "flex"
+
+
+        } else {
+
+            element.removeAttribute('style');
+            circleElement.removeAttribute('style');
+            dateContainer.removeAttribute('style');
+
+            var currentDate = moment().format("YYYY-MM-DD");
+            setInitialDate(currentDate)
+            setFinalDate(currentDate);
+        }
+
+
+    }, [dateButton])
 
     return (
         <div className='container1'>
@@ -87,38 +120,39 @@ const Medicine = () => {
                     </div>
 
                     <form onSubmit={submit} className={styles.addMedicine}>
-                        <div className={`${styles.hoursContainer} ${animate.up}`}>
-                            <div className='timeDiv'>
-                                <input type='time' required />
-                            </div>
-
-                            <button type='button'>
-                                <img src='img/icons/add.png' onClick={newTime} />
-                            </button>
+                        <div id="timeDiv" className={`${styles.hoursContainer} ${animate.up}`}>
+                            <h2>Adicione um horário :</h2>
+                            <input type='time' required />
                         </div>
 
                         <div className={`${styles.specificDate} ${animate.upSlow}`}>
                             <h3 className={styles.legend}>Data Específica</h3>
-                            <button>
-                                <div></div>
+                            <button id="dateButton" onClick={dateState} type='button'>
+                                <div id="circleButton"></div>
                             </button>
                         </div>
 
-                        <div className={`${styles.date} ${animate.upSlow}`}>
-                            <input
-                                type="date"
-                                name='initialDate'
-                                placeholder='Data de início:'
-                                onChange={e => setInitialDate(e.target.value)}
+                        <div id="date" className={`${styles.date} ${animate.upSlow}`}>
+                            <div>
+                                <h4>Inicío</h4>
+                                <input
+                                    type="date"
+                                    name='initialDate'
+                                    placeholder='Data de início:'
+                                    onChange={e => setInitialDate(e.target.value)}
+                                />
+                            </div>
 
-                            />
+                            <div>
+                                <h4>Término</h4>
+                                <input
+                                    type="date"
+                                    name='finalDate'
+                                    placeholder='Data de Término:'
+                                    onChange={e => setFinalDate(e.target.value)}
+                                />
+                            </div>
 
-                            <input
-                                type="date"
-                                name='finalDate'
-                                placeholder='Data de Término:'
-                                onChange={e => setFinalDate(e.target.value)}
-                            />
                         </div>
 
                         <input
