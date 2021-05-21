@@ -8,13 +8,13 @@
     align-items: center;
     
     h1 {
-        color: var(--darkPurple);
+        color: var(--dark);
         font-size: clamp(3rem, 5vw, 5.5rem);
         font-weight: 700;
     }
 
     p {
-        color: var(--purple);
+        color: var(--font1);
         font-size: clamp(1.3rem, 1.5vw, 1.8rem);
         font-weight: 500;
         text-align: right;

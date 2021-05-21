@@ -6,8 +6,11 @@ import { useRouter } from "next/router";
 import { parseCookies } from "../utils/parseCookies";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { useApp } from "../Contexts/AppContexts";
 
 const UpdateInformations = ({ req }) => {
+
+    const {theme} = useApp();
 
     // definition of variables
     const [adress, setAdress] = useState("");
@@ -62,7 +65,7 @@ const UpdateInformations = ({ req }) => {
     };
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} id={theme}>
             <Header />
 
             <div className={styles.banner}>

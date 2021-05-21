@@ -7,7 +7,7 @@ import animate from '../styles/animation/animation.module.css';
 const Help = () => {
 
     return (
-        <div className='container1'>
+        <div id='container1'>
             <div className="main">
                 <Header />
 

@@ -15,7 +15,7 @@ export default function Home(props) {
 
   function logout() {
     setCookie("token", "");
-    document.location.reload(true);
+    // document.location.reload(true);
   }
 
   useEffect(() => {
@@ -54,10 +54,12 @@ export default function Home(props) {
                 </Link>
                 <hr></hr>
 
-                <button onClick={logout}>
-                  <img src="/img/icons/sair.png" />
+                <Link href="/">
+                  <button onClick={logout}>
+                    <img src="/img/icons/sair.png" />
                   Sair
                 </button>
+                </Link>
               </div>
             </div>
 

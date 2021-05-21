@@ -172,14 +172,13 @@
 
         overflow: hidden;
 
-        // background: rgb(204, 194, 228);
         background: var(--secondaryColor);
         border-radius: 15px;
 
         font-size: clamp(1.3rem, 2vw, 2rem);
         font-weight: 700;
 
-        box-shadow: 4px 4px 15px var(--purple);
+        box-shadow: 4px 4px 15px var(--boxShadow);
 
         transition: transform 0.2s, filter 0.2s;
         cursor: pointer;
