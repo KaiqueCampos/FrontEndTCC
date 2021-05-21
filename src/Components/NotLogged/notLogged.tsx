@@ -1,23 +1,29 @@
 import styles from './styles.module.scss';
 import animate from '../../styles/animation/animation.module.css';
 import PlayVideo from '../playVideo/playVideo';
+import { useApp } from '../../Contexts/AppContexts';
+import Link from 'next/Link';
 
 export default function NotLogged() {
+
+    const { theme } = useApp();
 
     return (
         <div className="container">
             <div className={styles.notLoggedContainer}>
                 <div className={`${styles.loggedContainer} ${animate.upSlow}`}>
                     <img className={styles.accountLogo} src="img/icons/userPurple3.png" />
+                    <img className={styles.accountLogo} src={theme === 'light' ? "img/icons/userPurple3.png" : "img/icons/userPurple4.png"} />
+
 
                     <div className={styles.buttonsContainer}>
-                        <a href='/Register'>Registrar-se</a>
-                        <a href='/Login'>
+                        <Link href='/Register'><p>Registrar-se</p></Link>
+                        <Link href='/Login'>
                             <div>
                                 <img src="img/icons/loginPurple.png" />
-                        Login
-                        </div>
-                        </a>
+                                <p>Login</p>
+                            </div>
+                        </Link>
                     </div>
                 </div>
 
@@ -29,7 +35,7 @@ export default function NotLogged() {
                             elas servem para agilizar o preenchimento dos formulários
                             de consulta e uma melhor usabilidade do site.
                         </p>
-                        <img src='/img/backgrounds/purpleShadow.png'/>
+                        <img src='/img/backgrounds/purpleShadow.png' />
                     </div>
                     <PlayVideo />
                 </div>

@@ -28,7 +28,7 @@
     align-items: center;
 
     input[type="text"] {
-        background: var(--white2);
+        background: var(--secondaryColor);
         box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
         width: 100%;
         height: clamp(2.4rem, 2.5vw, 2.6rem);
@@ -38,7 +38,7 @@
         padding-right: clamp(0.4rem, 1vw, 15px);
         font-size: (1.2rem, 1.3vw, 1.3rem);
         font-weight: 500;
-        color: #000;
+        color: var(--input);
         margin-top: clamp(0.4rem, 0.7vw, 10px);
     }
 
@@ -52,6 +52,7 @@
         box-shadow: 0 0 0 0;
         outline: 0;
         border: 2px solid var(--purple);
+        background: var(--secondaryColor);
     }
 }
 
@@ -143,7 +144,7 @@
             width: 50%;
             height: 100%;
             border-radius: 50%;
-            background: var(--dark2);
+            background: #44475a;
             transition: all 0.6s;
         }
     }
@@ -168,7 +169,7 @@
         }
 
         input {
-            background: var(--white2);
+            background: var(--secondaryColor);
             box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
             width: 100%;
             height: clamp(2.4rem, 2.5vw, 40px);

@@ -32,7 +32,7 @@ const Medicine = (props) => {
   }
 
   return (
-    <div className='container1'>
+    <div id='container1'>
       <div className="main">
         <Header />
 

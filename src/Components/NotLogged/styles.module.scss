@@ -21,7 +21,7 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
-    background: #6a42e1a1;
+    background: var(--transparent);
     margin-bottom: clamp(30px, 4vw, 75px);
     box-shadow: 0px 8px 8px 5px rgba(0, 0, 0, 0.25);
 }
@@ -44,11 +44,12 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background: var(--darkPurple);
+    background: var(--dark);
     position: absolute;
     bottom: clamp(10px, 2vh, 20px);
 
-    a {
+    p {
+        cursor: pointer;
         font-size: clamp(1rem, 1.5vw, 1.5rem);
         font-weight: 700;
         color: #fff;
@@ -59,30 +60,32 @@
         }
     }
 
-    a ~ a {
-        color: var(--darkPurple);
-        transition: filter 0.2s;
 
-        &:hover {
+    div {
+        background: var(--greenBlue);
+        display: flex;
+        flex-direction: row;
+        gap: clamp(0.4rem, 1vh, 1rem);
+        justify-content: center;
+        align-items: center;
+        width: clamp(9rem, 10vw, 11rem);
+        height: clamp(2rem, 4vw, 75px);
+        border-radius: 10px;
+        box-shadow: 0px 10px 50px #14d8e4;
+        transition: filter 0.3s;
+        cursor: pointer;
+
+        p{
+            color: #3b1f8d;
+        }
+
+        &:hover{
             filter: brightness(0.7);
         }
 
-        div {
-            background: var(--greenBlue);
-            display: flex;
-            flex-direction: row;
-            gap: clamp(0.4rem, 1vh, 1rem);
-            justify-content: center;
-            align-items: center;
-            width: clamp(9rem, 10vw, 11rem);
-            height: clamp(2rem, 4vw, 75px);
-            border-radius: 10px;
-            box-shadow: 0px 10px 50px #14d8e4;
-
-            img {
-                width: clamp(2rem, 2vw, 30px);
-                height: clamp(2rem, 2vw, 30px);
-            }
+        img {
+            width: clamp(2rem, 2vw, 30px);
+            height: clamp(2rem, 2vw, 30px);
         }
     }
 }

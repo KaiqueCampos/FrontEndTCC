@@ -23,14 +23,9 @@
   --grayGradient: linear-gradient(180deg, rgba(189, 201, 224, 0.31) 0%, #bdc1d62c 100%);
   --darkLinear: linear-gradient(180deg, #6b42e1 9.17%, #6b42e1 21.88%, #250849 100%);
 
-  //Dark Theme
-  --dark1: #191622;
-  --dark2: #44475a;
+
   --dark3: #62657a;
 
-  //White Theme
-  --white1: #e1e1e6;
-  --white2: #d6d5e8;
 }
 
 @media (max-width: 1080px) {
@@ -50,11 +45,6 @@ input,
 textarea,
 button {
   font: 400 1rem "Montserrat", sans-serif;
-}
-
-body {
-  // darkTheme
-  // background:  var(--darkLinear);;
 }
 
 button {
@@ -85,7 +75,7 @@ a {
   position: relative;
 }
 
-.container1 {
+#container1 {
   height: 100vh;
   width: 100vw;
   margin: 0;
@@ -136,5 +126,21 @@ a {
   img {
     width: clamp(4rem, 6vw, 7rem);
     height: clamp(4rem, 6vw, 7rem);
+  }
+}
+
+body[data-theme="dark"] {
+  #container1 {
+    background: url("/img/backgrounds/darkTheme.png") no-repeat center center fixed;
+  }
+
+  .container {
+    background: url("/img/backgrounds/darkTheme.png") no-repeat center center fixed;
+  }
+}
+
+body[data-theme="light"] {
+  #container1 {
+    background: url("/img/backgrounds/whiteTheme1.png") no-repeat center center fixed;
   }
 }

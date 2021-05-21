@@ -68,7 +68,7 @@ const MedicineDay = (req) => {
     }
 
     return (
-        <div className='container1'>
+        <div id='container1'>
             <div className='main'>
                 <Header />
 
@@ -92,6 +92,7 @@ const MedicineDay = (req) => {
                                     <p>{medicine.time}</p>
                                     <hr></hr>
                                     <p>{medicine.name}</p>
+                                    <hr className={styles.line}></hr>
                                     <button onClick={() => deleteMedicine(medicine.id)}><img src='img/icons/delete.jpg' /></button>
                                 </div>
                             ))}
