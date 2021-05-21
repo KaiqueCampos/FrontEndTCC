@@ -6,7 +6,7 @@ import styles from "../styles/pages/History.module.scss";
 const History = () => {
 
     return (
-        <div className="container1">
+        <div id="container1">
             <Header />
 
             <div className={styles.scroll}>

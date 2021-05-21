@@ -1,6 +1,6 @@
 import moment from "moment";
 import { useRouter } from "next/router";
-import React, { createContext, ReactNode, useContext, useState } from "react";
+import React, { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import 'react-toastify/dist/ReactToastify.css';
 import { daysOfWeek } from '../utils/daysOfWeek';
 
@@ -14,12 +14,17 @@ type UserInformation = {
     weight: String,
 }
 
+type Theme = "light" | "dark";
+
+
 type AppContextData = {
     medicinesToday: Array<Object>
     userInformation: UserInformation;
+    theme: Theme;
     medicineDayNotification: () => void;
     getAllMedicinesOfDay: (props: Array<Object>) => Number;
     getUserInformation: (props: Array<Object>) => void;
+    toggleTheme: () => void;
 }
 
 export const AppContext = createContext({} as AppContextData);
@@ -66,15 +71,46 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
         setUserInformation(props);
     }
 
+    ////////////////////////////////// THEME
+
+    const [theme, setTheme] = useState<Theme>("dark");
+
+    const toggleTheme = () => {
+        setTheme(theme === "light" ? "dark" : "light");
+        document.querySelector('body').setAttribute('data-theme', theme);
+
+        const themes = {
+            dark: {
+                '--primaryColor': '#191622',
+                '--secondaryColor': '#44475a',
+                '--historyContainerColor':  '#fff'
+            },
+            light: {
+                '--primaryColor': '#e1e1e6',
+                '--secondaryColor': '#d6d5e8',
+                '--historyContainerColor' : '#6b42e1',
+            },
+        }
+
+        function activateTheme(theme) {
+            for (let prop in theme) {
+                document.querySelector(':root').style.setProperty(prop, theme[prop]);
+            }
+        }
+        // Switch to the dark theme:
+        activateTheme(theme === 'light' ? themes.light : themes.dark);
+    };
 
     return (
         <AppContext.Provider
             value={{
+                theme,
                 userInformation,
                 medicinesToday,
                 getUserInformation,
                 medicineDayNotification,
                 getAllMedicinesOfDay,
+                toggleTheme,
             }}>
 
             {children}

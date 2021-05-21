@@ -154,6 +154,15 @@
         }
     }
 
+    .menuItem:nth-child(6) {
+        p{
+            color: rgb(0, 0, 0);
+        }
+        img {
+            filter: drop-shadow(-20px 10px 50px rgba(0, 0, 0, 0.651));
+        }
+    }
+
     .menuItem {
         display: flex;
         flex-direction: column;
@@ -163,7 +172,8 @@
 
         overflow: hidden;
 
-        background: rgb(204, 194, 228);
+        // background: rgb(204, 194, 228);
+        background: var(--secondaryColor);
         border-radius: 15px;
 
         font-size: clamp(1.3rem, 2vw, 2rem);
