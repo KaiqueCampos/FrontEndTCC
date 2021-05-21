@@ -77,7 +77,7 @@ const Login = () => {
           <OtherLoginOptions />
 
           <div className={styles.inputContainer}>
-            <img src={(theme === 'light') ? "img/icons/userPurple4.png" : "img/icons/userPurple.png"}   />
+            <img src={(theme === 'light') ? "img/icons/userPurple.png" : "img/icons/userPurple4.png"}   />
             <input
               onChange={(e) => setEmail(e.target.value)}
               placeholder="lurdes@gmail.com"
@@ -86,7 +86,7 @@ const Login = () => {
           </div>
 
           <div className={styles.inputContainer}>
-            <img src={(theme === 'light') ? "img/icons/password2.png" : "img/icons/password.png"}  />
+            <img src={(theme === 'light') ? "img/icons/password.png" : "img/icons/password2.png"}  />
             <input
               onChange={(e) => setPassword(e.target.value)}
               type="password"

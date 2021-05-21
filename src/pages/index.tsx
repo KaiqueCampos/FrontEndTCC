@@ -11,11 +11,11 @@ import { parseCookies } from '../utils/parseCookies';
 export default function Home(props) {
   const [cookie, setCookie] = useCookies(["token"])
   const [imageProfile, setImageProfile] = useState('');
-  const { theme, toggleTheme } = useApp();
+  const { buttonTheme, toggleTheme } = useApp();
+
 
   function logout() {
     setCookie("token", "");
-    // document.location.reload(true);
   }
 
   useEffect(() => {
@@ -28,9 +28,6 @@ export default function Home(props) {
         <div id='container1'>
           <div className='main'>
 
-            <button onClick={toggleTheme}>
-              Switch to {theme === 'light' ? 'dark' : 'light'} mode
-            </button>
 
             <div
               className={`${styles.header}`} id="header" onMouseLeave={initialProfile}>
@@ -44,9 +41,19 @@ export default function Home(props) {
               </div>
 
               <div className={styles.headerMenu} id="headerMenu">
-                <Link href="#">
-                  <h3>Configurações</h3>
-                </Link>
+                <div className={styles.themeContainer}>
+                  <p>Tema Dark</p>
+
+                  <button
+                    id={buttonTheme ? 'active' : 'disabled'}
+                    className={styles.toggleThemeButton}
+                    onClick={toggleTheme}
+                    type='button'
+                  >
+                    <div id="circleButton"></div>
+                  </button>
+                </div>
+
                 <hr></hr>
 
                 <Link href="/updateInformations">
@@ -55,7 +62,7 @@ export default function Home(props) {
                 <hr></hr>
 
                 <Link href="/">
-                  <button onClick={logout}>
+                  <button id="logoutButton" onClick={logout}>
                     <img src="/img/icons/sair.png" />
                   Sair
                 </button>
@@ -122,7 +129,6 @@ export default function Home(props) {
             </div>
           </div>
         </div>
-
       ) : (
         <NotLogged />
       )}

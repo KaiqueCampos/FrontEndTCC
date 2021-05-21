@@ -13,7 +13,7 @@ export default function NotLogged() {
             <div className={styles.notLoggedContainer}>
                 <div className={`${styles.loggedContainer} ${animate.upSlow}`}>
                     <img className={styles.accountLogo} src="img/icons/userPurple3.png" />
-                    <img className={styles.accountLogo} src={theme === 'light' ? "img/icons/userPurple4.png" : "img/icons/userPurple3.png"} />
+                    <img className={styles.accountLogo} src={theme === 'light' ? "img/icons/userPurple3.png" : "img/icons/userPurple4.png"} />
 
 
                     <div className={styles.buttonsContainer}>

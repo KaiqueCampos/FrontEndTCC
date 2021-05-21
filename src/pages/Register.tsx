@@ -94,7 +94,7 @@ const Register = () => {
 
                     <div className={styles.imageProfile}>
                         <img id="imageSRC" 
-                        src={(theme === 'light') ? "img/icons/userPurple4.png" : "img/icons/userPurple.png"} 
+                        src={(theme === 'light') ? "img/icons/userPurple.png" : "img/icons/userPurple4.png"} 
                         />
                         <button type='button' onClick={upload}>
                             <input
@@ -110,7 +110,7 @@ const Register = () => {
 
 
                     <div className={styles.inputContainer}>
-                        <img src={(theme === 'light') ? "img/icons/userPurple4.png" : "img/icons/userPurple.png"}  />
+                        <img src={(theme === 'light') ? "img/icons/userPurple.png" : "img/icons/userPurple4.png"}  />
                         <input
                             onChange={e => setName(e.target.value)}
                             placeholder="Lurdes"
@@ -119,7 +119,7 @@ const Register = () => {
                     </div>
 
                     <div className={styles.inputContainer}>
-                        <img src={(theme === 'light') ? "img/icons/userPurple4.png" : "img/icons/userPurple.png"}  />
+                        <img src={(theme === 'light') ? "img/icons/userPurple.png" : "img/icons/userPurple4.png"}  />
                         <input
                             onChange={e => setEmail(e.target.value)}
                             placeholder="lurdes@gmail.com"
@@ -128,7 +128,7 @@ const Register = () => {
                     </div>
 
                     <div className={styles.inputContainer}>
-                        <img src={(theme === 'light') ? "img/icons/password2.png" : "img/icons/password.png"} />
+                        <img src={(theme === 'light') ? "img/icons/password.png" : "img/icons/password2.png"} />
                         <input
                             onChange={e => setPassword(e.target.value)}
                             type="password"
