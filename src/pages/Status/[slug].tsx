@@ -23,6 +23,7 @@ export default function Status() {
         var arrayOfStrings = stringToSplit.split(separator);
         return arrayOfStrings
     }
+    
     const data = splitString(slugData, "&")
 
     // Send Status to API

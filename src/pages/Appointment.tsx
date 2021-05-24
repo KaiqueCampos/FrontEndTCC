@@ -10,6 +10,7 @@ import AppointmentForm from "../Components/AppointmentForm/AppointmentForm";
 import Map from "../Components/Map/Map";
 import { parseCookies } from "../utils/parseCookies";
 import { useApp } from "../Contexts/AppContexts";
+import FinalImage from "../Components/finalImage/finalImage";
 
 const Appointment = (props) => {
 
@@ -42,8 +43,7 @@ const Appointment = (props) => {
                     <AppointmentForm />
                 </div>
 
-                <div className={styles.finalImage} />
-
+                <FinalImage/>
             </div>
 
         </>

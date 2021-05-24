@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import styles from './styles.module.scss'
 import { parseCookies } from '../../utils/parseCookies';
+import Link from 'next/Link';
+import { setHospitalStorage } from '../../utils/setHospitalStorage';
 
 mapboxgl.accessToken =
     "pk.eyJ1Ijoia2FpcXVlZmoiLCJhIjoiY2tua2YwOXhyMDh4ZzJ3bnY2ZjdlN2IzZSJ9.97C392BQwdQRtRqvl_-YPw";
@@ -31,7 +33,6 @@ class Mapp extends React.Component {
                 'Authorization': `Bearer ${token}`
             },
         });
-
 
         const responseJSON = await response.json();
 
@@ -98,6 +99,10 @@ class Mapp extends React.Component {
             map.removeControl(directions);
         }
 
+        function teste() {
+            console.log("ushduoa")
+        }
+
         if (array.length > 0) {
             //put the markers in the map
             array.forEach((location) => {
@@ -109,8 +114,14 @@ class Mapp extends React.Component {
                     .setLngLat(location.coordinates)
                     .setPopup(new mapboxgl.Popup({ offset: 25 })
                         .setHTML(
-                            "<div id='popup'><a href='#'>" +
-                            "<img src='" + location.image + "'/><div><p>Ver Mais</p></div></a><div>" +
+                            "<div id='popup'>"+
+                                "<button id='hospitalLink'>" +
+                                    "<img src='" + location.image + "'/>"+
+                                    "<div>"+ 
+                                         "<p>Ver Mais</p>"+
+                                    "</div>"+ 
+                                 "</button>" + 
+                            "<div>" +
                             "<h4 id='teste' >" + location.username + "</h4>" + location.cidade + " | " + location.estado + "</div><a href='www.google.com' class='button'>" +
                             "<button><img src='img/icons/rigthWhite.png'/></button></a></div>"))
                     .addTo(map);

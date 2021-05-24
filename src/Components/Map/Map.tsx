@@ -1,8 +1,13 @@
 import { useEffect } from "react";
 import Maap from "./mapa";
 import Head from "next/Head";
+// import Link from 'next/Link';
 
 function Map() {
+  
+  useEffect(() => {
+      const marker = document.querySelector('#my-map').querySelector('.mapboxgl-marker')
+  })
 
   return (
     <>
