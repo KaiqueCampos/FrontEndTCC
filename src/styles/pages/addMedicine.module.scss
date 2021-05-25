@@ -10,6 +10,44 @@
     border-radius: 15px;
 }
 
+.App {
+    display: grid;
+    margin-top: auto;
+    place-items: center;
+    font-family: Roboto sans-serif;
+    height: 100vh;
+  }
+  
+  .btn-group {
+    display: flex;
+  
+    flex-direction: column;
+  
+    margin-top: auto;
+  }
+  
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: start;
+    background-color: #3e68ff;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+    padding: 0.25em 0.75em;
+    min-width: 10ch;
+    min-height: 44px;
+    text-align: center;
+    line-height: 1.1;
+    border: none;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+  
+ 
+  
+
 .legend {
     font-size: clamp(1rem, 1.3vw, 1.4rem);
     font-weight: 700;

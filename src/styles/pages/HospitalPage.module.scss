@@ -38,7 +38,7 @@
             z-index: 10;
 
             h1 {
-                color: var(--font1);
+                color: #fff;
                 font-size: 5rem;
                 font-weight: 600;
                 margin-bottom: 1.5rem;
@@ -71,7 +71,7 @@
 
                     div {
                         width: 90%;
-                        height: 7rem;
+                        height: 6rem;
                         margin: 0 auto;
                         margin-top: 2rem;
 
@@ -85,10 +85,10 @@
 
                             border-radius: 1rem;
                             cursor: pointer;
-                            transition: filter 0.2s;
+                            transition: transform 0.2s;
 
                             &:hover {
-                                filter: brightness(0.7);
+                                transform: scale(1.05);
                             }
                         }
                     }
@@ -129,7 +129,6 @@
 
                         background: url("/img/backgrounds/purpleBackground.png") no-repeat center center;
                         background-size: cover;
-                        
                     }
                 }
 

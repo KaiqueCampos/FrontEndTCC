@@ -10,7 +10,7 @@ import AppointmentForm from "../Components/AppointmentForm/AppointmentForm";
 import Map from "../Components/Map/Map";
 import { parseCookies } from "../utils/parseCookies";
 import { useApp } from "../Contexts/AppContexts";
-import FinalImage from "../Components/finalImage/finalImage";
+import FinalImage from "../Components/finalImage/FinalImage";
 
 const Appointment = (props) => {
 

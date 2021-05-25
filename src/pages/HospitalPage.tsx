@@ -1,10 +1,13 @@
-import FinalImage from '../Components/finalImage/finalImage';
+import FinalImage from '../Components/finalImage/FinalImage';
 import Header from '../Components/Header/header';
 import Map from '../Components/Map/Map';
+import { useApp } from '../Contexts/AppContexts';
 import styles from '../styles/pages/HospitalPage.module.scss';
 
 
 export default function HospitalPage() {
+
+    const {theme} = useApp();
 
     return (
         <div className={styles.container}>
@@ -71,7 +74,7 @@ export default function HospitalPage() {
                 </div>
 
                 <div className={styles.mapContainer}>
-                    <img src='img/backgrounds/mapBackgroundBlue.png' />
+                    <img src={theme === 'light' ? 'img/backgrounds/mapBackground.png' : 'img/backgrounds/mapBackgroundBlue.png' }/>
                     <Map />
                 </div>
             </div>

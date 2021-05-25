@@ -23,9 +23,7 @@
   --grayGradient: linear-gradient(180deg, rgba(189, 201, 224, 0.31) 0%, #bdc1d62c 100%);
   --darkLinear: linear-gradient(180deg, #6b42e1 9.17%, #6b42e1 21.88%, #250849 100%);
 
-
   --dark3: #62657a;
-
 }
 
 @media (max-width: 1080px) {
@@ -56,7 +54,7 @@ a {
   text-decoration: none;
 }
 
-html{
+html {
   background: var(--primaryColor);
 }
 
@@ -147,4 +145,34 @@ body[data-theme="light"] {
   #container1 {
     background: url("/img/backgrounds/whiteTheme1.png") no-repeat center center fixed;
   }
+}
+
+@keyframes swirl-in-fwd {
+  0% {
+    transform: rotate(-540deg) scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.swirl-in-fwd {
+  animation: swirl-in-fwd 0.6s ease-out both;
+}
+
+@keyframes swirl-out-bck {
+  0% {
+    transform: rotate(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-540deg) scale(0);
+    opacity: 0;
+  }
+}
+
+.swirl-out-bck {
+  animation: swirl-out-bck 0.6s ease-in both;
 }
