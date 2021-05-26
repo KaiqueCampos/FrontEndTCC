@@ -115,12 +115,12 @@ class Mapp extends React.Component {
                     .setPopup(new mapboxgl.Popup({ offset: 25 })
                         .setHTML(
                             "<div id='popup'>"+
-                                "<button id='hospitalLink'>" +
+                                "<a href='/HospitalPage' id='hospitalLink'>" +
                                     "<img src='" + location.image + "'/>"+
                                     "<div>"+ 
                                          "<p>Ver Mais</p>"+
                                     "</div>"+ 
-                                 "</button>" + 
+                                 "</a>" + 
                             "<div>" +
                             "<h4 id='teste' >" + location.username + "</h4>" + location.cidade + " | " + location.estado + "</div><a href='www.google.com' class='button'>" +
                             "<button><img src='img/icons/rigthWhite.png'/></button></a></div>"))

@@ -1,13 +1,12 @@
 import moment from "moment";
 import { useRouter } from "next/router";
 import React, { SyntheticEvent, useEffect, useState } from "react";
-import { ToastContainer, toast, cssTransition } from "react-toastify";
+import { toast, cssTransition } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Header from "../Components/Header/header";
 import animate from '../styles/animation/animation.module.css';
 import styles from '../styles/pages/addMedicine.module.scss';
 import { parseCookies } from "../utils/parseCookies";
-
 
 const Medicine = () => {
     //Variables
@@ -33,7 +32,6 @@ const Medicine = () => {
         }
     }
 
-
     const submit = async (e: SyntheticEvent, req) => {
         e.preventDefault();
 
@@ -58,7 +56,6 @@ const Medicine = () => {
                 // color: color
             })
         });
-
 
         const data = addMedicine;
         if (data.status === 200) {
@@ -115,73 +112,70 @@ const Medicine = () => {
     }, [dateButton])
 
     return (
-            <div id='container1'>
-                <div className='main'>
+        <div id='container1'>
+            <div className='main'>
 
-                    <Header />
+                <Header />
 
-                    <div className={styles.container}>
-                        <div className='titlePage'>
-                            <img src='/img/icons/medicine.png' />
+                <div className={styles.container}>
+                    <div className='titlePage'>
+                        <img src='/img/icons/medicine.png' />
                         Adicionar Remédio
                     </div>
 
-                        <form onSubmit={submit} className={styles.addMedicine}>
-                            <div id="timeDiv" className={`${styles.hoursContainer} ${animate.up}`}>
-                                <h2>Adicione um horário :</h2>
-                                <input type='time' required />
+                    <form onSubmit={submit} className={styles.addMedicine}>
+                        <div id="timeDiv" className={`${styles.hoursContainer} ${animate.up}`}>
+                            <h2>Adicione um horário :</h2>
+                            <input type='time' required />
+                        </div>
+
+                        <div className={`${styles.specificDate} ${animate.upSlow}`}>
+                            <h3 className={styles.legend}>Data Específica</h3>
+                            <button id="dateButton" onClick={dateState} type='button'>
+                                <div id="circleButton"></div>
+                            </button>
+                        </div>
+
+                        <div id="date" className={`${styles.date} ${animate.upSlow}`}>
+                            <div>
+                                <h4>Inicío</h4>
+                                <input
+                                    type="date"
+                                    name='initialDate'
+                                    placeholder='Data de início:'
+                                    onChange={e => setInitialDate(e.target.value)}
+                                />
                             </div>
 
-                            <div className={`${styles.specificDate} ${animate.upSlow}`}>
-                                <h3 className={styles.legend}>Data Específica</h3>
-                                <button id="dateButton" onClick={dateState} type='button'>
-                                    <div id="circleButton"></div>
-                                </button>
+                            <div>
+                                <h4>Término</h4>
+                                <input
+                                    type="date"
+                                    name='finalDate'
+                                    placeholder='Data de Término:'
+                                    onChange={e => setFinalDate(e.target.value)}
+                                />
                             </div>
 
-                            <div id="date" className={`${styles.date} ${animate.upSlow}`}>
-                                <div>
-                                    <h4>Inicío</h4>
-                                    <input
-                                        type="date"
-                                        name='initialDate'
-                                        placeholder='Data de início:'
-                                        onChange={e => setInitialDate(e.target.value)}
-                                    />
-                                </div>
+                        </div>
 
-                                <div>
-                                    <h4>Término</h4>
-                                    <input
-                                        type="date"
-                                        name='finalDate'
-                                        placeholder='Data de Término:'
-                                        onChange={e => setFinalDate(e.target.value)}
-                                    />
-                                </div>
+                        <input
+                            onChange={e => setName(e.target.value)}
+                            className={animate.upSlow}
+                            type='text'
+                            name='medicineName'
+                            placeholder='Nome do Remédio:'
+                            required
+                        />
 
-                            </div>
-
-                            <input
-                                onChange={e => setName(e.target.value)}
-                                className={animate.upSlow}
-                                type='text'
-                                name='medicineName'
-                                placeholder='Nome do Remédio:'
-                                required
-                            />
-
-                            <button type='submit' className={`${styles.submitButton} ${animate.upMoreSlow}`}>
-                                <img src='/img/icons/add.png' />
+                        <button type='submit' className={`${styles.submitButton} ${animate.upMoreSlow}`}>
+                            <img src='/img/icons/add.png' />
                             Adicionar novo remédio
                             </button>
-
-                        </form>
-                    </div>
-
+                    </form>
                 </div>
-            </div >
-
+            </div>
+        </div >
     );
 };
 

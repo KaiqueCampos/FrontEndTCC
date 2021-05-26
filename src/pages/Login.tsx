@@ -7,13 +7,20 @@ import OtherLoginOptions from "../Components/OtherLoginOptions/otherLoginOptions
 import styles from "../styles/pages/login_register.module.scss";
 import animate from '../styles/animation/animation.module.css';
 import { useCookies } from "react-cookie";
-import { toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
 import Link from "next/Link";
 import { useApp } from "../Contexts/AppContexts";
+import { cssTransition, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const [cookie, setCookie] = useCookies(["token"])
+
+  toast.configure();
+
+  const swirl = cssTransition({
+    enter: "swirl-in-fwd",
+    exit: "swirl-out-bck"
+  });
 
   // definition of variables
   const [password, setPassword] = useState("");
@@ -47,17 +54,24 @@ const Login = () => {
         sameSite: true,
       });
 
+      toast.success("Bem-vindo ao nosso aplicativo!", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 3000,
+        transition: swirl,
+      });
+
       return router.push('/');
 
     } else {
       toast.error("Email ou senha incorretos, tente novamente...", {
         position: toast.POSITION.TOP_RIGHT,
-        autoClose: false,
+        autoClose: 5000,
+        transition: swirl,
       });
     }
   };
 
-  const {theme} = useApp();
+  const { theme } = useApp();
 
   return (
     <div className='container'>
@@ -77,7 +91,7 @@ const Login = () => {
           <OtherLoginOptions />
 
           <div className={styles.inputContainer}>
-            <img src={(theme === 'light') ? "img/icons/userPurple.png" : "img/icons/userPurple4.png"}   />
+            <img src={(theme === 'light') ? "img/icons/userPurple.png" : "img/icons/userPurple4.png"} />
             <input
               onChange={(e) => setEmail(e.target.value)}
               placeholder="lurdes@gmail.com"
@@ -86,7 +100,7 @@ const Login = () => {
           </div>
 
           <div className={styles.inputContainer}>
-            <img src={(theme === 'light') ? "img/icons/password.png" : "img/icons/password2.png"}  />
+            <img src={(theme === 'light') ? "img/icons/password.png" : "img/icons/password2.png"} />
             <input
               onChange={(e) => setPassword(e.target.value)}
               type="password"

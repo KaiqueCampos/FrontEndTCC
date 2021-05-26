@@ -5,12 +5,19 @@ import styles from '../styles/pages/login_register.module.scss';
 import BannerWelcome from "../Components/bannerWelcome/bannerWelcome";
 import animate from '../styles/animation/animation.module.css';
 import Head from "next/Head";
-import { toast } from "react-toastify";
+import { cssTransition, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { useApp } from "../Contexts/AppContexts";
 import Link from "next/Link";
 
 const Register = () => {
+
+    toast.configure();
+
+    const swirl = cssTransition({
+        enter: "swirl-in-fwd",
+        exit: "swirl-out-bck"
+    });
 
     // definition of variables
     const [name, setName] = useState('');
@@ -26,7 +33,7 @@ const Register = () => {
 
     function uploadFile(inputElement) {
         var file = document.getElementById('uploadImage').files[0];
-        
+
         var reader = new FileReader();
         reader.onloadend = function () {
             /******************* for Binary ***********************/
@@ -58,19 +65,22 @@ const Register = () => {
 
             toast.success("Cadastro feito com sucesso!", {
                 position: toast.POSITION.TOP_RIGHT,
-                autoClose: 5000,
+                autoClose: 3500,
+                transition: swirl,
             });
+
             return router.push('/Login')
 
         } catch (error) {
-            toast.error("Não foi possível fazer o cadastro, tente novamente...", {
+            toast.error("Não foi possível executar o cadastro, tente novamente...", {
                 position: toast.POSITION.TOP_RIGHT,
-                autoClose: false,
+                autoClose: 5000,
+                transition: swirl,
             });
         }
     }
 
-    const {theme} = useApp();
+    const { theme } = useApp();
 
     return (
         <div className="container">
@@ -93,8 +103,8 @@ const Register = () => {
                     </div>
 
                     <div className={styles.imageProfile}>
-                        <img id="imageSRC" 
-                        src={(theme === 'light') ? "img/icons/userPurple.png" : "img/icons/userPurple4.png"} 
+                        <img id="imageSRC"
+                            src={(theme === 'light') ? "img/icons/userPurple.png" : "img/icons/userPurple4.png"}
                         />
                         <button type='button' onClick={upload}>
                             <input
@@ -110,7 +120,7 @@ const Register = () => {
 
 
                     <div className={styles.inputContainer}>
-                        <img src={(theme === 'light') ? "img/icons/userPurple.png" : "img/icons/userPurple4.png"}  />
+                        <img src={(theme === 'light') ? "img/icons/userPurple.png" : "img/icons/userPurple4.png"} />
                         <input
                             onChange={e => setName(e.target.value)}
                             placeholder="Lurdes"
@@ -119,7 +129,7 @@ const Register = () => {
                     </div>
 
                     <div className={styles.inputContainer}>
-                        <img src={(theme === 'light') ? "img/icons/userPurple.png" : "img/icons/userPurple4.png"}  />
+                        <img src={(theme === 'light') ? "img/icons/userPurple.png" : "img/icons/userPurple4.png"} />
                         <input
                             onChange={e => setEmail(e.target.value)}
                             placeholder="lurdes@gmail.com"
