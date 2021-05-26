@@ -1,0 +1,88 @@
+
+// Error Notification
+div[class="Toastify__toast Toastify__toast--error"] {
+    background: var(--red);
+    font-size: 1.5rem;
+    width: 25rem;
+    right: 6rem;
+}
+
+@keyframes errorInitial {
+    0% {
+        transform: rotate(-540deg) scale(0);
+        opacity: 0;
+        background: var(--red);
+    }
+
+    100% {
+        transform: rotate(0) scale(1);
+        opacity: 1;
+        background: var(--red);
+    }
+}
+
+.errorInitial {
+    animation: errorInitial 0.6s ease-out both;
+    transition: all 0.6s;
+}
+
+@keyframes errorFinal {
+    0% {
+        transform: rotate(0) scale(1);
+        opacity: 1;
+        background: var(--red);
+    }
+    100% {
+        transform: rotate(-540deg) scale(0);
+        opacity: 0;
+        background: var(--red);
+    }
+}
+
+.errorFinal {
+    animation: errorFinal 0.6s ease-in both;
+}
+
+// Sucess Animation
+
+div[class="Toastify__toast Toastify__toast--success"] {
+    background: var(--green);
+    font-size: 1.5rem;
+    width: 25rem;
+    right: 6rem;
+}
+
+@keyframes sucessInitial {
+    0% {
+        transform: rotate(-540deg) scale(0);
+        opacity: 0;
+        background: var(--green);
+    }
+
+    100% {
+        transform: rotate(0) scale(1);
+        opacity: 1;
+        background: var(--green);
+    }
+}
+
+.sucessInitial {
+    animation: sucessInitial 0.6s ease-out both;
+}
+
+@keyframes sucessFinal {
+    0% {
+        transform: rotate(0) scale(1);
+        opacity: 1;
+        background: var(--green);
+    }
+    100% {
+        transform: rotate(-540deg) scale(0);
+        opacity: 0;
+        background: var(--green);
+    }
+}
+
+.sucessFinal {
+    animation: sucessFinal 0.6s ease-in both;
+}

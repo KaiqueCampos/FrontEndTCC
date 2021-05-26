@@ -4,7 +4,7 @@ import animate from '../styles/animation/animation.module.css';
 import Header from "../Components/Header/header";
 import Link from "next/Link";
 import { useRouter } from "next/router";
-import { toast } from "react-toastify";
+import { cssTransition, toast } from "react-toastify";
 import { parseCookies } from "../utils/parseCookies";
 
 const MedicineDay = (req) => {
@@ -13,6 +13,15 @@ const MedicineDay = (req) => {
     const [data, setData] = useState([]);
     const router = useRouter();
 
+    const swirlError = cssTransition({
+        enter: "errorInitial",
+        exit: "errorFinal"
+    });
+
+    const swirlSucess = cssTransition({
+        enter: "sucessInitial",
+        exit: "sucessFinal"
+    });
 
     useEffect(() => {
         async function getInformation() {
@@ -54,15 +63,17 @@ const MedicineDay = (req) => {
             // Set token
             toast.success("Remédio Deletado com sucesso", {
                 position: toast.POSITION.TOP_RIGHT,
-                autoClose: false,
+                autoClose: 4000,
+                transition: swirlSucess,
             });
-      
+
             return router.push('/Medicines');
 
         } else {
             toast.error("Email ou senha incorretos, tente novamente...", {
                 position: toast.POSITION.TOP_RIGHT,
-                autoClose: false,
+                autoClose: 4000,
+                transition: swirlError,
             });
         }
     }

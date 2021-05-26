@@ -14,9 +14,14 @@ const Register = () => {
 
     toast.configure();
 
-    const swirl = cssTransition({
-        enter: "swirl-in-fwd",
-        exit: "swirl-out-bck"
+    const swirlError = cssTransition({
+        enter: "errorInitial",
+        exit: "errorFinal"
+    });
+
+    const swirlSucess = cssTransition({
+        enter: "sucessInitial",
+        exit: "sucessFinal"
     });
 
     // definition of variables
@@ -66,7 +71,7 @@ const Register = () => {
             toast.success("Cadastro feito com sucesso!", {
                 position: toast.POSITION.TOP_RIGHT,
                 autoClose: 3500,
-                transition: swirl,
+                transition: swirlSucess,
             });
 
             return router.push('/Login')
@@ -75,7 +80,7 @@ const Register = () => {
             toast.error("Não foi possível executar o cadastro, tente novamente...", {
                 position: toast.POSITION.TOP_RIGHT,
                 autoClose: 5000,
-                transition: swirl,
+                transition: swirlError,
             });
         }
     }

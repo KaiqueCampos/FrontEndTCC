@@ -17,9 +17,14 @@ const Login = () => {
 
   toast.configure();
 
-  const swirl = cssTransition({
-    enter: "swirl-in-fwd",
-    exit: "swirl-out-bck"
+  const swirlError = cssTransition({
+    enter: "errorInitial",
+    exit: "errorFinal"
+  });
+
+  const swirlSucess = cssTransition({
+    enter: "sucessInitial",
+    exit: "sucessFinal"
   });
 
   // definition of variables
@@ -57,7 +62,7 @@ const Login = () => {
       toast.success("Bem-vindo ao nosso aplicativo!", {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 3000,
-        transition: swirl,
+        transition: swirlSucess,
       });
 
       return router.push('/');
@@ -66,7 +71,7 @@ const Login = () => {
       toast.error("Email ou senha incorretos, tente novamente...", {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 5000,
-        transition: swirl,
+        transition: swirlError,
       });
     }
   };

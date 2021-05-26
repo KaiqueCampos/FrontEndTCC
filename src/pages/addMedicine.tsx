@@ -19,10 +19,16 @@ const Medicine = () => {
 
     toast.configure();
 
-    const swirl = cssTransition({
-        enter: "swirl-in-fwd",
-        exit: "swirl-out-bck"
-    });
+    const swirlError = cssTransition({
+        enter: "errorInitial",
+        exit: "errorFinal"
+      });
+    
+      const swirlSucess = cssTransition({
+        enter: "sucessInitial",
+        exit: "sucessFinal"
+      });
+    
 
     const medicineTime = []
     function getTime() {
@@ -62,7 +68,7 @@ const Medicine = () => {
             toast.success("Remédio adicionado com sucesso!", {
                 position: toast.POSITION.TOP_RIGHT,
                 autoClose: 5000,
-                transition: swirl,
+                transition: swirlSucess,
             });
 
             // Get token
@@ -71,6 +77,7 @@ const Medicine = () => {
             toast.error("Não foi possível cadastrar este Medicamente, Tente Novamente...", {
                 position: toast.POSITION.TOP_RIGHT,
                 autoClose: false,
+                transition: swirlError,
             }); //notifica um erro
         }
     }
