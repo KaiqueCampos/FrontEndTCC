@@ -134,6 +134,7 @@ html {
 body[data-theme="dark"] {
   #container1 {
     background: url("/img/backgrounds/darkTheme.png") no-repeat center center fixed;
+    background-size: cover;
   }
 
   .container {
@@ -144,5 +145,6 @@ body[data-theme="dark"] {
 body[data-theme="light"] {
   #container1 {
     background: url("/img/backgrounds/whiteTheme1.png") no-repeat center center fixed;
+    background-size: cover;
   }
 }
