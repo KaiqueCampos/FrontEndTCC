@@ -1,9 +1,8 @@
 import moment from 'moment';
 import { useRouter } from 'next/router';
-import { useApp } from '../../Contexts/AppContexts';
+import animate from '../../styles/animation.module.scss';
 import { parseCookies } from '../../utils/parseCookies';
 import styles from './styles.module.scss';
-import animate from '../../styles/animation.module.scss';
 
 export default function Status() {
 

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import { useApp } from "../../Contexts/AppContexts";
 import { parseCookies } from "../../utils/parseCookies";
 import Head from "next/Head";
 
@@ -14,6 +13,7 @@ import FinalImage from "../../Components/finalImage";
 
 import styles from './styles.module.scss';
 import animate from '../styles/animation.module.scss';
+import { useApp } from "../../hooks/useApp";
 
 const Appointment = (props) => {
 

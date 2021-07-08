@@ -80,7 +80,3 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
         </AppContext.Provider>
     )
 }
-
-export const useApp = () => {
-    return useContext(AppContext);
-}

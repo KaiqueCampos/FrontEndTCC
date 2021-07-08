@@ -1,4 +1,4 @@
-import { AppContextProvider } from '../Contexts/AppContexts';
+import { AppContextProvider } from '../Contexts/AppContext';
 import { ThemeContextProvider } from '../Contexts/ThemeContext';
 import '../styles/globals.scss';
 import '../styles/toast.scss';

@@ -1,6 +1,5 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { useApp } from "../../Contexts/AppContexts";
 import { parseCookies } from "../../utils/parseCookies";
 import { medicinesOnDay } from "../../utils/medicinesOnDay";
 import { concatWithWithoutStatus } from "../../utils/concatWithWithoutStatus";
@@ -10,6 +9,7 @@ import NoMedicines from "../../Components/NoMedicine";
 
 import styles from "./styles.module.scss";
 import animate from "../../styles/animation.module.scss";
+import { useApp } from "../../hooks/useApp";
 
 const Medicine = (props) => {
 
@@ -22,7 +22,7 @@ const Medicine = (props) => {
   const today = getAllMedicinesOfDay(props.data);
 
   function setInformation() {
-    
+
     // Select link clicked and set this medicines on localStorage
     document.querySelectorAll("a").forEach((a) => {
       a.onclick = (event) => {

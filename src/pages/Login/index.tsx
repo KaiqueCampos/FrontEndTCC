@@ -1,16 +1,16 @@
-import React, { SyntheticEvent, useState } from "react";
-import { useRouter } from "next/router";
-
-import BannerWelcome from "../../Components/bannerWelcome";
-import OtherLoginOptions from "../../Components/OtherLoginOptions";
-
-import styles from "../../styles/login_register.module.scss";
-import animate from '../../styles/animation.module.scss';
-import { useCookies } from "react-cookie";
 import Link from "next/Link";
-import { useApp } from "../../Contexts/AppContexts";
+import { useRouter } from "next/router";
+import React, { SyntheticEvent, useState } from "react";
+import { useCookies } from "react-cookie";
 import { cssTransition, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import BannerWelcome from "../../Components/bannerWelcome";
+import OtherLoginOptions from "../../Components/OtherLoginOptions";
+import { useTheme } from "../../hooks/useTheme";
+import animate from '../../styles/animation.module.scss';
+import styles from "../../styles/login_register.module.scss";
+
+
 
 const Login = () => {
   const [cookie, setCookie] = useCookies(["token"])
@@ -76,7 +76,7 @@ const Login = () => {
     }
   };
 
-  const { theme } = useApp();
+  const { theme } = useTheme();
 
   return (
     <div className='container'>

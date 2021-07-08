@@ -1,14 +1,13 @@
-import React, { SyntheticEvent, useEffect } from "react";
-import { useState } from 'react';
-import { useRouter } from 'next/router';
-import styles from '../../styles/login_register.module.scss';
-import BannerWelcome from "../../Components/bannerWelcome";
-import animate from '../../styles/animation.module.scss';
 import Head from "next/Head";
+import Link from "next/Link";
+import { useRouter } from 'next/router';
+import React, { SyntheticEvent, useState } from "react";
 import { cssTransition, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { useApp } from "../../Contexts/AppContexts";
-import Link from "next/Link";
+import BannerWelcome from "../../Components/bannerWelcome";
+import { useTheme } from "../../hooks/useTheme";
+import animate from '../../styles/animation.module.scss';
+import styles from '../../styles/login_register.module.scss';
 
 const Register = () => {
 
@@ -85,7 +84,7 @@ const Register = () => {
         }
     }
 
-    const { theme } = useApp();
+    const { theme } = useTheme();
 
     return (
         <div className="container">

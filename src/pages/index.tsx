@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
-import { useApp } from '../Contexts/AppContexts';
+import { useApp } from '../Contexts/AppContext';
 import Link from 'next/Link';
 
 import { parseCookies } from '../utils/parseCookies';

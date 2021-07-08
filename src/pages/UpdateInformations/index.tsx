@@ -1,16 +1,15 @@
-import React, { SyntheticEvent, useState } from "react";
-import Header from "../../Components/Header";
-import styles from './styles.module.scss';
-import animate from '../styles/animation.module.scss';
 import { useRouter } from "next/router";
-import { parseCookies } from "../../utils/parseCookies";
+import React, { SyntheticEvent, useState } from "react";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { useApp } from "../../Contexts/AppContexts";
+import Header from "../../Components/Header";
+import { useTheme } from "../../hooks/useTheme";
+import { parseCookies } from "../../utils/parseCookies";
+import styles from './styles.module.scss';
 
 const UpdateInformations = ({ req }) => {
 
-    const {theme} = useApp();
+    const {theme} = useTheme();
 
     // definition of variables
     const [adress, setAdress] = useState("");

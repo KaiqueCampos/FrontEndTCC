@@ -1,14 +1,13 @@
 import Link from 'next/Link';
-import { useApp } from '../../Contexts/AppContexts';
-
 import PlayVideo from '../playVideo';
 
 import styles from './styles.module.scss';
 import animate from '../../styles/animation.module.scss';
+import { useTheme } from '../../hooks/useTheme';
 
 export default function NotLogged() {
 
-    const { theme } = useApp();
+    const { theme } = useTheme();
 
     return (
         <div className="container">
