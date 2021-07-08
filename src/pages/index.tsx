@@ -9,12 +9,12 @@ import NotLogged from '../Components/NotLogged';
 
 import styles from '../styles/home.module.scss';
 import animate from '../styles/animation.module.scss';
+import { useTheme } from '../hooks/useTheme';
 
 export default function Home(props) {
   const [cookie, setCookie] = useCookies(["token"])
   const [imageProfile, setImageProfile] = useState('');
-  const { buttonTheme, toggleTheme } = useApp();
-
+  const { buttonTheme, toggleTheme } = useTheme();
 
   function logout() {
     setCookie("token", "");
