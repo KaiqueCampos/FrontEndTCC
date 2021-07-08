@@ -1,73 +1,64 @@
 import React from "react";
-import Link from "next/Link";
+import { FirstAidItems } from "../../Components/FirstAidItem.tsx";
 import Header from "../../Components/Header";
+import { TitlePage } from "../../Components/TitlePage";
+
 import styles from './styles.module.scss';
+import animate from '../../styles/animation.module.scss'
 
 const FirstAid = () => {
 
     return (
-        <div id='container1'>
-            <div className="main">
+        <div id='themeBackground'>
+            <div className={styles.container}>
                 <Header />
 
-                <div className={styles.container}>
+                <TitlePage
+                    title='Primeiros Socorros'
+                    titleImageIcon='/img/icons/firstAid.png'
+                />
 
-                    <div className='titlePage'>
-                        <img src='/img/icons/firstAid.png' />
-                        Primeiros Socorros
-                    </div>
+                <div className={`${styles.firstAidItemsContainer} ${animate.up}`}>
 
-                    <div className={styles.firstAidItems}>
-                        <Link href="FirstAidPage">
-                            <div>
-                                Desmaio
-                            </div>
-                        </Link>
+                    <FirstAidItems
+                        firstAidType='Desmaio'
+                        link='FirstAidPage'
+                    />
 
-                        <a>
-                            <div>
-                                Desmaio
-                            </div>
-                        </a>
+                    <FirstAidItems
+                        firstAidType='Desmaio'
+                        link='FirstAidPage'
+                    />
 
-                        <a>
-                            <div>
-                                Desmaio
-                            </div>
-                        </a>
+                    <FirstAidItems
+                        firstAidType='Desmaio'
+                        link='FirstAidPage'
+                    />
 
-                        <a>
-                            <div>
-                                Desmaio
-                            </div>
-                        </a>
+                    <FirstAidItems
+                        firstAidType='Desmaio'
+                        link='FirstAidPage'
+                    />
 
-                        <a>
-                            <div>
-                                Desmaio
-                            </div>
-                        </a>
+                    <FirstAidItems
+                        firstAidType='Desmaio'
+                        link='FirstAidPage'
+                    />
 
-                        <a>
-                            <div>
-                                Desmaio
-                            </div>
-                        </a>
+                    <FirstAidItems
+                        firstAidType='Desmaio'
+                        link='FirstAidPage'
+                    />
 
-                        <a>
-                            <div>
-                                Desmaio
-                            </div>
-                        </a>
+                    <FirstAidItems
+                        firstAidType='Desmaio'
+                        link='FirstAidPage'
+                    />
 
-                        <a>
-                            <div>
-                                Desmaio
-                            </div>
-                        </a>
-
-
-                    </div>
+                    <FirstAidItems
+                        firstAidType='Desmaio'
+                        link='FirstAidPage'
+                    />
                 </div>
             </div>
         </div>

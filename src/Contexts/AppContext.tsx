@@ -4,6 +4,16 @@ import React, { createContext, ReactNode, useContext, useEffect, useState } from
 import 'react-toastify/dist/ReactToastify.css';
 import { daysOfWeek } from '../utils/daysOfWeek';
 
+type MedicinesData = {
+    name: string;
+    id: string;
+    time: string;
+    status: number;
+    date?: string;
+    initialDate?: string;
+    finalDate?: string;
+}
+
 type UserInformation = {
     adress: String,
     age: Number,
@@ -18,7 +28,7 @@ type AppContextData = {
     medicinesToday: Array<Object>
     userInformation: UserInformation;
     medicineDayNotification: () => void;
-    getAllMedicinesOfDay: (props: Array<Object>) => Number;
+    getAllMedicinesOfDay: (props: MedicinesData) => Number;
     getUserInformation: (props: Array<Object>) => void;
 }
 
@@ -49,7 +59,7 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
     // Verify in each minute if has medicines to taken
     setInterval(medicineDayNotification, 1000 * 60);
 
-    function getAllMedicinesOfDay(props) {
+    function getAllMedicinesOfDay(props: MedicinesData) {
 
         // Variables
         const days = daysOfWeek();

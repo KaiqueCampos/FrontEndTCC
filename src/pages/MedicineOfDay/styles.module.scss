@@ -157,6 +157,7 @@
     bottom: clamp(0.6rem, 1vw, 15px);
 
     transition: transform 0.2s, filter 0.2s;
+    cursor: pointer;
 
     &:hover {
         transform: scale(1.05);

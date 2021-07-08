@@ -1,7 +1,5 @@
 import moment from "moment";
-import { useState } from "react";
 import { daysOfWeek } from "./daysOfWeek";
-import { medicinesOnDay } from "./medicinesOnDay";
 
 export function concatWithWithoutStatus(params) {
     const days = daysOfWeek();

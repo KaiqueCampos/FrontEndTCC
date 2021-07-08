@@ -101,7 +101,7 @@ const Medicine = () => {
     }, [dateButton])
 
     return (
-        <div id='container1'>
+        <div id='themeBackground'>
             <div className='main'>
 
                 <Header />

@@ -11,22 +11,37 @@ import styles from "./styles.module.scss";
 import animate from "../../styles/animation.module.scss";
 import { useApp } from "../../hooks/useApp";
 
-const Medicine = (props) => {
+type MedicinesData = {
+  name: string;
+  id: string;
+  time: string;
+  status: number;
+  date?: string;
+  initialDate?: string;
+  finalDate?: string;
+}
 
-  //Variables
+type MedicineProps = {
+  medicine: MedicinesData,
+  daysWeek: string[];
+}
+
+const Medicine = (props: MedicineProps) => {
+  const medicine = props.medicine;
+  const daysWeek = props.daysWeek;
+  const router = useRouter();
+  
   const {
     getAllMedicinesOfDay,
   } = useApp();
-
-  const router = useRouter();
-  const today = getAllMedicinesOfDay(props.data);
+  
+  const today = getAllMedicinesOfDay(medicine);
 
   function setInformation() {
-
     // Select link clicked and set this medicines on localStorage
     document.querySelectorAll("a").forEach((a) => {
       a.onclick = (event) => {
-        localStorage.setItem('medicines', JSON.stringify(props.data[Number(today)]));
+        localStorage.setItem('medicines', JSON.stringify(medicine[Number(today)]));
         const dayClicked = a.querySelector('span').innerHTML
         router.push(`/MedicineOfDay?day=${dayClicked}`)
       }
@@ -34,65 +49,63 @@ const Medicine = (props) => {
   }
 
   return (
-    <div id='container1'>
-      <div className="main">
+    <div id='themeBackground'>
+      <div className={styles.container}>
         <Header />
 
-        <div className={styles.container}>
-          <div className={styles.emergencyContainer}>
+        <div className={styles.medicinesContainer}>
 
-            {/* Show div of each day in week */}
-            {props.daysWeek.map((days) => (
+          {/* Show div of each day in week */}
+          {daysWeek.map((days) => (
 
-              <div
-                key={props.daysWeek.indexOf(days)}
-                className={`${styles.emergencyItem} ${animate.up}`}
-                id={
-                  props.daysWeek.indexOf(days) === today ? 'today' : ''
-                    || props.daysWeek.indexOf(days) < today ? 'inactive' : ''
-                }
-              >
-                <h3>{days}</h3>
+            <div
+              key={daysWeek.indexOf(days)}
+              className={`${styles.medicinesOfDay} ${animate.up}`}
+              id={
+                daysWeek.indexOf(days) === today ? 'today' : ''
+                  || daysWeek.indexOf(days) < today ? 'inactive' : ''
+              }
+            >
+              <h3>{days}</h3>
 
-                {/* if no has medicine in this day, show <NoMedicines/> */}
-                {props.data[props.daysWeek.indexOf(days)].length > 0 ? (
-                  <>
-                    <div className={`${styles.medicines} ${animate.upSlow}`}>
+              {/* if no has medicine in this day, show <NoMedicines/> */}
+              {medicine[daysWeek.indexOf(days)].length > 0 ? (
+                <>
+                  <div className={`${styles.medicine} ${animate.upSlow}`}>
 
-                      {/* show each medicine of this day */}
-                      {props.data[props.daysWeek.indexOf(days)].map((medicine) => (
+                    {/* show each medicine of this day */}
+                    {medicine[daysWeek.indexOf(days)].map((medicine) => (
 
-                        <div
-                          className={animate.upMoreSlow}
-                          key={medicine.id}
-                          id={medicine.status === 1 ? 'noTaken' : medicine.status === 0 ? 'taken' : ''}
-                        >
-                          <p>{medicine.time}</p>
-                          <hr></hr>
-                          <p>{medicine.name}</p>
-                          <hr></hr>
-                        </div>
-                      ))}
+                      <div
+                        className={animate.upMoreSlow}
+                        key={medicine.id}
+                        id={medicine.status === 1 ? 'noTaken' : medicine.status === 0 ? 'taken' : ''}
+                      >
+                        <p>{medicine.time}</p>
+                        <hr></hr>
+                        <p>{medicine.name}</p>
+                        <hr></hr>
+                      </div>
+                    ))}
 
-                    </div>
+                  </div>
 
-                    <a onClick={setInformation}>
-                      <img className={styles.seeMoreBTN} src="/img/icons/seeMore.png" />
-                      <span>{days}</span>
-                    </a>
-                  </>
+                  <a onClick={setInformation}>
+                    <img className={styles.seeMoreBTN} src="/img/icons/seeMore.png" />
+                    <span>{days}</span>
+                  </a>
+                </>
 
-                ) : (
-                  <NoMedicines />
-                )}
+              ) : (
+                <NoMedicines />
+              )}
 
-              </div>
-            ))}
+            </div>
+          ))}
 
-          </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 
@@ -112,6 +125,7 @@ export async function getServerSideProps({ req }) {
   });
 
   const responseJSON = await response.json()
+  console.log(responseJSON)
 
   // All Medicines
   const array = [];
@@ -132,13 +146,11 @@ export async function getServerSideProps({ req }) {
     })
   }
 
-  //Medicines Status
+  // Medicines Status
   const arrayOfStatusMedicines = []
   for (var i = 0; i < responseJSON[1].length; i++) {
 
     // Show only "YYYY-MM-DD"
-    const initialDate = responseJSON[1][i].initialDate.toString().replace('T03:00:00.000Z', '');
-    const finalDate = responseJSON[1][i].finalDate.toString().replace('T03:00:00.000Z', '');
     const date = responseJSON[1][i].date.toString().replace('T03:00:00.000Z', '');
 
     // Data to show
@@ -159,7 +171,7 @@ export async function getServerSideProps({ req }) {
 
   return {
     props: {
-      data: dataFinal,
+      medicine: dataFinal,
       daysWeek: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
       ,
     }

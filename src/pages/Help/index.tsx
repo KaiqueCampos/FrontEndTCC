@@ -1,19 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "../../Components/Header";
 import styles from './styles.module.scss';
-import animate from '../styles/animation.module.scss';
-
 
 const Help = () => {
 
     return (
-        <div id='container1'>
+        <div id='themeBackground'>
             <div className="main">
                 <Header />
 
                 <div className={styles.container}>
 
-                    <div className='titlePage'>
+                    <div className={styles.titlePage}>
                         <img src='/img/icons/help.png' />
                         Ajuda
                     </div>

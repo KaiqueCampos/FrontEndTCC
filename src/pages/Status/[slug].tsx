@@ -15,6 +15,7 @@ export default function Status() {
     function setPlayingState(state: boolean) {
         return;
     }
+    
     setPlayingState(true);
 
     // Handle Date
@@ -52,7 +53,7 @@ export default function Status() {
 
     return (
 
-        <div id='container1'>
+        <div id='themeBackground'>
             <div className={`${styles.container} ${animate.up}`}>
                 <div className={styles.titlePage}>
                     <div>

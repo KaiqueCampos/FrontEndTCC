@@ -9,7 +9,7 @@ import animate from '../../styles/animation.module.scss';
 const Emergency = () => {
 
     return (
-        <div id='container1'>
+        <div id='themeBackground'>
             <div className='main'>
                 <Header />
 

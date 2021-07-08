@@ -19,7 +19,7 @@ export default function Home(props : HomeProps) {
     <>
       {props.isLogged ? (
 
-        <div id='container1'>
+        <div id='themeBackground'>
           <div className={styles.container}>
             <HomeHeader
               username={props.username}

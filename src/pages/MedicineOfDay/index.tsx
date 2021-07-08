@@ -1,12 +1,15 @@
 import Link from "next/Link";
 import { useRouter } from "next/router";
-
 import React, { useEffect, useState } from "react";
-import { cssTransition, toast } from "react-toastify";
+
+import { TitlePage } from "../../Components/TitlePage";
 import Header from "../../Components/Header";
+import { errorNotification, sucessNotification } from "../../utils/ToastifyNotification";
 
 import styles from './styles.module.scss';
 import animate from '../../styles/animation.module.scss';
+
+
 
 
 
@@ -15,16 +18,6 @@ const MedicineDay = (req) => {
     const [day, setDay] = useState('');
     const [data, setData] = useState([]);
     const router = useRouter();
-
-    const swirlError = cssTransition({
-        enter: "errorInitial",
-        exit: "errorFinal"
-    });
-
-    const swirlSucess = cssTransition({
-        enter: "sucessInitial",
-        exit: "sucessFinal"
-    });
 
     useEffect(() => {
         async function getInformation() {
@@ -62,35 +55,26 @@ const MedicineDay = (req) => {
 
         // login sucess or not
         if (response.status === 200) {
-
             // Set token
-            toast.success("Remédio Deletado com sucesso", {
-                position: toast.POSITION.TOP_RIGHT,
-                autoClose: 4000,
-                transition: swirlSucess,
-            });
-
+            sucessNotification("Remédio Deletado com sucesso")
             return router.push('/Medicines');
 
         } else {
-            toast.error("Email ou senha incorretos, tente novamente...", {
-                position: toast.POSITION.TOP_RIGHT,
-                autoClose: 4000,
-                transition: swirlError,
-            });
+            errorNotification("Email ou senha incorretos, tente novamente...")
         }
     }
 
     return (
-        <div id='container1'>
+        <div id='themeBackground'>
             <div className='main'>
                 <Header />
 
                 <div className={styles.container}>
-                    <div className='titlePage'>
-                        <img src='/img/icons/medicine.png' />
-                        Remédios | {day}
-                    </div>
+
+                    <TitlePage
+                        title={`Remédios | ${day}`}
+                        titleImageIcon='/img/icons/medicine.png'
+                    />
 
                     <div className={styles.medicinesOnDay}>
                         <h3>Remédios</h3>
