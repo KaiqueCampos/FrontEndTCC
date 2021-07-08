@@ -11,8 +11,6 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
       </AppContextProvider>
     </ThemeContextProvider>
-
-
   )
 }
 

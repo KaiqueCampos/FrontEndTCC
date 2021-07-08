@@ -1,135 +1,39 @@
-import Link from 'next/Link';
-import { useEffect, useState } from 'react';
-import { useCookies } from 'react-cookie';
-import NotLogged from '../Components/NotLogged';
-import { useTheme } from '../hooks/useTheme';
-import animate from '../styles/animation.module.scss';
-import styles from '../styles/home.module.scss';
-import { initialProfile, profileHover } from '../utils/indexMenu';
+
 import { parseCookies } from '../utils/parseCookies';
 
-export default function Home(props) {
-  const [cookie, setCookie] = useCookies(["token"])
-  const [imageProfile, setImageProfile] = useState('');
-  const { buttonTheme, toggleTheme } = useTheme();
+import { MenuItems } from '../Components/MenuItens';
+import NotLogged from '../Components/NotLogged';
+import { HomeHeader } from '../Components/HomeHeader';
 
-  function logout() {
-    setCookie("token", "");
-  }
+import styles from '../styles/home.module.scss';
 
-  useEffect(() => {
-    setImageProfile('data:image/jpeg;base64,' + btoa(props.imagePerfil));
-  })
+type HomeProps = {
+    isLogged: boolean;
+    username?: string;
+    imagePerfil?: string;
+}
+
+export default function Home(props : HomeProps) {
 
   return (
     <>
       {props.isLogged ? (
+
         <div id='container1'>
-          <div className='main'>
+          <div className={styles.container}>
+            <HomeHeader
+              username={props.username}
+              imageProfile={props.imagePerfil}
+            />
 
-
-            <div
-              className={`${styles.header}`} id="header" onMouseLeave={initialProfile}>
-              <div id="textProfile" className={styles.textProfile}>
-                <p>Bem-Vindo(a)</p>
-                <h3>{props.username}</h3>
-              </div>
-
-              <div id="profile" onMouseOver={profileHover}>
-                <img id='imageSRC' src={imageProfile} />
-              </div>
-
-              <div className={styles.headerMenu} id="headerMenu">
-                <div className={styles.themeContainer}>
-                  <p>Tema Dark</p>
-
-                  <button
-                    id={buttonTheme ? 'active' : 'disabled'}
-                    className={styles.toggleThemeButton}
-                    onClick={toggleTheme}
-                    type='button'
-                  >
-                    <div id="circleButton"></div>
-                  </button>
-                </div>
-
-                <hr></hr>
-
-                <Link href="/UpdateInformations">
-                  <h3>Editar Informações</h3>
-                </Link>
-                <hr></hr>
-
-                <Link href="/">
-                  <button id="logoutButton" onClick={logout}>
-                    <img src="/img/icons/sair.png" />
-                  Sair
-                </button>
-                </Link>
-              </div>
-            </div>
-
-            <div className={`${styles.menuContainer}`}>
-
-              <div className={`${animate.up} ${styles.menuItem}`}>
-                <Link href="/Emergency">
-                  <div>
-                    <img src='img/icons/emergency.png' />
-                    <p>Emergência</p>
-                  </div>
-                </Link>
-              </div>
-
-              <div className={`${animate.up} ${styles.menuItem}`}>
-                <Link href="/MedicinesOfWeek">
-                  <div>
-                    <img src='img/icons/medicine.png' />
-                    <p>Remédios</p>
-                  </div>
-                </Link>
-              </div>
-
-              <div className={`${animate.up} ${styles.menuItem}`}>
-                <Link href="Hospitals">
-                  <div>
-                    <img src='img/icons/consultas.png' />
-                    <p>Consultas</p>
-                  </div>
-                </Link>
-              </div>
-
-              <div className={`${animate.upSlow} ${styles.menuItem}`}>
-                <Link href="Appointments">
-                  <div>
-                    <img src='img/icons/history.png' />
-                    <p>Histórico de Consultas</p>
-                  </div>
-                </Link>
-              </div>
-
-              <div className={`${animate.upSlow} ${styles.menuItem}`}>
-                <Link href="FirstAid">
-                  <div>
-                    <img src='img/icons/firstAid.png' />
-                    <p>Socorros</p>
-                  </div>
-                </Link>
-              </div>
-
-              <div className={`${animate.upSlow} ${styles.menuItem}`}>
-                <Link href="Help">
-                  <div>
-                    <img src='img/icons/help.png' />
-                    <p>Ajuda</p>
-                  </div>
-                </Link>
-              </div>
-
-            </div>
+            <MenuItems />
           </div>
         </div>
+
       ) : (
+
         <NotLogged />
+        
       )}
     </>
   )

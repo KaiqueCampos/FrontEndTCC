@@ -26,18 +26,6 @@
   --dark3: #62657a;
 }
 
-@media (max-width: 1080px) {
-  html {
-    font-size: 93.75%;
-  }
-}
-
-@media (max-width: 720px) {
-  html {
-    font-size: 87.5%;
-  }
-}
-
 body,
 input,
 textarea,
@@ -60,39 +48,40 @@ html {
 
 .container {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
+  overflow: hidden;
   margin: 0;
   padding: 0;
-
+  
   background: url("/img/backgrounds/whiteTheme.png") no-repeat center center fixed;
-
+  
   background-repeat: no-repeat;
   background-size: cover;
-
+  
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
+  
   position: relative;
 }
 
 #container1 {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   margin: 0;
   padding: 0;
-
+  
   background: url("/img/backgrounds/whiteTheme1.png") no-repeat center center fixed;
-
+  
   background-repeat: no-repeat;
   background-size: cover;
-
+  
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
+  
   position: relative;
 }
 
@@ -102,12 +91,12 @@ html {
   width: 100vw;
   margin: 0;
   padding: 0;
-
+  
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
+  
   position: relative;
 }
 
@@ -121,10 +110,10 @@ html {
   font-size: clamp(1rem, 3vw, 4rem);
   font-weight: 700;
   color: #fff;
-
+  
   filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.479));
   text-shadow: 0px 5px 10px rgba(107, 66, 225, 0.7);
-
+  
   img {
     width: clamp(4rem, 6vw, 7rem);
     height: clamp(4rem, 6vw, 7rem);
@@ -136,15 +125,33 @@ body[data-theme="dark"] {
     background: url("/img/backgrounds/darkTheme.png") no-repeat center center fixed;
     background-size: cover;
   }
-
+  
   .container {
     background: url("/img/backgrounds/darkTheme.png") no-repeat center center fixed;
   }
 }
 
-body[data-theme="light"] {
-  #container1 {
-    background: url("/img/backgrounds/whiteTheme1.png") no-repeat center center fixed;
-    background-size: cover;
+@media (max-width: 1680px) {
+  html {
+    font-size: 93.75%;
   }
 }
+
+@media (max-width: 1520px) {
+  html {
+    font-size: 85%;
+  }
+}
+
+@media (max-width: 720px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+@media (max-width: 720px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
