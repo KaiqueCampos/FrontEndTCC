@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
 import React, { SyntheticEvent, useState } from "react";
-import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Header from "../../Components/Header";
 import { useTheme } from "../../hooks/useTheme";
 import { parseCookies } from "../../utils/parseCookies";
+import { errorNotification, sucessNotification } from "../../utils/ToastifyNotification";
 import styles from './styles.module.scss';
 
 const UpdateInformations = ({ req }) => {
@@ -47,19 +47,11 @@ const UpdateInformations = ({ req }) => {
 
         // response sucess or not
         if (response.status === 200) {
-
-            toast.success("Dados atualizados com sucesso!", {
-                position: toast.POSITION.TOP_RIGHT,
-                autoClose: 5000,
-            });
-
+            sucessNotification("Dados atualizados com sucesso!")
             return router.push('/');
-        } else {
 
-            toast.error("Não foi possível atualizar os dados, tente novamente...", {
-                position: toast.POSITION.TOP_RIGHT,
-                autoClose: false,
-            });
+        } else {
+            errorNotification("Não foi possível atualizar os dados, tente novamente...")
         }
     };
 

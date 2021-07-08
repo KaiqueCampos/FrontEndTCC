@@ -2,26 +2,14 @@ import Head from "next/Head";
 import Link from "next/Link";
 import { useRouter } from 'next/router';
 import React, { SyntheticEvent, useState } from "react";
-import { cssTransition, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import BannerWelcome from "../../Components/bannerWelcome";
 import { useTheme } from "../../hooks/useTheme";
 import animate from '../../styles/animation.module.scss';
 import styles from '../../styles/login_register.module.scss';
+import { errorNotification, sucessNotification } from "../../utils/ToastifyNotification";
 
 const Register = () => {
-
-    toast.configure();
-
-    const swirlError = cssTransition({
-        enter: "errorInitial",
-        exit: "errorFinal"
-    });
-
-    const swirlSucess = cssTransition({
-        enter: "sucessInitial",
-        exit: "sucessFinal"
-    });
 
     // definition of variables
     const [name, setName] = useState('');
@@ -67,20 +55,11 @@ const Register = () => {
                 })
             });
 
-            toast.success("Cadastro feito com sucesso!", {
-                position: toast.POSITION.TOP_RIGHT,
-                autoClose: 3500,
-                transition: swirlSucess,
-            });
-
+            sucessNotification('Cadastro feito com sucesso!')
             return router.push('/Login')
 
         } catch (error) {
-            toast.error("Não foi possível executar o cadastro, tente novamente...", {
-                position: toast.POSITION.TOP_RIGHT,
-                autoClose: 5000,
-                transition: swirlError,
-            });
+            errorNotification("Não foi possível executar o cadastro, tente novamente...")
         }
     }
 
@@ -102,7 +81,7 @@ const Register = () => {
                     <div className={styles.legend}>
                         <h1>Registre-se</h1>
                         <p>Caso tenha uma conta, volte para
-                    <Link href='/Login'> Login</Link>
+                            <Link href='/Login'> Login</Link>
                         </p>
                     </div>
 

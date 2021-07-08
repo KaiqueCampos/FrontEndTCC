@@ -1,15 +1,12 @@
+import Link from 'next/Link';
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
-import { useApp } from '../Contexts/AppContext';
-import Link from 'next/Link';
-
-import { parseCookies } from '../utils/parseCookies';
-import { initialProfile, profileHover } from '../utils/indexMenu';
 import NotLogged from '../Components/NotLogged';
-
-import styles from '../styles/home.module.scss';
-import animate from '../styles/animation.module.scss';
 import { useTheme } from '../hooks/useTheme';
+import animate from '../styles/animation.module.scss';
+import styles from '../styles/home.module.scss';
+import { initialProfile, profileHover } from '../utils/indexMenu';
+import { parseCookies } from '../utils/parseCookies';
 
 export default function Home(props) {
   const [cookie, setCookie] = useCookies(["token"])

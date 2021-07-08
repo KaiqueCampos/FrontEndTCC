@@ -9,6 +9,7 @@ import Header from "../../Components/Header";
 
 import styles from './styles.module.scss';
 import animate from '../../styles/animation.module.scss';
+import { errorNotification, sucessNotification } from "../../utils/ToastifyNotification";
 
 const Medicine = () => {
     //Variables
@@ -17,20 +18,6 @@ const Medicine = () => {
     const [finalDate, setFinalDate] = useState('');
     const [name, setName] = useState('');
     const [dateButton, setDateButton] = useState(false);
-
-
-    toast.configure();
-
-    const swirlError = cssTransition({
-        enter: "errorInitial",
-        exit: "errorFinal"
-      });
-    
-      const swirlSucess = cssTransition({
-        enter: "sucessInitial",
-        exit: "sucessFinal"
-      });
-    
 
     const medicineTime = []
     function getTime() {
@@ -67,20 +54,13 @@ const Medicine = () => {
 
         const data = addMedicine;
         if (data.status === 200) {
-            toast.success("Remédio adicionado com sucesso!", {
-                position: toast.POSITION.TOP_RIGHT,
-                autoClose: 5000,
-                transition: swirlSucess,
-            });
+            sucessNotification("Medicamento adicionado!")
 
             // Get token
             return router.push('/MedicinesOfWeek');
+
         } else {
-            toast.error("Não foi possível cadastrar este Medicamente, Tente Novamente...", {
-                position: toast.POSITION.TOP_RIGHT,
-                autoClose: false,
-                transition: swirlError,
-            }); //notifica um erro
+            errorNotification("Não foi possível cadastrar este Medicamente, Tente Novamente...")
         }
     }
 
@@ -180,7 +160,7 @@ const Medicine = () => {
                         <button type='submit' className={`${styles.submitButton} ${animate.upMoreSlow}`}>
                             <img src='/img/icons/add.png' />
                             Adicionar novo remédio
-                            </button>
+                        </button>
                     </form>
                 </div>
             </div>

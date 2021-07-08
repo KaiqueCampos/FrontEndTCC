@@ -2,30 +2,17 @@ import Link from "next/Link";
 import { useRouter } from "next/router";
 import React, { SyntheticEvent, useState } from "react";
 import { useCookies } from "react-cookie";
-import { cssTransition, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import BannerWelcome from "../../Components/bannerWelcome";
 import OtherLoginOptions from "../../Components/OtherLoginOptions";
 import { useTheme } from "../../hooks/useTheme";
 import animate from '../../styles/animation.module.scss';
 import styles from "../../styles/login_register.module.scss";
-
+import { errorNotification, sucessNotification } from "../../utils/ToastifyNotification";
 
 
 const Login = () => {
   const [cookie, setCookie] = useCookies(["token"])
-
-  toast.configure();
-
-  const swirlError = cssTransition({
-    enter: "errorInitial",
-    exit: "errorFinal"
-  });
-
-  const swirlSucess = cssTransition({
-    enter: "sucessInitial",
-    exit: "sucessFinal"
-  });
 
   // definition of variables
   const [password, setPassword] = useState("");
@@ -59,20 +46,11 @@ const Login = () => {
         sameSite: true,
       });
 
-      toast.success("Bem-vindo ao nosso aplicativo!", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 3000,
-        transition: swirlSucess,
-      });
-
+      sucessNotification("Bem-vindo ao nosso aplicativo!")
       return router.push('/');
 
     } else {
-      toast.error("Email ou senha incorretos, tente novamente...", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 5000,
-        transition: swirlError,
-      });
+      errorNotification("Email ou senha incorretos, tente novamente...")
     }
   };
 
