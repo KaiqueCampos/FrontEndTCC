@@ -1,5 +1,5 @@
 import styles from './styles.module.scss';
-import animate from '../../styles/animation/animation.module.css';
+import animate from '../../styles/animation.module.scss';
 
 export default function AppointmentDescription() {
 

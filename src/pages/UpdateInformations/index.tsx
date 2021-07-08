@@ -1,12 +1,12 @@
 import React, { SyntheticEvent, useState } from "react";
-import Header from "../Components/Header/header";
-import styles from '../styles/pages/updateInformations.module.scss';
-import animate from '../styles/animation/animation.module.css';
+import Header from "../../Components/Header";
+import styles from './styles.module.scss';
+import animate from '../styles/animation.module.scss';
 import { useRouter } from "next/router";
-import { parseCookies } from "../utils/parseCookies";
+import { parseCookies } from "../../utils/parseCookies";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { useApp } from "../Contexts/AppContexts";
+import { useApp } from "../../Contexts/AppContexts";
 
 const UpdateInformations = ({ req }) => {
 

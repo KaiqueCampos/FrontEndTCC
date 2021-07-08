@@ -1,16 +1,19 @@
 import React, { useState } from "react";
-import Header from "../Components/Header/header";
-import styles from '../styles/pages/Appointment.module.scss';
-import animate from '../styles/animation/animation.module.css';
-import AppointmentDescription from "../Components/AppointmentDescription/AppointmentDescription";
+
+import { useApp } from "../../Contexts/AppContexts";
+import { parseCookies } from "../../utils/parseCookies";
 import Head from "next/Head";
-import AppointmentVideo from "../Components/AppointmentVideo/appointmentVideo";
-import SearchHospitalLocation from "../Components/SearchHospitalLocation/searchHospitalLocation";
-import AppointmentForm from "../Components/AppointmentForm/AppointmentForm";
-import Map from "../Components/Map/Map";
-import { parseCookies } from "../utils/parseCookies";
-import { useApp } from "../Contexts/AppContexts";
-import FinalImage from "../Components/finalImage/FinalImage";
+
+import Header from "../../Components/Header";
+import AppointmentDescription from "../../Components/AppointmentDescription";
+import AppointmentVideo from "../../Components/AppointmentVideo";
+import SearchHospitalLocation from "../../Components/SearchHospitalLocation";
+import AppointmentForm from "../../Components/AppointmentForm";
+import Map from "../../Components/Map/Map";
+import FinalImage from "../../Components/finalImage";
+
+import styles from './styles.module.scss';
+import animate from '../styles/animation.module.scss';
 
 const Appointment = (props) => {
 

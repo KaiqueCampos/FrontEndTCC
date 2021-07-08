@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
-import styles from '../styles/pages/MedicineDay.module.scss';
-import animate from '../styles/animation/animation.module.css';
-import Header from "../Components/Header/header";
 import Link from "next/Link";
 import { useRouter } from "next/router";
+
+import React, { useEffect, useState } from "react";
 import { cssTransition, toast } from "react-toastify";
-import { parseCookies } from "../utils/parseCookies";
+import Header from "../../Components/Header";
+
+import styles from './styles.module.scss';
+import animate from '../../styles/animation.module.scss';
+
+
 
 const MedicineDay = (req) => {
     //Variables
@@ -111,7 +114,7 @@ const MedicineDay = (req) => {
                         </div>
                     </div>
 
-                    <Link href="addMedicine">
+                    <Link href="NewMedicine">
                         <div className={styles.addMedicine}>
                             <img src='/img/icons/add.png' />
                         </div>

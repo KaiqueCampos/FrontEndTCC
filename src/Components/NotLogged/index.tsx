@@ -1,8 +1,10 @@
-import styles from './styles.module.scss';
-import animate from '../../styles/animation/animation.module.css';
-import PlayVideo from '../playVideo/playVideo';
-import { useApp } from '../../Contexts/AppContexts';
 import Link from 'next/Link';
+import { useApp } from '../../Contexts/AppContexts';
+
+import PlayVideo from '../playVideo';
+
+import styles from './styles.module.scss';
+import animate from '../../styles/animation.module.scss';
 
 export default function NotLogged() {
 

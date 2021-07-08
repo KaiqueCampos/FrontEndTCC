@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { useApp } from '../../Contexts/AppContexts';
 import { parseCookies } from '../../utils/parseCookies';
 import styles from './styles.module.scss';
-import animate from '../../styles/animation/animation.module.css';
+import animate from '../../styles/animation.module.scss';
 
 export default function Status() {
 
@@ -48,7 +48,7 @@ export default function Status() {
 
         // Stop alarm and go to Medicines page
         setPlayingState(false);
-        router.push('/Medicines')
+        router.push('/MedicinesOfWeek')
     }
 
     return (

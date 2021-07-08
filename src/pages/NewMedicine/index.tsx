@@ -1,12 +1,14 @@
+import React, { SyntheticEvent, useEffect, useState } from "react";
 import moment from "moment";
 import { useRouter } from "next/router";
-import React, { SyntheticEvent, useEffect, useState } from "react";
 import { toast, cssTransition } from "react-toastify";
+import { parseCookies } from "../../utils/parseCookies";
 import 'react-toastify/dist/ReactToastify.css';
-import Header from "../Components/Header/header";
-import animate from '../styles/animation/animation.module.css';
-import styles from '../styles/pages/addMedicine.module.scss';
-import { parseCookies } from "../utils/parseCookies";
+
+import Header from "../../Components/Header";
+
+import styles from './styles.module.scss';
+import animate from '../../styles/animation.module.scss';
 
 const Medicine = () => {
     //Variables
@@ -72,7 +74,7 @@ const Medicine = () => {
             });
 
             // Get token
-            return router.push('/Medicines');
+            return router.push('/MedicinesOfWeek');
         } else {
             toast.error("Não foi possível cadastrar este Medicamente, Tente Novamente...", {
                 position: toast.POSITION.TOP_RIGHT,

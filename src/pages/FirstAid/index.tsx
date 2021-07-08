@@ -1,9 +1,7 @@
-import React, { useState } from "react";
-import Header from "../Components/Header/header";
-import styles from '../styles/pages/firstAid.module.scss';
-import animate from '../styles/animation/animation.module.css';
+import React from "react";
 import Link from "next/Link";
-
+import Header from "../../Components/Header";
+import styles from './styles.module.scss';
 
 const FirstAid = () => {
 

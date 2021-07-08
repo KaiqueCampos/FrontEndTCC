@@ -1,6 +1,6 @@
 import { AppContextProvider } from '../Contexts/AppContexts';
 import '../styles/globals.scss';
-import '../styles/animation/toast.scss';
+import '../styles/toast.scss';
 
 function MyApp({ Component, pageProps }) {
 

@@ -1,7 +1,6 @@
 import React from "react";
-import Header from "../Components/Header/header";
-import animate from "../styles/animation/animation.module.css";
-import styles from "../styles/pages/History.module.scss";
+import Header from "../../Components/Header";
+import styles from "./styles.module.scss";
 
 const History = () => {
 

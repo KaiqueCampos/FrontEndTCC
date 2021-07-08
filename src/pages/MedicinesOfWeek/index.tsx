@@ -1,13 +1,15 @@
-import { useRouter } from "next/router";
 import React from "react";
-import Header from "../Components/Header/header";
-import NoMedicines from "../Components/NoMedicine/NoMedicines";
-import { useApp } from "../Contexts/AppContexts";
-import animate from "../styles/animation/animation.module.css";
-import styles from "../styles/pages/Medicines.module.scss";
-import { concatWithWithoutStatus } from "../utils/concatWithWithoutStatus";
-import { medicinesOnDay } from "../utils/medicinesOnDay";
-import { parseCookies } from "../utils/parseCookies";
+import { useRouter } from "next/router";
+import { useApp } from "../../Contexts/AppContexts";
+import { parseCookies } from "../../utils/parseCookies";
+import { medicinesOnDay } from "../../utils/medicinesOnDay";
+import { concatWithWithoutStatus } from "../../utils/concatWithWithoutStatus";
+
+import Header from "../../Components/Header";
+import NoMedicines from "../../Components/NoMedicine";
+
+import styles from "./styles.module.scss";
+import animate from "../../styles/animation.module.scss";
 
 const Medicine = (props) => {
 
@@ -26,7 +28,7 @@ const Medicine = (props) => {
       a.onclick = (event) => {
         localStorage.setItem('medicines', JSON.stringify(props.data[Number(today)]));
         const dayClicked = a.querySelector('span').innerHTML
-        router.push(`/MedicineDay?day=${dayClicked}`)
+        router.push(`/MedicineOfDay?day=${dayClicked}`)
       }
     })
   }
@@ -95,8 +97,6 @@ const Medicine = (props) => {
 };
 
 export default Medicine;
-
-
 
 export async function getServerSideProps({ req }) {
   // Get token in cookies

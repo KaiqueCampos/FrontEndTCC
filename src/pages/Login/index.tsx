@@ -1,14 +1,14 @@
 import React, { SyntheticEvent, useState } from "react";
 import { useRouter } from "next/router";
 
-import BannerWelcome from "../Components/bannerWelcome/bannerWelcome";
-import OtherLoginOptions from "../Components/OtherLoginOptions/otherLoginOptions";
+import BannerWelcome from "../../Components/bannerWelcome";
+import OtherLoginOptions from "../../Components/OtherLoginOptions";
 
-import styles from "../styles/pages/login_register.module.scss";
-import animate from '../styles/animation/animation.module.css';
+import styles from "../../styles/login_register.module.scss";
+import animate from '../../styles/animation.module.scss';
 import { useCookies } from "react-cookie";
 import Link from "next/Link";
-import { useApp } from "../Contexts/AppContexts";
+import { useApp } from "../../Contexts/AppContexts";
 import { cssTransition, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 

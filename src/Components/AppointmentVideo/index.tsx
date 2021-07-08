@@ -1,6 +1,6 @@
 import styles from './styles.module.scss';
-import PlayVideo from '../playVideo/playVideo';
-import animate from '../../styles/animation/animation.module.css';
+import PlayVideo from '../playVideo';
+import animate from '../../styles/animation.module.scss';
 
 export default function AppointmentVideo() {
 

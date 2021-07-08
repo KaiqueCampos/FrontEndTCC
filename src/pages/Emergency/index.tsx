@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import Header from "../Components/Header/header";
-import styles from '../styles/pages/Emergency.module.scss';
-import animate from '../styles/animation/animation.module.css';
+
+import Header from "../../Components/Header";
+
+import styles from './styles.module.scss';
+import animate from '../../styles/animation.module.scss';
 
 
 const Emergency = () => {

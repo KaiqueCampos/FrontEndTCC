@@ -118,7 +118,7 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
         // Active theme in page
         function activateTheme(theme) {
             for (let prop in theme) {
-                document.querySelector(':root').style.setProperty(prop, theme[prop]);
+                document.querySelector<HTMLElement>(':root').style.setProperty(prop, theme[prop]);
             }
         }
 

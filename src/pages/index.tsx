@@ -1,12 +1,14 @@
-import Link from 'next/Link';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
-import NotLogged from '../Components/NotLogged/notLogged';
 import { useApp } from '../Contexts/AppContexts';
-import animate from '../styles/animation/animation.module.css';
-import styles from '../styles/pages/index.module.scss';
-import { initialProfile, profileHover } from '../utils/indexMenu';
+import Link from 'next/Link';
+
 import { parseCookies } from '../utils/parseCookies';
+import { initialProfile, profileHover } from '../utils/indexMenu';
+import NotLogged from '../Components/NotLogged';
+
+import styles from '../styles/home.module.scss';
+import animate from '../styles/animation.module.scss';
 
 export default function Home(props) {
   const [cookie, setCookie] = useCookies(["token"])
@@ -56,7 +58,7 @@ export default function Home(props) {
 
                 <hr></hr>
 
-                <Link href="/updateInformations">
+                <Link href="/UpdateInformations">
                   <h3>Editar Informações</h3>
                 </Link>
                 <hr></hr>
@@ -82,7 +84,7 @@ export default function Home(props) {
               </div>
 
               <div className={`${animate.up} ${styles.menuItem}`}>
-                <Link href="/Medicines">
+                <Link href="/MedicinesOfWeek">
                   <div>
                     <img src='img/icons/medicine.png' />
                     <p>Remédios</p>
@@ -91,7 +93,7 @@ export default function Home(props) {
               </div>
 
               <div className={`${animate.up} ${styles.menuItem}`}>
-                <Link href="Appointment">
+                <Link href="Hospitals">
                   <div>
                     <img src='img/icons/consultas.png' />
                     <p>Consultas</p>
@@ -100,7 +102,7 @@ export default function Home(props) {
               </div>
 
               <div className={`${animate.upSlow} ${styles.menuItem}`}>
-                <Link href="History">
+                <Link href="Appointments">
                   <div>
                     <img src='img/icons/history.png' />
                     <p>Histórico de Consultas</p>
