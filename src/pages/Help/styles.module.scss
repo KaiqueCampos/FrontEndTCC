@@ -1,68 +1,27 @@
 .container {
-    margin-top: 2.5rem;
-    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-width: 1920px;
+    max-height: 1080px;
+
+    margin: 0;
+    padding: 0;
+
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width: clamp(40rem, 60vw, 1100px);
-    height: clamp(22rem, 30vw, 550px);
-    border-radius: 15px;
-}
-
-.titlePage {
-    position: absolute;
-    top: clamp(-4rem, -3vw, -35px);
-    display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 1.3rem;
-    font-size: clamp(1rem, 3vw, 4rem);
-    font-weight: 700;
-    color: #fff;
 
-    filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.479));
-    text-shadow: 0px 5px 10px rgba(107, 66, 225, 0.7);
+    position: relative;
+    overflow: hidden;
 
-    img {
-        width: clamp(4rem, 6vw, 7rem);
-        height: clamp(4rem, 6vw, 7rem);
-    }
-}
-
-.helpItems {
-    display: grid;
-    grid-template-areas:
-        "li li"
-        "li li"
-        "li li"
-        "li li";
-    grid-gap: clamp(0.5rem, 1vw, 1rem);
-
-    a {
-        cursor: pointer;
-        transition: transform 0.2s, filter 0.2s;
-
-        &:hover {
-            transform: scale(1.01);
-            filter: brightness(0.8);
-        }
-
-        div {
-            width: clamp(14rem, 22vw, 25rem);
-            height: clamp(3rem,5vw, 5rem);
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            font-size: clamp(1rem, 1.2vw, 1.3rem);
-            font-weight: 700;
-            color: var(--font1);
-
-            border-radius: 1rem;
-            background: var(--secondaryColor);
-            box-shadow: 4px 4px 15px var(--boxShadow);
-        }
+    .helpItems {
+        display: grid;
+        grid-template-areas:
+            "li li"
+            "li li"
+            "li li"
+            "li li";
+        grid-gap: clamp(0.5rem, 1vw, 1rem);
     }
 }

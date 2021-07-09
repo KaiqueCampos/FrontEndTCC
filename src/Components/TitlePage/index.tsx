@@ -8,8 +8,6 @@ type TitlePageProps = {
 
 export function TitlePage(props: TitlePageProps) {
 
-    console.log(props.titleImageIcon)
-
     return (
         <div className={`${styles.container} ${animate.up}`}>
             <img src={props.titleImageIcon}/>

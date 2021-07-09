@@ -1,257 +1,220 @@
 .container {
-    margin-top: 3rem;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: clamp(35rem, 50vw, 930px);
-    height: clamp(20rem, 35vw, 600px);
-    border-radius: 15px;
-}
-
-.App {
-    display: grid;
-    margin-top: auto;
-    place-items: center;
-    font-family: Roboto sans-serif;
+    width: 100%;
     height: 100vh;
-  }
-  
-  .btn-group {
-    display: flex;
-  
-    flex-direction: column;
-  
-    margin-top: auto;
-  }
-  
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    align-self: start;
-    background-color: #3e68ff;
-    color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
-    padding: 0.25em 0.75em;
-    min-width: 10ch;
-    min-height: 44px;
-    text-align: center;
-    line-height: 1.1;
-    border: none;
-    margin-bottom: 1rem;
-    cursor: pointer;
-  }
-  
- 
-  
+    max-width: 1920px;
+    max-height: 1080px;
 
-.legend {
-    font-size: clamp(1rem, 1.3vw, 1.4rem);
-    font-weight: 700;
-    color: var(--purple);
-}
-
-.testenotification {
-    margin-bottom: 3rem;
-}
-
-.addMedicine {
-    width: clamp(30rem, 32.5vw, 525px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    input[type="text"] {
-        background: var(--secondaryColor);
-        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
-        width: 100%;
-        height: clamp(2.4rem, 2.5vw, 2.6rem);
-        border: 0;
-        border-radius: 10px;
-        padding-left: clamp(0.4rem, 1vw, 15px);
-        padding-right: clamp(0.4rem, 1vw, 15px);
-        font-size: (1.2rem, 1.3vw, 1.3rem);
-        font-weight: 500;
-        color: var(--input);
-        margin-top: clamp(0.4rem, 0.7vw, 10px);
-    }
-
-    input::placeholder {
-        color: var(--placeholder);
-        font-size: (1.2rem, 1.3vw, 1.3rem);
-        font-weight: 600;
-    }
-
-    input:focus {
-        box-shadow: 0 0 0 0;
-        outline: 0;
-        border: 2px solid var(--purple);
-        background: var(--secondaryColor);
-    }
-}
-
-.hoursContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 10px;
-    padding: 1rem 2rem;
-    width: 100%;
-    height: clamp(4rem, 4vw, 75px);
-    background: var(--purple);
-    margin-bottom: clamp(1rem, 1.5vw, 22.5px);
     position: relative;
-    color: #fff;
 
-    h2 {
-        font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 15px;
+    overflow: hidden;
+
+    .legend {
+        font-size: clamp(1rem, 1.3vw, 1.4rem);
+        font-weight: 700;
+        color: var(--purple);
     }
 
-    input {
-        cursor: pointer;
-        border: none;
-        font-size: clamp(2.5rem, 3vw, 3rem);
-        font-weight: 600;
-        color: #fff;
-        background: none;
-        min-width: clamp(7.5rem, 8vw, 150px);
-
-        &::-webkit-calendar-picker-indicator {
-            display: none;
-        }
-    }
-
-    button {
-        position: absolute;
-        right: clamp(0.5rem, 1vw, 15px);
+    .addMedicine {
+        width: clamp(30rem, 32.5vw, 525px);
         display: flex;
-        align-items: center;
+        flex-direction: column;
         justify-content: center;
-        width: clamp(1.7rem, 2.5vw, 37.5px);
-        height: clamp(1.7rem, 2.5vw, 37.5px);
-        background: var(--darkPurple);
-        border: 0;
-        border-radius: 50%;
-        transition: transform 0.2s, filter 0.2s;
+        align-items: center;
 
-        img {
-            width: 50%;
-            height: 50%;
-        }
-
-        &:hover {
-            transform: scale(1.1);
-            filter: brightness(0.9);
-        }
-    }
-}
-
-/* data especifica */
-
-.specificDate {
-    margin-top: clamp(0.6rem, 1.3vw, 24px);
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    align-items: center;
-    gap: clamp(0.6rem, 1vw, 15px);
-
-    button {
-        width: clamp(2rem, 3vw, 45px);
-        height: clamp(0.7rem, 1.5vw, 22.5px);
-        border-radius: 10px;
-        border: 2px solid var(--dark3);
-        background: var(--dark3);
-        position: relative;
-
-        transition: all 0.3s;
-
-        &:hover {
-            transform: scale(1.03);
-        }
-
-        div {
-            position: absolute;
-            top: 0;
-            width: 50%;
-            height: 100%;
-            border-radius: 50%;
-            background: #44475a;
-            transition: all 0.6s;
-        }
-    }
-}
-
-.date {
-    margin-top: 0.5rem;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: clamp(0.6rem, 1.3vw, 25px);
-    display: none;
-    transition: all 0.6s;
-
-    div {
-        width: 100%;
-
-        h4 {
-            color: var(--dark3);
-        }
-
-        input {
+        input[type="text"] {
             background: var(--secondaryColor);
             box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
             width: 100%;
-            height: clamp(2.4rem, 2.5vw, 40px);
+            height: clamp(2.4rem, 2.5vw, 2.6rem);
             border: 0;
             border-radius: 10px;
             padding-left: clamp(0.4rem, 1vw, 15px);
             padding-right: clamp(0.4rem, 1vw, 15px);
             font-size: (1.2rem, 1.3vw, 1.3rem);
-            font-weight: 600;
-            color: var(--placeholder);
-            cursor: pointer;
+            font-weight: 500;
+            color: var(--input);
+            margin-top: clamp(0.4rem, 0.7vw, 10px);
+        }
 
-            &:focus {
-                box-shadow: 0 0 0 0;
-                outline: 0;
-                border: 2px solid var(--purple);
+        input::placeholder {
+            color: var(--placeholder);
+            font-size: (1.2rem, 1.3vw, 1.3rem);
+            font-weight: 600;
+        }
+
+        input:focus {
+            box-shadow: 0 0 0 0;
+            outline: 0;
+            border: 2px solid var(--purple);
+            background: var(--secondaryColor);
+        }
+    }
+
+    .hoursContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 10px;
+        padding: 1rem 2rem;
+        width: 100%;
+        height: clamp(4rem, 4vw, 75px);
+        background: var(--purple);
+        margin-bottom: clamp(1rem, 1.5vw, 22.5px);
+        position: relative;
+        color: #fff;
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        input {
+            cursor: pointer;
+            border: none;
+            font-size: clamp(2.5rem, 3vw, 3rem);
+            font-weight: 600;
+            color: #fff;
+            background: none;
+            min-width: clamp(7.5rem, 8vw, 150px);
+
+            &::-webkit-calendar-picker-indicator {
+                display: none;
+            }
+        }
+
+        button {
+            position: absolute;
+            right: clamp(0.5rem, 1vw, 15px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: clamp(1.7rem, 2.5vw, 37.5px);
+            height: clamp(1.7rem, 2.5vw, 37.5px);
+            background: var(--darkPurple);
+            border: 0;
+            border-radius: 50%;
+            transition: transform 0.2s, filter 0.2s;
+
+            img {
+                width: 50%;
+                height: 50%;
+            }
+
+            &:hover {
+                transform: scale(1.1);
+                filter: brightness(0.9);
             }
         }
     }
-}
 
-.submitButton {
-    margin-top: clamp(0.7rem, 1.5vw, 22.5px);
-    width: 100%;
-    height: clamp(3.3rem, 3.5vw, 3.6rem);
-    border: 0;
-    border-radius: 15px;
-    background: var(--purple);
-    font-size: (1.2rem, 1.3vw, 1.3rem);
-    font-weight: 600;
-    color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: clamp(0.4rem, 1vw, 15px);
-    transition: filter 0.2s;
-    box-shadow: 5px 10px 50px rgba(107, 66, 225, 0.5);
-    &:hover {
-        filter: brightness(0.8);
+    /* data especifica */
+
+    .specificDate {
+        margin-top: clamp(0.6rem, 1.3vw, 24px);
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+        gap: clamp(0.6rem, 1vw, 15px);
+
+        button {
+            width: clamp(2rem, 3vw, 45px);
+            height: clamp(0.7rem, 1.5vw, 22.5px);
+            border-radius: 10px;
+            border: 2px solid var(--dark3);
+            background: var(--dark3);
+            position: relative;
+
+            transition: all 0.3s;
+
+            &:hover {
+                transform: scale(1.03);
+            }
+
+            div {
+                position: absolute;
+                top: 0;
+                width: 50%;
+                height: 100%;
+                border-radius: 50%;
+                background: #44475a;
+                transition: all 0.6s;
+            }
+        }
     }
 
-    img {
-        width: clamp(0.7rem, 1.5vw, 22.5px);
-        height: clamp(0.7rem, 1.5vw, 22.5px);
+    .date {
+        margin-top: 0.5rem;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: clamp(0.6rem, 1.3vw, 25px);
+        display: none;
+        transition: all 0.6s;
+
+        div {
+            width: 100%;
+
+            h4 {
+                color: var(--dark3);
+            }
+
+            input {
+                background: var(--secondaryColor);
+                box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+                width: 100%;
+                height: clamp(2.4rem, 2.5vw, 40px);
+                border: 0;
+                border-radius: 10px;
+                padding-left: clamp(0.4rem, 1vw, 15px);
+                padding-right: clamp(0.4rem, 1vw, 15px);
+                font-size: (1.2rem, 1.3vw, 1.3rem);
+                font-weight: 600;
+                color: var(--placeholder);
+                cursor: pointer;
+
+                &:focus {
+                    box-shadow: 0 0 0 0;
+                    outline: 0;
+                    border: 2px solid var(--purple);
+                }
+            }
+        }
+    }
+
+    .submitButton {
+        margin-top: clamp(0.7rem, 1.5vw, 22.5px);
+        width: 100%;
+        height: clamp(3.3rem, 3.5vw, 3.6rem);
+        border: 0;
+        border-radius: 15px;
+        background: var(--purple);
+        font-size: (1.2rem, 1.3vw, 1.3rem);
+        font-weight: 600;
+        color: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: clamp(0.4rem, 1vw, 15px);
+        transition: filter 0.2s;
+        box-shadow: 5px 10px 50px rgba(107, 66, 225, 0.5);
+        &:hover {
+            filter: brightness(0.8);
+        }
+
+        img {
+            width: clamp(0.7rem, 1.5vw, 22.5px);
+            height: clamp(0.7rem, 1.5vw, 22.5px);
+        }
     }
 }

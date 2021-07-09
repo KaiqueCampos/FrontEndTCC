@@ -1,5 +1,5 @@
 import React from "react";
-import { FirstAidItems } from "../../Components/FirstAidItem.tsx";
+import { ButtonHelpAndFirstAid } from "../../Components/buttonHelpAndFirstAid.tsx";
 import Header from "../../Components/Header";
 import { TitlePage } from "../../Components/TitlePage";
 
@@ -20,43 +20,43 @@ const FirstAid = () => {
 
                 <div className={`${styles.firstAidItemsContainer} ${animate.up}`}>
 
-                    <FirstAidItems
-                        firstAidType='Desmaio'
+                    <ButtonHelpAndFirstAid
+                        legend='Desmaio'
                         link='FirstAidPage'
                     />
 
-                    <FirstAidItems
-                        firstAidType='Desmaio'
+                    <ButtonHelpAndFirstAid
+                        legend='Desmaio'
                         link='FirstAidPage'
                     />
 
-                    <FirstAidItems
-                        firstAidType='Desmaio'
+                    <ButtonHelpAndFirstAid
+                        legend='Desmaio'
                         link='FirstAidPage'
                     />
 
-                    <FirstAidItems
-                        firstAidType='Desmaio'
+                    <ButtonHelpAndFirstAid
+                        legend='Desmaio'
                         link='FirstAidPage'
                     />
 
-                    <FirstAidItems
-                        firstAidType='Desmaio'
+                    <ButtonHelpAndFirstAid
+                        legend='Desmaio'
                         link='FirstAidPage'
                     />
 
-                    <FirstAidItems
-                        firstAidType='Desmaio'
+                    <ButtonHelpAndFirstAid
+                        legend='Desmaio'
                         link='FirstAidPage'
                     />
 
-                    <FirstAidItems
-                        firstAidType='Desmaio'
+                    <ButtonHelpAndFirstAid
+                        legend='Desmaio'
                         link='FirstAidPage'
                     />
 
-                    <FirstAidItems
-                        firstAidType='Desmaio'
+                    <ButtonHelpAndFirstAid
+                        legend='Desmaio'
                         link='FirstAidPage'
                     />
                 </div>

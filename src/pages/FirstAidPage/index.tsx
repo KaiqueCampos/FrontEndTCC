@@ -16,10 +16,6 @@ const FirstAidPage = () => {
                     titleImageIcon='/img/icons/firstAid.png'
                 />
 
-                <div className={`${styles.titlePage} ${animate.up}`}>
-                    Desmaio
-                </div>
-
                 <div className={`${styles.firstAidContainer} ${animate.up}`}>
                     <div className={styles.videoContainer}>
                         <img src="https://i.ytimg.com/vi/1MtKw-uP1NM/maxresdefault.jpg" />

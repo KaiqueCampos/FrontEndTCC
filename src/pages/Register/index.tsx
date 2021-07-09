@@ -1,7 +1,8 @@
 import Head from "next/Head";
 import Link from "next/Link";
 import { useRouter } from 'next/router';
-import React, { SyntheticEvent, useState } from "react";
+import { emit } from "node:process";
+import React, { ImgHTMLAttributes, SyntheticEvent, useState } from "react";
 import 'react-toastify/dist/ReactToastify.css';
 import BannerWelcome from "../../Components/bannerWelcome";
 import { useTheme } from "../../hooks/useTheme";
@@ -23,16 +24,17 @@ const Register = () => {
         document.getElementById('uploadImage').click();
     }
 
-    function uploadFile(inputElement) {
-        var file = document.getElementById('uploadImage').files[0];
+    function uploadFile() {
+        const fileElement = document.getElementById('uploadImage') as HTMLInputElement
+        var file = fileElement.files[0];
 
         var reader = new FileReader();
         reader.onloadend = function () {
             /******************* for Binary ***********************/
-            var data = (reader.result).split(',')[1];
+            var data = (reader.result as string).split(',')[1];
             var binaryBlob = atob(data);
             setImagePerfil(binaryBlob)
-            document.querySelector('#imageSRC').src = 'data:image/jpeg;base64,' + btoa(binaryBlob);
+            document.querySelector<HTMLImageElement>('#imageSRC').src = 'data:image/jpeg;base64,' + btoa(binaryBlob);
         }
 
         reader.readAsDataURL(file);

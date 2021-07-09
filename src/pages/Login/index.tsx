@@ -57,7 +57,7 @@ const Login = () => {
   const { theme } = useTheme();
 
   return (
-    <div className=''themeBackground'>
+    <div className='container'>
       <div className={styles.rowContainer}>
 
         <BannerWelcome />

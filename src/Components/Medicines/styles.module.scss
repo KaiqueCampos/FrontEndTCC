@@ -1,0 +1,97 @@
+.container {
+    width: 100%;
+    height: clamp(2.5rem, 3.7vw, 55px);
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding: clamp(0.8rem, 1.5vw, 20px);
+    background: var(--darkPurple);
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+    font-weight: 700;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.25);
+    transition: filter 0.2s;
+    position: relative;
+    color: #fff;
+
+    &:nth-child(2) {
+        background: var(--greenBlue);
+    }
+
+    &:nth-child(3) {
+        background: #f306ea;
+    }
+
+    &:nth-child(4) {
+        background: #2ecd5b;
+    }
+
+    &:nth-child(5) {
+        background: #f37806;
+    }
+
+    // Status of medicine
+    &[id="noTaken"] {
+        opacity: 1;
+        background-color: #c97474;
+        border: 0.2rem solid #740e0e;
+        pointer-events: none;
+        opacity: 0.5;
+        color: #740e0e;
+
+        hr {
+            border: 0;
+            border-left: 2px solid;
+        }
+    }
+
+    &[id="taken"] {
+        opacity: 0.5;
+        pointer-events: none;
+
+        hr:last-child {
+            display: block;
+            position: absolute;
+            left: 0;
+            height: 0;
+            border: 0;
+            width: 90%;
+            border-bottom: 4px solid;
+        }
+    }
+
+    p ~ p {
+        overflow: hidden;
+    }
+
+    hr {
+        height: clamp(1.5rem, 2.5vw, 37.5px);
+        border-left: 1px solid;
+        margin-left: clamp(0.5rem, 1vw, 20px);
+        margin-right: clamp(0.5rem, 1vw, 20px);
+
+        &:last-child {
+            display: none;
+        }
+    }
+
+    button {
+        cursor: pointer;
+        background: none;
+        border: 0;
+        width: clamp(0.8rem, 1.2vw, 18px);
+        height: clamp(0.8rem, 1.2vw, 18px);
+        position: absolute;
+        right: 1rem;
+        transition: transform 0.2s;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

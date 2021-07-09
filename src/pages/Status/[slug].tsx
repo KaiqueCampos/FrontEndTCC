@@ -4,7 +4,7 @@ import animate from '../../styles/animation.module.scss';
 import { parseCookies } from '../../utils/parseCookies';
 import styles from './styles.module.scss';
 
-export default function Status() {
+export default function Status({req}) {
 
     // Variables
     const router = useRouter();
@@ -27,7 +27,7 @@ export default function Status() {
     const data = splitString(slugData, "&")
 
     // Send Status to API
-    async function submit(props, req) {
+    async function submit(props) {
 
         // Get token in cookies
         const { token } = parseCookies(req)

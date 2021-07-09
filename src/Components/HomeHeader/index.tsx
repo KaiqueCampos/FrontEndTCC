@@ -1,5 +1,5 @@
 import Link from 'next/Link';
-import { initialProfile, profileHover } from '../../utils/indexMenu';
+import { initialProfile, profileHover } from '../../utils/indexMenuAnimation';
 import { useEffect, useState } from 'react';
 import { useTheme } from '../../hooks/useTheme';
 import { useCookies } from 'react-cookie';

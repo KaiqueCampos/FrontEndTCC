@@ -1,74 +1,65 @@
 import React from "react";
+import { ButtonHelpAndFirstAid } from "../../Components/buttonHelpAndFirstAid.tsx";
 import Header from "../../Components/Header";
+import { TitlePage } from "../../Components/TitlePage";
 import styles from './styles.module.scss';
+import animate from '../../styles/animation.module.scss'
 
 const Help = () => {
 
     return (
         <div id='themeBackground'>
-            <div className="main">
+            <div className={styles.container}>
+
                 <Header />
 
-                <div className={styles.container}>
+                <TitlePage
+                    title='Ajuda'
+                    titleImageIcon='/img/icons/help.png'
+                />
 
-                    <div className={styles.titlePage}>
-                        <img src='/img/icons/help.png' />
-                        Ajuda
-                    </div>
+                <div className={`${styles.helpItems} ${animate.up}`}>
+                    <ButtonHelpAndFirstAid
+                        legend="Ajuda"
+                        link="/"
+                    />
 
-                    <div className={styles.helpItems}>
-                        <a>
-                            <div>
-                                Ajude-me
-                            </div>
-                        </a>
+                    <ButtonHelpAndFirstAid
+                        legend="Ajuda"
+                        link="/"
+                    />
 
-                        <a>
-                            <div>
-                                Ajude-me
-                            </div>
-                        </a>
+                    <ButtonHelpAndFirstAid
+                        legend="Ajuda"
+                        link="/"
+                    />
 
-                        <a>
-                            <div>
-                                Ajude-me
-                            </div>
-                        </a>
+                    <ButtonHelpAndFirstAid
+                        legend="Ajuda"
+                        link="/"
+                    />
 
-                        <a>
-                            <div>
-                                Ajude-me
-                            </div>
-                        </a>
+                    <ButtonHelpAndFirstAid
+                        legend="Ajuda"
+                        link="/"
+                    />
 
-                        <a>
-                            <div>
-                                Ajude-me
-                            </div>
-                        </a>
+                    <ButtonHelpAndFirstAid
+                        legend="Ajuda"
+                        link="/"
+                    />
 
-                        <a>
-                            <div>
-                                Ajude-me
-                            </div>
-                        </a>
+                    <ButtonHelpAndFirstAid
+                        legend="Ajuda"
+                        link="/"
+                    />
 
-                        <a>
-                            <div>
-                                Ajude-me
-                            </div>
-                        </a>
-
-                        <a>
-                            <div>
-                                Ajude-me
-                            </div>
-                        </a>
-                    </div>
+                    <ButtonHelpAndFirstAid
+                        legend="Ajuda"
+                        link="/"
+                    />
                 </div>
-
             </div>
-
         </div>
     );
 };
