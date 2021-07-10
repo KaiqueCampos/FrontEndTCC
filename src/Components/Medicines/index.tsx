@@ -38,7 +38,7 @@ export function Medicines(props: MedicinesProps) {
         if (response.status === 200) {
             // Set token
             sucessNotification("Remédio Deletado com sucesso")
-            return router.push('/Medicines');
+            return router.push('/MedicinesOfWeek');
 
         } else {
             errorNotification("Email ou senha incorretos, tente novamente...")

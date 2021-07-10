@@ -25,6 +25,7 @@ type UserInformation = {
 }
 
 type AppContextData = {
+    medicineToBeTaken: MedicinesData;
     medicinesToday: Array<Object>
     userInformation: UserInformation;
     medicineDayNotification: () => void;
@@ -43,6 +44,7 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
     // variables
     const [medicinesToday, setMedicinesToday] = useState([]);
     const [userInformation, setUserInformation] = useState();
+    const [medicineToBeTaken, setMedicineToBeTaken] = useState<MedicinesData>()
     const router = useRouter();
 
     // Functions
@@ -51,7 +53,8 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
 
         for (var i = 0; i < medicinesToday.length; i++) {
             if (time === medicinesToday[i].time && medicinesToday[i].status === 2) {
-                router.push(`/Status/${medicinesToday[i].id}&${medicinesToday[i].name}&${medicinesToday[i].time}`);
+                setMedicineToBeTaken(medicinesToday[i])
+                router.push('/MedicineToBeTaken');
             }
         }
     };
@@ -79,6 +82,7 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
     return (
         <AppContext.Provider
             value={{
+                medicineToBeTaken,
                 userInformation,
                 medicinesToday,
                 getUserInformation,

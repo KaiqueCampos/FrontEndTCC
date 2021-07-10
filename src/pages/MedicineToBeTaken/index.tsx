@@ -1,33 +1,27 @@
 import moment from 'moment';
 import { useRouter } from 'next/router';
+import { useApp } from '../../hooks/useApp';
 import animate from '../../styles/animation.module.scss';
 import { parseCookies } from '../../utils/parseCookies';
 import styles from './styles.module.scss';
 
-export default function Status({req}) {
+export default function MedicineToBeTaken({ req }) {
+
+    const { medicineToBeTaken } = useApp()
 
     // Variables
     const router = useRouter();
-    const slugData = router.query.slug;
-    const currentDate = moment().format("YYYY-MM-DD");
 
     // true -> play audio | false -> stop audio
     function setPlayingState(state: boolean) {
         return;
     }
-    
+
     setPlayingState(true);
 
-    // Handle Date
-    function splitString(stringToSplit, separator) {
-        var arrayOfStrings = stringToSplit.split(separator);
-        return arrayOfStrings
-    }
-    
-    const data = splitString(slugData, "&")
 
     // Send Status to API
-    async function submit(props) {
+    async function submit(statusMedicine: number) {
 
         // Get token in cookies
         const { token } = parseCookies(req)
@@ -40,9 +34,9 @@ export default function Status({req}) {
                 'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify({
-                medicineId: data[0],
-                status: props,
-                date: currentDate,
+                medicineId: medicineToBeTaken?.id,
+                status: statusMedicine,
+                date: moment().format('YYYY-MM-DD'),
             })
         });
 
@@ -63,9 +57,9 @@ export default function Status({req}) {
                 </div>
 
                 <div className={`${styles.medicineContainer} ${animate.upSlow}`}>
-                    <p>{data[2]}</p>
+                    <p>{medicineToBeTaken?.time}</p>
                     <hr></hr>
-                    <p>{data[1]}</p>
+                    <p>{medicineToBeTaken?.name}</p>
                 </div>
 
                 <div className={`${styles.buttons} ${animate.upMoreSlow}`}>
@@ -85,6 +79,5 @@ export default function Status({req}) {
                 src="/alarm.mp3"
             />
         </div>
-
     )
 }

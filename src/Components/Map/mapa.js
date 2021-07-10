@@ -99,10 +99,6 @@ class Mapp extends React.Component {
             map.removeControl(directions);
         }
 
-        function teste() {
-            console.log("ushduoa")
-        }
-
         if (array.length > 0) {
             //put the markers in the map
             array.forEach((location) => {

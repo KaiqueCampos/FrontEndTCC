@@ -27,7 +27,6 @@ export function joinMedicinesWithAndWithoutStatus(props: JoinMedicinesProps) {
     for (var i = 0; i < days.length; i++) {
         handleData.push(medicinesWithStatus.filter((medicine) => moment(days[i]).isBetween(medicine?.date, medicine?.date, null, '[]')))
     }
-    console.log(handleData)
 
     var data = []
 
