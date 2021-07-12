@@ -14,13 +14,13 @@ export function HomeHeader(props: HomeMenuProps) {
     const [cookie, setCookie] = useCookies(["token"])
     const [imageProfile, setImageProfile] = useState('');
     const { buttonTheme, toggleTheme } = useTheme();
-  
+
     function logout() {
-      setCookie("token", "");
+        setCookie("token", "");
     }
-  
+
     useEffect(() => {
-      setImageProfile('data:image/jpeg;base64,' + btoa(props.imageProfile));
+        setImageProfile('data:image/jpeg;base64,' + btoa(props.imageProfile));
     })
 
     return (
@@ -33,6 +33,14 @@ export function HomeHeader(props: HomeMenuProps) {
                 <p>Bem-Vindo(a)</p>
                 <h3>{props.username}</h3>
             </div>
+
+            <button
+                onClick={initialProfile}
+                id='comeBackButton'
+                className={styles.comeBackButton}
+            >
+                <img src='/img/icons/back.png' />
+            </button>
 
             <div id="profile" onMouseOver={profileHover}>
                 <img id='imageSRC' src={imageProfile} />

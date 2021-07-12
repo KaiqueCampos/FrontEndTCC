@@ -8,12 +8,12 @@ import { HomeHeader } from '../Components/HomeHeader';
 import styles from '../styles/home.module.scss';
 
 type HomeProps = {
-    isLogged: boolean;
-    username?: string;
-    imagePerfil?: string;
+  isLogged: boolean;
+  username?: string;
+  imagePerfil?: string;
 }
 
-export default function Home(props : HomeProps) {
+export default function Home(props: HomeProps) {
 
   return (
     <>
@@ -33,7 +33,7 @@ export default function Home(props : HomeProps) {
       ) : (
 
         <NotLogged />
-        
+
       )}
     </>
   )

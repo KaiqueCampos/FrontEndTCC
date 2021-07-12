@@ -175,6 +175,9 @@
 
 @media (max-width: 430px) {
     .container {
+
+        transform: translateY(15%);
+
         .menuItem {
             &:nth-child(2) {
                 img {
