@@ -10,7 +10,7 @@ export default function NotLogged() {
     const { theme } = useTheme();
 
     return (
-        <div className="container">
+        <div id='themeBackground'>
             <div className={styles.notLoggedContainer}>
                 <div className={`${styles.loggedContainer} ${animate.upSlow}`}>
                     <img className={styles.accountLogo} src="img/icons/userPurple3.png" />

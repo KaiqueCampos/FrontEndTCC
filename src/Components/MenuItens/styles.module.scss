@@ -2,7 +2,7 @@
     width: 80%;
     height: 75vh;
     max-height: 720px;
-    
+
     margin-top: 5rem;
 
     display: grid;
@@ -16,7 +16,6 @@
 
     .menuItem {
         position: relative;
-        background: red;
 
         color: #fff;
         font-size: 2.5rem;
@@ -58,11 +57,25 @@
         &:nth-child(2) {
             grid-area: medicines;
             background: #131a5379;
+
             img {
-                width: 120%;
+                width: 40rem;
                 bottom: 12rem;
                 left: 4rem;
                 filter: drop-shadow(-20px 10px 50px rgba(57, 105, 202, 0.651));
+            }
+
+            @media (max-width: 1370px) {
+                img {
+                    width: 30rem;
+                }
+            }
+
+            @media (max-width: 1250px) {
+                img {
+                    bottom: 16rem;
+                    left: 2rem;
+                }
             }
         }
 
@@ -111,6 +124,85 @@
                 right: -5rem;
                 width: 70%;
                 filter: drop-shadow(-20px 10px 50px rgba(0, 0, 0, 0.651));
+            }
+        }
+    }
+}
+
+@media (max-width: 968px) {
+    .container {
+        margin-top: 1rem;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 17rem 8.5rem 8.5rem 8rem 8rem;
+        grid-template-areas:
+            "emergency medicines "
+            "firstAid medicines "
+            "firstAid medicines"
+            "history appointment"
+            "help help";
+
+        overflow-y: auto;
+
+        .menuItem {
+            font-size: 2.2rem;
+
+            &:nth-child(4) {
+                img {
+                    width: 70%;
+                    right: -5rem;
+                }
+            }
+
+            &:nth-child(6) {
+                img {
+                    width: 35%;
+                    filter: drop-shadow(-20px 10px 50px rgba(0, 0, 0, 0.651));
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 530px) {
+    .container {
+        .menuItem {
+            font-size: 1.8rem;
+        }
+    }
+}
+
+@media (max-width: 430px) {
+    .container {
+        .menuItem {
+            &:nth-child(2) {
+                img {
+                    width: 25rem;
+                    left: 1rem;
+                }
+            }
+
+            &:nth-child(3) {
+                img {
+                    top: -1rem;
+                    right: -2.5rem;
+                    width: 55%;
+                }
+            }
+
+            &:nth-child(4) {
+                img {
+                    width: 55%;
+                    top: -1rem;
+                    right: -3rem;
+                }
+            }
+
+            &:nth-child(6) {
+                img {
+                    width: 50%;
+                }
             }
         }
     }
