@@ -31,7 +31,7 @@
         filter: drop-shadow(4px 4px 10px var(--purple));
     }
 
-    .comeBack{
+    .comeBack {
         width: clamp(2.5rem, 4vw, 6rem);
         height: clamp(2.5rem, 4vw, 6rem);
         transition: transform 0.2s, filter 0.2s;
@@ -40,6 +40,20 @@
         &:hover {
             transform: scale(1.1);
             filter: brightness(0.8);
+        }
+    }
+}
+
+@media (max-width: 770px) {
+    .container {
+        div img{
+            width: 5rem;
+            height: 5rem;
+        }
+
+        .comeBack{
+            width: 4rem;
+            height: 4rem;
         }
     }
 }
