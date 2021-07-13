@@ -25,3 +25,34 @@
         grid-gap: clamp(0.5rem, 1vw, 1rem);
     }
 }
+
+@media (max-width: 770px) {
+    .container {
+        .helpItems {
+            width: 70%;
+            height: 50vh;
+
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "li li";
+            gap: 1.5rem;
+
+            margin-top: 1.5rem;
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    .container {
+        .helpItems {
+            width: 80%;
+            height: 70vh;
+
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(8, 1fr);
+            grid-template-areas: "li";
+            gap: 1.5rem;
+
+            margin-top: 1.5rem;
+        }
+    }
+}
