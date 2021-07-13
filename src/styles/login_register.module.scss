@@ -56,7 +56,7 @@
 
     button {
         width: 100%;
-        height: clamp(1.5rem, 4vw, 4rem);
+        height: 4rem;
         margin-top: clamp(0.5rem, 1.5vh, 2rem);
         background-image: var(--purpleToGreenBlue);
         font-size: clamp(1.2rem, 1.1vw, 22px);
@@ -171,5 +171,76 @@
         border: 2px solid #fff;
         color: #fff;
         font-size: clamp(0.8rem, 1.2vw, 1.5rem);
+    }
+}
+
+@media (max-width: 450px) {
+    .rowContainer {
+        align-items: center;
+        justify-content: center;
+
+        .legend {
+            text-align: center;
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            p {
+                font-size: 2rem;
+            }
+        }
+
+        .form {
+            width: 90%;
+            gap: 1.5rem;
+
+            button {
+                height: 6rem;
+                font-size: 2rem;
+                border-radius: 1rem;
+
+                img {
+                    width: 2.5rem;
+                    height: 2.5rem;
+                }
+            }
+        }
+
+        .inputContainer {
+            width: 100%;
+            position: relative;
+
+            img {
+                width: 3rem;
+                height: 3rem;
+                position: absolute;
+                left: 1.5rem;
+                top: 1.5rem;
+            }
+
+            input {
+                font-size: 2.2rem;
+                padding-left: 5.5rem;
+                border-radius: 2rem;
+            }
+        }
+
+        .forgotPassword {
+            a {
+                font-size: 2rem;
+            }
+        }
+
+        .imageProfile {
+            margin-top: 4rem;
+            margin-bottom: 2rem;
+            width: 15rem;
+            height: 15rem;
+
+            button {
+                font-size: 2rem;
+            }
+        }
     }
 }
