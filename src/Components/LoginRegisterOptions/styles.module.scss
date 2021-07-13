@@ -1,0 +1,110 @@
+.container {
+    width: clamp(300px, 25vw, 450px);
+    height: clamp(150px, 15vw, 250px);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background: var(--transparent);
+    margin-bottom: clamp(30px, 4vw, 75px);
+    box-shadow: 0px 8px 8px 5px rgba(0, 0, 0, 0.25);
+
+    .accountLogo {
+        width: clamp(150px, 13vw, 195px);
+        height: clamp(150px, 13vw, 195px);
+        position: absolute;
+        bottom: clamp(40px, 8vw, 160px);
+        filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.555));
+    }
+
+    .buttonsContainer {
+        width: 90%;
+        height: clamp(45px, 5vw, 110px);
+        border-radius: 15px;
+        padding-left: clamp(1rem, 1.5vw, 1.5rem);
+        padding-right: clamp(0.3rem, 0.5vw, 1.5rem);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--dark);
+        position: absolute;
+        bottom: clamp(10px, 2vh, 20px);
+
+        p {
+            cursor: pointer;
+            font-size: clamp(1rem, 1.5vw, 1.5rem);
+            font-weight: 700;
+            color: #fff;
+            transition: color 0.2s;
+
+            &:first-child:hover {
+                color: var(--greenBlue);
+            }
+        }
+
+        div {
+            background: var(--greenBlue);
+            display: flex;
+            flex-direction: row;
+            gap: clamp(0.4rem, 1vh, 1rem);
+            justify-content: center;
+            align-items: center;
+            width: clamp(9rem, 10vw, 11rem);
+            height: clamp(2rem, 4vw, 75px);
+            border-radius: 10px;
+            box-shadow: 0px 10px 50px #14d8e4;
+            transition: filter 0.3s;
+            cursor: pointer;
+
+            p {
+                color: #3b1f8d;
+            }
+
+            &:hover {
+                filter: brightness(0.7);
+            }
+
+            img {
+                width: clamp(2rem, 2vw, 30px);
+                height: clamp(2rem, 2vw, 30px);
+            }
+        }
+    }
+}
+
+@media (max-width: 770px) {
+    .container {
+        width: 70%;
+        height: 20rem;
+        margin-bottom: 20rem;
+
+        .accountLogo {
+            bottom: 11rem;
+        }
+
+        .buttonsContainer {
+            width: 90%;
+            height: 6rem;
+
+            p {
+                font-size: 2rem;
+            }
+
+            div {
+                height: 70%;
+                width: 10rem;
+                margin-right: 0.5rem;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 450px) {
+    .container {
+        width: 100%;
+    }
+}

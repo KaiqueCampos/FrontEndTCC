@@ -1,45 +1,13 @@
-import Link from 'next/Link';
-import PlayVideo from '../playVideo';
-
+import { AboutUsVideo } from '../AboutUsVideo';
+import { LoginRegisterOptions } from '../LoginRegisterOptions';
 import styles from './styles.module.scss';
-import animate from '../../styles/animation.module.scss';
-import { useTheme } from '../../hooks/useTheme';
 
 export default function NotLogged() {
-
-    const { theme } = useTheme();
-
     return (
         <div id='themeBackground'>
-            <div className={styles.notLoggedContainer}>
-                <div className={`${styles.loggedContainer} ${animate.upSlow}`}>
-                    <img className={styles.accountLogo} src="img/icons/userPurple3.png" />
-                    <img className={styles.accountLogo} src={theme === 'light' ? "img/icons/userPurple3.png" : "img/icons/userPurple4.png"} />
-
-
-                    <div className={styles.buttonsContainer}>
-                        <Link href='/Register'><p>Registrar-se</p></Link>
-                        <Link href='/Login'>
-                            <div>
-                                <img src="img/icons/loginPurple.png" />
-                                <p>Login</p>
-                            </div>
-                        </Link>
-                    </div>
-                </div>
-
-                <div className={`${styles.aboutUs} ${animate.upMoreSlow}`}>
-                    <div className={styles.aboutUsImageContainer}>
-                        <img src='img/icons/logo.png' />
-                        <p>
-                            O preenchimento das seguintes informações são opcionais,
-                            elas servem para agilizar o preenchimento dos formulários
-                            de consulta e uma melhor usabilidade do site.
-                        </p>
-                        <img src='/img/backgrounds/purpleShadow.png' />
-                    </div>
-                    <PlayVideo />
-                </div>
+            <div className={styles.container}>
+                <LoginRegisterOptions />
+                <AboutUsVideo />
             </div>
         </div>
     )
