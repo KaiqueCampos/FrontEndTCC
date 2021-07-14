@@ -2,8 +2,11 @@ import Link from 'next/Link'
 
 import styles from './styles.module.scss'
 import animate from '../../styles/animation.module.scss'
+import { useTheme } from '../../hooks/useTheme'
 
 export function MenuItems() {
+
+    const {theme} = useTheme()
     
     return (
         <div className={styles.container}>
@@ -56,7 +59,7 @@ export function MenuItems() {
             <div className={`${animate.up} ${styles.menuItem}`}>
                 <Link href="Help">
                     <div>
-                        <img src='img/icons/help.png' />
+                        <img src={theme === 'light' ? 'img/icons/help.png' : 'img/icons/helpWhiteIcon.png'} />
                         <p>Ajuda</p>
                     </div>
                 </Link>
