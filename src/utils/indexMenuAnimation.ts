@@ -17,6 +17,7 @@ export function profileHover() {
     profile.style.transition = "all 0.7s";
 
     // Change atributes of header
+    element.style.marginTop = (widthDevice < 770) ? '0' : '' 
     element.style.width = widthDevice < 770 ? '100vw' : "clamp(16rem, 20vw, 20rem)";
     element.style.height = widthDevice < 770 ? '100vh' : "clamp(19rem, 18vw, 23rem)";
     element.style.right = widthDevice < 770 ? '0' : "2rem";
@@ -28,11 +29,12 @@ export function profileHover() {
     profile.style.position = 'absolute'
     profile.style.top = '1rem';
 
+    // Profile location
     (widthDevice < 770)
         ? profile.style.right = '2rem'
         : profile.style.left = '2rem'
 
-
+    // textProfile or comeBackButton (mobile version)
     if (widthDevice < 770) {
         comeBackButton.style.display = 'block'
         textProfile.style.display = 'none'
@@ -59,4 +61,5 @@ export function initialProfile() {
     textProfile.removeAttribute('style')
     profile.removeAttribute('style')
     comeBackButton.removeAttribute('style')
+
 }

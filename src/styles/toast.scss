@@ -13,3 +13,17 @@
     font-size: 1.5rem;
 }
 
+@media (max-width: 450px){
+    #errorNotification {
+        font-size: 2.2rem;
+    }
+    
+    #sucessNotification {
+        font-size: 2.2rem; 
+    }
+    
+    #warningNotification{
+        font-size: 2.2rem;
+    }
+}
+

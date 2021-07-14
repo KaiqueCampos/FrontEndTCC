@@ -11,12 +11,14 @@
     top: 1rem;
     border-radius: 2rem;
     z-index: 1000;
+    transition: all 0.7s;
 
     .textProfile {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        transition: all 0.7s;
 
         p {
             font-size: clamp(1rem, 1.3vw, 1.3rem);
@@ -37,6 +39,7 @@
         width: clamp(4rem, 5vw, 6rem);
         height: clamp(4rem, 5vw, 6rem);
         filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.658));
+        transition: all 0.7s;
     }
 
     .comeBackButton {
@@ -55,6 +58,7 @@
 
         transition: transform 0.2s, filter 0.2s;
         cursor: pointer;
+        
 
         &:hover {
             transform: scale(1.1);
@@ -179,6 +183,7 @@
         position: absolute;
         top: 0;
         border-radius: 0;
+        margin-top: 2rem;
 
         .textProfile {
             p {
