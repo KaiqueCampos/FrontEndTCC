@@ -87,30 +87,6 @@
                 display: none;
             }
         }
-
-        button {
-            position: absolute;
-            right: clamp(0.5rem, 1vw, 15px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: clamp(1.7rem, 2.5vw, 37.5px);
-            height: clamp(1.7rem, 2.5vw, 37.5px);
-            background: var(--darkPurple);
-            border: 0;
-            border-radius: 50%;
-            transition: transform 0.2s, filter 0.2s;
-
-            img {
-                width: 50%;
-                height: 50%;
-            }
-
-            &:hover {
-                transform: scale(1.1);
-                filter: brightness(0.9);
-            }
-        }
     }
 
     /* data especifica */
@@ -215,6 +191,88 @@
         img {
             width: clamp(0.7rem, 1.5vw, 22.5px);
             height: clamp(0.7rem, 1.5vw, 22.5px);
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    .container {
+        position: relative;
+
+        .legend {
+            font-size: 2.5rem;
+        }
+
+        .addMedicine {
+            width: 85%;
+            gap: 1rem;
+
+            input[type="text"] {
+                height: 6rem;
+                border-radius: 2rem;
+                padding: 0 1.2rem;
+                font-size: 2.3rem;
+            }
+        }
+
+        .hoursContainer {
+            border-radius: 2rem;
+            height: 6rem;
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            input {
+                font-size: 2.7rem;
+            }
+        }
+
+        /* data especifica */
+
+        .specificDate {
+            gap: 1.2rem;
+
+            button {
+                width: 4rem;
+                height: 2rem;
+            }
+        }
+
+        .date {
+            flex-direction: column;
+          
+
+            div {
+                h4 {
+                    font-size: 2.3rem;
+                }
+
+                input {
+                    width: 100%;
+                    height: 6rem;
+                    border-radius: 2rem;
+                    padding: 0 1.2rem;
+                    font-size: 2rem;
+                }
+            }
+        }
+
+        .submitButton {
+            position: absolute;
+            bottom: 3rem;
+
+            width: 85%;
+            height: 8rem;
+            border-radius: 2rem;
+
+            font-size: 2rem;
+            gap: 1rem;
+
+            img {
+                width: 2rem;
+                height: 2rem;
+            }
         }
     }
 }

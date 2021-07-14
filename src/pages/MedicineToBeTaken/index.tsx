@@ -1,5 +1,6 @@
 import moment from 'moment';
 import { useRouter } from 'next/router';
+import { Medicines } from '../../Components/Medicines';
 import { useApp } from '../../hooks/useApp';
 import animate from '../../styles/animation.module.scss';
 import { parseCookies } from '../../utils/parseCookies';
