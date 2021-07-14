@@ -16,7 +16,7 @@ export function profileHover() {
     textProfile.style.transition = "all 0.7s";
     profile.style.transition = "all 0.7s";
 
-    // Change atributes of heaader
+    // Change atributes of header
     element.style.width = widthDevice < 770 ? '100vw' : "clamp(16rem, 20vw, 20rem)";
     element.style.height = widthDevice < 770 ? '100vh' : "clamp(19rem, 18vw, 23rem)";
     element.style.right = widthDevice < 770 ? '0' : "2rem";
@@ -36,7 +36,7 @@ export function profileHover() {
     if (widthDevice < 770) {
         comeBackButton.style.display = 'block'
         textProfile.style.display = 'none'
-    
+
     } else {
         // Change position of textProfile
         textProfile.style.position = 'absolute';
@@ -49,37 +49,14 @@ export function initialProfile() {
 
     //Get variables
     document.getElementById("headerMenu").style.display = 'none'
+    
     const textProfile = document.getElementById("textProfile");
     const profile = document.getElementById("profile");
     const element = document.getElementById("header");
     const comeBackButton = document.getElementById("comeBackButton");
 
-    const widthDevice = window.innerWidth
-
-    //Transition
-    element.style.transition = "all 0.7s";
-    textProfile.style.transition = "all 0.7s";
-    profile.style.transition = "all 0.7s";
-
-    // Change atributes of heaader
-    element.style.width = "100%";
-    element.style.height = "auto";
-    element.style.right = "0";
-    element.style.top = widthDevice < 770 ? '0' : "1rem";
-    element.style.paddingLeft = "3vw";
-    element.style.paddingRight = "3vw";
-    element.style.background = "none";
-    element.style.boxShadow = 'none';
-
-
-    // Change position
-    profile.style.position = ''
-
-    // Change position of textProfile
-    textProfile.style.position = '';
-    textProfile.style.display = 'block'
-
-    // comeBackButton to  display
-    comeBackButton.style.display = 'none'
-
+    element.removeAttribute('style')
+    textProfile.removeAttribute('style')
+    profile.removeAttribute('style')
+    comeBackButton.removeAttribute('style')
 }
