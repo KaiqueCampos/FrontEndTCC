@@ -1,5 +1,4 @@
 import React from "react";
-import FinalImage from "../../Components/finalImage";
 import Header from "../../Components/Header";
 import Map from "../../Components/Map/Map";
 import { useApp } from "../../hooks/useApp";
