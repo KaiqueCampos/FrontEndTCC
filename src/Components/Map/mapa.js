@@ -69,11 +69,14 @@ class Mapp extends React.Component {
                     background: "url('https://image.flaticon.com/icons/png/512/504/504276.png') 100% 100%"
                 })
 
-                    .setLngLat(location.coordinates)
+                .setLngLat(location.coordinates)
                     .setPopup(new mapboxgl.Popup({ offset: 25 })
                         .setHTML(
                             "<div id='popup'>" +
+                            "<div>" +
                             `<p>${location.username}</p>` +
+                            "</div>" +
+
                             "<p>(11) 95810-1810</p>" +
                             "</div>"))
                     .addTo(map);
@@ -83,8 +86,10 @@ class Mapp extends React.Component {
 
     render() {
 
-        return (
-            <div id="my-map" className={styles.container} />
+        return ( <
+            div id = "my-map"
+            className = { styles.container }
+            />
         )
     }
 }

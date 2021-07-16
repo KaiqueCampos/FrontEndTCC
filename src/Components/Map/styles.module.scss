@@ -2,56 +2,63 @@
     width: 100vw;
     height: 100vh;
     position: relative;
-
+    
     div[class="mapboxgl-popup-content"] {
         z-index: 100;
-        padding: 1rem 2.5rem;
+        padding: 0;
         box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-
+        
         div[id="popup"] {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-
             font-family: "Montserrat";
             color: var(--darkPurple);
             font-size: 1.5rem;
+            
+            div {
+                width: 100%;
+                background: var(--purple);
+                
+                padding: 0.7rem 2.2rem;
 
-            p:first-child{
-                font-weight: 700;
+                p {
+                    font-weight: 700;
+                    color: #fff;
+                }
             }
-
-            p:last-child{
-                color: var(--green);
-                font-weight: 500;
+            
+            p {
+                padding: 0.5rem 0 1rem 0;
+                color: var(--darkPurple);
+                font-weight: 600;
             }
         }
-
         button[class="mapboxgl-popup-close-button"] {
             color: var(--darkPurple);
             font-size: 2rem;
             font-weight: 700;
-            
             position: absolute;
             top: 0;
             right: 0.5rem;
-
             transition: transform 0.2s;
 
-            &:hover{
+            z-index: 1000;
+           
+            &:hover {
                 transform: scale(1.1);
+                color: #fff;
             }
         }
     }
-
     div[class="mapboxgl-marker mapboxgl-marker-anchor-center"] {
         width: 3rem;
         height: 3rem;
         background: url("/img/icons/hospital.png") no-repeat center center;
         background-size: 100% 100%;
-
+       
         svg {
             display: none;
         }
