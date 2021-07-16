@@ -1,59 +1,25 @@
-import React, { useState } from "react";
-
-import { parseCookies } from "../../utils/parseCookies";
-import Head from "next/Head";
-
-import Header from "../../Components/Header";
-import AppointmentDescription from "../../Components/AppointmentDescription";
-import AppointmentVideo from "../../Components/AppointmentVideo";
-import SearchHospitalLocation from "../../Components/SearchHospitalLocation";
-import AppointmentForm from "../../Components/AppointmentForm";
-import Map from "../../Components/Map/Map";
+import React from "react";
 import FinalImage from "../../Components/finalImage";
-
-import styles from './styles.module.scss';
-import animate from '../styles/animation.module.scss';
+import Header from "../../Components/Header";
+import Map from "../../Components/Map/Map";
 import { useApp } from "../../hooks/useApp";
+import { parseCookies } from "../../utils/parseCookies";
+import styles from './styles.module.scss';
 
-const Appointment = (props) => {
+export default function Appointment(props) {
 
-    const {getUserInformation} = useApp();
+    const { getUserInformation } = useApp();
     getUserInformation(props.data);
 
     return (
-        <>
-            <Head>
-                <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
-            </Head>
 
-            <div className={styles.container}>
-                <div className={styles.header}>
-                    <Header />
-                    <AppointmentDescription />
-                    <AppointmentVideo />
-                </div>
+        <div className={styles.container}>
+            <Header backButtonColor='purple' />
 
-                <div className={styles.main}>
-                    <div className={styles.hospitalSearch}>
-                        <div className={styles.mapContainer}>
-                            <img src='img/backgrounds/mapBackground.png' />
-                        </div>
-
-                        <SearchHospitalLocation />
-                        <Map />
-                    </div>
-
-                    <AppointmentForm />
-                </div>
-
-                <FinalImage/>
-            </div>
-
-        </>
+            <Map />
+        </div>
     );
 };
-
-export default Appointment;
 
 export async function getServerSideProps({ req }) {
     //get token on cookies

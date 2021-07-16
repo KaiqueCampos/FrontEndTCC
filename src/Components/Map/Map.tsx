@@ -4,9 +4,9 @@ import Head from "next/Head";
 // import Link from 'next/Link';
 
 function Map() {
-  
+
   useEffect(() => {
-      const marker = document.querySelector('#my-map').querySelector('.mapboxgl-marker')
+    const marker = document.querySelector('#my-map').querySelector('.mapboxgl-marker')
   })
 
   return (
@@ -39,7 +39,7 @@ function Map() {
         ></link>
       </Head>
 
-        <Maap />
+      <Maap />
     </>
   );
 }

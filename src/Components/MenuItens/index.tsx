@@ -33,7 +33,7 @@ export function MenuItems() {
                 <Link href="Hospitals">
                     <div>
                         <img src='img/icons/consultas.png' />
-                        <p>Consultas</p>
+                        <p>Hospitais</p>
                     </div>
                 </Link>
             </div>

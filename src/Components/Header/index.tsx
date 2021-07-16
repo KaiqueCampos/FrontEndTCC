@@ -1,15 +1,26 @@
 import Link from 'next/Link';
 import styles from './styles.module.scss';
 
-export default function Header() {
+type HeaderProps = {
+    backButtonColor?: 'purple';
+}
+
+export default function Header(props: HeaderProps) {
     return (
         <div className={`${styles.container}`}>
-                <Link href='/'>
-                    <img className={styles.comeBack} src='/img/icons/back.png'/>
-                </Link>
-                <div>
-                    <img src='/img/icons/logo.png' />
-                </div>
+            <Link href='/'>
+                <img
+                    className={styles.comeBack}
+                    src={
+                        props.backButtonColor === 'purple'
+                            ? '/img/icons/backButtonPurple.png'
+                            : '/img/icons/back.png'
+                    }
+                />
+            </Link>
+            <div>
+                <img src='/img/icons/logo.png' />
+            </div>
         </div>
     )
 }
