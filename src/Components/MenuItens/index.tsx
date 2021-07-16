@@ -39,10 +39,10 @@ export function MenuItems() {
             </div>
 
             <div className={`${animate.up} ${styles.menuItem}`}>
-                <Link href="Appointments">
+                <Link href="AppointmentsReminder">
                     <div>
                         <img src='img/icons/history.png' />
-                        <p>Histórico de Consultas</p>
+                        <p>Lembrete de Consultas</p>
                     </div>
                 </Link>
             </div>

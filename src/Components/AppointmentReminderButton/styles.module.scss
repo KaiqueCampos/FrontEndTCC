@@ -1,0 +1,36 @@
+.container {
+    height: 4rem;
+
+    padding: 0 2rem;
+
+    border: 0;
+    border-radius: 1rem;
+
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #fff;
+
+    transition: all 0.2s;
+
+    & ~ & {
+        margin-left: 1rem;
+    }
+
+    &:hover {
+        filter: brightness(0.7);
+        transform: scale(1.03);
+    }
+}
+
+@media (max-width: 1000px) {
+    .container {
+        font-size: 1.2rem;
+        padding: 0 1.3rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .container {
+        font-size: 1rem;
+    }
+}
