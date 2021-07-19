@@ -1,7 +1,7 @@
-import styles from './styles.module.scss'
+import { useRouter } from 'next/router';
 import animate from "../../styles/animation.module.scss";
 import { errorNotification, sucessNotification } from '../../utils/ToastifyNotification';
-import { useRouter } from 'next/router';
+import styles from './styles.module.scss';
 
 type MedicinesData = {
     name: string;
@@ -58,6 +58,12 @@ export function Medicines(props: MedicinesProps) {
                     ? <button onClick={() => deleteMedicine(props.medicine.id)}><img src='img/icons/delete.jpg' /></button>
                     : ''
             }
+
+            <img src={
+                props.medicine.status === 1
+                    ? '/img/icons/noTaked.png'
+                    : (props.medicine.status === 0 ? '/img/icons/taked.png' : '')
+            } />
         </div>
     )
 }

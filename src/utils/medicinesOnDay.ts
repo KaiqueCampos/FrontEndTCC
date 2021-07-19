@@ -6,7 +6,7 @@ export function medicinesOnDay(props) {
 
     // Filter data of days week
     const handleData = []
-    for (var i = 0; i < days.length; i++){
+    for (var i = 0; i < days.length; i++) {
         handleData.push(props.filter((medicine) => moment(days[i]).isBetween(medicine?.initialDate, medicine?.finalDate, null, '[]')))
     }
 
@@ -17,6 +17,7 @@ export function medicinesOnDay(props) {
             const x = handleData[i].sort(function (a, b) {
                 const n1 = parseInt(b.time.replace(':', ''))
                 const n2 = parseInt(a.time.replace(':', ''))
+
                 return n2 - n1;
             });
             array.push(x)
@@ -24,6 +25,8 @@ export function medicinesOnDay(props) {
             array.push([])
         }
     }
-    
+
+
+
     return array;
 }

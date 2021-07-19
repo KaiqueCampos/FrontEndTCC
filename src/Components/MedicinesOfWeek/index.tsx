@@ -6,6 +6,7 @@ import { Medicines } from '../Medicines';
 
 import styles from './styles.module.scss'
 import animate from "../../styles/animation.module.scss";
+import { useEffect } from 'react';
 
 type MedicinesData = {
     name: string;
@@ -31,7 +32,6 @@ export function MedicinesOfWeek(props: MedicineOfWeekProps) {
     } = useApp();
 
     const today = getAllMedicinesOfDay(medicine);
-
     const router = useRouter();
 
     function setInformation() {
