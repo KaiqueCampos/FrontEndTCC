@@ -52,7 +52,7 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
         var time = moment(Date.now()).format("HH:mm");
 
         for (var i = 0; i < medicinesToday.length; i++) {
-            if (time === medicinesToday[i].time && medicinesToday[i].status === 2) {
+            if ( medicinesToday[i].status === 2 && medicinesToday[i].time === time) {
                 setMedicineToBeTaken(medicinesToday[i])
                 router.push('/MedicineToBeTaken');
             }
