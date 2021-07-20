@@ -1,88 +1,45 @@
 import React from "react";
 import { AppointmentReminder } from "../../Components/AppointmentReminder";
 import Header from "../../Components/Header";
+import { parseCookies } from "../../utils/parseCookies";
 import styles from "./styles.module.scss";
 
-const History = () => {
+type AppointmentReminderData = {
+    hospitalName: string;
+    specialty: string;
+    day: string;
+    time: string;
+    contactPhone: string;
+    status: string;
+}
+
+type AppointmentReminderPageProps = {
+    data: AppointmentReminderData[]
+}
+
+
+export default function AppointmentReminderPage(props: AppointmentReminderPageProps) {
+
+    console.log(props.data)
 
     return (
         <div id="themeBackground">
             <div className={styles.container}>
                 <Header />
-                
+
                 <div className={`${styles.appointmentReminders}`}>
-                    <AppointmentReminder
-                        state='loading'
-                        hospitalName='Hospital Family'
-                        specialty='Clínico Geral'
-                        time='15:45'
-                        date='20/07/2020'
-                        contactPhone='(11) 95810-1802'
+           
+                    {props.data.map(appointmentReminder => (
+                        <AppointmentReminder
+                            state={appointmentReminder.status}
+                            hospitalName= {appointmentReminder.hospitalName}
+                            specialty={appointmentReminder.specialty}
+                            time={appointmentReminder.time}
+                            date={appointmentReminder.day}
+                            contactPhone={appointmentReminder.contactPhone}
+                        />
+                    ))}
 
-                    />
-
-                    <AppointmentReminder
-                        state='loading'
-                        hospitalName='Hospital Family'
-                        specialty='Clínico Geral'
-                        time='15:45'
-                        date='20/07/2020'
-                        contactPhone='(11) 95810-1802'
-                    />
-
-                    <AppointmentReminder
-                        state='loading'
-                        hospitalName='Hospital Family'
-                        specialty='Clínico Geral'
-                        time='15:45'
-                        date='20/07/2020'
-                        contactPhone='(11) 95810-1802'
-                    />
-
-                    <AppointmentReminder
-                        state='loading'
-                        hospitalName='Hospital Family'
-                        specialty='Clínico Geral'
-                        time='15:45'
-                        date='20/07/2020'
-                        contactPhone='(11) 95810-1802'
-                    />
-
-                    <AppointmentReminder
-                        state='loading'
-                        hospitalName='Hospital Family'
-                        specialty='Clínico Geral'
-                        time='15:45'
-                        date='20/07/2020'
-                        contactPhone='(11) 95810-1802'
-                    />
-
-                    <AppointmentReminder
-                        state='loading'
-                        hospitalName='Hospital Family'
-                        specialty='Clínico Geral'
-                        time='15:45'
-                        date='20/07/2020'
-                        contactPhone='(11) 95810-1802'
-                    />
-
-                    <AppointmentReminder
-                        state='done'
-                        hospitalName='Hospital Family'
-                        specialty='Clínico Geral'
-                        time='15:45'
-                        date='20/07/2020'
-                        contactPhone='(11) 95810-1802'
-                    />
-
-                    <AppointmentReminder
-                        state='notDone'
-                        hospitalName='Hospital Family'
-                        specialty='Clínico Geral'
-                        time='15:45'
-                        date='20/07/2020'
-                        contactPhone='(11) 95810-1802'
-                    />
                 </div>
 
             </div>
@@ -90,4 +47,24 @@ const History = () => {
     );
 };
 
-export default History;
+export async function getServerSideProps({ req }) {
+    // Get token in cookies
+    const token = parseCookies(req).token;
+
+    // API connection
+    const response = await fetch('http://localhost:3333/showAppointmentReminders', {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': ` Bearer ${token}`
+        },
+    });
+
+    const data = await response.json();
+
+    return {
+        props: {
+            data: data
+        },
+    }
+}
