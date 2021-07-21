@@ -5,6 +5,7 @@ import { parseCookies } from "../../utils/parseCookies";
 import styles from "./styles.module.scss";
 
 type AppointmentReminderData = {
+    id: number;
     hospitalName: string;
     specialty: string;
     day: string;
@@ -20,19 +21,19 @@ type AppointmentReminderPageProps = {
 
 export default function AppointmentReminderPage(props: AppointmentReminderPageProps) {
 
-    console.log(props.data)
-
     return (
         <div id="themeBackground">
             <div className={styles.container}>
                 <Header />
 
                 <div className={`${styles.appointmentReminders}`}>
-           
+
                     {props.data.map(appointmentReminder => (
                         <AppointmentReminder
+                            key={appointmentReminder.id}
+                            id={appointmentReminder.id}
                             state={appointmentReminder.status}
-                            hospitalName= {appointmentReminder.hospitalName}
+                            hospitalName={appointmentReminder.hospitalName}
                             specialty={appointmentReminder.specialty}
                             time={appointmentReminder.time}
                             date={appointmentReminder.day}

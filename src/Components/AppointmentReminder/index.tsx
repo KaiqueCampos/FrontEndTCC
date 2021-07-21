@@ -1,7 +1,12 @@
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
+import { parseCookies } from '../../utils/parseCookies'
+import { errorNotification, sucessNotification } from '../../utils/ToastifyNotification'
 import { AppointmentReminderButton } from '../AppointmentReminderButton'
 import styles from './styles.module.scss'
 
 type AppointmentReminderProps = {
+    id: number;
     state: string;
     hospitalName: string;
     specialty: string;
@@ -10,7 +15,90 @@ type AppointmentReminderProps = {
     contactPhone: string
 }
 
-export function AppointmentReminder(props: AppointmentReminderProps) {
+export function AppointmentReminder(props: AppointmentReminderProps, { req }) {
+
+    const router = useRouter();
+
+    async function handleDeleteAppointment(appointmentReminderId: number) {
+        const { token } = parseCookies(req);
+
+        // API connection
+        const response = await fetch("http://localhost:3333/deleteAppointmentReminders", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ${token}`
+            },
+
+            body: JSON.stringify({
+                appointmentReminderId: appointmentReminderId,
+            }),
+        });
+
+        // login sucess or not
+        if (response.status === 200) {
+            sucessNotification("Lembrete de consulta deletado!")
+            return router.push('/AppointmentsReminder');
+
+        } else {
+            errorNotification("Não foi possível deletar lembrete!")
+        }
+    }
+
+    async function handleNotDoneAppointment(appointmentReminderId: number) {
+        const { token } = parseCookies(req);
+
+        // API connection
+        const response = await fetch("http://localhost:3333/updateAppointmentReminders", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ${token}`
+            },
+
+            body: JSON.stringify({
+                appointmentReminderId: appointmentReminderId,
+                status: "notDone"
+            }),
+        });
+
+        // login sucess or not
+        if (response.status === 200) {
+            sucessNotification("Consulta marcada como NÃO concluída")
+            return router.push('/AppointmentsReminder');
+
+        } else {
+            errorNotification("Não foi possível alterar o estado da consulta")
+        }
+    }
+
+    async function handleDoneAppointment(appointmentReminderId: number) {
+        const { token } = parseCookies(req);
+
+        // API connection
+        const response = await fetch("http://localhost:3333/updateAppointmentReminders", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ${token}`
+            },
+
+            body: JSON.stringify({
+                appointmentReminderId: appointmentReminderId,
+                status: "done"
+            }),
+        });
+
+        // login sucess or not
+        if (response.status === 200) {
+            sucessNotification("Consulta concluída")
+            return router.push('/AppointmentsReminder');
+
+        } else {
+            errorNotification("Não foi possível alterar o estado da consulta")
+        }
+    }
+
     return (
         <div className={styles.container} id={props.state}>
 
@@ -32,22 +120,22 @@ export function AppointmentReminder(props: AppointmentReminderProps) {
 
             <div className={styles.AppointmentReminderButtons}>
                 <AppointmentReminderButton
+                    onClick={() => handleDeleteAppointment(props.id)}
                     color='var(--purple)'
-                    function='Delete'
                     legend='Deletar'
                 />
 
                 {props.state === 'loading' ? (
                     <>
                         <AppointmentReminderButton
+                            onClick={() => handleNotDoneAppointment(props.id)}
                             color='var(--red)'
-                            function='NotDone'
                             legend='Consulta Não Concluída'
                         />
 
                         <AppointmentReminderButton
+                            onClick={() => handleDoneAppointment(props.id)}
                             color='var(--green)'
-                            function='Done'
                             legend='Consulta Concluída'
                         />
                     </>
