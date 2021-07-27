@@ -1,6 +1,7 @@
 import React from "react";
 import { AppointmentReminder } from "../../Components/AppointmentReminder";
 import Header from "../../Components/Header";
+import { NewAppointmentReminderButton } from "../../Components/NewAppointmentReminderButton";
 import { parseCookies } from "../../utils/parseCookies";
 import styles from "./styles.module.scss";
 
@@ -42,6 +43,8 @@ export default function AppointmentReminderPage(props: AppointmentReminderPagePr
                     ))}
 
                 </div>
+
+                <NewAppointmentReminderButton/>
 
             </div>
         </div>

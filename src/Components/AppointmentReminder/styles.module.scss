@@ -1,120 +1,93 @@
 .container {
     width: 100%;
     height: 8rem;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     background-color: var(--secondaryColor);
     color: var(--font1);
-
     border-radius: 1.3rem;
     padding: 1rem clamp(1.3rem, 1.5vw, 2rem);
-
     position: relative;
-
-    transition: all 0.4s;
-
+    transition: all 0.7s;
     &:hover {
         background-color: rgba(#000, 0.3);
-
         th {
             opacity: 0.3;
         }
-
         .appointmentState {
             display: none;
         }
-
         .AppointmentReminderButtons {
             display: block;
         }
     }
-
-    & ~ & {
+    &~& {
         margin-top: 2rem;
     }
-
     &[id="notDone"] {
         background: #dd424294;
         color: #fff;
-
         &:hover {
             background-color: rgba(#dd4242, 0.2);
-
             th {
                 opacity: 0.3;
             }
-
             .AppointmentReminderButtons {
                 display: block;
             }
         }
     }
-
     &[id="done"] {
         background: #1ae6616c;
         color: #fff;
-
         &:hover {
             background-color: rgba(#1ae661, 0.2);
-
             th {
                 opacity: 0.3;
             }
-
             .AppointmentReminderButtons {
                 display: block;
             }
         }
     }
-
     .appointmentState {
         z-index: 100;
         width: 18rem;
         height: clamp(2.5rem, 2.8vw, 3rem);
         background: var(--purple);
-
         border-radius: 1rem;
         font-size: 1.3rem;
         font-weight: 500;
         color: #fff;
-
         display: flex;
         align-items: center;
         justify-content: center;
-
         position: absolute;
         right: -0.5rem;
         top: -0.5rem;
-
         &[id="notDone"] {
             background: #dd4242;
         }
-
         &[id="done"] {
             background: #32ec73;
         }
     }
-
     tr {
         display: flex;
         align-items: center;
-
         font-size: 1.5rem;
         width: 100%;
-
         position: relative;
-
         display: grid;
+        gap: 1rem;
         grid-template-columns: repeat(5, 1fr);
     }
-
     .AppointmentReminderButtons {
         z-index: 100;
         display: none;
         position: absolute;
+        transition: all 0.7s;
     }
 }
 
@@ -130,6 +103,18 @@
     .container {
         tr {
             font-size: 1.2rem;
+            overflow-x: scroll;
+            th {
+                padding: 1rem;
+                &:nth-child(4){
+                    padding: 0;
+                    min-width: 10rem;
+                }
+                &:last-child {
+                    padding: 0;
+                    min-width: 10rem;
+                }
+            }
         }
     }
 }
