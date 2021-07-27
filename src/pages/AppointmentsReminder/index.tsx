@@ -27,7 +27,7 @@ export default function AppointmentReminderPage(props: AppointmentReminderPagePr
             <div className={styles.container}>
                 <Header />
 
-                <div className={`${styles.appointmentReminders}`}>
+                <div className={styles.appointmentReminders}>
 
                     {props.data.map(appointmentReminder => (
                         <AppointmentReminder

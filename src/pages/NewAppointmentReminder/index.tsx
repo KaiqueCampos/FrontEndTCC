@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
-import React, { SyntheticEvent } from "react";
-import { useState } from "react";
+import React, { SyntheticEvent, useState } from "react";
 import Header from "../../Components/Header";
+import animate from '../../styles/animation.module.scss';
 import { parseCookies } from "../../utils/parseCookies";
 import { errorNotification, sucessNotification } from "../../utils/ToastifyNotification";
 import styles from "./styles.module.scss";
@@ -55,7 +55,7 @@ export default function NewAppointmentReminder({ req }) {
             <div className={styles.container}>
                 <Header />
 
-                <form onSubmit={submit}>
+                <form onSubmit={submit} className={animate.up}>
                     <input
                         type="text"
                         placeholder="Nome do hospital/clínica: "
