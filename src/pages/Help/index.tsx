@@ -5,10 +5,21 @@ import { TitlePage } from "../../Components/TitlePage";
 import styles from './styles.module.scss';
 import animate from '../../styles/animation.module.scss'
 import { useTheme } from "../../hooks/useTheme";
+import { GetStaticProps } from "next";
 
-const Help = () => {
+type HelpData = {
+    id: number;
+    title: string;
+    videoLink: string;
+}
 
-    const {theme} = useTheme()
+type HelpProps = {
+    data: HelpData[]
+}
+
+export default function Help(props : HelpProps) {
+
+    const { theme } = useTheme()
 
     return (
         <div id='themeBackground'>
@@ -22,49 +33,36 @@ const Help = () => {
                 />
 
                 <div className={`${styles.helpItems} ${animate.up}`}>
-                    <ButtonHelpAndFirstAid
-                        legend="Ajuda"
-                        link="/"
-                    />
 
-                    <ButtonHelpAndFirstAid
-                        legend="Ajuda"
-                        link="/"
+                    {props.data.map(help => (
+                        <ButtonHelpAndFirstAid
+                        key={help.id}
+                        legend={help.title}
+                        link={help.videoLink}
                     />
-
-                    <ButtonHelpAndFirstAid
-                        legend="Ajuda"
-                        link="/"
-                    />
-
-                    <ButtonHelpAndFirstAid
-                        legend="Ajuda"
-                        link="/"
-                    />
-
-                    <ButtonHelpAndFirstAid
-                        legend="Ajuda"
-                        link="/"
-                    />
-
-                    <ButtonHelpAndFirstAid
-                        legend="Ajuda"
-                        link="/"
-                    />
-
-                    <ButtonHelpAndFirstAid
-                        legend="Ajuda"
-                        link="/"
-                    />
-
-                    <ButtonHelpAndFirstAid
-                        legend="Ajuda"
-                        link="/"
-                    />
+                    ))}
+                    
                 </div>
             </div>
         </div>
     );
 };
 
-export default Help;
+export const getStaticProps: GetStaticProps = async () => {
+    // API connection
+    const response = await fetch('http://localhost:3333/showHelp', {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+
+    const data = await response.json()
+
+    return {
+        props: {
+            data: data
+        },
+        revalidate: 60 * 60 * 24 //24 hours
+    }
+}

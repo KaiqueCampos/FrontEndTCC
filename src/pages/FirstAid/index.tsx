@@ -16,7 +16,7 @@ type FirstAidData = {
 }
 
 type AppointmentReminderProps = {
-    firstAid: FirstAidData[]
+    data: FirstAidData[]
 }
 
 export default function FirstAid(props: AppointmentReminderProps) {
@@ -33,7 +33,7 @@ export default function FirstAid(props: AppointmentReminderProps) {
 
                 <div className={`${styles.firstAidItemsContainer} ${animate.up}`}>
 
-                    {props.firstAid.map(firstAid => (
+                    {props.data.map(firstAid => (
                         <ButtonHelpAndFirstAid
                             key={firstAid.id}
                             legend={firstAid.name}
@@ -59,7 +59,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
     return {
         props: {
-            firstAid: data
+            data: data
         },
         revalidate: 60 * 60 * 24 //24 hours
     }

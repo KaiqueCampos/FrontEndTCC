@@ -3,26 +3,38 @@
     height: 100vh;
     max-width: 1920px;
     max-height: 1080px;
-
     margin: 0;
     padding: 0;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     position: relative;
     overflow: hidden;
-
     .helpItems {
         display: grid;
-        grid-template-areas:
-            "li li"
-            "li li"
-            "li li"
-            "li li";
+        grid-template-areas: "li li" "li li" "li li" "li li";
         grid-gap: clamp(0.5rem, 1vw, 1rem);
+        
+        height: 30rem;
+        padding: 1rem 1.5rem 1rem 0;
+        
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            width: 1.2rem;
+        }
+        &::-webkit-scrollbar-track {
+            height: 1rem;
+            background: var(--purple);
+            border-radius: 1rem;
+        }
+        &::-webkit-scrollbar-thumb {
+            border: 4px solid rgba(255, 255, 255, 0);
+            background-clip: padding-box;
+            background-color: var(--darkPurple);
+            border-radius: 1rem;
+        }
     }
 }
 
@@ -31,11 +43,9 @@
         .helpItems {
             width: 70%;
             height: 50vh;
-
             grid-template-columns: 1fr 1fr;
             grid-template-areas: "li li";
             gap: 1.5rem;
-
             margin-top: 1.5rem;
         }
     }
@@ -46,12 +56,10 @@
         .helpItems {
             width: 80%;
             height: 70vh;
-
             grid-template-columns: 1fr;
             grid-template-rows: repeat(8, 1fr);
             grid-template-areas: "li";
             gap: 1.5rem;
-
             margin-top: 1.5rem;
         }
     }
