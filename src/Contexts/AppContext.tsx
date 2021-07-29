@@ -4,6 +4,14 @@ import React, { createContext, ReactNode, useContext, useEffect, useState } from
 import 'react-toastify/dist/ReactToastify.css';
 import { daysOfWeek } from '../utils/daysOfWeek';
 
+type FirstAidData = {
+    id: number;
+    name: string;
+    procedure: string;
+    videoLink: string;
+    thumbnail: string
+}
+
 type MedicinesData = {
     name: string;
     id: string;
@@ -25,12 +33,14 @@ type UserInformation = {
 }
 
 type AppContextData = {
+    firstAid : FirstAidData;
     medicineToBeTaken: MedicinesData;
     medicinesToday: Array<Object>
     userInformation: UserInformation;
     medicineDayNotification: () => void;
     getAllMedicinesOfDay: (props: MedicinesData) => Number;
     getUserInformation: (props: Array<Object>) => void;
+    setFirstAidData: (props: FirstAidData) => void
 }
 
 export const AppContext = createContext({} as AppContextData);
@@ -42,6 +52,7 @@ type AppContextProviderProps = {
 export function AppContextProvider({ children }: AppContextProviderProps) {
 
     // variables
+    const [firstAid, setFirstAid] = useState();
     const [medicinesToday, setMedicinesToday] = useState([]);
     const [userInformation, setUserInformation] = useState();
     const [medicineToBeTaken, setMedicineToBeTaken] = useState<MedicinesData>()
@@ -79,15 +90,21 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
         setUserInformation(props);
     }
 
+    function setFirstAidData(props){
+        setFirstAid(props)
+    }
+
     return (
         <AppContext.Provider
             value={{
+                firstAid,
                 medicineToBeTaken,
                 userInformation,
                 medicinesToday,
                 getUserInformation,
                 medicineDayNotification,
                 getAllMedicinesOfDay,
+                setFirstAidData
             }}>
 
             {children}

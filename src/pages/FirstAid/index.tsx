@@ -1,8 +1,10 @@
 import { GetStaticProps } from "next";
+import { useRouter } from "next/router";
 import React from "react";
 import { ButtonHelpAndFirstAid } from "../../Components/buttonHelpAndFirstAid.tsx";
 import Header from "../../Components/Header";
 import { TitlePage } from "../../Components/TitlePage";
+import { useApp } from "../../hooks/useApp";
 import animate from '../../styles/animation.module.scss';
 import styles from './styles.module.scss';
 
@@ -21,6 +23,7 @@ type AppointmentReminderProps = {
 
 export default function FirstAid(props: AppointmentReminderProps) {
 
+    const {setFirstAidData} = useApp()
 
     return (
         <div id='themeBackground'>
@@ -39,6 +42,7 @@ export default function FirstAid(props: AppointmentReminderProps) {
                             key={firstAid.id}
                             legend={firstAid.name}
                             link='FirstAidPage'
+                            onClick={() => setFirstAidData(firstAid)}
                         />
                     ))}
                 </div>
