@@ -1,5 +1,4 @@
 import { GetStaticProps } from "next";
-import { useRouter } from "next/router";
 import React from "react";
 import { ButtonHelpAndFirstAid } from "../../Components/buttonHelpAndFirstAid.tsx";
 import Header from "../../Components/Header";
