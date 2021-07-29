@@ -15,21 +15,21 @@ export default function FirstAidPage(){
                 <Header />
 
                 <TitlePage
-                    title={firstAid.name}
+                    title={firstAid?.name}
                     titleImageIcon='/img/icons/firstAid.png'
                 />
 
                 <div className={`${styles.firstAidContainer} ${animate.up}`}>
                     <div className={styles.videoContainer}>
                         <img src="https://i.ytimg.com/vi/1MtKw-uP1NM/maxresdefault.jpg" />
-                        <a href={firstAid.videoLink}>
+                        <a href={firstAid?.videoLink}>
                             <img src="img/icons/playIcon.png" alt="Iníciar Video" />
                         </a>
                     </div>
 
                     <div className={styles.legend}>
                         <p>
-                           {firstAid.procedure} 
+                           {firstAid?.procedure} 
                         </p>
                     </div>
                 </div>
