@@ -47,6 +47,16 @@
             grid-template-areas: "li li";
             gap: 1.5rem;
             margin-top: 1.5rem;
+
+            div{
+                min-height: 7rem;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                text-align: center;
+            }
         }
     }
 }

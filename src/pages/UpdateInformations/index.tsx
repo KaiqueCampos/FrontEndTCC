@@ -91,7 +91,7 @@ const UpdateInformations = ({ req }) => {
             <div className={styles.informations}>
                 <form onSubmit={submit} className={`${formStyle.form}`}>
 
-                    <div className={formStyle.imageProfile}>
+                    <div id='imageProfileContainer' className={formStyle.imageProfile}>
                         <img id="imageSRC"
                             src={(theme === 'light') ? "img/icons/userPurple.png" : "img/icons/userPurple4.png"}
                         />
@@ -126,8 +126,7 @@ const UpdateInformations = ({ req }) => {
                     </div>
 
                     <button type="submit">
-                        <img src="img/icons/login.png" />
-                        Registrar-se
+                        Atualizar
                     </button>
 
                 </form>

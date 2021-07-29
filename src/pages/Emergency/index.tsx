@@ -16,7 +16,7 @@ const Emergency = () => {
                             <img src='/img/icons/copBanner.jpg' />
                             <img src='img/icons/cop.png' />
                         </div>
-                        <p>Polícia</p>
+                        <p>Polícia - 190</p>
                     </div>
 
                     <div className={`${styles.emergencyItem} ${animate.upSlow}`}>
@@ -24,7 +24,7 @@ const Emergency = () => {
                             <img src='/img/icons/firemanBanner.jpg' />
                             <img src='img/icons/fireman.png' />
                         </div>
-                        <p>Bombeiro</p>
+                        <p>Bombeiro - 193</p>
                     </div>
 
                     <div className={`${styles.emergencyItem} ${animate.upMoreSlow}`}>
@@ -32,7 +32,7 @@ const Emergency = () => {
                             <img src='/img/icons/ambulanceBanner.jpg' />
                             <img src='img/icons/ambulance.png' />
                         </div>
-                        <p>Ambulância</p>
+                        <p>Ambulância - 192</p>
                     </div>
                 </div>
             </div>
