@@ -3,95 +3,95 @@
     height: 100vh;
     max-width: 1920px;
     max-height: 1080px;
-
     margin: 0;
     padding: 0;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     position: relative;
     overflow: hidden;
-
     .firstAidContainer {
+        width: 90%;
         margin-top: 2rem;
         display: flex;
         justify-content: center;
         align-items: center;
         position: relative;
         gap: clamp(1rem, 1.5vw, 2rem);
-
         .videoContainer {
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
-
-            width: clamp(25rem, 38vw, 45rem);
-            height: clamp(18rem, 24vw, 28rem);
-
+            width: 50%;
+            height: 70vh;
             img {
                 border-radius: 1rem;
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
             }
-
             a {
                 img {
                     width: 4rem;
                     height: 4rem;
-
                     position: absolute;
                     left: 50%;
                     top: 50%;
-
                     transform: translate(-50%, -50%);
                     transition: filter 0.2s;
-
                     &:hover {
                         filter: brightness(0.8);
                     }
                 }
             }
         }
-
         .legend {
             overflow-y: auto;
-            width: clamp(15rem, 20vw, 25rem);
-            height: clamp(17rem, 23vw, 24rem);
-
+            width: 50%;
+            height: 70vh;
             text-align: justify;
-            font-size: clamp(1rem, 1vw, 1.3rem);
+            font-size: 1.5rem;
             font-weight: 400;
-            color: var(--purple);
-
+            color: var(--font1);
             p {
                 margin-right: 1rem;
             }
-
             &::-webkit-scrollbar {
                 width: 1.2rem;
             }
-
             &::-webkit-scrollbar-track {
                 height: 1rem;
                 background: var(--purple);
                 border-radius: 1rem;
             }
-
             &::-webkit-scrollbar-thumb {
                 border: 4px solid rgba(255, 255, 255, 0);
                 background-clip: padding-box;
                 background-color: var(--darkPurple);
                 border-radius: 1rem;
             }
-
             hr {
                 border: 0;
                 margin-bottom: 1rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 1350px) {
+    .container {
+        .firstAidContainer {
+            flex-direction: column;
+            .videoContainer {
+                width: 100%;
+                height: 30vh;
+            }
+            .legend {
+                width: 100%;
+                height: 45vh;
+                font-size: 2rem;
             }
         }
     }

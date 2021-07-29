@@ -21,6 +21,7 @@ type AppointmentReminderProps = {
 
 export default function FirstAid(props: AppointmentReminderProps) {
 
+
     return (
         <div id='themeBackground'>
             <div className={styles.container}>

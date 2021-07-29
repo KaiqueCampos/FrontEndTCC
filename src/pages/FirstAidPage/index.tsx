@@ -4,7 +4,7 @@ import { TitlePage } from "../../Components/TitlePage";
 import styles from './styles.module.scss';
 import animate from '../../styles/animation.module.scss'
 
-const FirstAidPage = () => {
+export default function FirstAidPage(){
 
     return (
         <div id='themeBackground'>
@@ -49,6 +49,30 @@ const FirstAidPage = () => {
                             Deite a pessoa no chão, de barriga para cima, e eleve as pernas dela em relação ao corpo e a cabeça;
                             Coloque a cabeça da vítima de lado, para assim, facilitar a respiração e evitar asfixia devido ao risco de vômito;
                             Afrouxe as roupas <hr />
+
+                            Deite a pessoa no chão, de barriga para cima, e eleve as pernas dela em relação ao corpo e a cabeça;
+                            Coloque a cabeça da vítima de lado, para assim, facilitar a respiração e evitar asfixia devido ao risco de vômito;
+                            Afrouxe as roupas <hr />
+
+                            Deite a pessoa no chão, de barriga para cima, e eleve as pernas dela em relação ao corpo e a cabeça;
+                            Coloque a cabeça da vítima de lado, para assim, facilitar a respiração e evitar asfixia devido ao risco de vômito;
+                            Afrouxe as roupas <hr />
+
+                            Deite a pessoa no chão, de barriga para cima, e eleve as pernas dela em relação ao corpo e a cabeça;
+                            Coloque a cabeça da vítima de lado, para assim, facilitar a respiração e evitar asfixia devido ao risco de vômito;
+                            Afrouxe as roupas <hr />
+
+                            Deite a pessoa no chão, de barriga para cima, e eleve as pernas dela em relação ao corpo e a cabeça;
+                            Coloque a cabeça da vítima de lado, para assim, facilitar a respiração e evitar asfixia devido ao risco de vômito;
+                            Afrouxe as roupas <hr />
+
+                            Deite a pessoa no chão, de barriga para cima, e eleve as pernas dela em relação ao corpo e a cabeça;
+                            Coloque a cabeça da vítima de lado, para assim, facilitar a respiração e evitar asfixia devido ao risco de vômito;
+                            Afrouxe as roupas <hr />
+
+                            Deite a pessoa no chão, de barriga para cima, e eleve as pernas dela em relação ao corpo e a cabeça;
+                            Coloque a cabeça da vítima de lado, para assim, facilitar a respiração e evitar asfixia devido ao risco de vômito;
+                            Afrouxe as roupas <hr />
                         </p>
                     </div>
                 </div>
@@ -56,5 +80,3 @@ const FirstAidPage = () => {
         </div>
     );
 };
-
-export default FirstAidPage;
