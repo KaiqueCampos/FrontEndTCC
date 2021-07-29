@@ -6,6 +6,7 @@ import NotLogged from '../Components/NotLogged';
 import { HomeHeader } from '../Components/HomeHeader';
 
 import styles from '../styles/home.module.scss';
+import { useEffect } from 'react';
 
 type HomeProps = {
   isLogged: boolean;

@@ -6,21 +6,41 @@ import { useTheme } from "../../hooks/useTheme";
 import { parseCookies } from "../../utils/parseCookies";
 import { errorNotification, sucessNotification } from "../../utils/ToastifyNotification";
 import styles from './styles.module.scss';
+import formStyle from '../../styles/login_register.module.scss';
+
 
 const UpdateInformations = ({ req }) => {
 
-    const {theme} = useTheme();
+    const { theme } = useTheme();
 
     // definition of variables
-    const [adress, setAdress] = useState("");
-    const [cep, setCep] = useState("");
-    const [phone, setPhone] = useState("");
-    const [age, setAge] = useState("");
-    const [weight, setWeight] = useState("");
-    const [height, setHeight] = useState("");
-    const [chronicDisease, setChronicDisease] = useState("");
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [imagePerfil, setImagePerfil] = useState('')
 
     const router = useRouter();
+
+    // Open input file and change image
+    function upload() {
+        document.getElementById('uploadImage').click();
+    }
+
+    function uploadFile() {
+        const fileElement = document.getElementById('uploadImage') as HTMLInputElement
+        var file = fileElement.files[0];
+
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            /******************* for Binary ***********************/
+            var data = (reader.result as string).split(',')[1];
+            var binaryBlob = atob(data);
+            setImagePerfil(binaryBlob)
+            document.querySelector<HTMLImageElement>('#imageSRC').src = 'data:image/jpeg;base64,' + btoa(binaryBlob);
+        }
+
+        reader.readAsDataURL(file);
+    }
 
     // submit function
     const submit = async (e: SyntheticEvent) => {
@@ -35,13 +55,9 @@ const UpdateInformations = ({ req }) => {
                 'Authorization': ` Bearer ${token}`
             },
             body: JSON.stringify({
-                adress: adress,
-                cep: cep,
-                phone: phone,
-                age: age,
-                weight: weight,
-                height: height,
-                chronicDisease: chronicDisease,
+                username: name,
+                password: password,
+                imagePerfil: imagePerfil,
             }),
         });
 
@@ -73,59 +89,47 @@ const UpdateInformations = ({ req }) => {
             </div>
 
             <div className={styles.informations}>
-                <form onSubmit={submit}>
-                    <h4>Endereço e Contato</h4>
-                    <div className={styles.adressAndNumber}>
-                        <input
-                            type='text'
-                            placeholder='Rua Armando Carvalho, 153'
-                            onChange={(e) => setAdress(e.target.value)}
+                <form onSubmit={submit} className={`${formStyle.form}`}>
+
+                    <div className={formStyle.imageProfile}>
+                        <img id="imageSRC"
+                            src={(theme === 'light') ? "img/icons/userPurple.png" : "img/icons/userPurple4.png"}
                         />
+                        <button type='button' onClick={upload}>
+                            <input
+                                id="uploadImage"
+                                onChange={uploadFile}
+                                type="file"
+                            />
+
+                            Selecinar Imagem
+                        </button>
+
+                    </div>
+
+
+                    <div className={formStyle.inputContainer}>
+                        <img src={(theme === 'light') ? "img/icons/userPurple.png" : "img/icons/userPurple4.png"} />
                         <input
-                            type='text'
-                            placeholder='CEP: 05870-060'
-                            onChange={(e) => setCep(e.target.value)}
-                        />
-                        <input
-                            type='text'
-                            placeholder='(11) 95811-2645'
-                            onChange={(e) => setPhone(e.target.value)}
+                            onChange={e => setName(e.target.value)}
+                            placeholder="Lurdes"
                         />
                     </div>
 
-                    <h4>Informações Pessoais</h4>
-                    <div className={styles.PersonalInformation}>
+                    <div className={formStyle.inputContainer}>
+                        <img src={(theme === 'light') ? "img/icons/password.png" : "img/icons/password2.png"} />
                         <input
-                            type='text'
-                            placeholder='Idade:'
-                            onChange={(e) => setAge(e.target.value)}
-                        />
-                        <input
-                            type='text'
-                            placeholder='Peso:'
-                            onChange={(e) => setWeight(e.target.value)}
-                        />
-                        <input
-                            type='text'
-                            placeholder='Altura:'
-                            onChange={(e) => setHeight(e.target.value)}
+                            onChange={e => setPassword(e.target.value)}
+                            type="password"
+                            placeholder="********"
                         />
                     </div>
 
-                    <h4>Possui alguma doença crônica?</h4>
-                    <div className={styles.checkbox}>
-                        <div>
-                            <input type='checkbox' name="fooby[2][]" />
-                        Sim
-                    </div>
+                    <button type="submit">
+                        <img src="img/icons/login.png" />
+                        Registrar-se
+                    </button>
 
-                        <div>
-                            <input type='checkbox' name="fooby[2][]" />
-                        Não
-                    </div>
-                    </div>
-                    <textarea placeholder='Detalhe para a gente...' onChange={(e) => setChronicDisease(e.target.value)} />
-                    <button type='submit'>Salvar Informações</button>
                 </form>
 
             </div>
