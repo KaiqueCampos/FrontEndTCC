@@ -1,4 +1,5 @@
 import moment from 'moment';
+import Head from 'next/Head';
 import { useRouter } from 'next/router';
 import { Medicines } from '../../Components/Medicines';
 import { useApp } from '../../hooks/useApp';
@@ -49,6 +50,10 @@ export default function MedicineToBeTaken({ req }) {
     return (
 
         <div id='themeBackground'>
+            <Head>
+                <title>Tomar medicamento | Saúde em Mãos</title>
+            </Head>
+
             <div className={`${styles.container} ${animate.up}`}>
                 <div className={styles.titlePage}>
                     <div>

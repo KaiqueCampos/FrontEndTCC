@@ -4,13 +4,19 @@ import { TitlePage } from "../../Components/TitlePage";
 import styles from './styles.module.scss';
 import animate from '../../styles/animation.module.scss'
 import { useApp } from "../../hooks/useApp";
+import Head from "next/Head";
 
-export default function FirstAidPage(){
+export default function FirstAidPage() {
 
-    const {firstAid} = useApp()
+    const { firstAid } = useApp()
 
     return (
         <div id='themeBackground'>
+
+            <Head>
+                <title>{firstAid.name} | Saúde em Mãos</title>
+            </Head>
+
             <div className={styles.container}>
                 <Header />
 
@@ -29,7 +35,7 @@ export default function FirstAidPage(){
 
                     <div className={styles.legend}>
                         <p>
-                           {firstAid?.procedure} 
+                            {firstAid?.procedure}
                         </p>
                     </div>
                 </div>

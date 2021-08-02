@@ -69,8 +69,9 @@ const Register = () => {
 
     return (
         <div id='themeBackground'>
+
             <Head>
-                <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+                <title>Registre-se | Saúde em Mãos</title>
             </Head>
 
             <div className={styles.rowContainer}>

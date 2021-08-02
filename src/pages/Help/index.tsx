@@ -6,6 +6,7 @@ import styles from './styles.module.scss';
 import animate from '../../styles/animation.module.scss'
 import { useTheme } from "../../hooks/useTheme";
 import { GetStaticProps } from "next";
+import Head from "next/Head";
 
 type HelpData = {
     id: number;
@@ -17,12 +18,17 @@ type HelpProps = {
     data: HelpData[]
 }
 
-export default function Help(props : HelpProps) {
+export default function Help(props: HelpProps) {
 
     const { theme } = useTheme()
 
     return (
         <div id='themeBackground'>
+
+            <Head>
+                <title>Ajuda | Saúde em Mãos</title>
+            </Head>
+
             <div className={styles.container}>
 
                 <Header />
@@ -36,12 +42,12 @@ export default function Help(props : HelpProps) {
 
                     {props.data.map(help => (
                         <ButtonHelpAndFirstAid
-                        key={help.id}
-                        legend={help.title}
-                        link={help.videoLink}
-                    />
+                            key={help.id}
+                            legend={help.title}
+                            link={help.videoLink}
+                        />
                     ))}
-                    
+
                 </div>
             </div>
         </div>

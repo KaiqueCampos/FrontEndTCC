@@ -7,6 +7,7 @@ import { parseCookies } from "../../utils/parseCookies";
 import { errorNotification, sucessNotification } from "../../utils/ToastifyNotification";
 import styles from './styles.module.scss';
 import formStyle from '../../styles/login_register.module.scss';
+import Head from "next/Head";
 
 
 const UpdateInformations = ({ req }) => {
@@ -74,6 +75,10 @@ const UpdateInformations = ({ req }) => {
     return (
         <div className={styles.container} id={theme}>
             <Header />
+
+            <Head>
+                <title>Atualizar informações | Saúde em Mãos</title>
+            </Head>
 
             <div className={styles.banner}>
 

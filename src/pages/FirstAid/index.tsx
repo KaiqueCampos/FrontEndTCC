@@ -1,4 +1,5 @@
 import { GetStaticProps } from "next";
+import Head from "next/Head";
 import React from "react";
 import { ButtonHelpAndFirstAid } from "../../Components/buttonHelpAndFirstAid.tsx";
 import Header from "../../Components/Header";
@@ -22,10 +23,15 @@ type AppointmentReminderProps = {
 
 export default function FirstAid(props: AppointmentReminderProps) {
 
-    const {setFirstAidData} = useApp()
+    const { setFirstAidData } = useApp()
 
     return (
         <div id='themeBackground'>
+            
+            <Head>
+                <title>Primeiros-Socorros | Saúde em Mãos</title>
+            </Head>
+
             <div className={styles.container}>
                 <Header />
 

@@ -1,3 +1,4 @@
+import Head from "next/Head";
 import Link from "next/Link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
@@ -35,6 +36,10 @@ const MedicineDay = () => {
 
     return (
         <div id='themeBackground'>
+
+            <Head>
+                <title>Medicamentos de {day} | Saúde em Mãos</title>
+            </Head>
 
             <div className={styles.container}>
                 <Header />

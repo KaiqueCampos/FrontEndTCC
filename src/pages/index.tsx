@@ -7,6 +7,7 @@ import { HomeHeader } from '../Components/HomeHeader';
 
 import styles from '../styles/home.module.scss';
 import { useEffect } from 'react';
+import Head from 'next/Head';
 
 type HomeProps = {
   isLogged: boolean;
@@ -18,8 +19,11 @@ export default function Home(props: HomeProps) {
 
   return (
     <>
-      {props.isLogged ? (
+      <Head>
+        <title>Homepage | Saúde em Mãos</title>
+      </Head>
 
+      {props.isLogged ? (
         <div id='themeBackground'>
           <div className={styles.container}>
             <HomeHeader
@@ -33,7 +37,12 @@ export default function Home(props: HomeProps) {
 
       ) : (
 
-        <NotLogged />
+        <>
+          <Head>
+            <title>Projeto Sáude em Mãos</title>
+          </Head>
+          <NotLogged />
+        </>
 
       )}
     </>

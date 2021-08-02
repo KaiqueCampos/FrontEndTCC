@@ -6,6 +6,7 @@ import { handleMedicineData, handleStatusOfMedicines } from "../../utils/handleM
 import { medicinesOnDay } from "../../utils/medicinesOnDay";
 import { parseCookies } from "../../utils/parseCookies";
 import styles from "./styles.module.scss";
+import Head from "next/Head";
 
 type MedicinesData = {
   name: string;
@@ -26,6 +27,11 @@ const Medicine = (props: MedicineProps) => {
 
   return (
     <div id='themeBackground'>
+
+      <Head>
+        <title>Medicamentos da Semana | Saúde em Mãos</title>
+      </Head>
+
       <div className={styles.container}>
         <Header />
         <MedicinesOfWeek

@@ -1,3 +1,4 @@
+import Head from "next/Head";
 import React from "react";
 import Header from "../../Components/Header";
 import animate from '../../styles/animation.module.scss';
@@ -7,6 +8,11 @@ const Emergency = () => {
 
     return (
         <div id='themeBackground'>
+
+            <Head>
+                <title>Emergência | Saúde em Mãos</title>
+            </Head>
+
             <div className={styles.container}>
                 <Header />
 

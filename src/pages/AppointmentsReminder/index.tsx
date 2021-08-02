@@ -1,3 +1,4 @@
+import Head from "next/Head";
 import React from "react";
 import { AppointmentReminder } from "../../Components/AppointmentReminder";
 import Header from "../../Components/Header";
@@ -24,6 +25,11 @@ export default function AppointmentReminderPage(props: AppointmentReminderPagePr
 
     return (
         <div id="themeBackground">
+
+            <Head>
+                <title>Lembrete de Consultas | Saúde em Mãos</title>
+            </Head>
+
             <div className={styles.container}>
                 <Header />
 
@@ -44,7 +50,7 @@ export default function AppointmentReminderPage(props: AppointmentReminderPagePr
 
                 </div>
 
-                <NewAppointmentReminderButton/>
+                <NewAppointmentReminderButton />
 
             </div>
         </div>
@@ -69,6 +75,6 @@ export async function getServerSideProps({ req }) {
     return {
         props: {
             data: data
-        },
+        }
     }
 }

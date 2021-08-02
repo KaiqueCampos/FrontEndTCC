@@ -1,3 +1,4 @@
+import Head from "next/Head";
 import { useRouter } from "next/router";
 import React, { SyntheticEvent, useState } from "react";
 import Header from "../../Components/Header";
@@ -52,6 +53,11 @@ export default function NewAppointmentReminder({ req }) {
 
     return (
         <div id="themeBackground">
+
+            <Head>
+                <title>Criar lembrete de consulta | Saúde em Mãos</title>
+            </Head>
+
             <div className={styles.container}>
                 <Header />
 

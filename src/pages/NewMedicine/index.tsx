@@ -1,4 +1,5 @@
 import moment from "moment";
+import Head from "next/Head";
 import { useRouter } from "next/router";
 import React, { SyntheticEvent, useEffect, useState } from "react";
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,7 +10,7 @@ import { parseCookies } from "../../utils/parseCookies";
 import { errorNotification, sucessNotification } from "../../utils/ToastifyNotification";
 import styles from './styles.module.scss';
 
-export default function Medicine({req}) {
+export default function Medicine({ req }) {
 
     const router = useRouter();
     const [initialDate, setInitialDate] = useState('');
@@ -101,6 +102,11 @@ export default function Medicine({req}) {
 
     return (
         <div id='themeBackground'>
+
+            <Head>
+                <title>Adicionar medicamento | Saúde em Mãos</title>
+            </Head>
+
             <div className={styles.container}>
                 <Header />
 

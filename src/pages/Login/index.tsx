@@ -1,3 +1,4 @@
+import Head from "next/Head";
 import Link from "next/Link";
 import { useRouter } from "next/router";
 import React, { SyntheticEvent, useState } from "react";
@@ -58,6 +59,11 @@ const Login = () => {
 
   return (
     <div id='themeBackground'>
+
+      <Head>
+        <title>Login | Saúde em Mãos</title>
+      </Head>
+
       <div className={styles.rowContainer}>
 
         <BannerWelcome />
@@ -70,8 +76,6 @@ const Login = () => {
         <Link href='/Register'> Registre-se</Link>
             </p>
           </div>
-
-          <OtherLoginOptions />
 
           <div className={styles.inputContainer}>
             <img src={(theme === 'light') ? "img/icons/userPurple.png" : "img/icons/userPurple4.png"} />
