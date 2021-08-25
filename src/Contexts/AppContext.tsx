@@ -1,12 +1,13 @@
 import moment from "moment";
 import { useRouter } from "next/router";
-import React, { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import React, { createContext, ReactNode, useState } from "react";
 import 'react-toastify/dist/ReactToastify.css';
 import { daysOfWeek } from '../utils/daysOfWeek';
 
 type FirstAidData = {
     id: number;
     name: string;
+    procedureIntroduction: string;
     procedure: string;
     videoLink: string;
     thumbnail: string
@@ -33,7 +34,6 @@ type UserInformation = {
 }
 
 type AppContextData = {
-    firstAid : FirstAidData;
     medicineToBeTaken: MedicinesData;
     medicinesToday: Array<Object>
     userInformation: UserInformation;
@@ -41,6 +41,7 @@ type AppContextData = {
     getAllMedicinesOfDay: (props: MedicinesData) => Number;
     getUserInformation: (props: Array<Object>) => void;
     setFirstAidData: (props: FirstAidData) => void
+    getFirstAidData: () => FirstAidData;
 }
 
 export const AppContext = createContext({} as AppContextData);
@@ -63,7 +64,7 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
         var time = moment(Date.now()).format("HH:mm");
 
         for (var i = 0; i < medicinesToday.length; i++) {
-            if ( medicinesToday[i].status === 2 && medicinesToday[i].time === time) {
+            if (medicinesToday[i].status === 2 && medicinesToday[i].time === time) {
                 setMedicineToBeTaken(medicinesToday[i])
                 router.push('/MedicineToBeTaken');
             }
@@ -90,21 +91,25 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
         setUserInformation(props);
     }
 
-    function setFirstAidData(props){
-        setFirstAid(props)
+    function setFirstAidData(props) {
+        localStorage.setItem('firstAid', JSON.stringify(props))
+    }
+
+    function getFirstAidData() {
+        return JSON.parse(localStorage.getItem('firstAid'))
     }
 
     return (
         <AppContext.Provider
             value={{
-                firstAid,
                 medicineToBeTaken,
                 userInformation,
                 medicinesToday,
                 getUserInformation,
                 medicineDayNotification,
                 getAllMedicinesOfDay,
-                setFirstAidData
+                setFirstAidData,
+                getFirstAidData
             }}>
 
             {children}

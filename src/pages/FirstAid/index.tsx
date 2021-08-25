@@ -12,6 +12,7 @@ import styles from './styles.module.scss';
 type FirstAidData = {
     id: number;
     name: string;
+    procedureIntroduction: string;
     procedure: string;
     videoLink: string;
     thumbnail: string

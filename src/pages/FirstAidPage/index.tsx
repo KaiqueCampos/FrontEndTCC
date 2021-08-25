@@ -1,20 +1,38 @@
+import Head from "next/Head";
 import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 import Header from "../../Components/Header";
 import { TitlePage } from "../../Components/TitlePage";
-import styles from './styles.module.scss';
-import animate from '../../styles/animation.module.scss'
 import { useApp } from "../../hooks/useApp";
-import Head from "next/Head";
+import animate from '../../styles/animation.module.scss';
+import styles from './styles.module.scss';
+
+type FirstAidData = {
+    id: number;
+    name: string;
+    procedureIntroduction: string;
+    procedure: string;
+    videoLink: string;
+    thumbnail: string
+}
 
 export default function FirstAidPage() {
 
-    const { firstAid } = useApp()
+    const { getFirstAidData } = useApp()
+    const [firstAid, setFirstAid] = useState<FirstAidData>()
+
+    useEffect(() => {
+        setFirstAid(getFirstAidData())
+    }, [])
+
+    const firstAidProcedureTopics = firstAid?.procedure.split('/')
 
     return (
         <div id='themeBackground'>
 
             <Head>
-                <title>{firstAid.name} | Saúde em Mãos</title>
+                <title>{firstAid?.name} | Saúde em Mãos</title>
             </Head>
 
             <div className={styles.container}>
@@ -27,7 +45,7 @@ export default function FirstAidPage() {
 
                 <div className={`${styles.firstAidContainer} ${animate.up}`}>
                     <div className={styles.videoContainer}>
-                        <img src="https://i.ytimg.com/vi/1MtKw-uP1NM/maxresdefault.jpg" />
+                        <img src="https://ead.cdmensino.com.br/files/curso-primeiros-socorros.jpg" />
                         <a href={firstAid?.videoLink}>
                             <img src="img/icons/playIcon.png" alt="Iníciar Video" />
                         </a>
@@ -35,8 +53,18 @@ export default function FirstAidPage() {
 
                     <div className={styles.legend}>
                         <p>
-                            {firstAid?.procedure}
+                            {firstAid?.procedureIntroduction}
                         </p>
+
+                        <ol>
+                            {firstAidProcedureTopics?.map(procedureTopics => (
+                                <li key={procedureTopics}>
+                                    {procedureTopics}
+                                </li>
+                            ))}
+                        </ol>
+
+
                     </div>
                 </div>
             </div>
