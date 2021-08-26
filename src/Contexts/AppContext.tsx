@@ -72,9 +72,10 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
     };
 
     // Verify in each minute if has medicines to taken
-    var toExactMinute = 60000 - (new Date().getTime() % 60000);
+    var toExactMinute = 60000 - (new Date().getTime() % 60000)
+
     setTimeout(function() {
-        setInterval(medicineDayNotification, 60000);
+        setInterval(medicineDayNotification, 60000)
         medicineDayNotification()
     }, toExactMinute)
 

@@ -26,7 +26,5 @@ export function medicinesOnDay(props) {
         }
     }
 
-
-
     return array;
 }

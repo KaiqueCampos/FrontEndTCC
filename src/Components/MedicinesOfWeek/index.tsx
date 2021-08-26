@@ -6,7 +6,11 @@ import { Medicines } from '../Medicines';
 
 import styles from './styles.module.scss'
 import animate from "../../styles/animation.module.scss";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { medicinesOnDay } from '../../utils/medicinesOnDay';
+import moment from 'moment';
+import { parseCookies } from '../../utils/parseCookies';
+import { errorNotification } from '../../utils/ToastifyNotification';
 
 type MedicinesData = {
     name: string;
@@ -23,7 +27,19 @@ type MedicineOfWeekProps = {
     daysWeek: string[];
 }
 
-export function MedicinesOfWeek(props: MedicineOfWeekProps) {
+type MedicinesOnDayData = {
+    date: string
+    id: number
+    name: string
+    status: number
+    time: string
+}
+
+type MedicinesOnDayProps = MedicinesOnDayData[] | undefined
+
+export function MedicinesOfWeek(props: MedicineOfWeekProps, { req }) {
+    const [medicinesOnDay, setMedicinesOnDay] = useState<MedicinesOnDayProps>()
+
     const medicine = props.medicine;
     const daysWeek = props.daysWeek;
 
@@ -34,8 +50,8 @@ export function MedicinesOfWeek(props: MedicineOfWeekProps) {
     const today = getAllMedicinesOfDay(medicine);
     const router = useRouter();
 
+    // Select link clicked and set this medicines on localStorage
     function setInformation() {
-        // Select link clicked and set this medicines on localStorage
         document.querySelectorAll("a").forEach((a) => {
             a.onclick = (event) => {
                 localStorage.setItem('medicines', JSON.stringify(medicine[Number(today)]));
@@ -44,6 +60,49 @@ export function MedicinesOfWeek(props: MedicineOfWeekProps) {
             }
         })
     }
+
+    // Check if the medicine has run out of time and has not been taken
+    useEffect(() => {
+
+        const time = moment(Date.now()).format("HH:mm");
+        setMedicinesOnDay(medicine[Number(today)])
+
+        medicinesOnDay !== undefined ? (
+
+            medicinesOnDay.map(medicine => {
+
+                // Convert time from string to integer
+                var medicineTime = parseInt(medicine.time.replace(':', ''))
+                var currentTime = parseInt(time.replace(':', ''))
+
+                // Sends the new status of the forgotten drug to the database
+                async function checkMedicineWasForgotten() {
+                    if (medicineTime < currentTime && medicine.status === 2) {
+
+                        const { token } = parseCookies(req)
+
+                        // API connection
+                        await fetch('http://localhost:3333/status', {
+                            method: "POST",
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${token}`
+                            },
+                            body: JSON.stringify({
+                                medicineId: medicine.id,
+                                status: 1,
+                                date: moment().format('YYYY-MM-DD'),
+                            })
+                        });
+
+                        errorNotification(`Você esqueceu de tomar ${medicine.name} às ${medicine.time}`)
+                    }
+                }
+
+                checkMedicineWasForgotten()
+            })
+        ) : ''
+    })
 
     return (
         <div className={styles.container}>
