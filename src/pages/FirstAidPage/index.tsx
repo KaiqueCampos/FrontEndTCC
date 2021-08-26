@@ -63,8 +63,6 @@ export default function FirstAidPage() {
                                 </li>
                             ))}
                         </ol>
-
-
                     </div>
                 </div>
             </div>

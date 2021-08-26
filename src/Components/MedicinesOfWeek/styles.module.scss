@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     gap: clamp(0.8rem, 1vw, 1.5rem);
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
     margin-top: clamp(3rem, 4vw, 60px);
 

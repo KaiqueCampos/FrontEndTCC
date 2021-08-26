@@ -99,10 +99,10 @@
         position: absolute;
         transform: translate(0, 50%);
         right: 2rem;
-        transition: transform 0.2s;
+        transition: filter 0.2s;
 
         &:hover {
-            transform: scale(1.01);
+            filter: brightness(0.9);
         }
 
         img {
