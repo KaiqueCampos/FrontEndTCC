@@ -3,6 +3,7 @@ import Link from "next/Link";
 import { useRouter } from 'next/router';
 import { emit } from "node:process";
 import React, { ImgHTMLAttributes, SyntheticEvent, useState } from "react";
+import { useEffect } from "react";
 import 'react-toastify/dist/ReactToastify.css';
 import BannerWelcome from "../../Components/bannerWelcome";
 import { useTheme } from "../../hooks/useTheme";
@@ -39,6 +40,11 @@ const Register = () => {
 
         reader.readAsDataURL(file);
     }
+
+    useEffect(() => {
+        console.log(imagePerfil.length)
+    }
+    , [imagePerfil])
 
     // submit function
     const submit = async (e: SyntheticEvent) => {
