@@ -31,20 +31,16 @@ const Register = () => {
 
         var reader = new FileReader();
         reader.onloadend = function () {
+            
             /******************* for Binary ***********************/
             var data = (reader.result as string).split(',')[1];
-            var binaryBlob = atob(data);
-            setImagePerfil(binaryBlob)
-            document.querySelector<HTMLImageElement>('#imageSRC').src = 'data:image/jpeg;base64,' + btoa(binaryBlob);
+            var binaryImage = atob(data);
+            setImagePerfil(binaryImage)
+            document.querySelector<HTMLImageElement>('#imageSRC').src = 'data:image/jpeg;base64,' + btoa(binaryImage);
         }
 
         reader.readAsDataURL(file);
     }
-
-    useEffect(() => {
-        console.log(imagePerfil.length)
-    }
-    , [imagePerfil])
 
     // submit function
     const submit = async (e: SyntheticEvent) => {
