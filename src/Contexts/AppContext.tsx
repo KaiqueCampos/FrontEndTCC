@@ -10,7 +10,6 @@ type FirstAidData = {
     procedureIntroduction: string;
     procedure: string;
     videoLink: string;
-    thumbnail: string
 }
 
 type MedicinesData = {

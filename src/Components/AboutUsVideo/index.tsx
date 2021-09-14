@@ -8,9 +8,7 @@ export function AboutUsVideo() {
             <div className={styles.aboutUsImageContainer}>
                 <img src='img/icons/logo.png' />
                 <p>
-                    O preenchimento das seguintes informações são opcionais,
-                    elas servem para agilizar o preenchimento dos formulários
-                    de consulta e uma melhor usabilidade do site.
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
                 </p>
                 <img src='/img/backgrounds/purpleShadow.png' />
             </div>
