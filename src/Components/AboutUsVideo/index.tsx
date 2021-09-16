@@ -8,7 +8,7 @@ export function AboutUsVideo() {
             <div className={styles.aboutUsImageContainer}>
                 <img src='img/icons/logo.png' />
                 <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                Somos a equipe do Saúde em mãos, e nosso objetivo principal  é te auxiliar  a controlar seus horários de medicação e suporte dia a dia em relação a sua saúde.
                 </p>
                 <img src='/img/backgrounds/purpleShadow.png' />
             </div>

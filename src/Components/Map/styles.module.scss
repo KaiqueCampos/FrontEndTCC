@@ -2,12 +2,12 @@
     width: 100vw;
     height: 100vh;
     position: relative;
-    
+
     div[class="mapboxgl-popup-content"] {
         z-index: 100;
         padding: 0;
         box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-        
+
         div[id="popup"] {
             display: flex;
             flex-direction: column;
@@ -17,11 +17,11 @@
             font-family: "Montserrat";
             color: var(--darkPurple);
             font-size: 1.5rem;
-            
+
             div {
                 width: 100%;
                 background: var(--purple);
-                
+
                 padding: 0.7rem 2.2rem;
 
                 p {
@@ -29,7 +29,7 @@
                     color: #fff;
                 }
             }
-            
+
             p {
                 padding: 0.5rem 0 1rem 0;
                 color: var(--darkPurple);
@@ -37,7 +37,7 @@
             }
         }
         button[class="mapboxgl-popup-close-button"] {
-            color: var(--darkPurple);
+            color: #fff;
             font-size: 2rem;
             font-weight: 700;
             position: absolute;
@@ -46,21 +46,35 @@
             transition: transform 0.2s;
 
             z-index: 1000;
-           
+
             &:hover {
                 transform: scale(1.1);
-                color: #fff;
             }
         }
     }
     div[class="mapboxgl-marker mapboxgl-marker-anchor-center"] {
-        width: 3rem;
-        height: 3rem;
+        width: 4rem;
+        height: 4rem;
         background: url("/img/icons/hospital.png") no-repeat center center;
         background-size: 100% 100%;
-       
+
         svg {
             display: none;
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    .container {
+        div[class="mapboxgl-marker mapboxgl-marker-anchor-center"] {
+            width: 7rem;
+            height: 7rem;
+        }
+
+        div[class="mapboxgl-popup-content"] {
+            div[id="popup"] {
+                font-size: 2rem;
+            }
         }
     }
 }

@@ -24,11 +24,12 @@
     p {
         color: var(--dark3);
         margin-top: 1vh;
-        font-size: clamp(1rem, 1.1vw, 1.3rem);
+        font-size: 1.5rem;
         font-weight: 500;
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
         a {
+            
             color: var(--purple);
             transition: color 0.2s;
 
@@ -41,7 +42,7 @@
 
 /* FORMULÁRIO */
 .form {
-    width: clamp(27rem, 30vw, 100%);
+    width: clamp(30rem, 40vw, 100%);
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -59,7 +60,7 @@
         height: 4rem;
         margin-top: clamp(0.5rem, 1.5vh, 2rem);
         background-image: var(--purpleToGreenBlue);
-        font-size: clamp(1.2rem, 1.1vw, 22px);
+        font-size: 1.6rem;
         font-weight: 700;
         border: none;
         border-radius: 10px;
@@ -103,8 +104,12 @@
         padding-right: 2rem;
         border: 0;
         border-bottom: solid 3px var(--purple);
-        font-size: clamp(1.1rem, 1.1vw, 1.3rem);
+        font-size: 1.4rem;
         color: var(--input);
+
+        &::placeholder{
+            color: var(--placeholder);
+        }
 
         &:focus {
             box-shadow: 0 0 0 0;
@@ -120,7 +125,7 @@
     text-align: right;
 
     a {
-        font-size: clamp(1.1rem, 1.1vw, 1.3rem);
+        font-size: 1.3rem;
         font-weight: 500;
         color: var(--purple);
         transition: color 0.2s;

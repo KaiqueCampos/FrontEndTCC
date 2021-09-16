@@ -41,7 +41,11 @@ export function ThemeContextProvider({ children }: ThemeContextProviderProps) {
                 '--transparent': '#44475a7b',
                 '--dark': '#62657a',
                 '--input': '#fff',
-                '--textarea': '#44475a6c'
+                '--textarea': '#44475a6c',
+                '--placeholder' : '#a4b9d8',
+                '--welcomeFontColor' : '#fff',
+                '--addMedicineFont' : '#fff'
+
             },
 
             light: {
@@ -54,6 +58,10 @@ export function ThemeContextProvider({ children }: ThemeContextProviderProps) {
                 '--dark': '#3b1f8d',
                 '--input': '#000',
                 '--textarea': '#d6d5e84e',
+                '--placeholder' : '#6b42e1',
+                '--welcomeFontColor' : '#3b1f8d',
+                '--addMedicineFont' : '#3b1f8d'
+
             },
         }
 

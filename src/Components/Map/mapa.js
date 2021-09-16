@@ -64,7 +64,7 @@ class Mapp extends React.Component {
                 var marker = new mapboxgl.Marker({
                     color: 'var(--purple)',
                     background: 'none',
-                    background: "url('https://image.flaticon.com/icons/png/512/504/504276.png') 100% 100%"
+                    background: "url('https://image.flaticon.com/icons/png/512/504/504276.png') 100% 100%",                    
                 })
 
                     .setLngLat(location.coordinates)

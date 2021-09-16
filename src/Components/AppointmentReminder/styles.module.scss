@@ -22,12 +22,12 @@
             display: block;
         }
     }
-    &~& {
+    & ~ & {
         margin-top: 2rem;
     }
     &[id="notDone"] {
         background: #dd424294;
-        color: #fff;
+        color: #191622;
         &:hover {
             background-color: rgba(#dd4242, 0.2);
             th {
@@ -40,7 +40,7 @@
     }
     &[id="done"] {
         background: #1ae6616c;
-        color: #fff;
+        color: #191622;
         &:hover {
             background-color: rgba(#1ae661, 0.2);
             th {
@@ -66,11 +66,14 @@
         position: absolute;
         right: -0.5rem;
         top: -0.5rem;
+       
         &[id="notDone"] {
             background: #dd4242;
+            color: #fff;
         }
         &[id="done"] {
             background: #32ec73;
+            color: #191622;
         }
     }
     tr {
@@ -101,18 +104,21 @@
 
 @media (max-width: 450px) {
     .container {
+        height: 10rem;
+
         tr {
-            font-size: 1.2rem;
+            font-size: 1.8rem;
             overflow-x: scroll;
             th {
                 padding: 1rem;
-                &:nth-child(4){
+              
+                &:nth-child(4) {
                     padding: 0;
-                    min-width: 10rem;
+                    min-width: 15rem;
                 }
                 &:last-child {
                     padding: 0;
-                    min-width: 10rem;
+                    min-width: 15rem;
                 }
             }
         }

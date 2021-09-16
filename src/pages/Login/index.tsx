@@ -81,7 +81,7 @@ const Login = () => {
             <img src={(theme === 'light') ? "img/icons/userPurple.png" : "img/icons/userPurple4.png"} />
             <input
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="lurdes@gmail.com"
+              placeholder="Digite seu e-mail:"
               required
             />
           </div>
@@ -91,7 +91,7 @@ const Login = () => {
             <input
               onChange={(e) => setPassword(e.target.value)}
               type="password"
-              placeholder="**********"
+              placeholder="Digite sua senha:"
               required
             />
           </div>

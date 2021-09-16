@@ -6,9 +6,7 @@ export default function BannerWelcome() {
         <div className={styles.bannerContainer}>
             <div>
                 <h1>Bem-Vindo.</h1>
-                <p>Lorem Ipsum é simplesmente <br></br>
-                     uma simulação de texto da  <br></br>
-                    indústria.</p>
+                <p>É uma honra tê-lo no nosso aplicativo, esperamos suprir suas necessidades. Obrigado pela preferência!</p>
             </div>
         </div>
     )
