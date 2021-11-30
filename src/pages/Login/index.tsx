@@ -96,9 +96,9 @@ const Login = () => {
             />
           </div>
 
-          <div className={styles.forgotPassword}>
+          {/* <div className={styles.forgotPassword}>
             <a href='#'>Esqueceu a senha?</a>
-          </div>
+          </div> */}
 
           <button type="submit">
             <img src="img/icons/login.png" />

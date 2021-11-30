@@ -1,9 +1,7 @@
 import Head from "next/Head";
 import Link from "next/Link";
 import { useRouter } from 'next/router';
-import { emit } from "node:process";
-import React, { ImgHTMLAttributes, SyntheticEvent, useState } from "react";
-import { useEffect } from "react";
+import React, { SyntheticEvent, useState } from "react";
 import 'react-toastify/dist/ReactToastify.css';
 import BannerWelcome from "../../Components/bannerWelcome";
 import { useTheme } from "../../hooks/useTheme";
@@ -31,7 +29,7 @@ const Register = () => {
 
         var reader = new FileReader();
         reader.onloadend = function () {
-            
+
             /******************* for Binary ***********************/
             var data = (reader.result as string).split(',')[1];
             var binaryImage = atob(data);
@@ -44,27 +42,31 @@ const Register = () => {
 
     // submit function
     const submit = async (e: SyntheticEvent) => {
-        try {
-            e.preventDefault();
 
-            // API connection
-            const register = await fetch('http://localhost:3333/register', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    username: name,
-                    email: email,
-                    password: password,
-                    imagePerfil: imagePerfil
-                })
-            });
+        e.preventDefault();
 
-            sucessNotification('Cadastro feito com sucesso!')
-            return router.push('/Login')
+        // API connection
+        const register = await fetch('http://localhost:3333/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                username: name,
+                email: email,
+                password: password,
+                imagePerfil: imagePerfil
+            })
+        });
 
-        } catch (error) {
-            errorNotification("Não foi possível executar o cadastro, tente novamente...")
+        // login sucess or not
+        if (register.status === 200) {
+
+            sucessNotification("Registro feito com sucesso!")
+            return router.push('/Login');
+
+        } else {
+            errorNotification("Não foi possível registrar usuário")
         }
+
     }
 
     const { theme } = useTheme();
@@ -111,7 +113,7 @@ const Register = () => {
                         <img src={(theme === 'light') ? "img/icons/userPurple.png" : "img/icons/userPurple4.png"} />
                         <input
                             onChange={e => setName(e.target.value)}
-                            placeholder="Lurdes"
+                            placeholder="Digite seu nome:"
                             required
                         />
                     </div>
@@ -120,7 +122,7 @@ const Register = () => {
                         <img src={(theme === 'light') ? "img/icons/userPurple.png" : "img/icons/userPurple4.png"} />
                         <input
                             onChange={e => setEmail(e.target.value)}
-                            placeholder="lurdes@gmail.com"
+                            placeholder="Digite seu e-mail"
                             required
                         />
                     </div>

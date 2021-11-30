@@ -7,6 +7,7 @@ import { medicinesOnDay } from "../../utils/medicinesOnDay";
 import { parseCookies } from "../../utils/parseCookies";
 import styles from "./styles.module.scss";
 import Head from "next/Head";
+import moment from "moment";
 
 type MedicinesData = {
   name: string;

@@ -6,23 +6,41 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-    h1 {
-        color: var(--welcomeFontColor);
-        font-size: clamp(4rem, 6vw, 6rem);
-        font-weight: 700;
+
+    position: relative;
+
+    div {
+        display: none;
+        background: red;
+        z-index: 1000;
+
+        h1 {
+            color: #fff;
+            font-size: clamp(4rem, 6vw, 6rem);
+            font-weight: 700;
+        }
+
+        p {
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-align: right;
+            z-index: 10;
+        }
     }
 
-    p {
-        color: var(--welcomeFontColor);
-        font-size: 1.8rem;
-        font-weight: 600;
-        text-align: right;
+    .bannerImage {
+        width: 80%;
+        height: 75%;
+
+        position: absolute;
+        bottom: 0;
+        z-index: 5;
     }
 }
 
-@media (max-width: 450px){
-    .bannerContainer{
+@media (max-width: 450px) {
+    .bannerContainer {
         display: none;
     }
 }

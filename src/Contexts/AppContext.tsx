@@ -39,7 +39,7 @@ type AppContextData = {
     medicineDayNotification: () => void;
     getAllMedicinesOfDay: (props: MedicinesData) => Number;
     getUserInformation: (props: Array<Object>) => void;
-    setFirstAidData: (props: FirstAidData) => void
+    setFirstAidData: (props: FirstAidData) => void;
     getFirstAidData: () => FirstAidData;
 }
 

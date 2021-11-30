@@ -21,13 +21,16 @@ export function HomeHeader(props: HomeMenuProps) {
 
     useEffect(() => {
         // Set Image in profile
-        setImageProfile('data:image/jpeg;base64,' + btoa(props.imageProfile));
+        if (props.imageProfile){
+            setImageProfile('data:image/jpeg;base64,' + btoa(props.imageProfile));
+        } else {
+            setImageProfile('img/icons/userPurple.png')
+        }
 
         // headerMenu initializes with display none
         toggleTheme
         document.getElementById("headerMenu").style.display = 'none'
     }, [!toggleTheme])
-
 
     return (
         <div

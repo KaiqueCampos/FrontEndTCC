@@ -46,7 +46,7 @@ export function MedicinesOfWeek(props: MedicineOfWeekProps, { req }) {
     const {
         getAllMedicinesOfDay,
     } = useApp();
-
+    
     const today = getAllMedicinesOfDay(medicine);
     const router = useRouter();
 
@@ -54,8 +54,13 @@ export function MedicinesOfWeek(props: MedicineOfWeekProps, { req }) {
     function setInformation() {
         document.querySelectorAll("a").forEach((a) => {
             a.onclick = (event) => {
-                localStorage.setItem('medicines', JSON.stringify(medicine[Number(today)]));
+
+                // Get index and name of day clicked
+                const indexOfDayClicked = a.querySelector('#dayIndex').innerHTML
                 const dayClicked = a.querySelector('span').innerHTML
+                                
+                // Put the medicines of this day in localStorage and go to MedicinesOfDay page 
+                localStorage.setItem('medicines', JSON.stringify(medicine[Number(indexOfDayClicked)]));
                 router.push(`/MedicineOfDay?day=${dayClicked}`)
             }
         })
@@ -138,6 +143,7 @@ export function MedicinesOfWeek(props: MedicineOfWeekProps, { req }) {
                             <a onClick={setInformation}>
                                 <img className={styles.seeMoreBTN} src="/img/icons/seeMore.png" />
                                 <span>{days}</span>
+                                <span id='dayIndex'>{daysWeek.indexOf(days)}</span>
                             </a>
                         </>
 
