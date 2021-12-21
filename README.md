@@ -1,3 +1,14 @@
+<p align="center">
+  <img 
+src="https://user-images.githubusercontent.com/70600553/146774102-d84dbc51-7c3c-46af-af70-5f8e2ca21a22.png"
+width=250
+/>
+</p>
+
+<h1 align='center'>Saúde em Mãos</h1>
+
+<br>
+
 # 📕 Sobre o Projeto 
 
 #### Esse projeto foi criado para o TCC da Etec de Taboão da Serra no curso de Análise e Desenvolvimento de Sistemas Integrado ao Ensino Médio.
