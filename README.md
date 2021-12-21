@@ -1,35 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📕 Sobre o Projeto 
 
-## Getting Started
+#### Esse projeto foi criado para o TCC da Etec de Taboão da Serra no curso de Análise e Desenvolvimento de Sistemas Integrado ao Ensino Médio.
+#### O aplicativo Saúde em Mãos foi feito para auxiliar as pessoas que cuidam de idosos e os próprios idosos no gerenciamento de medicamentos, consultas, primeiros-socorros, números de emergência e hospitais/clínicas próximas. Tem-se como funcionalidades:  
+ - Notificar os medicamentos a serem tomados no dia;
+ - Notificar os medicamentos que já foram tomados e os que não foram;
+ - Mostrar um painel semanal dos medicamentos que precisam ser tomados;
+ - Cadastrar um medicamento em datas específicas ou em dias únicos;
+ - Mostrar um tutorial (vídeo ou texto) rápido e prático de primeiro-socorros em acidentes que mais ocorrem com idosos;
+ - Mostrar os principais números de emergência;
+ - Lembrete de consultas em hospitais ou clínicas com informações de horário, data, nome, especialidade e número de contato;
+ - Marcar consultas como concluídas ou não concluídas;
+ - Tutoriais para o uso da plataforma dentro da aplicação;
+ - Tema escuro e claro;
+ - Mudar foto de perfil, senha ou nome de usuário;
+ - Mostrar hospitais e clínicas próximas e o número para contato.
 
-First, run the development server:
+# 💻 Tecnologias usadas
+ - NextJs
+ - Typescript 
+ - Mapboxgl
+ - AdonisJs (Backend)
 
-```bash
-npm run dev
-# or
-yarn dev
+
+# 💻 Como instalar?
+Para utilizar o aplicativo, é necessário antes instalar o BackEnd. https://github.com/KaiqueCampos/ApiAdonisTCC.git
+
+```
+# Instale o AdonisJS
+$ npm i --global @adonisjs/cli
+
+# Clone o backend
+$ git clone https://github.com/KaiqueCampos/ApiAdonisTCC.git
+
+# Instale as dependencias
+$ yarn install
+# ou
+$ npm install
+
+# Certifique-se de configurar o .ENV da mesma maneira do .ENV.example
+# É preciso do MySql instalado e de um banco de dados criado (as informações desse banco de dados precisam estar no .ENV)
+
+# Criar as tabelas dentro do banco de dados
+$ adonis migration:run
+
+# Rodar o servidor
+$ adonis serve --dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+##### Instalando a aplicação Web
+```
+# Clone o repositório
+$ git clone https://github.com/KaiqueCampos/FrontEndTCC.git
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+# Entre no repositório
+$ cd FrontEndTCC
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+# Instale as dependêcias
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+$ yarn install
+# ou
+$ npm install
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-"# FrontEndTCC" 
+# Rode a aplicação
+$ yarn dev
+```
