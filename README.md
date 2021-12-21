@@ -34,7 +34,7 @@ width=250
 
 
 # 💻 Como instalar?
-Para utilizar o aplicativo, é necessário antes instalar o BackEnd. https://github.com/KaiqueCampos/ApiAdonisTCC.git
+Para utilizar a plataforma, é necessário antes instalar o BackEnd. https://github.com/KaiqueCampos/ApiAdonisTCC.git
 
 ```
 # Instale o AdonisJS
